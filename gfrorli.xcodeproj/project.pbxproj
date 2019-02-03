@@ -15,6 +15,8 @@
 		E42A788521F7A63500AD89E5 /* gfrorliTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42A788421F7A63500AD89E5 /* gfrorliTests.swift */; };
 		E45801582206493E00CFBD99 /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45801572206493E00CFBD99 /* Mapbox.framework */; };
 		E458015B22064AC100CFBD99 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458015A22064AC100CFBD99 /* MapViewController.swift */; };
+		E493D1102207843C00B74A22 /* SensorMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E493D10F2207843C00B74A22 /* SensorMarker.swift */; };
+		E493D11222078E0900B74A22 /* SensorMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E493D11122078E0900B74A22 /* SensorMarkerView.swift */; };
 		E4D51C9021F91B91000642B5 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D51C8F21F91B91000642B5 /* TableViewController.swift */; };
 		E4D51C9821F9B187000642B5 /* measurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D51C9621F9B187000642B5 /* measurement.swift */; };
 		E4D51C9921F9B187000642B5 /* sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D51C9721F9B187000642B5 /* sensor.swift */; };
@@ -43,6 +45,8 @@
 		E42A788621F7A63500AD89E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E45801572206493E00CFBD99 /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = Carthage/Build/iOS/Mapbox.framework; sourceTree = "<group>"; };
 		E458015A22064AC100CFBD99 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		E493D10F2207843C00B74A22 /* SensorMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorMarker.swift; sourceTree = "<group>"; };
+		E493D11122078E0900B74A22 /* SensorMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorMarkerView.swift; sourceTree = "<group>"; };
 		E4D51C8F21F91B91000642B5 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		E4D51C9621F9B187000642B5 /* measurement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = measurement.swift; sourceTree = "<group>"; };
 		E4D51C9721F9B187000642B5 /* sensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sensor.swift; sourceTree = "<group>"; };
@@ -89,6 +93,7 @@
 		E42A786E21F7A63200AD89E5 /* gfrorli */ = {
 			isa = PBXGroup;
 			children = (
+				E493D10E22077C8500B74A22 /* map */,
 				E4D51C9421F9B13E000642B5 /* api */,
 				E42A786F21F7A63200AD89E5 /* AppDelegate.swift */,
 				E42A787121F7A63200AD89E5 /* ViewController.swift */,
@@ -97,7 +102,6 @@
 				E42A787821F7A63400AD89E5 /* LaunchScreen.storyboard */,
 				E42A787B21F7A63400AD89E5 /* Info.plist */,
 				E4D51C8F21F91B91000642B5 /* TableViewController.swift */,
-				E458015A22064AC100CFBD99 /* MapViewController.swift */,
 			);
 			path = gfrorli;
 			sourceTree = "<group>";
@@ -117,6 +121,16 @@
 				E45801572206493E00CFBD99 /* Mapbox.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E493D10E22077C8500B74A22 /* map */ = {
+			isa = PBXGroup;
+			children = (
+				E458015A22064AC100CFBD99 /* MapViewController.swift */,
+				E493D10F2207843C00B74A22 /* SensorMarker.swift */,
+				E493D11122078E0900B74A22 /* SensorMarkerView.swift */,
+			);
+			path = map;
 			sourceTree = "<group>";
 		};
 		E4D51C9421F9B13E000642B5 /* api */ = {
@@ -260,6 +274,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E42A787221F7A63200AD89E5 /* ViewController.swift in Sources */,
+				E493D11222078E0900B74A22 /* SensorMarkerView.swift in Sources */,
+				E493D1102207843C00B74A22 /* SensorMarker.swift in Sources */,
 				E458015B22064AC100CFBD99 /* MapViewController.swift in Sources */,
 				E4D51C9021F91B91000642B5 /* TableViewController.swift in Sources */,
 				E4D51C9921F9B187000642B5 /* sensor.swift in Sources */,
@@ -434,11 +450,12 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = gfrorli/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfrorli;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -456,11 +473,12 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = gfrorli/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfrorli;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
