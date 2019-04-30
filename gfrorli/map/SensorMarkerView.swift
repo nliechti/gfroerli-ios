@@ -14,7 +14,6 @@ class SensorMarkerView: MKMarkerAnnotationView {
         willSet {
             guard let sensorMarker = newValue as? SensorMarker else { return }
             canShowCallout = true
-            calloutOffset = CGPoint(x: -5, y: 5)
             rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
             markerTintColor = .blue
             if let temperature = sensorMarker.sensor.last_measurement?.temperature {
