@@ -14,9 +14,21 @@ import os
 class MapViewController: UIViewController {
 
     let regionRadius: CLLocationDistance = 35000
+    let locationManager = CLLocationManager()
     
     @IBOutlet var mapView: MKMapView!
     var sensors: [Int : Sensor] = [:]
+    
+//    @IBAction func mapTypeSegmentSelected(_ sender: UISegmentedControl) {
+//        switch sender.selectedSegmentIndex {
+//        case 0:
+//            mapView.mapType = .standard
+//        case 1:
+//            mapView.mapType = .satellite
+//        default:
+//            mapView.mapType = .hybrid
+//        }
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,12 +36,20 @@ class MapViewController: UIViewController {
         mapView.register(SensorMarkerView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        mapView.showsCompass = true
+        mapView.showsBuildings = true
+        
+//        mapView.mapType = .standard;  // default: road map
+//        mapView.mapType = .satellite;
+        mapView.mapType = .hybrid;
+        
         centerMapOnLocation(location: CLLocation(latitude: 47.226015, longitude: 8.734503))
         mapView.delegate = self
         loadSensors()
     }
     
     func loadSensors() {
+        self.mapView.removeAnnotations(self.mapView.annotations)
         var request = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/sensors")!)
         request.setValue("Bearer XTZA6H0Hg2f02bzVefmVlr8fIJMy2FGCJ0LlDlejj2Pi0i1JvZiL0Ycv1t6JoZzD", forHTTPHeaderField: "Authorization")
         request.httpMethod = "GET"
@@ -52,26 +72,22 @@ class MapViewController: UIViewController {
     
     func addNewSensorToMap(sensor: Sensor) {
         let sensorMapPoint = SensorMarker(sensor: sensor)
-//        if let lastMeasurement = sensor.last_measurement {
-//            let sensorSubtitle = """
-//            \(sensor.caption!): Letzte Messung \(lastMeasurement.temperature!) C
-//            """
-//            sensorMapPoint.subtitle = sensorSubtitle
-//        } else {
-//            sensorMapPoint.subtitle = sensor.caption
-//        }
         self.mapView.addAnnotation(sensorMapPoint)
+        self.updateViewConstraints()
+    }
+
+    func checkLocationAuthorizationStatus() {
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            mapView.showsUserLocation = true
+        } else {
+            locationManager.requestWhenInUseAuthorization()
+        }
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        checkLocationAuthorizationStatus()
     }
-    */
     
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegion(center: location.coordinate,
@@ -83,20 +99,4 @@ class MapViewController: UIViewController {
 }
 
 extension MapViewController: MKMapViewDelegate {
-//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-//        guard let annotation = annotation as? SensorMarker else { return nil }
-//        let identifier = "marker"
-//        var view: MKMarkerAnnotationView
-//        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-//            as? MKMarkerAnnotationView {
-//            dequeuedView.annotation = annotation
-//            view = dequeuedView
-//        } else {
-//            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-//            view.canShowCallout = true
-//            view.calloutOffset = CGPoint(x: -5, y: 5)
-//            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-//        }
-//        return view
-//    }
 }
