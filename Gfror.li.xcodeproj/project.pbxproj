@@ -7,14 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E438B4CC24ACFB7D008A2E01 /* iOSMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E438B4CB24ACFB7D008A2E01 /* iOSMainView.swift */; };
 		E461458424A34831006233AE /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = E461458324A34831006233AE /* Tests_iOS.swift */; };
 		E461458F24A34831006233AE /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = E461458E24A34831006233AE /* Tests_macOS.swift */; };
-		E461459124A34831006233AE /* Gfro_r_liApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E461456824A34823006233AE /* Gfro_r_liApp.swift */; };
-		E461459224A34831006233AE /* Gfro_r_liApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E461456824A34823006233AE /* Gfro_r_liApp.swift */; };
-		E461459324A34831006233AE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E461456924A34823006233AE /* ContentView.swift */; };
-		E461459424A34831006233AE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E461456924A34823006233AE /* ContentView.swift */; };
+		E461459124A34831006233AE /* GfrorliApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E461456824A34823006233AE /* GfrorliApp.swift */; };
+		E461459224A34831006233AE /* GfrorliApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E461456824A34823006233AE /* GfrorliApp.swift */; };
 		E461459524A34831006233AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E461456A24A34831006233AE /* Assets.xcassets */; };
 		E461459624A34831006233AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E461456A24A34831006233AE /* Assets.xcassets */; };
+		E46145A624A34FB2006233AE /* api in Resources */ = {isa = PBXBuildFile; fileRef = E46145A524A34FB2006233AE /* api */; };
+		E46145A724A34FB2006233AE /* api in Resources */ = {isa = PBXBuildFile; fileRef = E46145A524A34FB2006233AE /* api */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,12 +36,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E461456824A34823006233AE /* Gfro_r_liApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gfro_r_liApp.swift; sourceTree = "<group>"; };
-		E461456924A34823006233AE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E438B4CB24ACFB7D008A2E01 /* iOSMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSMainView.swift; sourceTree = "<group>"; };
+		E461456824A34823006233AE /* GfrorliApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GfrorliApp.swift; sourceTree = "<group>"; };
 		E461456A24A34831006233AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E461456F24A34831006233AE /* Gfrör.li.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gfrör.li.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E461456F24A34831006233AE /* Gfrör.li.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Gfrör.li.app"; path = Gfror.li.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E461457224A34831006233AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E461457724A34831006233AE /* Gfrör.li.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gfrör.li.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E461457724A34831006233AE /* Gfrör.li.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Gfrör.li.app"; path = Gfror.li.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E461457924A34831006233AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E461457A24A34831006233AE /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		E461457F24A34831006233AE /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +50,7 @@
 		E461458A24A34831006233AE /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E461458E24A34831006233AE /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		E461459024A34831006233AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E46145A524A34FB2006233AE /* api */ = {isa = PBXFileReference; lastKnownFileType = folder; path = api; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E438B4C924ACFB49008A2E01 /* iOSViews */ = {
+			isa = PBXGroup;
+			children = (
+				E438B4CB24ACFB7D008A2E01 /* iOSMainView.swift */,
+			);
+			path = iOSViews;
+			sourceTree = "<group>";
+		};
 		E461456224A34823006233AE = {
 			isa = PBXGroup;
 			children = (
@@ -98,8 +108,8 @@
 		E461456724A34823006233AE /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				E461456824A34823006233AE /* Gfro_r_liApp.swift */,
-				E461456924A34823006233AE /* ContentView.swift */,
+				E46145A524A34FB2006233AE /* api */,
+				E461456824A34823006233AE /* GfrorliApp.swift */,
 				E461456A24A34831006233AE /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -119,6 +129,7 @@
 		E461457124A34831006233AE /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				E438B4C924ACFB49008A2E01 /* iOSViews */,
 				E461457224A34831006233AE /* Info.plist */,
 			);
 			path = iOS;
@@ -249,7 +260,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E461456624A34823006233AE /* Build configuration list for PBXProject "Gfrör.li" */;
+			buildConfigurationList = E461456624A34823006233AE /* Build configuration list for PBXProject "Gfror.li" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -276,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E461459524A34831006233AE /* Assets.xcassets in Resources */,
+				E46145A624A34FB2006233AE /* api in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E461459624A34831006233AE /* Assets.xcassets in Resources */,
+				E46145A724A34FB2006233AE /* api in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,8 +321,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E461459324A34831006233AE /* ContentView.swift in Sources */,
-				E461459124A34831006233AE /* Gfro_r_liApp.swift in Sources */,
+				E461459124A34831006233AE /* GfrorliApp.swift in Sources */,
+				E438B4CC24ACFB7D008A2E01 /* iOSMainView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,8 +330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E461459424A34831006233AE /* ContentView.swift in Sources */,
-				E461459224A34831006233AE /* Gfro_r_liApp.swift in Sources */,
+				E461459224A34831006233AE /* GfrorliApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +417,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.16;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -458,6 +472,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.16;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -480,7 +496,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.nliechti.Gfro-r-li";
-				PRODUCT_NAME = "Gfrör.li";
+				PRODUCT_NAME = Gfror.li;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -502,7 +518,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.nliechti.Gfro-r-li";
-				PRODUCT_NAME = "Gfrör.li";
+				PRODUCT_NAME = Gfror.li;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -528,7 +544,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.16;
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.nliechti.Gfro-r-li";
-				PRODUCT_NAME = "Gfrör.li";
+				PRODUCT_NAME = Gfror.li;
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
 			};
@@ -552,7 +568,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.16;
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.nliechti.Gfro-r-li";
-				PRODUCT_NAME = "Gfrör.li";
+				PRODUCT_NAME = Gfror.li;
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
 			};
@@ -650,7 +666,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E461456624A34823006233AE /* Build configuration list for PBXProject "Gfrör.li" */ = {
+		E461456624A34823006233AE /* Build configuration list for PBXProject "Gfror.li" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E461459724A34831006233AE /* Debug */,
