@@ -9,37 +9,45 @@ import SwiftUI
 import MapKit
 
 struct iOSMainView: View {
-    
-    @State var mapState = MKCoordinateRegion(center: CLLocationCoordinate2DMake(47.226015,  8.734503), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta:0.5))
-    @ObservedObject var pins = SensorViewModel()
-    
-    init() {
-        MKMapView.appearance().mapType = .satelliteFlyover
-    }
+    @State var selectedTab = "Overview"
     
     var body: some View {
-        VStack {
-            Map (coordinateRegion: $mapState, annotationItems: pins.sensorArray, annotationContent: { pin in
-                MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: pin.latitude!, longitude: pin.longitude!), content: {
-                    Text(String(format: "%.1f", pin.last_measurement!.temperature!))
-                        .minimumScaleFactor(0.3)
-                        .lineLimit(1)
-                        .frame(width: 40, height: 40)
-                        .background(Color.blue)
-                        .cornerRadius(90)
-                
-                    
-                })
-            })
+        
+        VStack(spacing: 0){
+            switch(selectedTab){
+            case "Favorites": FavoritesView()
+            case "Settings": SettingsView()
+            default : OverView()
+            }
             
-            //                .mapSyle(.satelliteFlyover)
-            .ignoresSafeArea()
-        }
+            Spacer()
+            
+            HStack(spacing:0){
+                CostumTabBarButton(tab: $selectedTab, title: "Overview", imageName: "thermometer.sun")
+                Spacer(minLength: 0)
+                CostumTabBarButton(tab: $selectedTab, title: "Favorites", imageName: "star")
+                Spacer(minLength: 0)
+                CostumTabBarButton(tab: $selectedTab, title: "Settings", imageName: "gearshape")
+            }.padding(.top)                .padding(.bottom,UIApplication.shared.windows.first!.safeAreaInsets.bottom == 0 ? 15 : UIApplication.shared.windows.first!.safeAreaInsets.bottom)
+            
+            .padding(.horizontal, 35)
+            .background(Color.gray.opacity(0.1))
+        }.edgesIgnoringSafeArea(.all)
     }
 }
 
 struct iOSMainView_Previews: PreviewProvider {
     static var previews: some View {
-        iOSMainView()
+        Group{
+            iOSMainView()
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
+                .previewDisplayName("iPhone 11 Pro Max")
+            iOSMainView()
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
+                .previewDisplayName("iPhone 11 Pro")
+            iOSMainView()
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+                .previewDisplayName("iPhone SE")
+        }
     }
 }
