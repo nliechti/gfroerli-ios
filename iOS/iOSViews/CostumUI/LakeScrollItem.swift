@@ -26,14 +26,13 @@ struct LakeScrollItem: View {
                         )
                 .shadow(color: Color.black.opacity(0.2), radius: 10, x: 10, y: 10)
                 .shadow(color: Color.white.opacity(0.7), radius: 10, x: -5, y: -5)
-                .padding(10)
+                .padding(.bottom,10)
             VStack(alignment:.leading, spacing: 0){
             Text(lake.name)
                 .font(.headline)
             Text("Sensors: " + String(lake.sensors.count))
                 .font(.footnote)
-            }.padding(.horizontal,
-                      15)
+            }
         }
         
     }

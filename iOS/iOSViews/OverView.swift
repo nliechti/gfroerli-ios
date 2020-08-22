@@ -25,6 +25,7 @@ struct OverView: View {
                                     LakeScrollItem(lake: lake, region: lake.region)
                                         
                                 }).buttonStyle(PlainButtonStyle())
+                                .padding()
                         }
                     }
                     }
