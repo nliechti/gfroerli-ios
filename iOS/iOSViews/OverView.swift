@@ -20,7 +20,7 @@ struct OverView: View {
                         HStack(spacing:0){
                         ForEach(lakes){ lake in
                             NavigationLink(
-                                destination: /*@START_MENU_TOKEN@*/Text("Destination")/*@END_MENU_TOKEN@*/,
+                                destination: LakeOverView(lake: lake),
                                 label: {
                                     LakeScrollItem(lake: lake, region: lake.region)
                                         

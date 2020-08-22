@@ -22,7 +22,7 @@ struct LakeScrollItem: View {
                 .cornerRadius(15)
                 .overlay(
                             RoundedRectangle(cornerRadius: 15)
-                                .stroke(Color.gray, lineWidth: 1)
+                                .stroke(Color.gray.opacity(0.1), lineWidth: 2)
                         )
                 .shadow(color: Color.black.opacity(0.2), radius: 10, x: 10, y: 10)
                 .shadow(color: Color.white.opacity(0.7), radius: 10, x: -5, y: -5)
