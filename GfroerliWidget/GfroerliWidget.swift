@@ -79,9 +79,19 @@ struct WidgetView:View {
     
     var body: some View{
         ZStack {
-            Wave(strength: 10, frequency: 10, offset: -30).fill(LinearGradient(gradient: Gradient(colors: [ Color.blue,Color("GfroerliBlue")]), startPoint: .bottom, endPoint: .top)).offset(y:30)
-            Wave(strength: 13, frequency: 6, offset: -40).fill(Color("GfroerliLightBlue").opacity(0.3)).offset(y:30)
+            Wave(strength: 7, frequency: 8, offset: -30).fill(LinearGradient(gradient: Gradient(colors: [ Color.blue,Color("GfroerliBlue")]), startPoint: .bottom, endPoint: .top)).offset(y:30)
+            Wave(strength: 10, frequency: 10, offset: -40).fill(Color("GfroerliLightBlue").opacity(0.3)).offset(y:20).rotation3DEffect(
+                .degrees(180),
+                axis: (x: 0.0, y: 1.0, z: 0.0),
+                anchor: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/,
+                anchorZ: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/,
+                perspective: /*@START_MENU_TOKEN@*/1.0/*@END_MENU_TOKEN@*/
+            )
 
+            HStack{
+                Image(systemName: "thermometer").font(.system(size: 56.0)).foregroundColor(.red).frame(width: 50, height: 50).offset(y:40)
+                Spacer()
+            }
             VStack{
             HStack {
                 Text(entry.name)
@@ -95,6 +105,8 @@ struct WidgetView:View {
                     .foregroundColor(.white)
             }
                 Spacer()
+    
+                
             }.padding()
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color("GfroerliDarkBlue"))
@@ -115,40 +127,6 @@ struct GfroerliWidget: Widget {
     }
 }
 
-
-class SensorViewModel: ObservableObject {
-    let didChange = PassthroughSubject<Void, Never>()
-    
-    @Published var sensorArray = [Sensor]() { didSet { didChange.send(())}}
-    
-    init() {
-        loadSensorData()
-    }
-    
-    init(sensors: [Sensor]) {
-        sensorArray = sensors
-    }
-    
-    func loadSensorData() {
-        var request = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/sensors")!)
-        request.setValue("Bearer XTZA6H0Hg2f02bzVefmVlr8fIJMy2FGCJ0LlDlejj2Pi0i1JvZiL0Ycv1t6JoZzD", forHTTPHeaderField: "Authorization")
-        request.httpMethod = "GET"
-        
-        let session = URLSession.shared
-        session.dataTask(with: request, completionHandler: {data, response, error -> Void in
-            do {
-                guard let data = data else {return}
-                
-                let jsonDecoder = JSONDecoder()
-                let sensors = try jsonDecoder.decode([Sensor].self, from: data)
-                print("heeeree")
-                self.sensorArray = sensors
-            } catch let error {
-                print(error)
-            }
-        }).resume()
-    }
-}
 
 struct Sensor: Codable, Identifiable {
     let id : Int?
