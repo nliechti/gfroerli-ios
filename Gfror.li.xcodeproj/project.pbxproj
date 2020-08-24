@@ -15,6 +15,13 @@
 		8D0D7FEA24F1109A0068176C /* LakeScrollItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE924F1109A0068176C /* LakeScrollItem.swift */; };
 		8D6A7DC624F14115009A0026 /* LakeOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A7DC524F14115009A0026 /* LakeOverView.swift */; };
 		8D6A7DC824F15187009A0026 /* SensorOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A7DC724F15187009A0026 /* SensorOverView.swift */; };
+		8D9B0FCF24F3A2E7003502C8 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D9B0FCE24F3A2E7003502C8 /* WidgetKit.framework */; };
+		8D9B0FD124F3A2E7003502C8 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D9B0FD024F3A2E7003502C8 /* SwiftUI.framework */; };
+		8D9B0FD424F3A2E7003502C8 /* GfroerliWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9B0FD324F3A2E7003502C8 /* GfroerliWidget.swift */; };
+		8D9B0FD624F3A2E8003502C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D9B0FD524F3A2E8003502C8 /* Assets.xcassets */; };
+		8D9B0FDA24F3A2E8003502C8 /* GfroerliWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8D9B0FCC24F3A2E7003502C8 /* GfroerliWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8D9B0FE424F3BEA4003502C8 /* WaveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9B0FE324F3BEA4003502C8 /* WaveShape.swift */; };
+		8D9B0FE524F3BEA4003502C8 /* WaveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9B0FE324F3BEA4003502C8 /* WaveShape.swift */; };
 		E438B4CC24ACFB7D008A2E01 /* iOSMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E438B4CB24ACFB7D008A2E01 /* iOSMainView.swift */; };
 		E44EA3AD24EEA7EA00380E27 /* MapExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44EA3AC24EEA7EA00380E27 /* MapExtension.swift */; };
 		E461458424A34831006233AE /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = E461458324A34831006233AE /* Tests_iOS.swift */; };
@@ -28,6 +35,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		8D9B0FD824F3A2E8003502C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E461456324A34823006233AE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D9B0FCB24F3A2E7003502C8;
+			remoteInfo = GfroerliWidgetExtension;
+		};
 		E461458024A34831006233AE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E461456324A34823006233AE /* Project object */;
@@ -44,6 +58,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		8D9B0FDB24F3A2E8003502C8 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				8D9B0FDA24F3A2E8003502C8 /* GfroerliWidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		8D0D7FDF24F102030068176C /* CostumTabBaButtonr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostumTabBaButtonr.swift; sourceTree = "<group>"; };
 		8D0D7FE124F107B60068176C /* OverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverView.swift; sourceTree = "<group>"; };
@@ -53,6 +81,15 @@
 		8D0D7FE924F1109A0068176C /* LakeScrollItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LakeScrollItem.swift; sourceTree = "<group>"; };
 		8D6A7DC524F14115009A0026 /* LakeOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LakeOverView.swift; sourceTree = "<group>"; };
 		8D6A7DC724F15187009A0026 /* SensorOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorOverView.swift; sourceTree = "<group>"; };
+		8D9B0FCC24F3A2E7003502C8 /* GfroerliWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GfroerliWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D9B0FCE24F3A2E7003502C8 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		8D9B0FD024F3A2E7003502C8 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		8D9B0FD324F3A2E7003502C8 /* GfroerliWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GfroerliWidget.swift; sourceTree = "<group>"; };
+		8D9B0FD524F3A2E8003502C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8D9B0FD724F3A2E8003502C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D9B0FDF24F3A35A003502C8 /* Gfror.li.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Gfror.li.entitlements; sourceTree = "<group>"; };
+		8D9B0FE024F3A3A3003502C8 /* GfroerliWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GfroerliWidgetExtension.entitlements; sourceTree = "<group>"; };
+		8D9B0FE324F3BEA4003502C8 /* WaveShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveShape.swift; sourceTree = "<group>"; };
 		E438B4CB24ACFB7D008A2E01 /* iOSMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSMainView.swift; sourceTree = "<group>"; };
 		E44EA3AC24EEA7EA00380E27 /* MapExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapExtension.swift; sourceTree = "<group>"; };
 		E461456824A34823006233AE /* GfrorliApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GfrorliApp.swift; sourceTree = "<group>"; };
@@ -73,6 +110,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8D9B0FC924F3A2E7003502C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D9B0FD124F3A2E7003502C8 /* SwiftUI.framework in Frameworks */,
+				8D9B0FCF24F3A2E7003502C8 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E461456C24A34831006233AE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -113,6 +159,26 @@
 			path = CostumUI;
 			sourceTree = "<group>";
 		};
+		8D9B0FCD24F3A2E7003502C8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8D9B0FCE24F3A2E7003502C8 /* WidgetKit.framework */,
+				8D9B0FD024F3A2E7003502C8 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8D9B0FD224F3A2E7003502C8 /* GfroerliWidget */ = {
+			isa = PBXGroup;
+			children = (
+				8D9B0FD324F3A2E7003502C8 /* GfroerliWidget.swift */,
+				8D9B0FE324F3BEA4003502C8 /* WaveShape.swift */,
+				8D9B0FD524F3A2E8003502C8 /* Assets.xcassets */,
+				8D9B0FD724F3A2E8003502C8 /* Info.plist */,
+			);
+			path = GfroerliWidget;
+			sourceTree = "<group>";
+		};
 		E438B4C924ACFB49008A2E01 /* iOSViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,11 +204,14 @@
 		E461456224A34823006233AE = {
 			isa = PBXGroup;
 			children = (
+				8D9B0FE024F3A3A3003502C8 /* GfroerliWidgetExtension.entitlements */,
 				E461456724A34823006233AE /* Shared */,
 				E461457124A34831006233AE /* iOS */,
 				E461457824A34831006233AE /* macOS */,
 				E461458224A34831006233AE /* Tests iOS */,
 				E461458D24A34831006233AE /* Tests macOS */,
+				8D9B0FD224F3A2E7003502C8 /* GfroerliWidget */,
+				8D9B0FCD24F3A2E7003502C8 /* Frameworks */,
 				E461457024A34831006233AE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -166,6 +235,7 @@
 				E461457724A34831006233AE /* Gfrör.li.app */,
 				E461457F24A34831006233AE /* Tests iOS.xctest */,
 				E461458A24A34831006233AE /* Tests macOS.xctest */,
+				8D9B0FCC24F3A2E7003502C8 /* GfroerliWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -173,6 +243,7 @@
 		E461457124A34831006233AE /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				8D9B0FDF24F3A35A003502C8 /* Gfror.li.entitlements */,
 				E438B4C924ACFB49008A2E01 /* iOSViews */,
 				E461457224A34831006233AE /* Info.plist */,
 			);
@@ -226,6 +297,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		8D9B0FCB24F3A2E7003502C8 /* GfroerliWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8D9B0FDE24F3A2E8003502C8 /* Build configuration list for PBXNativeTarget "GfroerliWidgetExtension" */;
+			buildPhases = (
+				8D9B0FC824F3A2E7003502C8 /* Sources */,
+				8D9B0FC924F3A2E7003502C8 /* Frameworks */,
+				8D9B0FCA24F3A2E7003502C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GfroerliWidgetExtension;
+			productName = GfroerliWidgetExtension;
+			productReference = 8D9B0FCC24F3A2E7003502C8 /* GfroerliWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		E461456E24A34831006233AE /* iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E461459924A34831006233AE /* Build configuration list for PBXNativeTarget "iOS" */;
@@ -233,10 +321,12 @@
 				E461456B24A34831006233AE /* Sources */,
 				E461456C24A34831006233AE /* Frameworks */,
 				E461456D24A34831006233AE /* Resources */,
+				8D9B0FDB24F3A2E8003502C8 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				8D9B0FD924F3A2E8003502C8 /* PBXTargetDependency */,
 			);
 			name = iOS;
 			productName = iOS;
@@ -305,6 +395,9 @@
 				LastSwiftUpdateCheck = 1200;
 				LastUpgradeCheck = 1200;
 				TargetAttributes = {
+					8D9B0FCB24F3A2E7003502C8 = {
+						CreatedOnToolsVersion = 12.0;
+					};
 					E461456E24A34831006233AE = {
 						CreatedOnToolsVersion = 12.0;
 					};
@@ -338,11 +431,20 @@
 				E461457624A34831006233AE /* macOS */,
 				E461457E24A34831006233AE /* Tests iOS */,
 				E461458924A34831006233AE /* Tests macOS */,
+				8D9B0FCB24F3A2E7003502C8 /* GfroerliWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		8D9B0FCA24F3A2E7003502C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D9B0FD624F3A2E8003502C8 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E461456D24A34831006233AE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -376,12 +478,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		8D9B0FC824F3A2E7003502C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D9B0FE524F3BEA4003502C8 /* WaveShape.swift in Sources */,
+				8D9B0FD424F3A2E7003502C8 /* GfroerliWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E461456B24A34831006233AE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				E461459124A34831006233AE /* GfrorliApp.swift in Sources */,
 				8D6A7DC624F14115009A0026 /* LakeOverView.swift in Sources */,
+				8D9B0FE424F3BEA4003502C8 /* WaveShape.swift in Sources */,
 				E4C24FE724EEB58400FB4F51 /* Sensors.swift in Sources */,
 				8D0D7FE024F102030068176C /* CostumTabBaButtonr.swift in Sources */,
 				8D0D7FE624F107D30068176C /* SettingsView.swift in Sources */,
@@ -423,6 +535,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		8D9B0FD924F3A2E8003502C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D9B0FCB24F3A2E7003502C8 /* GfroerliWidgetExtension */;
+			targetProxy = 8D9B0FD824F3A2E8003502C8 /* PBXContainerItemProxy */;
+		};
 		E461458124A34831006233AE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = E461456E24A34831006233AE /* iOS */;
@@ -436,6 +553,53 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		8D9B0FDC24F3A2E8003502C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = GfroerliWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T7M5358433;
+				INFOPLIST_FILE = GfroerliWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "ch.nliechti.Gfro-r-li.GfroerliWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8D9B0FDD24F3A2E8003502C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = GfroerliWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T7M5358433;
+				INFOPLIST_FILE = GfroerliWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "ch.nliechti.Gfro-r-li.GfroerliWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		E461459724A34831006233AE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -554,8 +718,10 @@
 		E461459A24A34831006233AE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = iOS/Gfror.li.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T7M5358433;
 				ENABLE_PREVIEWS = YES;
@@ -576,8 +742,10 @@
 		E461459B24A34831006233AE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = iOS/Gfror.li.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T7M5358433;
 				ENABLE_PREVIEWS = YES;
@@ -736,6 +904,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8D9B0FDE24F3A2E8003502C8 /* Build configuration list for PBXNativeTarget "GfroerliWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D9B0FDC24F3A2E8003502C8 /* Debug */,
+				8D9B0FDD24F3A2E8003502C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E461456624A34823006233AE /* Build configuration list for PBXProject "Gfror.li" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
