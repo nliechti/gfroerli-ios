@@ -19,7 +19,7 @@
 		8D9B0FD124F3A2E7003502C8 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D9B0FD024F3A2E7003502C8 /* SwiftUI.framework */; };
 		8D9B0FD424F3A2E7003502C8 /* GfroerliWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9B0FD324F3A2E7003502C8 /* GfroerliWidget.swift */; };
 		8D9B0FD624F3A2E8003502C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D9B0FD524F3A2E8003502C8 /* Assets.xcassets */; };
-		8D9B0FDA24F3A2E8003502C8 /* GfroerliWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8D9B0FCC24F3A2E7003502C8 /* GfroerliWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8D9B0FDA24F3A2E8003502C8 /* Widgets.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8D9B0FCC24F3A2E7003502C8 /* Widgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8D9B0FE424F3BEA4003502C8 /* WaveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9B0FE324F3BEA4003502C8 /* WaveShape.swift */; };
 		8D9B0FE524F3BEA4003502C8 /* WaveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9B0FE324F3BEA4003502C8 /* WaveShape.swift */; };
 		E438B4CC24ACFB7D008A2E01 /* iOSMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E438B4CB24ACFB7D008A2E01 /* iOSMainView.swift */; };
@@ -65,7 +65,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				8D9B0FDA24F3A2E8003502C8 /* GfroerliWidgetExtension.appex in Embed App Extensions */,
+				8D9B0FDA24F3A2E8003502C8 /* Widgets.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -81,7 +81,7 @@
 		8D0D7FE924F1109A0068176C /* LakeScrollItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LakeScrollItem.swift; sourceTree = "<group>"; };
 		8D6A7DC524F14115009A0026 /* LakeOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LakeOverView.swift; sourceTree = "<group>"; };
 		8D6A7DC724F15187009A0026 /* SensorOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorOverView.swift; sourceTree = "<group>"; };
-		8D9B0FCC24F3A2E7003502C8 /* GfroerliWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GfroerliWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D9B0FCC24F3A2E7003502C8 /* Widgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Widgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D9B0FCE24F3A2E7003502C8 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		8D9B0FD024F3A2E7003502C8 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		8D9B0FD324F3A2E7003502C8 /* GfroerliWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GfroerliWidget.swift; sourceTree = "<group>"; };
@@ -94,9 +94,9 @@
 		E44EA3AC24EEA7EA00380E27 /* MapExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapExtension.swift; sourceTree = "<group>"; };
 		E461456824A34823006233AE /* GfrorliApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GfrorliApp.swift; sourceTree = "<group>"; };
 		E461456A24A34831006233AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E461456F24A34831006233AE /* Gfror.li.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gfror.li.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E461456F24A34831006233AE /* Gfrör.li.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gfrör.li.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E461457224A34831006233AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E461457724A34831006233AE /* Gfrör.li.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Gfrör.li.app"; path = Gfror.li.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E461457724A34831006233AE /* Gfrör.li.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gfrör.li.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E461457924A34831006233AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E461457A24A34831006233AE /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		E461457F24A34831006233AE /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -231,11 +231,11 @@
 		E461457024A34831006233AE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E461456F24A34831006233AE /* Gfror.li.app */,
+				E461456F24A34831006233AE /* Gfrör.li.app */,
 				E461457724A34831006233AE /* Gfrör.li.app */,
 				E461457F24A34831006233AE /* Tests iOS.xctest */,
 				E461458A24A34831006233AE /* Tests macOS.xctest */,
-				8D9B0FCC24F3A2E7003502C8 /* GfroerliWidgetExtension.appex */,
+				8D9B0FCC24F3A2E7003502C8 /* Widgets.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -297,9 +297,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8D9B0FCB24F3A2E7003502C8 /* GfroerliWidgetExtension */ = {
+		8D9B0FCB24F3A2E7003502C8 /* Widgets */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8D9B0FDE24F3A2E8003502C8 /* Build configuration list for PBXNativeTarget "GfroerliWidgetExtension" */;
+			buildConfigurationList = 8D9B0FDE24F3A2E8003502C8 /* Build configuration list for PBXNativeTarget "Widgets" */;
 			buildPhases = (
 				8D9B0FC824F3A2E7003502C8 /* Sources */,
 				8D9B0FC924F3A2E7003502C8 /* Frameworks */,
@@ -309,9 +309,9 @@
 			);
 			dependencies = (
 			);
-			name = GfroerliWidgetExtension;
+			name = Widgets;
 			productName = GfroerliWidgetExtension;
-			productReference = 8D9B0FCC24F3A2E7003502C8 /* GfroerliWidgetExtension.appex */;
+			productReference = 8D9B0FCC24F3A2E7003502C8 /* Widgets.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		E461456E24A34831006233AE /* iOS */ = {
@@ -330,7 +330,7 @@
 			);
 			name = iOS;
 			productName = iOS;
-			productReference = E461456F24A34831006233AE /* Gfror.li.app */;
+			productReference = E461456F24A34831006233AE /* Gfrör.li.app */;
 			productType = "com.apple.product-type.application";
 		};
 		E461457624A34831006233AE /* macOS */ = {
@@ -414,7 +414,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E461456624A34823006233AE /* Build configuration list for PBXProject "Gfror.li" */;
+			buildConfigurationList = E461456624A34823006233AE /* Build configuration list for PBXProject "Gfrör.li" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -431,7 +431,7 @@
 				E461457624A34831006233AE /* macOS */,
 				E461457E24A34831006233AE /* Tests iOS */,
 				E461458924A34831006233AE /* Tests macOS */,
-				8D9B0FCB24F3A2E7003502C8 /* GfroerliWidgetExtension */,
+				8D9B0FCB24F3A2E7003502C8 /* Widgets */,
 			);
 		};
 /* End PBXProject section */
@@ -537,7 +537,7 @@
 /* Begin PBXTargetDependency section */
 		8D9B0FD924F3A2E8003502C8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8D9B0FCB24F3A2E7003502C8 /* GfroerliWidgetExtension */;
+			target = 8D9B0FCB24F3A2E7003502C8 /* Widgets */;
 			targetProxy = 8D9B0FD824F3A2E8003502C8 /* PBXContainerItemProxy */;
 		};
 		E461458124A34831006233AE /* PBXTargetDependency */ = {
@@ -732,7 +732,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.nliechti.Gfro-r-li";
-				PRODUCT_NAME = Gfror.li;
+				PRODUCT_NAME = "Gfrör.li";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -756,7 +756,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.nliechti.Gfro-r-li";
-				PRODUCT_NAME = Gfror.li;
+				PRODUCT_NAME = "Gfrör.li";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -782,7 +782,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.16;
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.nliechti.Gfro-r-li";
-				PRODUCT_NAME = Gfror.li;
+				PRODUCT_NAME = "Gfrör.li";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
 			};
@@ -806,7 +806,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.16;
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.nliechti.Gfro-r-li";
-				PRODUCT_NAME = Gfror.li;
+				PRODUCT_NAME = "Gfrör.li";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
 			};
@@ -904,7 +904,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8D9B0FDE24F3A2E8003502C8 /* Build configuration list for PBXNativeTarget "GfroerliWidgetExtension" */ = {
+		8D9B0FDE24F3A2E8003502C8 /* Build configuration list for PBXNativeTarget "Widgets" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8D9B0FDC24F3A2E8003502C8 /* Debug */,
@@ -913,7 +913,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E461456624A34823006233AE /* Build configuration list for PBXProject "Gfror.li" */ = {
+		E461456624A34823006233AE /* Build configuration list for PBXProject "Gfrör.li" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E461459724A34831006233AE /* Debug */,

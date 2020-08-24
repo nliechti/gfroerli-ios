@@ -123,7 +123,7 @@ struct GfroerliWidget: Widget {
     var body: some WidgetConfiguration{
         StaticConfiguration(kind: kind, provider: Provider()){entry in
             WidgetView(entry: entry)
-        }
+        }.supportedFamilies([.systemSmall,.systemMedium])
     }
 }
 

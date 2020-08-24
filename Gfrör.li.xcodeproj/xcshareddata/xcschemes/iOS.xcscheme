@@ -17,7 +17,7 @@
                BlueprintIdentifier = "E461456E24A34831006233AE"
                BuildableName = "Gfror.li.app"
                BlueprintName = "iOS"
-               ReferencedContainer = "container:Gfror.li.xcodeproj">
+               ReferencedContainer = "container:Gfro&#x308;r.li.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "E461457E24A34831006233AE"
                BuildableName = "Tests iOS.xctest"
                BlueprintName = "Tests iOS"
-               ReferencedContainer = "container:Gfror.li.xcodeproj">
+               ReferencedContainer = "container:Gfro&#x308;r.li.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,7 +57,7 @@
             BlueprintIdentifier = "E461456E24A34831006233AE"
             BuildableName = "Gfror.li.app"
             BlueprintName = "iOS"
-            ReferencedContainer = "container:Gfror.li.xcodeproj">
+            ReferencedContainer = "container:Gfro&#x308;r.li.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -74,7 +74,7 @@
             BlueprintIdentifier = "E461456E24A34831006233AE"
             BuildableName = "Gfror.li.app"
             BlueprintName = "iOS"
-            ReferencedContainer = "container:Gfror.li.xcodeproj">
+            ReferencedContainer = "container:Gfro&#x308;r.li.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
