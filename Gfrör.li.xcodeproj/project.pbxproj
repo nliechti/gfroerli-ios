@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D04196824F50258003D64D4 /* SensorScrollItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D04196724F50258003D64D4 /* SensorScrollItem.swift */; };
+		8D04196A24F50349003D64D4 /* RiverData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D04196924F50349003D64D4 /* RiverData.swift */; };
+		8D04196B24F50353003D64D4 /* LakesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE724F10F610068176C /* LakesData.swift */; };
+		8D04196C24F50353003D64D4 /* RiverData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D04196924F50349003D64D4 /* RiverData.swift */; };
+		8D04196E24F50478003D64D4 /* RiverScrollItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D04196D24F50478003D64D4 /* RiverScrollItem.swift */; };
 		8D0D7FE024F102030068176C /* CostumTabBaButtonr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FDF24F102030068176C /* CostumTabBaButtonr.swift */; };
 		8D0D7FE224F107B60068176C /* OverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE124F107B60068176C /* OverView.swift */; };
 		8D0D7FE424F107C10068176C /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE324F107C10068176C /* FavoritesView.swift */; };
@@ -76,6 +81,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8D04196724F50258003D64D4 /* SensorScrollItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorScrollItem.swift; sourceTree = "<group>"; };
+		8D04196924F50349003D64D4 /* RiverData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiverData.swift; sourceTree = "<group>"; };
+		8D04196D24F50478003D64D4 /* RiverScrollItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiverScrollItem.swift; sourceTree = "<group>"; };
 		8D0D7FDF24F102030068176C /* CostumTabBaButtonr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostumTabBaButtonr.swift; sourceTree = "<group>"; };
 		8D0D7FE124F107B60068176C /* OverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverView.swift; sourceTree = "<group>"; };
 		8D0D7FE324F107C10068176C /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
@@ -159,6 +167,8 @@
 			children = (
 				8D0D7FDF24F102030068176C /* CostumTabBaButtonr.swift */,
 				8D0D7FE924F1109A0068176C /* LakeScrollItem.swift */,
+				8D04196D24F50478003D64D4 /* RiverScrollItem.swift */,
+				8D04196724F50258003D64D4 /* SensorScrollItem.swift */,
 			);
 			path = CostumUI;
 			sourceTree = "<group>";
@@ -228,7 +238,6 @@
 				E44EA3AE24EEA88200380E27 /* extensions */,
 				E461456824A34823006233AE /* GfrorliApp.swift */,
 				E461456A24A34831006233AE /* Assets.xcassets */,
-				8D0D7FE724F10F610068176C /* LakesData.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -295,6 +304,8 @@
 			children = (
 				E4C24FE624EEB58400FB4F51 /* Sensors.swift */,
 				E4C24FE824EEB5AA00FB4F51 /* Measurements.swift */,
+				8D0D7FE724F10F610068176C /* LakesData.swift */,
+				8D04196924F50349003D64D4 /* RiverData.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -487,10 +498,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D04196C24F50353003D64D4 /* RiverData.swift in Sources */,
 				8D9B0FE524F3BEA4003502C8 /* WaveShape.swift in Sources */,
 				8D9B0FD424F3A2E7003502C8 /* GfroerliWidget.swift in Sources */,
 				8D9B1AEB24F4632B0047FAC2 /* Measurements.swift in Sources */,
 				8D9B1AEA24F463290047FAC2 /* Sensors.swift in Sources */,
+				8D04196B24F50353003D64D4 /* LakesData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,6 +520,9 @@
 				8D0D7FE624F107D30068176C /* SettingsView.swift in Sources */,
 				8D0D7FEA24F1109A0068176C /* LakeScrollItem.swift in Sources */,
 				8D0D7FE824F10F610068176C /* LakesData.swift in Sources */,
+				8D04196A24F50349003D64D4 /* RiverData.swift in Sources */,
+				8D04196E24F50478003D64D4 /* RiverScrollItem.swift in Sources */,
+				8D04196824F50258003D64D4 /* SensorScrollItem.swift in Sources */,
 				E44EA3AD24EEA7EA00380E27 /* MapExtension.swift in Sources */,
 				8D0D7FE424F107C10068176C /* FavoritesView.swift in Sources */,
 				8D6A7DC824F15187009A0026 /* SensorOverView.swift in Sources */,

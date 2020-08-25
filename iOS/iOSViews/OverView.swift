@@ -6,16 +6,34 @@
 //
 
 import SwiftUI
-
+import MapKit
 struct OverView: View {
+    @ObservedObject var sensors = SensorViewModel()
     var body: some View {
         NavigationView{
-            VStack{
+            ScrollView(.vertical){
                 VStack(alignment: .leading, spacing: 0){
+                    Text("Popular")
+                        .font(.title2)
+                        .bold()
+                        .padding([.horizontal,.top])
+                    ScrollView(.horizontal, showsIndicators: false){
+                        HStack(spacing:0){
+                            ForEach(sensors.sensorArray){ sensor in
+                                NavigationLink(
+                                    destination: SensorOverView(sensorname: sensor.device_name!),
+                                    label: {
+                                        SensorScrollItem(sensor: sensor, region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: sensor.latitude!, longitude: sensor.longitude!), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)))
+                                    }).buttonStyle(PlainButtonStyle())
+                                    .padding()
+                            }
+                        }
+                    }
+                    Divider()
                     Text("Lakes")
                         .font(.title2)
                         .bold()
-                        .padding(.horizontal)
+                        .padding([.horizontal,.top])
                     ScrollView(.horizontal, showsIndicators: false){
                         HStack(spacing:0){
                             ForEach(lakes){ lake in
@@ -30,6 +48,23 @@ struct OverView: View {
                         }
                     }
                     Divider()
+                    Text("Rivers")
+                        .font(.title2)
+                        .bold()
+                        .padding([.horizontal,.top])
+                    ScrollView(.horizontal, showsIndicators: false){
+                        HStack(spacing:0){
+                            ForEach(rivers){ river in
+                                NavigationLink(
+                                    destination: Text(river.name),
+                                    label: {
+                                        RiverScrollItem(river: river, region: river.region)
+                                        
+                                    }).buttonStyle(PlainButtonStyle())
+                                    .padding()
+                            }
+                        }
+                    }
                 }
                 
                 Spacer()
