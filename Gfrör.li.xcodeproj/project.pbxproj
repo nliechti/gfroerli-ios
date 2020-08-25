@@ -13,15 +13,18 @@
 		8D0D7FE624F107D30068176C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE524F107D30068176C /* SettingsView.swift */; };
 		8D0D7FE824F10F610068176C /* LakesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE724F10F610068176C /* LakesData.swift */; };
 		8D0D7FEA24F1109A0068176C /* LakeScrollItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE924F1109A0068176C /* LakeScrollItem.swift */; };
+		8D4731B124F3F93200EE5536 /* WidgetSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4731B024F3F93200EE5536 /* WidgetSettingsView.swift */; };
 		8D6A7DC624F14115009A0026 /* LakeOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A7DC524F14115009A0026 /* LakeOverView.swift */; };
 		8D6A7DC824F15187009A0026 /* SensorOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A7DC724F15187009A0026 /* SensorOverView.swift */; };
 		8D9B0FCF24F3A2E7003502C8 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D9B0FCE24F3A2E7003502C8 /* WidgetKit.framework */; };
 		8D9B0FD124F3A2E7003502C8 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D9B0FD024F3A2E7003502C8 /* SwiftUI.framework */; };
 		8D9B0FD424F3A2E7003502C8 /* GfroerliWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9B0FD324F3A2E7003502C8 /* GfroerliWidget.swift */; };
-		8D9B0FD624F3A2E8003502C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D9B0FD524F3A2E8003502C8 /* Assets.xcassets */; };
 		8D9B0FDA24F3A2E8003502C8 /* Widgets.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8D9B0FCC24F3A2E7003502C8 /* Widgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8D9B0FE424F3BEA4003502C8 /* WaveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9B0FE324F3BEA4003502C8 /* WaveShape.swift */; };
 		8D9B0FE524F3BEA4003502C8 /* WaveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9B0FE324F3BEA4003502C8 /* WaveShape.swift */; };
+		8D9B1AEA24F463290047FAC2 /* Sensors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C24FE624EEB58400FB4F51 /* Sensors.swift */; };
+		8D9B1AEB24F4632B0047FAC2 /* Measurements.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C24FE824EEB5AA00FB4F51 /* Measurements.swift */; };
+		8D9B1AEC24F463750047FAC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D9B0FD524F3A2E8003502C8 /* Assets.xcassets */; };
 		E438B4CC24ACFB7D008A2E01 /* iOSMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E438B4CB24ACFB7D008A2E01 /* iOSMainView.swift */; };
 		E44EA3AD24EEA7EA00380E27 /* MapExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44EA3AC24EEA7EA00380E27 /* MapExtension.swift */; };
 		E461458424A34831006233AE /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = E461458324A34831006233AE /* Tests_iOS.swift */; };
@@ -79,6 +82,7 @@
 		8D0D7FE524F107D30068176C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		8D0D7FE724F10F610068176C /* LakesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LakesData.swift; sourceTree = "<group>"; };
 		8D0D7FE924F1109A0068176C /* LakeScrollItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LakeScrollItem.swift; sourceTree = "<group>"; };
+		8D4731B024F3F93200EE5536 /* WidgetSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSettingsView.swift; sourceTree = "<group>"; };
 		8D6A7DC524F14115009A0026 /* LakeOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LakeOverView.swift; sourceTree = "<group>"; };
 		8D6A7DC724F15187009A0026 /* SensorOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorOverView.swift; sourceTree = "<group>"; };
 		8D9B0FCC24F3A2E7003502C8 /* Widgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Widgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,6 +193,7 @@
 				8D0D7FE124F107B60068176C /* OverView.swift */,
 				8D0D7FE324F107C10068176C /* FavoritesView.swift */,
 				8D0D7FE524F107D30068176C /* SettingsView.swift */,
+				8D4731B024F3F93200EE5536 /* WidgetSettingsView.swift */,
 			);
 			path = iOSViews;
 			sourceTree = "<group>";
@@ -441,7 +446,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D9B0FD624F3A2E8003502C8 /* Assets.xcassets in Resources */,
+				8D9B1AEC24F463750047FAC2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +489,8 @@
 			files = (
 				8D9B0FE524F3BEA4003502C8 /* WaveShape.swift in Sources */,
 				8D9B0FD424F3A2E7003502C8 /* GfroerliWidget.swift in Sources */,
+				8D9B1AEB24F4632B0047FAC2 /* Measurements.swift in Sources */,
+				8D9B1AEA24F463290047FAC2 /* Sensors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,6 +500,7 @@
 			files = (
 				E461459124A34831006233AE /* GfrorliApp.swift in Sources */,
 				8D6A7DC624F14115009A0026 /* LakeOverView.swift in Sources */,
+				8D4731B124F3F93200EE5536 /* WidgetSettingsView.swift in Sources */,
 				8D9B0FE424F3BEA4003502C8 /* WaveShape.swift in Sources */,
 				E4C24FE724EEB58400FB4F51 /* Sensors.swift in Sources */,
 				8D0D7FE024F102030068176C /* CostumTabBaButtonr.swift in Sources */,

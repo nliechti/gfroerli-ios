@@ -18,19 +18,20 @@ struct OverView: View {
                         .padding(.horizontal)
                     ScrollView(.horizontal, showsIndicators: false){
                         HStack(spacing:0){
-                        ForEach(lakes){ lake in
-                            NavigationLink(
-                                destination: LakeOverView(lake: lake),
-                                label: {
-                                    LakeScrollItem(lake: lake, region: lake.region)
+                            ForEach(lakes){ lake in
+                                NavigationLink(
+                                    destination: LakeOverView(lake: lake),
+                                    label: {
+                                        LakeScrollItem(lake: lake, region: lake.region)
                                         
-                                }).buttonStyle(PlainButtonStyle())
-                                .padding()
+                                    }).buttonStyle(PlainButtonStyle())
+                                    .padding()
+                            }
                         }
                     }
-                    }
+                    Divider()
                 }
-                Divider()
+                
                 Spacer()
             }.navigationTitle("Gfrör.li")
             .background(Color.gray.opacity(0.001))

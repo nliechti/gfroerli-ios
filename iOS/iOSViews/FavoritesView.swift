@@ -9,7 +9,15 @@ import SwiftUI
 
 struct FavoritesView: View {
     var body: some View {
-        Text("favs")
+        NavigationView{
+            VStack{
+                Text("Placeholder")
+                Divider()
+                Spacer()
+            }.navigationTitle("Favorites")
+            .background(Color.gray.opacity(0.001))
+            
+        }
     }
 }
 

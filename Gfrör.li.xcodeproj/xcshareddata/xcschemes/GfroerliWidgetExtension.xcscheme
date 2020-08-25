@@ -30,7 +30,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E461456E24A34831006233AE"
-               BuildableName = "Gfror.li.app"
+               BuildableName = "Gfro&#x308;r.li.app"
                BlueprintName = "iOS"
                ReferencedContainer = "container:Gfro&#x308;r.li.xcodeproj">
             </BuildableReference>
@@ -72,7 +72,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E461456E24A34831006233AE"
-            BuildableName = "Gfror.li.app"
+            BuildableName = "Gfro&#x308;r.li.app"
             BlueprintName = "iOS"
             ReferencedContainer = "container:Gfro&#x308;r.li.xcodeproj">
          </BuildableReference>
@@ -107,7 +107,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E461456E24A34831006233AE"
-            BuildableName = "Gfror.li.app"
+            BuildableName = "Gfro&#x308;r.li.app"
             BlueprintName = "iOS"
             ReferencedContainer = "container:Gfro&#x308;r.li.xcodeproj">
          </BuildableReference>

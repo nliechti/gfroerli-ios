@@ -15,9 +15,10 @@ struct iOSMainView: View {
         
         VStack(spacing: 0){
             switch(selectedTab){
+            case "Overview": OverView()
             case "Favorites": FavoritesView()
             case "Settings": SettingsView()
-            default : OverView()
+            default: Text("YIKES")
             }
             
             Spacer()
@@ -28,7 +29,8 @@ struct iOSMainView: View {
                 CostumTabBarButton(tab: $selectedTab, title: "Favorites", imageName: "star")
                 Spacer(minLength: 0)
                 CostumTabBarButton(tab: $selectedTab, title: "Settings", imageName: "gearshape")
-            }.padding(.top)                .padding(.bottom,UIApplication.shared.windows.first!.safeAreaInsets.bottom == 0 ? 15 : UIApplication.shared.windows.first!.safeAreaInsets.bottom)
+            }.padding(.top)
+            .padding(.bottom,UIApplication.shared.windows.first!.safeAreaInsets.bottom == 0 ? 15 : UIApplication.shared.windows.first!.safeAreaInsets.bottom)
             
             .padding(.horizontal, 35)
             .background(Color.gray.opacity(0.1))
