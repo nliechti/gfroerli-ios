@@ -8,10 +8,17 @@
 import SwiftUI
 
 struct FavoritesView: View {
+    
+    var favorites = UserDefaults(suiteName: "group.ch.gfroerli.gfroerli")?.array(forKey: "favoritesIDs") as? [Int] ?? [Int]()
+    
     var body: some View {
         NavigationView{
             VStack{
                 Text("Placeholder")
+                ForEach(favorites, id: \.self){ fav in
+                    Text(String(fav))
+                    
+                }
                 Divider()
                 Spacer()
             }.navigationTitle("Favorites")

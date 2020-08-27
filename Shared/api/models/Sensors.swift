@@ -40,6 +40,7 @@ class SensorViewModel: ObservableObject {
                 let jsonDecoder = JSONDecoder()
                 let sensors = try jsonDecoder.decode([Sensor].self, from: data)
                 self.sensorArray = sensors
+                print(sensors)
             } catch let error {
                 print(error)
             }
@@ -48,6 +49,20 @@ class SensorViewModel: ObservableObject {
 }
 
 struct Sensor: Codable, Identifiable {
+    init(id: Int?, device_name: String?, caption: String?, latitude: Double?, longitude: Double?, sponsor_id: Int?, measurement_ids: [Int]?, created_at: String?, updated_at: String?, last_measurement: Measurement?, url: String?) {
+        self.id = id
+        self.device_name = device_name
+        self.caption = caption
+        self.latitude = latitude
+        self.longitude = longitude
+        self.sponsor_id = sponsor_id
+        self.measurement_ids = measurement_ids
+        self.created_at = created_at
+        self.updated_at = updated_at
+        self.last_measurement = last_measurement
+        self.url = url
+    }
+    
     let id : Int?
     let device_name : String?
     let caption : String?
@@ -75,6 +90,7 @@ struct Sensor: Codable, Identifiable {
         case url = "url"
     }
 
+    
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         id = try values.decodeIfPresent(Int.self, forKey: .id)
@@ -89,7 +105,6 @@ struct Sensor: Codable, Identifiable {
         last_measurement = try values.decodeIfPresent(Measurement.self, forKey: .last_measurement)
         url = try values.decodeIfPresent(String.self, forKey: .url)
     }
-
 }
 
 struct Sensors: Codable {
@@ -105,5 +120,4 @@ struct Sensors: Codable {
     }
 }
 
-//let TestSensors = SensorViewModel([ Sensor(id: 1
-//)])
+let testSensor = Sensor(id: 2, device_name: "testSensor", caption: "caption", latitude: 47.28073, longitude: 8.72869, sponsor_id: 0, measurement_ids: [Int](), created_at: "23.2.2200", updated_at: "23.2.2200", last_measurement: measurement1, url: "none")

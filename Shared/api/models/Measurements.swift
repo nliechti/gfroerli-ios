@@ -14,6 +14,15 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 import Foundation
 
 struct Measurement : Codable {
+    init(id: Int?, temperature: Double?, custom_attributes: String?, sensor_id: Int?, created_at: String?, updated_at: String?) {
+        self.id = id
+        self.temperature = temperature
+        self.custom_attributes = custom_attributes
+        self.sensor_id = sensor_id
+        self.created_at = created_at
+        self.updated_at = updated_at
+    }
+    
     let id : Int?
     let temperature : Double?
     let custom_attributes : String?
@@ -42,4 +51,4 @@ struct Measurement : Codable {
     }
 
 }
-
+let measurement1 = Measurement(id: 1, temperature: 22.0022, custom_attributes: "", sensor_id: 2, created_at: "created Date", updated_at: "updatedDate")

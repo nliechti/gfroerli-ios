@@ -106,9 +106,9 @@
 		E44EA3AC24EEA7EA00380E27 /* MapExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapExtension.swift; sourceTree = "<group>"; };
 		E461456824A34823006233AE /* GfrorliApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GfrorliApp.swift; sourceTree = "<group>"; };
 		E461456A24A34831006233AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E461456F24A34831006233AE /* Gfrör.li.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gfrör.li.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E461456F24A34831006233AE /* Gfror.li.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gfror.li.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E461457224A34831006233AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E461457724A34831006233AE /* Gfrör.li.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gfrör.li.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E461457724A34831006233AE /* Gfror.li.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gfror.li.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E461457924A34831006233AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E461457A24A34831006233AE /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		E461457F24A34831006233AE /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -245,8 +245,8 @@
 		E461457024A34831006233AE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E461456F24A34831006233AE /* Gfrör.li.app */,
-				E461457724A34831006233AE /* Gfrör.li.app */,
+				E461456F24A34831006233AE /* Gfror.li.app */,
+				E461457724A34831006233AE /* Gfror.li.app */,
 				E461457F24A34831006233AE /* Tests iOS.xctest */,
 				E461458A24A34831006233AE /* Tests macOS.xctest */,
 				8D9B0FCC24F3A2E7003502C8 /* Widgets.appex */,
@@ -346,7 +346,7 @@
 			);
 			name = iOS;
 			productName = iOS;
-			productReference = E461456F24A34831006233AE /* Gfrör.li.app */;
+			productReference = E461456F24A34831006233AE /* Gfror.li.app */;
 			productType = "com.apple.product-type.application";
 		};
 		E461457624A34831006233AE /* macOS */ = {
@@ -363,7 +363,7 @@
 			);
 			name = macOS;
 			productName = macOS;
-			productReference = E461457724A34831006233AE /* Gfrör.li.app */;
+			productReference = E461457724A34831006233AE /* Gfror.li.app */;
 			productType = "com.apple.product-type.application";
 		};
 		E461457E24A34831006233AE /* Tests iOS */ = {
@@ -430,7 +430,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E461456624A34823006233AE /* Build configuration list for PBXProject "Gfrör.li" */;
+			buildConfigurationList = E461456624A34823006233AE /* Build configuration list for PBXProject "Gfror.li" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -756,7 +756,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.nliechti.Gfro-r-li";
-				PRODUCT_NAME = "Gfrör.li";
+				PRODUCT_NAME = Gfror.li;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -780,7 +780,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.nliechti.Gfro-r-li";
-				PRODUCT_NAME = "Gfrör.li";
+				PRODUCT_NAME = Gfror.li;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -806,7 +806,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.16;
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.nliechti.Gfro-r-li";
-				PRODUCT_NAME = "Gfrör.li";
+				PRODUCT_NAME = Gfror.li;
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
 			};
@@ -830,7 +830,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.16;
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.nliechti.Gfro-r-li";
-				PRODUCT_NAME = "Gfrör.li";
+				PRODUCT_NAME = Gfror.li;
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
 			};
@@ -937,7 +937,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E461456624A34823006233AE /* Build configuration list for PBXProject "Gfrör.li" */ = {
+		E461456624A34823006233AE /* Build configuration list for PBXProject "Gfror.li" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E461459724A34831006233AE /* Debug */,

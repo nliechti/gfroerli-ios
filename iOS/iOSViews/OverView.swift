@@ -21,7 +21,7 @@ struct OverView: View {
                         HStack(spacing:0){
                             ForEach(sensors.sensorArray){ sensor in
                                 NavigationLink(
-                                    destination: SensorOverView(sensorname: sensor.device_name!),
+                                    destination: SensorOverView(sensor: sensor),
                                     label: {
                                         SensorScrollItem(sensor: sensor, region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: sensor.latitude!, longitude: sensor.longitude!), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)))
                                     }).buttonStyle(PlainButtonStyle())
