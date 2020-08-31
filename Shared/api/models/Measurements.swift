@@ -12,6 +12,7 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
+import Combine
 
 struct Measurement : Codable {
     init(id: Int?, temperature: Double?, custom_attributes: String?, sensor_id: Int?, created_at: String?, updated_at: String?) {
@@ -51,4 +52,42 @@ struct Measurement : Codable {
     }
 
 }
+
+class measurementsViewModel: ObservableObject{
+    let didChange = PassthroughSubject<Void, Never>()
+    
+    @Published var measurementsArray = [Measurement]() { didSet { didChange.send(())}}
+    
+    init() {
+        loadMeasurementData()
+    }
+    
+    
+    
+    func loadMeasurementData() {
+        var request = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/measurements")!)
+        request.setValue("Bearer XTZA6H0Hg2f02bzVefmVlr8fIJMy2FGCJ0LlDlejj2Pi0i1JvZiL0Ycv1t6JoZzD", forHTTPHeaderField: "Authorization")
+        request.httpMethod = "GET"
+        
+        let session = URLSession.shared
+        session.dataTask(with: request, completionHandler: {data, response, error -> Void in
+            do {
+                guard let data = data else {return}
+                
+                let jsonDecoder = JSONDecoder()
+                var measurements = try jsonDecoder.decode([Measurement].self, from: data)
+                measurements.reverse()
+                measurements.removeSubrange(10..<measurements.count)
+                measurements.sort(by: {$0.created_at! < $1.created_at!})
+                print(measurements)
+                self.measurementsArray = measurements
+            } catch let error {
+                print(error)
+            }
+        }).resume()
+    }
+    
+}
+
+
 let measurement1 = Measurement(id: 1, temperature: 22.0022, custom_attributes: "", sensor_id: 2, created_at: "created Date", updated_at: "updatedDate")

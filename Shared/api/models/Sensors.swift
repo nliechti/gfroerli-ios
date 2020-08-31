@@ -40,7 +40,6 @@ class SensorViewModel: ObservableObject {
                 let jsonDecoder = JSONDecoder()
                 let sensors = try jsonDecoder.decode([Sensor].self, from: data)
                 self.sensorArray = sensors
-                print(sensors)
             } catch let error {
                 print(error)
             }
@@ -107,17 +106,5 @@ struct Sensor: Codable, Identifiable {
     }
 }
 
-struct Sensors: Codable {
-    let sensors: [Sensor]?
-    
-    enum CodingKeys: String, CodingKey {
-        case sensors
-    }
-    
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        sensors = try container.decode([Sensor].self, forKey: .sensors)
-    }
-}
 
 let testSensor = Sensor(id: 2, device_name: "testSensor", caption: "caption", latitude: 47.28073, longitude: 8.72869, sponsor_id: 0, measurement_ids: [Int](), created_at: "23.2.2200", updated_at: "23.2.2200", last_measurement: measurement1, url: "none")
