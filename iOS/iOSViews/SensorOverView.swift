@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct SensorOverView: View {
+    @ObservedObject var measurementsVM = measurementsViewModel()
     @State var sensor: Sensor
     @State var isFav = false
+    @State var pickerSelection = 0
+    @State var pickerOptions = ["Day", "Week", "Month"]
     
     @State var favorites  = UserDefaults(suiteName: "group.ch.gfroerli.gfroerli")?.array(forKey: "favoritesIDs") as? [Int] ?? [Int]()
     var body: some View {
@@ -30,6 +33,13 @@ struct SensorOverView: View {
                     Text("History").font(.headline)
                     Spacer()
                 }
+                Picker(selection: $pickerSelection, label: Text("What is your favorite color?")) {
+                    ForEach(0..<pickerOptions.count) { index in
+                        Text(self.pickerOptions[index]).tag(index)
+                    }
+                }.pickerStyle(SegmentedPickerStyle())
+                Text(String(measurementsVM.measurementsArray.count))
+                DayChart(measurementsVM: measurementsVM)
                 HStack {
                     Text("Description").font(.headline)
                     Spacer()
@@ -75,12 +85,53 @@ struct SensorOverView: View {
         let date = dateFormatter.date(from:newDate)!
         return date
     }
+    
 }
 
 struct SensorOverView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
-        SensorOverView(sensor: testSensor)
+            SensorOverView(sensor: testSensor)
         }
     }
+}
+
+struct DayChart: View {
+    @ObservedObject var measurementsVM : measurementsViewModel
+    var body: some View {
+        if measurementsVM.measurementsArray.count != 0{
+            LineView(data: makeDate(data: measurementsVM.measurementsArray))
+        }else{
+            VStack{
+                HStack {
+                    Spacer()
+                    ProgressView().progressViewStyle(CircularProgressViewStyle())
+                    Spacer()
+                }
+                HStack {
+                    Spacer()
+                    Text("Loading")
+                    Spacer()
+                }
+            }.frame(height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+        }
+    }
+    func makeDate(data: [Measurement])->[Double]{
+        print(data)
+        var plotData = [Double]()
+        for meas in data{
+            plotData.append(meas.temperature!)
+        }
+        return plotData
+    }
+}
+
+struct WeekChart: View {
+    var body: some View {
+        Text("Week")    }
+}
+
+struct MonthChart: View {
+    var body: some View {
+        Text("Month")    }
 }
