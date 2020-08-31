@@ -110,7 +110,7 @@ struct DayChart: View {
                 }
                 HStack {
                     Spacer()
-                    Text("Loading")
+                    Text("Loading").foregroundColor(.gray)
                     Spacer()
                 }
             }.frame(height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)

@@ -29,11 +29,13 @@ class SensorViewModel: ObservableObject {
     
     func loadSensorData() {
         var request = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/sensors")!)
+        var request2 = URLRequest(url: URL(string: "http://10.99.0.57:3000/api/sensors")!)
+
         request.setValue("Bearer XTZA6H0Hg2f02bzVefmVlr8fIJMy2FGCJ0LlDlejj2Pi0i1JvZiL0Ycv1t6JoZzD", forHTTPHeaderField: "Authorization")
         request.httpMethod = "GET"
         
         let session = URLSession.shared
-        session.dataTask(with: request, completionHandler: {data, response, error -> Void in
+        session.dataTask(with: request2, completionHandler: {data, response, error -> Void in
             do {
                 guard let data = data else {return}
                 

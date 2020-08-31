@@ -61,32 +61,29 @@ class measurementsViewModel: ObservableObject{
     init() {
         loadMeasurementData()
     }
-    
-    
-    
+
     func loadMeasurementData() {
-        var request = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/measurements")!)
+        var request = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/measurements?count=10")!)
+        var request2 = URLRequest(url: URL(string: "http://10.99.0.57:3000/api/measurements?count=1")!)
+
         request.setValue("Bearer XTZA6H0Hg2f02bzVefmVlr8fIJMy2FGCJ0LlDlejj2Pi0i1JvZiL0Ycv1t6JoZzD", forHTTPHeaderField: "Authorization")
         request.httpMethod = "GET"
         
         let session = URLSession.shared
-        session.dataTask(with: request, completionHandler: {data, response, error -> Void in
+        session.dataTask(with: request2, completionHandler: {data, response, error -> Void in
             do {
                 guard let data = data else {return}
                 
                 let jsonDecoder = JSONDecoder()
                 var measurements = try jsonDecoder.decode([Measurement].self, from: data)
-                measurements.reverse()
-                measurements.removeSubrange(10..<measurements.count)
+                //measurements.removeSubrange(10..<measurements.count)
                 measurements.sort(by: {$0.created_at! < $1.created_at!})
-                print(measurements)
                 self.measurementsArray = measurements
             } catch let error {
                 print(error)
             }
         }).resume()
     }
-    
 }
 
 

@@ -1,15 +1,16 @@
 //
-//  SensorScrollItem.swift
+//  ScrollItem.swift
 //  iOS
 //
-//  Created by Marc Kramer on 25.08.20.
+//  Created by Marc Kramer on 22.08.20.
 //
 
 import SwiftUI
 import MapKit
 
-struct SensorScrollItem: View {
-    var sensor: Sensor
+struct ScrollItem: View {
+    @State var sensorCount: Int
+    @State var name: String
     @State var region: MKCoordinateRegion
     
     var body: some View {
@@ -18,15 +19,13 @@ struct SensorScrollItem: View {
         VStack(alignment: .leading, spacing: 0){
             Map(coordinateRegion: $region, interactionModes: [])
             VStack(alignment: .leading){
-                
+                Text(name)
+                    .font(.headline)
                 HStack {
-                    Text(sensor.device_name!)
-                        .font(.headline)
+                    Text("Sensors: " + String(sensorCount))
+                        .font(.footnote)
                     Spacer()
                 }
-                Text(sensor.caption!)
-                    .font(.footnote)
-
             }.padding()
             .background(Color.white)
             
@@ -39,13 +38,12 @@ struct SensorScrollItem: View {
             
         
         
-        
     }
 }
 
-struct SensorScrollItem_Previews: PreviewProvider {
+struct LakeScrollItem_Previews: PreviewProvider {
     static var previews: some View {
-       // SensorScrollItem()
-        EmptyView()
+        ScrollItem(sensorCount: lakeOfZurich.sensors.count, name: lakeOfZurich.name, region: lakeOfZurich.region)
     }
 }
+

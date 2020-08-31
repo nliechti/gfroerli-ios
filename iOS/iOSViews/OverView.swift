@@ -40,8 +40,7 @@ struct OverView: View {
                                 NavigationLink(
                                     destination: LakeOverView(lake: lake),
                                     label: {
-                                        LakeScrollItem(lake: lake, region: lake.region)
-                                        
+                                        ScrollItem(sensorCount: lake.sensors.count, name: lake.name, region: lake.region)
                                     }).buttonStyle(PlainButtonStyle())
                                     .padding()
                             }
@@ -58,7 +57,7 @@ struct OverView: View {
                                 NavigationLink(
                                     destination: Text(river.name),
                                     label: {
-                                        RiverScrollItem(river: river, region: river.region)
+                                        ScrollItem(sensorCount: river.sensors.count, name: river.name, region: river.region)
                                         
                                     }).buttonStyle(PlainButtonStyle())
                                     .padding()

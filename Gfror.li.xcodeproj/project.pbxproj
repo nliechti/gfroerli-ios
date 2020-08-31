@@ -11,13 +11,12 @@
 		8D04196A24F50349003D64D4 /* RiverData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D04196924F50349003D64D4 /* RiverData.swift */; };
 		8D04196B24F50353003D64D4 /* LakesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE724F10F610068176C /* LakesData.swift */; };
 		8D04196C24F50353003D64D4 /* RiverData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D04196924F50349003D64D4 /* RiverData.swift */; };
-		8D04196E24F50478003D64D4 /* RiverScrollItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D04196D24F50478003D64D4 /* RiverScrollItem.swift */; };
 		8D0D7FE024F102030068176C /* CostumTabBaButtonr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FDF24F102030068176C /* CostumTabBaButtonr.swift */; };
 		8D0D7FE224F107B60068176C /* OverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE124F107B60068176C /* OverView.swift */; };
 		8D0D7FE424F107C10068176C /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE324F107C10068176C /* FavoritesView.swift */; };
 		8D0D7FE624F107D30068176C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE524F107D30068176C /* SettingsView.swift */; };
 		8D0D7FE824F10F610068176C /* LakesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE724F10F610068176C /* LakesData.swift */; };
-		8D0D7FEA24F1109A0068176C /* LakeScrollItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE924F1109A0068176C /* LakeScrollItem.swift */; };
+		8D0D7FEA24F1109A0068176C /* ScrollItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE924F1109A0068176C /* ScrollItem.swift */; };
 		8D4731B124F3F93200EE5536 /* WidgetSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4731B024F3F93200EE5536 /* WidgetSettingsView.swift */; };
 		8D5066E524F7F33400E426DE /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5066D324F7F33400E426DE /* LineChartView.swift */; };
 		8D5066E624F7F33400E426DE /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5066D324F7F33400E426DE /* LineChartView.swift */; };
@@ -115,13 +114,12 @@
 /* Begin PBXFileReference section */
 		8D04196724F50258003D64D4 /* SensorScrollItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorScrollItem.swift; sourceTree = "<group>"; };
 		8D04196924F50349003D64D4 /* RiverData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiverData.swift; sourceTree = "<group>"; };
-		8D04196D24F50478003D64D4 /* RiverScrollItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiverScrollItem.swift; sourceTree = "<group>"; };
 		8D0D7FDF24F102030068176C /* CostumTabBaButtonr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostumTabBaButtonr.swift; sourceTree = "<group>"; };
 		8D0D7FE124F107B60068176C /* OverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverView.swift; sourceTree = "<group>"; };
 		8D0D7FE324F107C10068176C /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		8D0D7FE524F107D30068176C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		8D0D7FE724F10F610068176C /* LakesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LakesData.swift; sourceTree = "<group>"; };
-		8D0D7FE924F1109A0068176C /* LakeScrollItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LakeScrollItem.swift; sourceTree = "<group>"; };
+		8D0D7FE924F1109A0068176C /* ScrollItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollItem.swift; sourceTree = "<group>"; };
 		8D4731B024F3F93200EE5536 /* WidgetSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSettingsView.swift; sourceTree = "<group>"; };
 		8D5066D324F7F33400E426DE /* LineChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChartView.swift; sourceTree = "<group>"; };
 		8D5066D424F7F33400E426DE /* IndicatorPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorPoint.swift; sourceTree = "<group>"; };
@@ -214,8 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				8D0D7FDF24F102030068176C /* CostumTabBaButtonr.swift */,
-				8D0D7FE924F1109A0068176C /* LakeScrollItem.swift */,
-				8D04196D24F50478003D64D4 /* RiverScrollItem.swift */,
+				8D0D7FE924F1109A0068176C /* ScrollItem.swift */,
 				8D04196724F50258003D64D4 /* SensorScrollItem.swift */,
 			);
 			path = CostumUI;
@@ -633,12 +630,11 @@
 				8D0D7FE024F102030068176C /* CostumTabBaButtonr.swift in Sources */,
 				8D5066F324F7F33400E426DE /* Line.swift in Sources */,
 				8D0D7FE624F107D30068176C /* SettingsView.swift in Sources */,
-				8D0D7FEA24F1109A0068176C /* LakeScrollItem.swift in Sources */,
+				8D0D7FEA24F1109A0068176C /* ScrollItem.swift in Sources */,
 				8D0D7FE824F10F610068176C /* LakesData.swift in Sources */,
 				8D04196A24F50349003D64D4 /* RiverData.swift in Sources */,
 				8D5066FB24F7F33400E426DE /* BarChartRow.swift in Sources */,
 				8D5066E924F7F33400E426DE /* Legend.swift in Sources */,
-				8D04196E24F50478003D64D4 /* RiverScrollItem.swift in Sources */,
 				8D5066F124F7F33400E426DE /* MagnifierRect.swift in Sources */,
 				8D04196824F50258003D64D4 /* SensorScrollItem.swift in Sources */,
 				8D5066FD24F7F33400E426DE /* PieChartRow.swift in Sources */,

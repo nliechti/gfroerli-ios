@@ -23,7 +23,9 @@ struct Legend: View {
     }
     var stepHeight: CGFloat {
         let points = self.data.onlyPoints()
-        if let min = points.min(), let max = points.max(), min != max {
+        let min = 0.0
+        let max = 30.0
+        if  min != max {
             if (min < 0){
                 return (frame.size.height-padding) / CGFloat(max - min)
             }else{
@@ -35,14 +37,14 @@ struct Legend: View {
     
     var min: CGFloat {
         let points = self.data.onlyPoints()
-        return CGFloat(points.min() ?? 0)
+        return CGFloat(0.01)
     }
     
     var body: some View {
         ZStack(alignment: .topLeading){
-            ForEach((0...4), id: \.self) { height in
+            ForEach((0...6), id: \.self) { height in
                 HStack(alignment: .center){
-                    Text("\(self.getYLegendSafe(height: height), specifier: "%.2f")").offset(x: 0, y: self.getYposition(height: height) )
+                    Text("\(self.getYLegendSafe(height: height), specifier: "%.0f")").offset(x: 0, y: self.getYposition(height: height) )
                         .foregroundColor(Colors.LegendText)
                         .font(.caption)
                     self.line(atHeight: self.getYLegendSafe(height: height), width: self.frame.width)
@@ -83,10 +85,10 @@ struct Legend: View {
     
     func getYLegend() -> [Double]? {
         let points = self.data.onlyPoints()
-        guard let max = points.max() else { return nil }
-        guard let min = points.min() else { return nil }
-        let step = Double(max - min)/4
-        return [min+step * 0, min+step * 1, min+step * 2, min+step * 3, min+step * 4]
+        let max = 30.0
+        let min = 0.0
+        let step = Double(max - min)/6
+        return [min+step * 0, min+step * 1, min+step * 2, min+step * 3, min+step * 4, min+step * 5, min+step * 6]
     }
 }
 

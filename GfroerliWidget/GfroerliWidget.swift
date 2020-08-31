@@ -118,8 +118,6 @@ struct WidgetView:View {
             }
                 }
                 Spacer()
-    
-                Text(entry.date, style: .time)
             }.padding()
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color("GfroerliDarkBlue"))
