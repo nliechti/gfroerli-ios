@@ -35,7 +35,7 @@ class SensorViewModel: ObservableObject {
         request.httpMethod = "GET"
         
         let session = URLSession.shared
-        session.dataTask(with: request2, completionHandler: {data, response, error -> Void in
+        session.dataTask(with: request, completionHandler: {data, response, error -> Void in
             do {
                 guard let data = data else {return}
                 

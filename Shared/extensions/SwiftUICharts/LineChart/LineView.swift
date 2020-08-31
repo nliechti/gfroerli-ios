@@ -82,12 +82,12 @@ public struct LineView: View {
                         }
                     }
                     .frame(width: geometry.frame(in: .local).size.width, height: 240)
-                    MagnifierRect(currentNumber: self.$currentDataNumber, valueSpecifier: self.valueSpecifier)
-                        .opacity(self.opacity)
-                        .offset(x: self.dragLocation.x - geometry.frame(in: .local).size.width/2, y: 0)
+                    //MagnifierRect(currentNumber: self.$currentDataNumber, valueSpecifier: self.valueSpecifier)
+                      //  .opacity(self.opacity)
+                       // .offset(x: self.dragLocation.x - geometry.frame(in: .local).size.width/2, y: 0)
                 }
                 .frame(width: geometry.frame(in: .local).size.width, height: 240)
-                .gesture(DragGesture()
+               /* .gesture(DragGesture()
                 .onChanged({ value in
                     self.dragLocation = value.location
                     self.indicatorLocation = CGPoint(x: max(value.location.x-30,0), y: 32)
@@ -99,7 +99,7 @@ public struct LineView: View {
                         self.opacity = 0
                         self.hideHorizontalLines = false
                     })
-                )
+                )*/
             }
         }
     }

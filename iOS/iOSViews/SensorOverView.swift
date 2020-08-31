@@ -38,8 +38,12 @@ struct SensorOverView: View {
                         Text(self.pickerOptions[index]).tag(index)
                     }
                 }.pickerStyle(SegmentedPickerStyle())
-                Text(String(measurementsVM.measurementsArray.count))
-                DayChart(measurementsVM: measurementsVM)
+                
+                switch pickerSelection{
+                case 0: DayChart(measurementsVM: measurementsVM)
+                case 1: WeekChart(measurementsVM: measurementsVM)
+                default : MonthChart(measurementsVM: measurementsVM)
+                }
                 HStack {
                     Text("Description").font(.headline)
                     Spacer()
@@ -99,8 +103,8 @@ struct SensorOverView_Previews: PreviewProvider {
 struct DayChart: View {
     @ObservedObject var measurementsVM : measurementsViewModel
     var body: some View {
-        if measurementsVM.measurementsArray.count != 0{
-            LineView(data: makeDate(data: measurementsVM.measurementsArray))
+        if measurementsVM.measurementsArrayDay.count != 0{
+            LineView(data: makeDate(data: measurementsVM.measurementsArrayDay))
         }else{
             VStack{
                 HStack {
@@ -127,11 +131,61 @@ struct DayChart: View {
 }
 
 struct WeekChart: View {
+    @ObservedObject var measurementsVM : measurementsViewModel
     var body: some View {
-        Text("Week")    }
+        if measurementsVM.measurementsArrayWeek.count != 0{
+            LineView(data: makeDate(data: measurementsVM.measurementsArrayWeek))
+        }else{
+            VStack{
+                HStack {
+                    Spacer()
+                    ProgressView().progressViewStyle(CircularProgressViewStyle())
+                    Spacer()
+                }
+                HStack {
+                    Spacer()
+                    Text("Loading").foregroundColor(.gray)
+                    Spacer()
+                }
+            }.frame(height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+        }
+    }
+    func makeDate(data: [Measurement])->[Double]{
+        print(data)
+        var plotData = [Double]()
+        for meas in data{
+            plotData.append(meas.temperature!)
+        }
+        return plotData
+    }
 }
 
 struct MonthChart: View {
+    @ObservedObject var measurementsVM : measurementsViewModel
     var body: some View {
-        Text("Month")    }
+        if measurementsVM.measurementsArrayMonth.count != 0{
+            LineView(data: makeDate(data: measurementsVM.measurementsArrayMonth))
+        }else{
+            VStack{
+                HStack {
+                    Spacer()
+                    ProgressView().progressViewStyle(CircularProgressViewStyle())
+                    Spacer()
+                }
+                HStack {
+                    Spacer()
+                    Text("Loading").foregroundColor(.gray)
+                    Spacer()
+                }
+            }.frame(height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+        }
+    }
+    func makeDate(data: [Measurement])->[Double]{
+        print(data)
+        var plotData = [Double]()
+        for meas in data{
+            plotData.append(meas.temperature!)
+        }
+        return plotData
+    }
 }
