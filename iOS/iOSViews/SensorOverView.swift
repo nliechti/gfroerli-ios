@@ -80,7 +80,6 @@ struct SensorOverView: View {
         isFav=false
     }
     func createGoodDate(string: String)->Date{
-        print(string)
         var newDate = string
         newDate.removeLast(5)
         let dateFormatter = DateFormatter()
@@ -121,7 +120,6 @@ struct DayChart: View {
         }
     }
     func makeDate(data: [Measurement])->[Double]{
-        print(data)
         var plotData = [Double]()
         for meas in data{
             plotData.append(meas.temperature!)
@@ -151,7 +149,6 @@ struct WeekChart: View {
         }
     }
     func makeDate(data: [Measurement])->[Double]{
-        print(data)
         var plotData = [Double]()
         for meas in data{
             plotData.append(meas.temperature!)
@@ -164,7 +161,7 @@ struct MonthChart: View {
     @ObservedObject var measurementsVM : measurementsViewModel
     var body: some View {
         if measurementsVM.measurementsArrayMonth.count != 0{
-            LineView(data: makeDate(data: measurementsVM.measurementsArrayMonth))
+            LineView(data: measurementsVM.measurementsArrayMonth)
         }else{
             VStack{
                 HStack {
@@ -179,13 +176,5 @@ struct MonthChart: View {
                 }
             }.frame(height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         }
-    }
-    func makeDate(data: [Measurement])->[Double]{
-        print(data)
-        var plotData = [Double]()
-        for meas in data{
-            plotData.append(meas.temperature!)
-        }
-        return plotData
     }
 }

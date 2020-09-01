@@ -58,7 +58,8 @@ class measurementsViewModel: ObservableObject{
     
     @Published var measurementsArrayDay = [Measurement]() { didSet { didChange.send(())}}
     @Published var measurementsArrayWeek = [Measurement]() { didSet { didChange.send(())}}
-    @Published var measurementsArrayMonth = [Measurement]() { didSet { didChange.send(())}}
+    @Published var measurementsArrayMonth = [Double]() { didSet { didChange.send(())}}
+    
     init() {
         loadMeasurementDataDay()
         loadMeasurementDataWeek()
@@ -83,7 +84,6 @@ class measurementsViewModel: ObservableObject{
                 
                 let jsonDecoder = JSONDecoder()
                 var measurements = try jsonDecoder.decode([Measurement].self, from: data)
-                //measurements.removeSubrange(10..<measurements.count)
                 measurements.sort(by: {$0.created_at! < $1.created_at!})
                 self.measurementsArrayDay = measurements
             } catch let error {
@@ -109,14 +109,14 @@ class measurementsViewModel: ObservableObject{
                 
                 let jsonDecoder = JSONDecoder()
                 var measurements = try jsonDecoder.decode([Measurement].self, from: data)
-                //measurements.removeSubrange(10..<measurements.count)
                 measurements.sort(by: {$0.created_at! < $1.created_at!})
-                self.measurementsArrayMonth = measurements
+                self.measurementsArrayMonth = self.makeDailyAvg(data: measurements)
             } catch let error {
                 print(error)
             }
         }).resume()
     }
+    
     func loadMeasurementDataWeek() {
         let df = DateFormatter()
         df.dateFormat = "yyyy-MM-ddThh:mm:ss"
@@ -135,13 +135,45 @@ class measurementsViewModel: ObservableObject{
                 
                 let jsonDecoder = JSONDecoder()
                 var measurements = try jsonDecoder.decode([Measurement].self, from: data)
-                //measurements.removeSubrange(10..<measurements.count)
                 measurements.sort(by: {$0.created_at! < $1.created_at!})
                 self.measurementsArrayWeek = measurements
             } catch let error {
                 print(error)
             }
         }).resume()
+    }
+    
+    func makeDailyAvg(data: [Measurement])->[Double]{
+        var plotData = [Double]()
+        let maxDate = createGoodDate(string: data[0].created_at!)
+        let minDate = createGoodDate(string: data[data.count-1].created_at!)
+        let dayCount = Calendar.current.dateComponents([.day], from: maxDate, to: minDate).day!
+        
+        for day in 0..<dayCount{
+            var meas = [Double]()
+            for measurement in 0..<data.count{
+                if Calendar.current.isDate(createGoodDate(string: data[measurement].created_at!), inSameDayAs: Calendar.current.date(byAdding: .day, value: day*1, to: maxDate)!){
+                    meas.append(data[measurement].temperature!)
+                }
+            }
+            var total = 0.0
+            for double in meas{
+                total+=double
+            }
+            let avg = total/Double(meas.count)
+            plotData.append(avg)
+        }
+        return plotData
+    }
+    
+    func createGoodDate(string: String)->Date{
+        var newDate = string
+        newDate.removeLast(5)
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        let date = dateFormatter.date(from:newDate)!
+        return date
     }
 }
 
