@@ -18,6 +18,9 @@
 		8D0D7FE824F10F610068176C /* LakesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE724F10F610068176C /* LakesData.swift */; };
 		8D0D7FEA24F1109A0068176C /* ScrollItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE924F1109A0068176C /* ScrollItem.swift */; };
 		8D4731B124F3F93200EE5536 /* WidgetSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4731B024F3F93200EE5536 /* WidgetSettingsView.swift */; };
+		8D49A37C250A506C000B26CD /* MultiFavWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D49A378250A4F27000B26CD /* MultiFavWidget.swift */; };
+		8D49A37E250A5095000B26CD /* MainWidgetFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D49A37D250A5095000B26CD /* MainWidgetFile.swift */; };
+		8D49A37F250A53D2000B26CD /* Measurements.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C24FE824EEB5AA00FB4F51 /* Measurements.swift */; };
 		8D5066E524F7F33400E426DE /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5066D324F7F33400E426DE /* LineChartView.swift */; };
 		8D5066E624F7F33400E426DE /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5066D324F7F33400E426DE /* LineChartView.swift */; };
 		8D5066E724F7F33400E426DE /* IndicatorPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5066D424F7F33400E426DE /* IndicatorPoint.swift */; };
@@ -54,12 +57,11 @@
 		8D6A7DC824F15187009A0026 /* SensorOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A7DC724F15187009A0026 /* SensorOverView.swift */; };
 		8D9B0FCF24F3A2E7003502C8 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D9B0FCE24F3A2E7003502C8 /* WidgetKit.framework */; };
 		8D9B0FD124F3A2E7003502C8 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D9B0FD024F3A2E7003502C8 /* SwiftUI.framework */; };
-		8D9B0FD424F3A2E7003502C8 /* GfroerliWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9B0FD324F3A2E7003502C8 /* GfroerliWidget.swift */; };
+		8D9B0FD424F3A2E7003502C8 /* SingleFavWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9B0FD324F3A2E7003502C8 /* SingleFavWidget.swift */; };
 		8D9B0FDA24F3A2E8003502C8 /* Widgets.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8D9B0FCC24F3A2E7003502C8 /* Widgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8D9B0FE424F3BEA4003502C8 /* WaveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9B0FE324F3BEA4003502C8 /* WaveShape.swift */; };
 		8D9B0FE524F3BEA4003502C8 /* WaveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9B0FE324F3BEA4003502C8 /* WaveShape.swift */; };
 		8D9B1AEA24F463290047FAC2 /* Sensors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C24FE624EEB58400FB4F51 /* Sensors.swift */; };
-		8D9B1AEB24F4632B0047FAC2 /* Measurements.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C24FE824EEB5AA00FB4F51 /* Measurements.swift */; };
 		8D9B1AEC24F463750047FAC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D9B0FD524F3A2E8003502C8 /* Assets.xcassets */; };
 		E438B4CC24ACFB7D008A2E01 /* iOSMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E438B4CB24ACFB7D008A2E01 /* iOSMainView.swift */; };
 		E44EA3AD24EEA7EA00380E27 /* MapExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44EA3AC24EEA7EA00380E27 /* MapExtension.swift */; };
@@ -123,6 +125,8 @@
 		8D4731B024F3F93200EE5536 /* WidgetSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSettingsView.swift; sourceTree = "<group>"; };
 		8D49A370250A3E6B000B26CD /* Gfror.liRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Gfror.liRelease.entitlements; sourceTree = "<group>"; };
 		8D49A371250A3F98000B26CD /* WidgetsRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetsRelease.entitlements; sourceTree = "<group>"; };
+		8D49A378250A4F27000B26CD /* MultiFavWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiFavWidget.swift; sourceTree = "<group>"; };
+		8D49A37D250A5095000B26CD /* MainWidgetFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWidgetFile.swift; sourceTree = "<group>"; };
 		8D5066D324F7F33400E426DE /* LineChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChartView.swift; sourceTree = "<group>"; };
 		8D5066D424F7F33400E426DE /* IndicatorPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorPoint.swift; sourceTree = "<group>"; };
 		8D5066D524F7F33400E426DE /* Legend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Legend.swift; sourceTree = "<group>"; };
@@ -144,7 +148,7 @@
 		8D9B0FCC24F3A2E7003502C8 /* Widgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Widgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D9B0FCE24F3A2E7003502C8 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		8D9B0FD024F3A2E7003502C8 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		8D9B0FD324F3A2E7003502C8 /* GfroerliWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GfroerliWidget.swift; sourceTree = "<group>"; };
+		8D9B0FD324F3A2E7003502C8 /* SingleFavWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleFavWidget.swift; sourceTree = "<group>"; };
 		8D9B0FD524F3A2E8003502C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D9B0FD724F3A2E8003502C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D9B0FDF24F3A35A003502C8 /* Gfror.li.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Gfror.li.entitlements; sourceTree = "<group>"; };
@@ -279,14 +283,22 @@
 		8D9B0FD224F3A2E7003502C8 /* GfroerliWidget */ = {
 			isa = PBXGroup;
 			children = (
-				8D49A371250A3F98000B26CD /* WidgetsRelease.entitlements */,
-				8D9B0FE024F3A3A3003502C8 /* GfroerliWidgetExtension.entitlements */,
-				8D9B0FD324F3A2E7003502C8 /* GfroerliWidget.swift */,
+				8DFCB3E8250A7A64007A966F /* WidgetGraph */,
+				8D9B0FD324F3A2E7003502C8 /* SingleFavWidget.swift */,
+				8D49A378250A4F27000B26CD /* MultiFavWidget.swift */,
+				8D49A37D250A5095000B26CD /* MainWidgetFile.swift */,
 				8D9B0FE324F3BEA4003502C8 /* WaveShape.swift */,
 				8D9B0FD524F3A2E8003502C8 /* Assets.xcassets */,
 				8D9B0FD724F3A2E8003502C8 /* Info.plist */,
 			);
 			path = GfroerliWidget;
+			sourceTree = "<group>";
+		};
+		8DFCB3E8250A7A64007A966F /* WidgetGraph */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WidgetGraph;
 			sourceTree = "<group>";
 		};
 		E438B4C924ACFB49008A2E01 /* iOSViews */ = {
@@ -316,6 +328,8 @@
 		E461456224A34823006233AE = {
 			isa = PBXGroup;
 			children = (
+				8D49A371250A3F98000B26CD /* WidgetsRelease.entitlements */,
+				8D9B0FE024F3A3A3003502C8 /* GfroerliWidgetExtension.entitlements */,
 				E461456724A34823006233AE /* Shared */,
 				E461457124A34831006233AE /* iOS */,
 				E461457824A34831006233AE /* macOS */,
@@ -595,6 +609,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D49A37E250A5095000B26CD /* MainWidgetFile.swift in Sources */,
 				8D04196C24F50353003D64D4 /* RiverData.swift in Sources */,
 				8D5066FE24F7F33400E426DE /* PieChartRow.swift in Sources */,
 				8D5066F224F7F33400E426DE /* MagnifierRect.swift in Sources */,
@@ -602,12 +617,12 @@
 				8D5066EE24F7F33400E426DE /* Path+QuadCurve.swift in Sources */,
 				8D5066F824F7F33400E426DE /* BarChartCell.swift in Sources */,
 				8D9B0FE524F3BEA4003502C8 /* WaveShape.swift in Sources */,
+				8D49A37C250A506C000B26CD /* MultiFavWidget.swift in Sources */,
 				8D5066F424F7F33400E426DE /* Line.swift in Sources */,
 				8D5066FA24F7F33400E426DE /* BarChartView.swift in Sources */,
-				8D9B0FD424F3A2E7003502C8 /* GfroerliWidget.swift in Sources */,
+				8D9B0FD424F3A2E7003502C8 /* SingleFavWidget.swift in Sources */,
 				8D5066E624F7F33400E426DE /* LineChartView.swift in Sources */,
 				8D5066EC24F7F33400E426DE /* MultiLineChartView.swift in Sources */,
-				8D9B1AEB24F4632B0047FAC2 /* Measurements.swift in Sources */,
 				8D5066F024F7F33400E426DE /* LineView.swift in Sources */,
 				8D50670224F7F33400E426DE /* PieChartCell.swift in Sources */,
 				8D50670424F7F33400E426DE /* Helpers.swift in Sources */,
@@ -616,6 +631,7 @@
 				8D50670024F7F33400E426DE /* PieChartView.swift in Sources */,
 				8D5066E824F7F33400E426DE /* IndicatorPoint.swift in Sources */,
 				8D04196B24F50353003D64D4 /* LakesData.swift in Sources */,
+				8D49A37F250A53D2000B26CD /* Measurements.swift in Sources */,
 				8D5066F624F7F33400E426DE /* LabelView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
