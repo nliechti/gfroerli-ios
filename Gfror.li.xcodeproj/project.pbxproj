@@ -121,6 +121,8 @@
 		8D0D7FE724F10F610068176C /* LakesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LakesData.swift; sourceTree = "<group>"; };
 		8D0D7FE924F1109A0068176C /* ScrollItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollItem.swift; sourceTree = "<group>"; };
 		8D4731B024F3F93200EE5536 /* WidgetSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSettingsView.swift; sourceTree = "<group>"; };
+		8D49A370250A3E6B000B26CD /* Gfror.liRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Gfror.liRelease.entitlements; sourceTree = "<group>"; };
+		8D49A371250A3F98000B26CD /* WidgetsRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetsRelease.entitlements; sourceTree = "<group>"; };
 		8D5066D324F7F33400E426DE /* LineChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChartView.swift; sourceTree = "<group>"; };
 		8D5066D424F7F33400E426DE /* IndicatorPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorPoint.swift; sourceTree = "<group>"; };
 		8D5066D524F7F33400E426DE /* Legend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Legend.swift; sourceTree = "<group>"; };
@@ -277,6 +279,8 @@
 		8D9B0FD224F3A2E7003502C8 /* GfroerliWidget */ = {
 			isa = PBXGroup;
 			children = (
+				8D49A371250A3F98000B26CD /* WidgetsRelease.entitlements */,
+				8D9B0FE024F3A3A3003502C8 /* GfroerliWidgetExtension.entitlements */,
 				8D9B0FD324F3A2E7003502C8 /* GfroerliWidget.swift */,
 				8D9B0FE324F3BEA4003502C8 /* WaveShape.swift */,
 				8D9B0FD524F3A2E8003502C8 /* Assets.xcassets */,
@@ -312,7 +316,6 @@
 		E461456224A34823006233AE = {
 			isa = PBXGroup;
 			children = (
-				8D9B0FE024F3A3A3003502C8 /* GfroerliWidgetExtension.entitlements */,
 				E461456724A34823006233AE /* Shared */,
 				E461457124A34831006233AE /* iOS */,
 				E461457824A34831006233AE /* macOS */,
@@ -350,6 +353,7 @@
 		E461457124A34831006233AE /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				8D49A370250A3E6B000B26CD /* Gfror.liRelease.entitlements */,
 				8D9B0FDF24F3A35A003502C8 /* Gfror.li.entitlements */,
 				E438B4C924ACFB49008A2E01 /* iOSViews */,
 				E461457224A34831006233AE /* Info.plist */,
@@ -729,7 +733,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = GfroerliWidgetExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = WidgetsRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T7M5358433;
 				INFOPLIST_FILE = GfroerliWidget/Info.plist;
@@ -893,7 +897,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = iOS/Gfror.li.entitlements;
+				CODE_SIGN_ENTITLEMENTS = iOS/Gfror.liRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T7M5358433;
 				ENABLE_PREVIEWS = YES;
