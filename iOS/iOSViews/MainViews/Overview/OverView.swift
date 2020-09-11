@@ -19,7 +19,13 @@ struct OverView: View {
                         .padding()
                     
                         ForEach(sensors.sensorArray){sensor in
-                            SensorScrollItem(sensor: sensor, region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: sensor.latitude!, longitude: sensor.longitude!), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)))
+                            
+                            NavigationLink(
+                                destination: SensorOverView(sensor: sensor),
+                                label: {
+                                    SensorScrollItem(sensor: sensor, region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: sensor.latitude!, longitude: sensor.longitude!), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)))
+                                }).buttonStyle(PlainButtonStyle())
+                           
                         }
                         
                     Divider()
