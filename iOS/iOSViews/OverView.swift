@@ -29,7 +29,6 @@ struct OverView: View {
                             }
                         }
                     }
-                    Divider()
                     Text("Lakes")
                         .font(.title2)
                         .bold()
@@ -46,7 +45,6 @@ struct OverView: View {
                             }
                         }
                     }
-                    Divider()
                     Text("Rivers")
                         .font(.title2)
                         .bold()
@@ -68,7 +66,7 @@ struct OverView: View {
                 
                 Spacer()
             }.navigationTitle("Gfrör.li")
-            .background(Color.gray.opacity(0.001))
+            
             
         }
     }

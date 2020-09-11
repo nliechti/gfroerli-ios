@@ -8,15 +8,17 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @State var activePath: String?
+    
     var body: some View {
         NavigationView{
             VStack{
                 Form{
                     Section(header:Text("General")){
-                        NavigationLink(destination: WidgetSettingsView(), label: {Text("Widget Settings")})
+                        NavigationLink(destination: WidgetSettingsView(), tag: "widgetSettings", selection: $activePath ,label: {Text("Widget Settings")})
                     }
                     Section(header:Text("Other")){
-                        NavigationLink(destination: Text("Privacy Policy"), label: {Text("Privacy Policy")})
+                        NavigationLink(destination: Text("Privacy Policy"),tag: "privacypolicy", selection: $activePath, label: {Text("Privacy Policy")})
                         
                         Link("Gfrör.li Website", destination: URL(string: "https://xn--gfrr-7qa.li/")!)
 
@@ -25,7 +27,6 @@ struct SettingsView: View {
                 }
             }.navigationTitle("Settings")
             .background(Color.gray.opacity(0.001))
-            
         }
     }
 }

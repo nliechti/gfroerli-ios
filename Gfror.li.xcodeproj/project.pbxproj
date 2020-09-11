@@ -17,10 +17,10 @@
 		8D0D7FE624F107D30068176C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE524F107D30068176C /* SettingsView.swift */; };
 		8D0D7FE824F10F610068176C /* LakesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE724F10F610068176C /* LakesData.swift */; };
 		8D0D7FEA24F1109A0068176C /* ScrollItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE924F1109A0068176C /* ScrollItem.swift */; };
+		8D318898250A943100506604 /* Measurements.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C24FE824EEB5AA00FB4F51 /* Measurements.swift */; };
 		8D4731B124F3F93200EE5536 /* WidgetSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4731B024F3F93200EE5536 /* WidgetSettingsView.swift */; };
 		8D49A37C250A506C000B26CD /* MultiFavWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D49A378250A4F27000B26CD /* MultiFavWidget.swift */; };
 		8D49A37E250A5095000B26CD /* MainWidgetFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D49A37D250A5095000B26CD /* MainWidgetFile.swift */; };
-		8D49A37F250A53D2000B26CD /* Measurements.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C24FE824EEB5AA00FB4F51 /* Measurements.swift */; };
 		8D5066E524F7F33400E426DE /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5066D324F7F33400E426DE /* LineChartView.swift */; };
 		8D5066E624F7F33400E426DE /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5066D324F7F33400E426DE /* LineChartView.swift */; };
 		8D5066E724F7F33400E426DE /* IndicatorPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5066D424F7F33400E426DE /* IndicatorPoint.swift */; };
@@ -63,6 +63,7 @@
 		8D9B0FE524F3BEA4003502C8 /* WaveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9B0FE324F3BEA4003502C8 /* WaveShape.swift */; };
 		8D9B1AEA24F463290047FAC2 /* Sensors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C24FE624EEB58400FB4F51 /* Sensors.swift */; };
 		8D9B1AEC24F463750047FAC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D9B0FD524F3A2E8003502C8 /* Assets.xcassets */; };
+		8DF3BBC9250B4F2700DBCC37 /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBC8250B4F2700DBCC37 /* URLExtension.swift */; };
 		E438B4CC24ACFB7D008A2E01 /* iOSMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E438B4CB24ACFB7D008A2E01 /* iOSMainView.swift */; };
 		E44EA3AD24EEA7EA00380E27 /* MapExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44EA3AC24EEA7EA00380E27 /* MapExtension.swift */; };
 		E461458424A34831006233AE /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = E461458324A34831006233AE /* Tests_iOS.swift */; };
@@ -154,6 +155,7 @@
 		8D9B0FDF24F3A35A003502C8 /* Gfror.li.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Gfror.li.entitlements; sourceTree = "<group>"; };
 		8D9B0FE024F3A3A3003502C8 /* GfroerliWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GfroerliWidgetExtension.entitlements; sourceTree = "<group>"; };
 		8D9B0FE324F3BEA4003502C8 /* WaveShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveShape.swift; sourceTree = "<group>"; };
+		8DF3BBC8250B4F2700DBCC37 /* URLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
 		E438B4CB24ACFB7D008A2E01 /* iOSMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSMainView.swift; sourceTree = "<group>"; };
 		E44EA3AC24EEA7EA00380E27 /* MapExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapExtension.swift; sourceTree = "<group>"; };
 		E461456824A34823006233AE /* GfrorliApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GfrorliApp.swift; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 			children = (
 				8D5066D124F7F33400E426DE /* SwiftUICharts */,
 				E44EA3AC24EEA7EA00380E27 /* MapExtension.swift */,
+				8DF3BBC8250B4F2700DBCC37 /* URLExtension.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -631,7 +634,7 @@
 				8D50670024F7F33400E426DE /* PieChartView.swift in Sources */,
 				8D5066E824F7F33400E426DE /* IndicatorPoint.swift in Sources */,
 				8D04196B24F50353003D64D4 /* LakesData.swift in Sources */,
-				8D49A37F250A53D2000B26CD /* Measurements.swift in Sources */,
+				8D318898250A943100506604 /* Measurements.swift in Sources */,
 				8D5066F624F7F33400E426DE /* LabelView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -669,6 +672,7 @@
 				8D50670324F7F33400E426DE /* Helpers.swift in Sources */,
 				8D5066E524F7F33400E426DE /* LineChartView.swift in Sources */,
 				8D6A7DC824F15187009A0026 /* SensorOverView.swift in Sources */,
+				8DF3BBC9250B4F2700DBCC37 /* URLExtension.swift in Sources */,
 				8D5066EF24F7F33400E426DE /* LineView.swift in Sources */,
 				E4C24FE924EEB5AA00FB4F51 /* Measurements.swift in Sources */,
 				8D0D7FE224F107B60068176C /* OverView.swift in Sources */,

@@ -10,6 +10,7 @@ import MapKit
 
 struct iOSMainView: View {
     @State var selectedTab = "Overview"
+    @State var pathComp: String?
     
     var body: some View {
         
@@ -17,11 +18,10 @@ struct iOSMainView: View {
             switch(selectedTab){
             case "Overview": OverView()
             case "Favorites": FavoritesView()
-            case "Settings": SettingsView()
+            case "Settings": SettingsView(activePath: pathComp)
             default: Text("YIKES")
             }
             
-            Spacer()
             
             HStack(spacing:0){
                 CostumTabBarButton(tab: $selectedTab, title: "Overview", imageName: "thermometer.sun")
@@ -35,6 +35,14 @@ struct iOSMainView: View {
             .padding(.horizontal, 35)
             .background(Color.gray.opacity(0.1))
         }.edgesIgnoringSafeArea(.all)
+        .onOpenURL(perform: { url in
+            guard let tabIdentifier = url.tabIdentifier else {
+                      return
+                    }
+            pathComp = url.pathComponents[1]
+            selectedTab=tabIdentifier
+        })
+        
     }
 }
 

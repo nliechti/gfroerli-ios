@@ -14,7 +14,7 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 import Foundation
 import Combine
 
-struct Measurement : Codable {
+struct Measurement : Codable ,Identifiable{
     init(id: Int?, temperature: Double?, custom_attributes: String?, sensor_id: Int?, created_at: String?, updated_at: String?) {
         self.id = id
         self.temperature = temperature

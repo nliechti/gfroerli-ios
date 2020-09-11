@@ -30,6 +30,7 @@ struct SingleProvider: TimelineProvider {
     }
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         print("timeline requested")
+        
         var date = Date()
         let update = Calendar.current.date(byAdding: .second,value: 30, to: date)
         getSingleSensor(id: 1) { (sens) in
@@ -63,7 +64,7 @@ func getMeasurements(id: Int,completion: @escaping ([Double]) -> ()){
     let session = URLSession.shared
     
     session.dataTask(with: request) { (data, _, err) in
-        
+        var values = [Double]()
         if err != nil{
             
             print(err!.localizedDescription)
@@ -73,14 +74,12 @@ func getMeasurements(id: Int,completion: @escaping ([Double]) -> ()){
         
         do{
             
-            let jsonDecoder = JSONDecoder()
-            var measurements = try jsonDecoder.decode([Measurement].self, from: data!)
-            var values = [Double]()
-            for meas in measurements{
+            let jsonData = try JSONDecoder().decode([Measurement].self, from: data!)
+            
+            for meas in jsonData{
                 values.append(meas.temperature!)
             }
-            
-            completion(values)
+                completion(values)
             
             
             
@@ -172,6 +171,7 @@ struct SingleFavWidgetViewSmall:View {
             }.padding()
         }
         .background(Color("GfroerliDarkBlue"))
+        .widgetURL(URL(string: "ch.coredump.gfroerli://settings/widgetSettings"))
     }
 }
 
@@ -251,14 +251,8 @@ struct SingleFavWidget: Widget {
 
 struct GfroerliWidget_Previews: PreviewProvider {
     static var previews: some View {
-        Text("f")
         Group{
-            smallWidgetView(entry: SingleProvider.Entry.init(date: Date(), name: "Test", temp: 22.0, data: [2.0, 20.3, 10.3, 18.9])).previewContext(WidgetPreviewContext(family: .systemSmall))
-                                        
-            smallWidgetView(entry: SingleProvider.Entry.init(date: Date(), name: "Configure in Settings", temp: 0.0, data: [2.0, 20.3, 10.3, 18.9] )).previewContext(WidgetPreviewContext(family: .systemSmall))
-             
-        smallWidgetView(entry: SingleProvider.Entry.init(date: Date(), name: "Test", temp: 22.0, data: [2.0, 20.3, 10.3, 18.9] )).previewContext(WidgetPreviewContext(family: .systemMedium))
-        smallWidgetView(entry: SingleProvider.Entry.init(date: Date(), name: "Configure in Settings", temp:     0.0, data: [2.0, 20.3, 10.3, 18.9] )).previewContext(WidgetPreviewContext(family: .systemMedium))
+            smallWidgetView(entry: SingleSensorEntry(name: "test", temp: 20.0, data: [30.0])).previewContext(WidgetPreviewContext(family: .systemSmall))
         }
     }
 }
