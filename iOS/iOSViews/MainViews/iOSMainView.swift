@@ -11,29 +11,35 @@ import MapKit
 struct iOSMainView: View {
     @State var selectedTab = "Overview"
     @State var pathComp: String?
+    @StateObject var sensorsVm = SensorViewModel()
     
     var body: some View {
         
         VStack(spacing: 0){
             switch(selectedTab){
-            case "Overview": OverView()
-            case "Favorites": FavoritesView()
-            case "Settings": SettingsView(activePath: pathComp)
+            case "Overview": OverView(sensors: sensorsVm)
+            case "Favorites": FavoritesView(sensorsVm: sensorsVm)
+            case "Settings": SettingsView(activePath: pathComp, sensorsVm: sensorsVm)
+            case "All": AllSensorView(sensorsVm: sensorsVm)
+
             default: Text("YIKES")
             }
-            
-            
+
             HStack(spacing:0){
                 CostumTabBarButton(tab: $selectedTab, title: "Overview", imageName: "thermometer.sun")
                 Spacer(minLength: 0)
+                CostumTabBarButton(tab: $selectedTab, title: "All", imageName: "line.horizontal.3.circle")
+                Spacer(minLength: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/)
                 CostumTabBarButton(tab: $selectedTab, title: "Favorites", imageName: "star")
                 Spacer(minLength: 0)
+                
                 CostumTabBarButton(tab: $selectedTab, title: "Settings", imageName: "gearshape")
             }.padding(.top)
             .padding(.bottom,UIApplication.shared.windows.first!.safeAreaInsets.bottom == 0 ? 15 : UIApplication.shared.windows.first!.safeAreaInsets.bottom)
             
             .padding(.horizontal, 35)
-            .background(Color.gray.opacity(0.1))
+            .background(Color(.systemGray5).opacity(0.5))
+            
         }.edgesIgnoringSafeArea(.all)
         .onOpenURL(perform: { url in
             guard let tabIdentifier = url.tabIdentifier else {
@@ -42,7 +48,6 @@ struct iOSMainView: View {
             pathComp = url.pathComponents[1]
             selectedTab=tabIdentifier
         })
-        
     }
 }
 

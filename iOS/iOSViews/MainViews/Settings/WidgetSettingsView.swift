@@ -9,7 +9,7 @@ import SwiftUI
 import WidgetKit
 
 struct WidgetSettingsView: View {
-    @ObservedObject var sensors = SensorViewModel()
+    @ObservedObject var sensors : SensorViewModel
     @AppStorage("widgetSensorID", store: UserDefaults(suiteName: "group.ch.test")) var widgetSensorID: Int = -1
 
     var body: some View {
@@ -19,7 +19,7 @@ struct WidgetSettingsView: View {
                     ForEach(sensors.sensorArray) {sensor in
                         SingleSelectionRow(title: sensor.device_name!, isSelected: widgetSensorID==sensor.id!) {
                             widgetSensorID=sensor.id!
-                            print(widgetSensorID)
+                            
                             WidgetCenter.shared.reloadAllTimelines()
                             
                         }
@@ -40,7 +40,7 @@ struct WidgetSettingsView: View {
 
 struct WidgetSettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        WidgetSettingsView()
+        WidgetSettingsView(sensors: SensorViewModel())
     }
 }
 
@@ -63,7 +63,6 @@ struct SingleSelectionRow: View {
             Text("")
         }.onTapGesture {
             self.action()
-            print("selected")
         }
     }
 }

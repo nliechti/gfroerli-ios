@@ -11,7 +11,7 @@ import MapKit
 struct FavoritesView: View {
     
     @State var favorites = UserDefaults(suiteName: "group.ch.gfroerli.gfroerli")?.array(forKey: "favoritesIDs") as? [Int] ?? [Int]()
-    @ObservedObject var sensorsVm = SensorViewModel()
+    @ObservedObject var sensorsVm : SensorViewModel
     
     var body: some View {
         NavigationView{
@@ -62,6 +62,6 @@ struct FavoritesView: View {
 
 struct FavoritesView_Previews: PreviewProvider {
     static var previews: some View {
-        FavoritesView()
+        FavoritesView(sensorsVm: SensorViewModel())
     }
 }

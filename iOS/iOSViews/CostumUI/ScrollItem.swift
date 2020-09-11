@@ -9,6 +9,9 @@ import SwiftUI
 import MapKit
 
 struct ScrollItem: View {
+    @Environment(\.colorScheme) var colorScheme
+
+    
     @State var sensorCount: Int
     @State var name: String
     @State var region: MKCoordinateRegion
@@ -27,13 +30,13 @@ struct ScrollItem: View {
                     Spacer()
                 }
             }.padding()
-            .background(Color.white)
+            .background((colorScheme == .dark ? Color(.systemGray6) : Color.white))
             
         }
                 .frame(width: 300, height: 250, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 .cornerRadius(15)
-                .shadow(color: Color.black.opacity(0.2), radius: 10, x: 10, y: 10)
-                .shadow(color: Color.white.opacity(0.7), radius: 10, x: -5, y: -5)
+                .shadow(color: (colorScheme == .dark ? Color.black.opacity(0.0) : Color.black.opacity(0.2)), radius: 10, x: 10, y: 10)
+                .shadow(color: (colorScheme == .dark ? Color.white.opacity(0.0) : Color.white.opacity(0.8)), radius: 10, x: -5, y: -5)
                 .padding(.bottom,10)
             
         
@@ -43,7 +46,11 @@ struct ScrollItem: View {
 
 struct LakeScrollItem_Previews: PreviewProvider {
     static var previews: some View {
+        Group{
         ScrollItem(sensorCount: lakeOfZurich.sensors.count, name: lakeOfZurich.name, region: lakeOfZurich.region)
+            ScrollItem(sensorCount: lakeOfZurich.sensors.count, name: lakeOfZurich.name, region: lakeOfZurich.region).environment(\.colorScheme, .dark)
+    }
+        
     }
 }
 

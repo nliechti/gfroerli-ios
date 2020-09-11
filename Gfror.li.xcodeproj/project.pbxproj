@@ -64,6 +64,8 @@
 		8D9B1AEA24F463290047FAC2 /* Sensors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C24FE624EEB58400FB4F51 /* Sensors.swift */; };
 		8D9B1AEC24F463750047FAC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D9B0FD524F3A2E8003502C8 /* Assets.xcassets */; };
 		8DF3BBC9250B4F2700DBCC37 /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBC8250B4F2700DBCC37 /* URLExtension.swift */; };
+		8DF3BBCB250B709700DBCC37 /* AllSensorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBCA250B709700DBCC37 /* AllSensorView.swift */; };
+		8DF3BBCD250B748800DBCC37 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBCC250B748800DBCC37 /* SearchBar.swift */; };
 		E438B4CC24ACFB7D008A2E01 /* iOSMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E438B4CB24ACFB7D008A2E01 /* iOSMainView.swift */; };
 		E44EA3AD24EEA7EA00380E27 /* MapExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44EA3AC24EEA7EA00380E27 /* MapExtension.swift */; };
 		E461458424A34831006233AE /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = E461458324A34831006233AE /* Tests_iOS.swift */; };
@@ -156,6 +158,8 @@
 		8D9B0FE024F3A3A3003502C8 /* GfroerliWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GfroerliWidgetExtension.entitlements; sourceTree = "<group>"; };
 		8D9B0FE324F3BEA4003502C8 /* WaveShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveShape.swift; sourceTree = "<group>"; };
 		8DF3BBC8250B4F2700DBCC37 /* URLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
+		8DF3BBCA250B709700DBCC37 /* AllSensorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSensorView.swift; sourceTree = "<group>"; };
+		8DF3BBCC250B748800DBCC37 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		E438B4CB24ACFB7D008A2E01 /* iOSMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSMainView.swift; sourceTree = "<group>"; };
 		E44EA3AC24EEA7EA00380E27 /* MapExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapExtension.swift; sourceTree = "<group>"; };
 		E461456824A34823006233AE /* GfrorliApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GfrorliApp.swift; sourceTree = "<group>"; };
@@ -222,6 +226,7 @@
 				8D0D7FDF24F102030068176C /* CostumTabBaButtonr.swift */,
 				8D0D7FE924F1109A0068176C /* ScrollItem.swift */,
 				8D04196724F50258003D64D4 /* SensorScrollItem.swift */,
+				8DF3BBCC250B748800DBCC37 /* SearchBar.swift */,
 			);
 			path = CostumUI;
 			sourceTree = "<group>";
@@ -296,6 +301,61 @@
 			path = GfroerliWidget;
 			sourceTree = "<group>";
 		};
+		8DF3BBCE250BB4A900DBCC37 /* MainViews */ = {
+			isa = PBXGroup;
+			children = (
+				E438B4CB24ACFB7D008A2E01 /* iOSMainView.swift */,
+				8DF3BBCF250BB4B700DBCC37 /* Overview */,
+				8DF3BBD2250BB4D000DBCC37 /* List */,
+				8DF3BBD1250BB4CA00DBCC37 /* Favorites */,
+				8DF3BBD0250BB4C300DBCC37 /* Settings */,
+			);
+			path = MainViews;
+			sourceTree = "<group>";
+		};
+		8DF3BBCF250BB4B700DBCC37 /* Overview */ = {
+			isa = PBXGroup;
+			children = (
+				8D0D7FE124F107B60068176C /* OverView.swift */,
+				8D6A7DC524F14115009A0026 /* LakeOverView.swift */,
+				8DF3BBD3250BB54C00DBCC37 /* SensorOverView */,
+			);
+			path = Overview;
+			sourceTree = "<group>";
+		};
+		8DF3BBD0250BB4C300DBCC37 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				8D0D7FE524F107D30068176C /* SettingsView.swift */,
+				8D4731B024F3F93200EE5536 /* WidgetSettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		8DF3BBD1250BB4CA00DBCC37 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				8D0D7FE324F107C10068176C /* FavoritesView.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		8DF3BBD2250BB4D000DBCC37 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				8DF3BBCA250B709700DBCC37 /* AllSensorView.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		8DF3BBD3250BB54C00DBCC37 /* SensorOverView */ = {
+			isa = PBXGroup;
+			children = (
+				8D6A7DC724F15187009A0026 /* SensorOverView.swift */,
+			);
+			path = SensorOverView;
+			sourceTree = "<group>";
+		};
 		8DFCB3E8250A7A64007A966F /* WidgetGraph */ = {
 			isa = PBXGroup;
 			children = (
@@ -306,14 +366,8 @@
 		E438B4C924ACFB49008A2E01 /* iOSViews */ = {
 			isa = PBXGroup;
 			children = (
+				8DF3BBCE250BB4A900DBCC37 /* MainViews */,
 				8D0D7FDE24F101E70068176C /* CostumUI */,
-				E438B4CB24ACFB7D008A2E01 /* iOSMainView.swift */,
-				8D6A7DC524F14115009A0026 /* LakeOverView.swift */,
-				8D6A7DC724F15187009A0026 /* SensorOverView.swift */,
-				8D0D7FE124F107B60068176C /* OverView.swift */,
-				8D0D7FE324F107C10068176C /* FavoritesView.swift */,
-				8D0D7FE524F107D30068176C /* SettingsView.swift */,
-				8D4731B024F3F93200EE5536 /* WidgetSettingsView.swift */,
 			);
 			path = iOSViews;
 			sourceTree = "<group>";
@@ -644,9 +698,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E461459124A34831006233AE /* GfrorliApp.swift in Sources */,
+				8DF3BBCB250B709700DBCC37 /* AllSensorView.swift in Sources */,
 				8D6A7DC624F14115009A0026 /* LakeOverView.swift in Sources */,
 				8D4731B124F3F93200EE5536 /* WidgetSettingsView.swift in Sources */,
 				8D5066EB24F7F33400E426DE /* MultiLineChartView.swift in Sources */,
+				8DF3BBCD250B748800DBCC37 /* SearchBar.swift in Sources */,
 				8D5066F724F7F33400E426DE /* BarChartCell.swift in Sources */,
 				8D9B0FE424F3BEA4003502C8 /* WaveShape.swift in Sources */,
 				E4C24FE724EEB58400FB4F51 /* Sensors.swift in Sources */,

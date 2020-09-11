@@ -11,7 +11,8 @@ import MapKit
 struct SensorScrollItem: View {
     var sensor: Sensor
     @State var region: MKCoordinateRegion
-    
+    @Environment(\.colorScheme) var colorScheme
+
     var body: some View {
         
         
@@ -28,13 +29,11 @@ struct SensorScrollItem: View {
                     .font(.footnote)
 
             }.padding()
-            .background(Color.white)
-            
+            .background((colorScheme == .dark ? Color(.systemGray6) : Color.white))
+
         }
-                .frame(width: 300, height: 250, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                .cornerRadius(15)
-                .shadow(color: Color.black.opacity(0.2), radius: 10, x: 10, y: 10)
-                .shadow(color: Color.white.opacity(0.7), radius: 10, x: -5, y: -5)
+        .frame(width: UIScreen.main.bounds.width, height: 250, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                
                 .padding(.bottom,10)
             
         

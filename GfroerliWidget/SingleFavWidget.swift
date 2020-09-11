@@ -55,7 +55,6 @@ func getMeasurements(id: Int,completion: @escaping ([Double]) -> ()){
     let df = DateFormatter()
     df.dateFormat = "yyyy-MM-ddThh:mm:ss"
     let now = df.string(from: Calendar.current.date(byAdding: .day, value:-1, to:Date())!)
-    print(now)
     var request = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/measurements?id="+String(id)+"&created_after=\(now)")!)
     var request2 = URLRequest(url: URL(string: "http://10.99.0.57:3000/api/measurements?id="+String(id)+"&created_after=\(now)")!)
     

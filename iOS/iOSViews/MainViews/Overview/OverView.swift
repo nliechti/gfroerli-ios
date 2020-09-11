@@ -8,29 +8,24 @@
 import SwiftUI
 import MapKit
 struct OverView: View {
-    @ObservedObject var sensors = SensorViewModel()
+    @ObservedObject var sensors : SensorViewModel
     var body: some View {
         NavigationView{
             ScrollView(.vertical){
                 VStack(alignment: .leading, spacing: 0){
-                    Text("Popular")
-                        .font(.title2)
+                    Text("Featured")
+                        .font(.title)
                         .bold()
-                        .padding([.horizontal,.top])
-                    ScrollView(.horizontal, showsIndicators: false){
-                        HStack(spacing:0){
-                            ForEach(sensors.sensorArray){ sensor in
-                                NavigationLink(
-                                    destination: SensorOverView(sensor: sensor),
-                                    label: {
-                                        SensorScrollItem(sensor: sensor, region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: sensor.latitude!, longitude: sensor.longitude!), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)))
-                                    }).buttonStyle(PlainButtonStyle())
-                                    .padding()
-                            }
+                        .padding()
+                    
+                        ForEach(sensors.sensorArray){sensor in
+                            SensorScrollItem(sensor: sensor, region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: sensor.latitude!, longitude: sensor.longitude!), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)))
                         }
-                    }
+                        
+                    Divider()
+                    
                     Text("Lakes")
-                        .font(.title2)
+                        .font(.title)
                         .bold()
                         .padding([.horizontal,.top])
                     ScrollView(.horizontal, showsIndicators: false){
@@ -46,7 +41,7 @@ struct OverView: View {
                         }
                     }
                     Text("Rivers")
-                        .font(.title2)
+                        .font(.title)
                         .bold()
                         .padding([.horizontal,.top])
                     ScrollView(.horizontal, showsIndicators: false){
@@ -64,6 +59,7 @@ struct OverView: View {
                     }
                 }
                 
+                
                 Spacer()
             }.navigationTitle("Gfrör.li")
             
@@ -75,13 +71,13 @@ struct OverView: View {
 struct OverView_Previews: PreviewProvider {
     static var previews: some View {
         Group{
-            OverView()
+            OverView(sensors: SensorViewModel())
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
                 .previewDisplayName("iPhone 11 Pro Max")
-            OverView()
+            OverView(sensors: SensorViewModel())
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
                 .previewDisplayName("iPhone 11 Pro")
-            OverView()
+            OverView(sensors: SensorViewModel())
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
                 .previewDisplayName("iPhone SE")
         }

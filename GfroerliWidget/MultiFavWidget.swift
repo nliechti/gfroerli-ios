@@ -76,7 +76,6 @@ struct MultiProvider: TimelineProvider {
         completion(entry)
     }
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        print("timeline requested")
         var date = Date()
         let update = Calendar.current.date(byAdding: .second,value: 30, to: date)
         getMultiSensorEntry(id: widgetSensorID){ (modelData) in
