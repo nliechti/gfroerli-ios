@@ -24,6 +24,7 @@ struct CostumTabBarButton: View {
                         .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
                     Text(title)
                         .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                        .font(.system(size: 15))
                     
                 }else{
                     Image(systemName: imageName)
@@ -32,6 +33,7 @@ struct CostumTabBarButton: View {
                         .foregroundColor(.gray)
                     Text(title)
                         .foregroundColor(.gray)
+                        .font(.system(size: 15))
                 }
             }
         })

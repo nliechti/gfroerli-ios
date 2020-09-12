@@ -180,8 +180,8 @@ struct SingleFavWidgetViewMedium:View {
     var body: some View{
         GeometryReader{ geo in
             ZStack(alignment: .center){
-                Wave(strength: 7, frequency: 8, offset: -30).fill(LinearGradient(gradient: Gradient(colors: [ Color.blue,Color("GfroerliBlue")]), startPoint: .bottom, endPoint: .top)).offset(y:30)
-                Wave(strength: 10, frequency: 10, offset: -40).fill(Color("GfroerliLightBlue").opacity(0.3)).offset(y:20).rotation3DEffect(
+                Wave(strength: 15, frequency: 16, offset: -300).fill(LinearGradient(gradient: Gradient(colors: [ Color.blue,Color("GfroerliBlue")]), startPoint: .bottom, endPoint: .top)).offset(y:30)
+                Wave(strength: 10, frequency: 12, offset: -10.0).fill(Color("GfroerliLightBlue").opacity(0.3)).offset(x:0,y:20).rotation3DEffect(
                     .degrees(180),
                     axis: (x: 0.0, y: 1.0, z: 0.0),
                     anchor: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/,

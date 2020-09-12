@@ -21,7 +21,7 @@ struct Wave: Shape {
         var path = Path()
 
         // calculate some important values up front
-        let width = Double(rect.width)
+        let width = Double(rect.width*2)
         let height = Double(rect.height)
         let midWidth = width / 2
         let midHeight = height / 2
