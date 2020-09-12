@@ -38,7 +38,32 @@ struct LakeOverView: View {
 
 struct LakeOverView_Previews: PreviewProvider {
     static var previews: some View {
-        LakeOverView(lake: lakeOfZurich)
+        Group{
+            LakeOverView(lake: lakeOfZurich)
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
+                .previewDisplayName("iPhone 11 Pro Max")
+            LakeOverView(lake: lakeOfZurich)
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
+                .previewDisplayName("iPhone 11 Pro")
+            LakeOverView(lake: lakeOfZurich)
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+                .previewDisplayName("iPhone SE")
+        }
+        Group{
+            LakeOverView(lake: lakeOfZurich)
+                .preferredColorScheme(.dark)
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
+                .previewDisplayName("iPhone 11 Pro Max Dark")
+            LakeOverView(lake: lakeOfZurich)
+                .preferredColorScheme(.dark)
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
+                .previewDisplayName("iPhone 11 Pro Dark")
+            LakeOverView(lake: lakeOfZurich)               .preferredColorScheme(.dark)
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+                .previewDisplayName("iPhone SE Dark")
+                
+        }
+        
     }
 }
 

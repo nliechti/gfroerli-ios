@@ -9,7 +9,6 @@ import SwiftUI
 
 
 struct CostumTabBarButton: View {
-    @Environment(\.colorScheme) var colorScheme
     @Binding var tab: String
     var title: String
     var imageName: String

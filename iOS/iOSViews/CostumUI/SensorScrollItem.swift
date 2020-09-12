@@ -44,7 +44,9 @@ struct SensorScrollItem: View {
 
 struct SensorScrollItem_Previews: PreviewProvider {
     static var previews: some View {
-       // SensorScrollItem()
-        EmptyView()
+        Group{
+            SensorScrollItem(sensor: testSensor, region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 0.0000, longitude: 0.000), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)))
+            SensorScrollItem(sensor: testSensor, region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 0.0000, longitude: 0.000), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))).preferredColorScheme(.dark)
+    }
     }
 }

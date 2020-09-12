@@ -20,6 +20,30 @@ struct SensorOverviewSponsorView: View {
 
 struct SensorOverviewSponsorView_Previews: PreviewProvider {
     static var previews: some View {
-        SensorOverviewSponsorView(sensor: Binding.constant(testSensor))
+        Group{
+            SensorOverviewSponsorView(sensor: Binding.constant(testSensor))
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
+                .previewDisplayName("iPhone 11 Pro Max")
+            SensorOverviewSponsorView(sensor: Binding.constant(testSensor))
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
+                .previewDisplayName("iPhone 11 Pro")
+            SensorOverviewSponsorView(sensor: Binding.constant(testSensor))
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+                .previewDisplayName("iPhone SE")
+        }
+        Group{
+            SensorOverviewSponsorView(sensor: Binding.constant(testSensor))
+                .preferredColorScheme(.dark)
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
+                .previewDisplayName("iPhone 11 Pro Max Dark")
+            SensorOverviewSponsorView(sensor: Binding.constant(testSensor))
+                .preferredColorScheme(.dark)
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
+                .previewDisplayName("iPhone 11 Pro Dark")
+            SensorOverviewSponsorView(sensor: Binding.constant(testSensor))                .preferredColorScheme(.dark)
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+                .previewDisplayName("iPhone SE Dark")
+                
+        }
     }
 }

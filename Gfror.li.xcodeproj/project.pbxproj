@@ -17,9 +17,10 @@
 		8D0D7FE624F107D30068176C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE524F107D30068176C /* SettingsView.swift */; };
 		8D0D7FE824F10F610068176C /* LakesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE724F10F610068176C /* LakesData.swift */; };
 		8D0D7FEA24F1109A0068176C /* ScrollItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE924F1109A0068176C /* ScrollItem.swift */; };
-		8D318898250A943100506604 /* Measurements.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C24FE824EEB5AA00FB4F51 /* Measurements.swift */; };
 		8D3D36F0250BBC8500F11E48 /* SensorOverViewGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3D36EF250BBC8500F11E48 /* SensorOverViewGraph.swift */; };
 		8D3D36F2250BBEF000F11E48 /* SensorOverviewSponsorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3D36F1250BBEF000F11E48 /* SensorOverviewSponsorView.swift */; };
+		8D3D376E250CBAAF00F11E48 /* Notes.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8D3D376D250CBAAF00F11E48 /* Notes.rtf */; };
+		8D3D376F250CBAAF00F11E48 /* Notes.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8D3D376D250CBAAF00F11E48 /* Notes.rtf */; };
 		8D4731B124F3F93200EE5536 /* WidgetSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4731B024F3F93200EE5536 /* WidgetSettingsView.swift */; };
 		8D49A37C250A506C000B26CD /* MultiFavWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D49A378250A4F27000B26CD /* MultiFavWidget.swift */; };
 		8D49A37E250A5095000B26CD /* MainWidgetFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D49A37D250A5095000B26CD /* MainWidgetFile.swift */; };
@@ -59,12 +60,13 @@
 		8D6A7DC824F15187009A0026 /* SensorOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A7DC724F15187009A0026 /* SensorOverView.swift */; };
 		8D9B0FCF24F3A2E7003502C8 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D9B0FCE24F3A2E7003502C8 /* WidgetKit.framework */; };
 		8D9B0FD124F3A2E7003502C8 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D9B0FD024F3A2E7003502C8 /* SwiftUI.framework */; };
-		8D9B0FD424F3A2E7003502C8 /* SingleFavWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9B0FD324F3A2E7003502C8 /* SingleFavWidget.swift */; };
 		8D9B0FDA24F3A2E8003502C8 /* Widgets.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8D9B0FCC24F3A2E7003502C8 /* Widgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8D9B0FE424F3BEA4003502C8 /* WaveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9B0FE324F3BEA4003502C8 /* WaveShape.swift */; };
 		8D9B0FE524F3BEA4003502C8 /* WaveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9B0FE324F3BEA4003502C8 /* WaveShape.swift */; };
 		8D9B1AEA24F463290047FAC2 /* Sensors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C24FE624EEB58400FB4F51 /* Sensors.swift */; };
 		8D9B1AEC24F463750047FAC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D9B0FD524F3A2E8003502C8 /* Assets.xcassets */; };
+		8DC0D495250CC499009E20B5 /* SingleFavWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9B0FD324F3A2E7003502C8 /* SingleFavWidget.swift */; };
+		8DC0D496250CC4A6009E20B5 /* Measurements.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C24FE824EEB5AA00FB4F51 /* Measurements.swift */; };
 		8DF3BBC9250B4F2700DBCC37 /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBC8250B4F2700DBCC37 /* URLExtension.swift */; };
 		8DF3BBCB250B709700DBCC37 /* AllSensorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBCA250B709700DBCC37 /* AllSensorView.swift */; };
 		8DF3BBCD250B748800DBCC37 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBCC250B748800DBCC37 /* SearchBar.swift */; };
@@ -132,6 +134,9 @@
 		8D0D7FE924F1109A0068176C /* ScrollItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollItem.swift; sourceTree = "<group>"; };
 		8D3D36EF250BBC8500F11E48 /* SensorOverViewGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorOverViewGraph.swift; sourceTree = "<group>"; };
 		8D3D36F1250BBEF000F11E48 /* SensorOverviewSponsorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorOverviewSponsorView.swift; sourceTree = "<group>"; };
+		8D3D3701250C190500F11E48 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = Library/Frameworks/IntentsUI.framework; sourceTree = DEVELOPER_DIR; };
+		8D3D3716250C1C3B00F11E48 /* SiriButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiriButton.swift; sourceTree = "<group>"; };
+		8D3D376D250CBAAF00F11E48 /* Notes.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Notes.rtf; sourceTree = "<group>"; };
 		8D4731B024F3F93200EE5536 /* WidgetSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSettingsView.swift; sourceTree = "<group>"; };
 		8D49A370250A3E6B000B26CD /* Gfror.liRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Gfror.liRelease.entitlements; sourceTree = "<group>"; };
 		8D49A371250A3F98000B26CD /* WidgetsRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetsRelease.entitlements; sourceTree = "<group>"; };
@@ -236,6 +241,7 @@
 				8D0D7FE924F1109A0068176C /* ScrollItem.swift */,
 				8D04196724F50258003D64D4 /* SensorScrollItem.swift */,
 				8DF3BBCC250B748800DBCC37 /* SearchBar.swift */,
+				8D3D3716250C1C3B00F11E48 /* SiriButton.swift */,
 			);
 			path = CostumUI;
 			sourceTree = "<group>";
@@ -292,6 +298,7 @@
 			children = (
 				8D9B0FCE24F3A2E7003502C8 /* WidgetKit.framework */,
 				8D9B0FD024F3A2E7003502C8 /* SwiftUI.framework */,
+				8D3D3701250C190500F11E48 /* IntentsUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -484,6 +491,7 @@
 			isa = PBXGroup;
 			children = (
 				E4C24FE524EEB57A00FB4F51 /* models */,
+				8D3D376D250CBAAF00F11E48 /* Notes.rtf */,
 			);
 			path = api;
 			sourceTree = "<group>";
@@ -654,6 +662,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D3D376E250CBAAF00F11E48 /* Notes.rtf in Resources */,
 				E461459524A34831006233AE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -662,6 +671,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D3D376F250CBAAF00F11E48 /* Notes.rtf in Resources */,
 				E461459624A34831006233AE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -693,24 +703,24 @@
 				8D5066F224F7F33400E426DE /* MagnifierRect.swift in Sources */,
 				8D5066EA24F7F33400E426DE /* Legend.swift in Sources */,
 				8D5066EE24F7F33400E426DE /* Path+QuadCurve.swift in Sources */,
+				8DC0D495250CC499009E20B5 /* SingleFavWidget.swift in Sources */,
 				8D5066F824F7F33400E426DE /* BarChartCell.swift in Sources */,
 				8D9B0FE524F3BEA4003502C8 /* WaveShape.swift in Sources */,
 				8D49A37C250A506C000B26CD /* MultiFavWidget.swift in Sources */,
 				8D5066F424F7F33400E426DE /* Line.swift in Sources */,
 				8D5066FA24F7F33400E426DE /* BarChartView.swift in Sources */,
-				8D9B0FD424F3A2E7003502C8 /* SingleFavWidget.swift in Sources */,
 				8D5066E624F7F33400E426DE /* LineChartView.swift in Sources */,
 				8DF3BBD9250BB6BB00DBCC37 /* OwnHelpers.swift in Sources */,
 				8D5066EC24F7F33400E426DE /* MultiLineChartView.swift in Sources */,
 				8D5066F024F7F33400E426DE /* LineView.swift in Sources */,
 				8D50670224F7F33400E426DE /* PieChartCell.swift in Sources */,
 				8D50670424F7F33400E426DE /* Helpers.swift in Sources */,
+				8DC0D496250CC4A6009E20B5 /* Measurements.swift in Sources */,
 				8D5066FC24F7F33400E426DE /* BarChartRow.swift in Sources */,
 				8D9B1AEA24F463290047FAC2 /* Sensors.swift in Sources */,
 				8D50670024F7F33400E426DE /* PieChartView.swift in Sources */,
 				8D5066E824F7F33400E426DE /* IndicatorPoint.swift in Sources */,
 				8D04196B24F50353003D64D4 /* LakesData.swift in Sources */,
-				8D318898250A943100506604 /* Measurements.swift in Sources */,
 				8D5066F624F7F33400E426DE /* LabelView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -35,7 +35,7 @@ struct iOSMainView: View {
                 
                 CostumTabBarButton(tab: $selectedTab, title: "Settings", imageName: "gearshape")
             }.padding(.top)
-            .padding(.bottom,UIApplication.shared.windows.first!.safeAreaInsets.bottom == 0 ? 15 : UIApplication.shared.windows.first!.safeAreaInsets.bottom)
+            .padding(.bottom, 15)
             
             .padding(.horizontal, 35)
             .background(Color(.systemGray5).opacity(0.5))
@@ -63,6 +63,20 @@ struct iOSMainView_Previews: PreviewProvider {
             iOSMainView()
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
                 .previewDisplayName("iPhone SE")
+        }
+        Group{
+            iOSMainView()
+                .preferredColorScheme(.dark)
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
+                .previewDisplayName("iPhone 11 Pro Max Dark")
+            iOSMainView()
+                .preferredColorScheme(.dark)
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
+                .previewDisplayName("iPhone 11 Pro Dark")
+            iOSMainView()                .preferredColorScheme(.dark)
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+                .previewDisplayName("iPhone SE Dark")
+                
         }
     }
 }

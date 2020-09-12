@@ -87,5 +87,19 @@ struct OverView_Previews: PreviewProvider {
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
                 .previewDisplayName("iPhone SE")
         }
+        Group{
+            OverView(sensors: SensorViewModel())
+                .preferredColorScheme(.dark)
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
+                .previewDisplayName("iPhone 11 Pro Max Dark")
+            OverView(sensors: SensorViewModel())
+                .preferredColorScheme(.dark)
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
+                .previewDisplayName("iPhone 11 Pro Dark")
+            OverView(sensors: SensorViewModel())               .preferredColorScheme(.dark)
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+                .previewDisplayName("iPhone SE Dark")
+                
+        }
     }
 }

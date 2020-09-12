@@ -37,6 +37,30 @@ struct AllSensorView: View {
 
 struct AllSensorView_Previews: PreviewProvider {
     static var previews: some View {
-        AllSensorView(sensorsVm: SensorViewModel())
+        Group{
+            AllSensorView(sensorsVm: SensorViewModel())
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
+                .previewDisplayName("iPhone 11 Pro Max")
+            AllSensorView(sensorsVm: SensorViewModel())
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
+                .previewDisplayName("iPhone 11 Pro")
+            AllSensorView(sensorsVm: SensorViewModel())
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+                .previewDisplayName("iPhone SE")
+        }
+        Group{
+            AllSensorView(sensorsVm: SensorViewModel())
+                .preferredColorScheme(.dark)
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
+                .previewDisplayName("iPhone 11 Pro Max Dark")
+            AllSensorView(sensorsVm: SensorViewModel())
+                .preferredColorScheme(.dark)
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
+                .previewDisplayName("iPhone 11 Pro Dark")
+            AllSensorView(sensorsVm: SensorViewModel())                .preferredColorScheme(.dark)
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+                .previewDisplayName("iPhone SE Dark")
+                
+        }
     }
 }

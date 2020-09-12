@@ -73,7 +73,7 @@ func getMeasurements(id: Int,completion: @escaping ([Double]) -> ()){
         
         do{
             
-            let jsonData = try JSONDecoder().decode([Measurement].self, from: data!)
+            let jsonData = try JSONDecoder().decode([Measure].self, from: data!)
             
             for meas in jsonData{
                 values.append(meas.temperature!)
@@ -252,6 +252,14 @@ struct GfroerliWidget_Previews: PreviewProvider {
     static var previews: some View {
         Group{
             smallWidgetView(entry: SingleSensorEntry(name: "test", temp: 20.0, data: [30.0])).previewContext(WidgetPreviewContext(family: .systemSmall))
+            smallWidgetView(entry: SingleSensorEntry(name: "test", temp: 20.0, data: [30.0])).previewContext(WidgetPreviewContext(family: .systemSmall))
+                .preferredColorScheme(.dark)
+            smallWidgetView(entry: SingleSensorEntry(name: "test", temp: 20.0, data: [30.0])).previewContext(WidgetPreviewContext(family: .systemMedium))
+            smallWidgetView(entry: SingleSensorEntry(name: "test", temp: 20.0, data: [30.0]))
+                .preferredColorScheme(.dark)
+                .previewContext(WidgetPreviewContext(family: .systemMedium))
+                
         }
     }
 }
+

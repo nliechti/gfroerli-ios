@@ -29,3 +29,11 @@ public func createDateStringfromStringDate(string: String)->String{
     return stringFormatter.string(from: date)
     
 }
+
+public func createStringFromDate(date: Date)->String{
+    
+    let stringFormatter = DateFormatter()
+    stringFormatter.dateFormat = "HH:mm, d. MMMM y"
+    return stringFormatter.string(from: date)
+    
+}

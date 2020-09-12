@@ -34,7 +34,32 @@ struct SensorOverViewGraph: View {
 
 struct SensorOverViewGraph_Previews: PreviewProvider {
     static var previews: some View {
-        SensorOverViewGraph()
+        Group{
+            SensorOverViewGraph()
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
+                .previewDisplayName("iPhone 11 Pro Max")
+            SensorOverViewGraph()
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
+                .previewDisplayName("iPhone 11 Pro")
+            SensorOverViewGraph()
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+                .previewDisplayName("iPhone SE")
+        }
+        Group{
+            SensorOverViewGraph()
+                .preferredColorScheme(.dark)
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
+                .previewDisplayName("iPhone 11 Pro Max Dark")
+            SensorOverViewGraph()
+                .preferredColorScheme(.dark)
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
+                .previewDisplayName("iPhone 11 Pro Dark")
+            SensorOverViewGraph()
+                .preferredColorScheme(.dark)
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+                .previewDisplayName("iPhone SE Dark")
+                
+        }
     }
 }
 struct DayChart: View {
@@ -57,7 +82,7 @@ struct DayChart: View {
             }.frame(height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         }
     }
-    func makeDate(data: [Measurement])->[Double]{
+    func makeDate(data: [Measure])->[Double]{
         var plotData = [Double]()
         for meas in data{
             plotData.append(meas.temperature!)
@@ -85,7 +110,7 @@ struct WeekChart: View {
             }.frame(height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         }
     }
-    func makeDate(data: [Measurement])->[Double]{
+    func makeDate(data: [Measure])->[Double]{
         var plotData = [Double]()
         for meas in data{
             plotData.append(meas.temperature!)

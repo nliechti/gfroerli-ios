@@ -33,6 +33,29 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView(activePath: nil, sensorsVm: SensorViewModel())
+        Group{
+            SettingsView(activePath: nil, sensorsVm: SensorViewModel())
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
+                .previewDisplayName("iPhone 11 Pro Max")
+            SettingsView(activePath: nil, sensorsVm: SensorViewModel())
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
+                .previewDisplayName("iPhone 11 Pro")
+            SettingsView(activePath: nil, sensorsVm: SensorViewModel())
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+                .previewDisplayName("iPhone SE")
+        }
+        Group{
+            SettingsView(activePath: nil, sensorsVm: SensorViewModel())
+                .preferredColorScheme(.dark)
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
+                .previewDisplayName("iPhone 11 Pro Max Dark")
+            SettingsView(activePath: nil, sensorsVm: SensorViewModel())
+                .preferredColorScheme(.dark)
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
+                .previewDisplayName("iPhone 11 Pro Dark")
+            SettingsView(activePath: nil, sensorsVm: SensorViewModel())                .preferredColorScheme(.dark)
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+                .previewDisplayName("iPhone SE Dark")
+        }
     }
 }

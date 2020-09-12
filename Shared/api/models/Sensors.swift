@@ -50,7 +50,7 @@ class SensorViewModel: ObservableObject {
 }
 
 struct Sensor: Codable, Identifiable {
-    init(id: Int?, device_name: String?, caption: String?, latitude: Double?, longitude: Double?, sponsor_id: Int?, measurement_ids: [Int]?, created_at: String?, updated_at: String?, last_measurement: Measurement?, url: String?) {
+    init(id: Int?, device_name: String?, caption: String?, latitude: Double?, longitude: Double?, sponsor_id: Int?, measurement_ids: [Int]?, created_at: String?, updated_at: String?, last_measurement: Measure?, url: String?) {
         self.id = id
         self.device_name = device_name
         self.caption = caption
@@ -73,7 +73,7 @@ struct Sensor: Codable, Identifiable {
     let measurement_ids : [Int]?
     let created_at : String?
     let updated_at : String?
-    let last_measurement : Measurement?
+    let last_measurement : Measure?
     let url : String?
 
     enum CodingKeys: String, CodingKey {
@@ -103,7 +103,7 @@ struct Sensor: Codable, Identifiable {
         measurement_ids = try values.decodeIfPresent([Int].self, forKey: .measurement_ids)
         created_at = try values.decodeIfPresent(String.self, forKey: .created_at)
         updated_at = try values.decodeIfPresent(String.self, forKey: .updated_at)
-        last_measurement = try values.decodeIfPresent(Measurement.self, forKey: .last_measurement)
+        last_measurement = try values.decodeIfPresent(Measure.self, forKey: .last_measurement)
         url = try values.decodeIfPresent(String.self, forKey: .url)
     }
 }

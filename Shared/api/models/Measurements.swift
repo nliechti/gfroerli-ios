@@ -14,7 +14,7 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 import Foundation
 import Combine
 
-struct Measurement : Codable ,Identifiable{
+struct Measure: Codable ,Identifiable{
     init(id: Int?, temperature: Double?, custom_attributes: String?, sensor_id: Int?, created_at: String?, updated_at: String?) {
         self.id = id
         self.temperature = temperature
@@ -56,8 +56,8 @@ struct Measurement : Codable ,Identifiable{
 class measurementsViewModel: ObservableObject{
     let didChange = PassthroughSubject<Void, Never>()
     
-    @Published var measurementsArrayDay = [Measurement]() { didSet { didChange.send(())}}
-    @Published var measurementsArrayWeek = [Measurement]() { didSet { didChange.send(())}}
+    @Published var measurementsArrayDay = [Measure]() { didSet { didChange.send(())}}
+    @Published var measurementsArrayWeek = [Measure]() { didSet { didChange.send(())}}
     @Published var measurementsArrayMonth = [Double]() { didSet { didChange.send(())}}
     
     init() {
@@ -82,7 +82,7 @@ class measurementsViewModel: ObservableObject{
                 guard let data = data else {return}
                 
                 let jsonDecoder = JSONDecoder()
-                var measurements = try jsonDecoder.decode([Measurement].self, from: data)
+                var measurements = try jsonDecoder.decode([Measure].self, from: data)
                 measurements.sort(by: {$0.created_at! < $1.created_at!})
                 self.measurementsArrayDay = measurements
             } catch let error {
@@ -106,7 +106,7 @@ class measurementsViewModel: ObservableObject{
                 guard let data = data else {return}
                 
                 let jsonDecoder = JSONDecoder()
-                var measurements = try jsonDecoder.decode([Measurement].self, from: data)
+                var measurements = try jsonDecoder.decode([Measure].self, from: data)
                 measurements.sort(by: {$0.created_at! < $1.created_at!})
                 self.measurementsArrayMonth = self.makeDailyAvg(data: measurements)
             } catch let error {
@@ -131,7 +131,7 @@ class measurementsViewModel: ObservableObject{
                 guard let data = data else {return}
                 
                 let jsonDecoder = JSONDecoder()
-                var measurements = try jsonDecoder.decode([Measurement].self, from: data)
+                var measurements = try jsonDecoder.decode([Measure].self, from: data)
                 measurements.sort(by: {$0.created_at! < $1.created_at!})
                 self.measurementsArrayWeek = measurements
             } catch let error {
@@ -140,7 +140,7 @@ class measurementsViewModel: ObservableObject{
         }).resume()
     }
     
-    func makeDailyAvg(data: [Measurement])->[Double]{
+    func makeDailyAvg(data: [Measure])->[Double]{
         var plotData = [Double]()
         let maxDate = createGoodDate(string: data[0].created_at!)
         let minDate = createGoodDate(string: data[data.count-1].created_at!)
@@ -175,4 +175,4 @@ class measurementsViewModel: ObservableObject{
 }
 
 
-let measurement1 = Measurement(id: 1, temperature: 22.0022, custom_attributes: "", sensor_id: 2, created_at: "created Date", updated_at: "updatedDate")
+let measurement1 = Measure(id: 1, temperature: 22.0022, custom_attributes: "", sensor_id: 2, created_at: createStringFromDate(date: Date()), updated_at: createStringFromDate(date: Date()))

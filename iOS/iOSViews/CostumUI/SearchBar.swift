@@ -16,7 +16,7 @@ struct SearchBar: View {
         HStack {
             HStack {
                 TextField("Search terms here", text: $searchText)
-                    .padding(.leading, 24)
+                    .padding(.leading, 30)
             }
             .padding(8)
             .background(Color(.systemGray5))
@@ -64,6 +64,10 @@ struct SearchBar: View {
 
 struct SearchBar_Previews: PreviewProvider {
     static var previews: some View {
+        Group{
         SearchBar(searchText: Binding.constant(""), isSearching: Binding.constant(false))
+        SearchBar(searchText: Binding.constant(""), isSearching: Binding.constant(false)).preferredColorScheme(.dark)
+
+        }
     }
 }

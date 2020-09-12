@@ -18,9 +18,10 @@ struct SensorOverView: View {
     var body: some View {
         
         VStack(alignment:.leading){
-            SensorOverviewLastMeasurementView(sensor: $sensor).padding(.bottom)
+            SensorOverviewLastMeasurementView(sensor: sensor).padding(.bottom)
             SensorOverViewGraph()
             SensorOverviewSponsorView(sensor: $sensor)
+           
             Spacer()
         }.padding()
         .onAppear {
@@ -51,8 +52,33 @@ struct SensorOverView: View {
 
 struct SensorOverView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView{
+        Group{
+            
+            SensorOverView(sensor:testSensor)
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
+                .previewDisplayName("iPhone 11 Pro Max")
             SensorOverView(sensor: testSensor)
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
+                .previewDisplayName("iPhone 11 Pro")
+            SensorOverView(sensor: testSensor)
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+                .previewDisplayName("iPhone SE")
+        }
+        
+        Group{
+            SensorOverView(sensor:testSensor)
+                .preferredColorScheme(.dark)
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
+                .previewDisplayName("iPhone 11 Pro Max Dark")
+            SensorOverView(sensor: testSensor)
+                .preferredColorScheme(.dark)
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
+                .previewDisplayName("iPhone 11 Pro Dark")
+            SensorOverView(sensor: testSensor)
+                .preferredColorScheme(.dark)
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+                .previewDisplayName("iPhone SE Dark")
+                
         }
     }
 }

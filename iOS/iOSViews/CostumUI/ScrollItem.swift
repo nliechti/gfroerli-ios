@@ -48,7 +48,7 @@ struct LakeScrollItem_Previews: PreviewProvider {
     static var previews: some View {
         Group{
         ScrollItem(sensorCount: lakeOfZurich.sensors.count, name: lakeOfZurich.name, region: lakeOfZurich.region)
-            ScrollItem(sensorCount: lakeOfZurich.sensors.count, name: lakeOfZurich.name, region: lakeOfZurich.region).environment(\.colorScheme, .dark)
+            ScrollItem(sensorCount: lakeOfZurich.sensors.count, name: lakeOfZurich.name, region: lakeOfZurich.region).preferredColorScheme(.dark)
     }
         
     }
