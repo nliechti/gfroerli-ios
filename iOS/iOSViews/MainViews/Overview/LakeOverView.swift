@@ -10,7 +10,7 @@ import MapKit
 
 struct LakeOverView: View {
     var lake : Lake
-    @StateObject var sensors = SensorViewModel()
+    @ObservedObject var sensors : SensorViewModel
     var body: some View {
         VStack(alignment: .leading) {
             topMap(lake: lake, region: lake.region, sensors: sensors)
@@ -39,26 +39,26 @@ struct LakeOverView: View {
 struct LakeOverView_Previews: PreviewProvider {
     static var previews: some View {
         Group{
-            LakeOverView(lake: lakeOfZurich)
+            LakeOverView(lake: lakeOfZurich, sensors: testSensorVM)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
                 .previewDisplayName("iPhone 11 Pro Max")
-            LakeOverView(lake: lakeOfZurich)
+            LakeOverView(lake: lakeOfZurich, sensors: testSensorVM)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
                 .previewDisplayName("iPhone 11 Pro")
-            LakeOverView(lake: lakeOfZurich)
+            LakeOverView(lake: lakeOfZurich, sensors: testSensorVM)
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
                 .previewDisplayName("iPhone SE")
         }
         Group{
-            LakeOverView(lake: lakeOfZurich)
+            LakeOverView(lake: lakeOfZurich, sensors: testSensorVM)
                 .preferredColorScheme(.dark)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
                 .previewDisplayName("iPhone 11 Pro Max Dark")
-            LakeOverView(lake: lakeOfZurich)
+            LakeOverView(lake: lakeOfZurich, sensors: testSensorVM)
                 .preferredColorScheme(.dark)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
                 .previewDisplayName("iPhone 11 Pro Dark")
-            LakeOverView(lake: lakeOfZurich)               .preferredColorScheme(.dark)
+            LakeOverView(lake: lakeOfZurich, sensors: testSensorVM)               .preferredColorScheme(.dark)
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
                 .previewDisplayName("iPhone SE Dark")
                 

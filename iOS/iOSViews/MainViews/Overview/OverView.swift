@@ -38,7 +38,7 @@ struct OverView: View {
                         HStack(spacing:0){
                             ForEach(lakes){ lake in
                                 NavigationLink(
-                                    destination: LakeOverView(lake: lake),
+                                    destination: LakeOverView(lake: lake, sensors: sensors),
                                     label: {
                                         ScrollItem(sensorCount: lake.sensors.count, name: lake.name, region: lake.region)
                                     }).buttonStyle(PlainButtonStyle())
@@ -77,26 +77,27 @@ struct OverView: View {
 struct OverView_Previews: PreviewProvider {
     static var previews: some View {
         Group{
-            OverView(sensors: SensorViewModel())
+            OverView(sensors: testSensorVM)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
                 .previewDisplayName("iPhone 11 Pro Max")
-            OverView(sensors: SensorViewModel())
+            OverView(sensors: testSensorVM)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
                 .previewDisplayName("iPhone 11 Pro")
-            OverView(sensors: SensorViewModel())
+            OverView(sensors: testSensorVM)
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
                 .previewDisplayName("iPhone SE")
         }
         Group{
-            OverView(sensors: SensorViewModel())
+            OverView(sensors: testSensorVM)
                 .preferredColorScheme(.dark)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
                 .previewDisplayName("iPhone 11 Pro Max Dark")
-            OverView(sensors: SensorViewModel())
+            OverView(sensors: testSensorVM)
                 .preferredColorScheme(.dark)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
                 .previewDisplayName("iPhone 11 Pro Dark")
-            OverView(sensors: SensorViewModel())               .preferredColorScheme(.dark)
+            OverView(sensors: testSensorVM)
+                .preferredColorScheme(.dark)
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
                 .previewDisplayName("iPhone SE Dark")
                 

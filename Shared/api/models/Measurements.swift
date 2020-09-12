@@ -53,7 +53,7 @@ struct Measure: Codable ,Identifiable{
 
 }
 
-class measurementsViewModel: ObservableObject{
+class MeasurementsVM: ObservableObject{
     let didChange = PassthroughSubject<Void, Never>()
     
     @Published var measurementsArrayDay = [Measure]() { didSet { didChange.send(())}}
@@ -66,6 +66,11 @@ class measurementsViewModel: ObservableObject{
         loadMeasurementDataMonth()
     }
 
+    init(measurements: [Measure]) {
+        measurementsArrayDay = measurements
+        measurementsArrayWeek = measurements
+        measurementsArrayMonth = [0.0,5.0,10.0,15.0,20.0,25.0]
+    }
     func loadMeasurementDataDay() {
         let df = DateFormatter()
         df.dateFormat = "yyyy-MM-ddThh:mm:ss"
@@ -175,4 +180,15 @@ class measurementsViewModel: ObservableObject{
 }
 
 
-let measurement1 = Measure(id: 1, temperature: 22.0022, custom_attributes: "", sensor_id: 2, created_at: createStringFromDate(date: Date()), updated_at: createStringFromDate(date: Date()))
+let measurement1 = Measure(id: 1, temperature: 0.0, custom_attributes: "", sensor_id: 2, created_at: createStringFromDate(date: Date()), updated_at: createStringFromDate(date: Date()))
+let measurement2 = Measure(id: 1, temperature: 5.0, custom_attributes: "", sensor_id: 2, created_at: createStringFromDate(date: Date()), updated_at: createStringFromDate(date: Date()))
+let measurement3 = Measure(id: 1, temperature: 10.0, custom_attributes: "", sensor_id: 2, created_at: createStringFromDate(date: Date()), updated_at: createStringFromDate(date: Date()))
+let measurement4 = Measure(id: 1, temperature: 15.0, custom_attributes: "", sensor_id: 2, created_at: createStringFromDate(date: Date()), updated_at: createStringFromDate(date: Date()))
+let measurement5 = Measure(id: 1, temperature: 20.0, custom_attributes: "", sensor_id: 2, created_at: createStringFromDate(date: Date()), updated_at: createStringFromDate(date: Date()))
+let measurement6 = Measure(id: 1, temperature: 25.0, custom_attributes: "", sensor_id: 2, created_at: createStringFromDate(date: Date()), updated_at: createStringFromDate(date: Date()))
+let measurement7 = Measure(id: 1, temperature: 30.0, custom_attributes: "", sensor_id: 2, created_at: createStringFromDate(date: Date()), updated_at: createStringFromDate(date: Date()))
+let measurement8 = Measure(id: 1, temperature: 0.0, custom_attributes: "", sensor_id: 2, created_at: createStringFromDate(date: Date()), updated_at: createStringFromDate(date: Date()))
+let measurement9 = Measure(id: 1, temperature: 15.0, custom_attributes: "", sensor_id: 2, created_at: createStringFromDate(date: Date()), updated_at: createStringFromDate(date: Date()))
+let measurement10 = Measure(id: 1, temperature: 25.0, custom_attributes: "", sensor_id: 2, created_at: createStringFromDate(date: Date()), updated_at: createStringFromDate(date: Date()))
+
+let testmeasVM = MeasurementsVM(measurements: [measurement1,measurement2,measurement3,measurement4,measurement5,measurement6,measurement7,measurement8,measurement9,measurement10])

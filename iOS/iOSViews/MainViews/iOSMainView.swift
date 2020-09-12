@@ -54,26 +54,26 @@ struct iOSMainView: View {
 struct iOSMainView_Previews: PreviewProvider {
     static var previews: some View {
         Group{
-            iOSMainView()
+            iOSMainView(sensorsVm: testSensorVM)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
                 .previewDisplayName("iPhone 11 Pro Max")
-            iOSMainView()
+            iOSMainView(sensorsVm: testSensorVM)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
                 .previewDisplayName("iPhone 11 Pro")
-            iOSMainView()
+            iOSMainView(sensorsVm: testSensorVM)
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
                 .previewDisplayName("iPhone SE")
         }
         Group{
-            iOSMainView()
+            iOSMainView(sensorsVm: testSensorVM)
                 .preferredColorScheme(.dark)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
                 .previewDisplayName("iPhone 11 Pro Max Dark")
-            iOSMainView()
+            iOSMainView(sensorsVm: testSensorVM)
                 .preferredColorScheme(.dark)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
                 .previewDisplayName("iPhone 11 Pro Dark")
-            iOSMainView()                .preferredColorScheme(.dark)
+            iOSMainView(sensorsVm: testSensorVM)                .preferredColorScheme(.dark)
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
                 .previewDisplayName("iPhone SE Dark")
                 

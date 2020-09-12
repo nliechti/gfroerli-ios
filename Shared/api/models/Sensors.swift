@@ -110,3 +110,5 @@ struct Sensor: Codable, Identifiable {
 
 
 let testSensor = Sensor(id: 2, device_name: "testSensor", caption: "caption", latitude: 47.28073, longitude: 8.72869, sponsor_id: 0, measurement_ids: [Int](), created_at: "23.2.2200", updated_at: "23.2.2200", last_measurement: measurement1, url: "none")
+
+let testSensorVM = SensorViewModel(sensors: [testSensor])

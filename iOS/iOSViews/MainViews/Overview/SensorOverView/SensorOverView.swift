@@ -11,8 +11,7 @@ struct SensorOverView: View {
     
     @State var sensor: Sensor
     @State var isFav = false
-    @State var pickerSelection = 0
-    @State var pickerOptions = ["Day", "Week", "Month"]
+   
     
     @State var favorites  = UserDefaults(suiteName: "group.ch.gfroerli.gfroerli")?.array(forKey: "favoritesIDs") as? [Int] ?? [Int]()
     var body: some View {

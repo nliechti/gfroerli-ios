@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SensorOverViewGraph: View {
-    @StateObject var measurementsVM = measurementsViewModel()
+    @StateObject var measurementsVM = MeasurementsVM()
     @State var pickerSelection = 0
     @State var pickerOptions = ["Day", "Week", "Month"]
     
@@ -35,26 +35,26 @@ struct SensorOverViewGraph: View {
 struct SensorOverViewGraph_Previews: PreviewProvider {
     static var previews: some View {
         Group{
-            SensorOverViewGraph()
+            SensorOverViewGraph(measurementsVM: testmeasVM)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
                 .previewDisplayName("iPhone 11 Pro Max")
-            SensorOverViewGraph()
+            SensorOverViewGraph(measurementsVM: testmeasVM)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
                 .previewDisplayName("iPhone 11 Pro")
-            SensorOverViewGraph()
+            SensorOverViewGraph(measurementsVM: testmeasVM)
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
                 .previewDisplayName("iPhone SE")
         }
         Group{
-            SensorOverViewGraph()
+            SensorOverViewGraph(measurementsVM: testmeasVM)
                 .preferredColorScheme(.dark)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
                 .previewDisplayName("iPhone 11 Pro Max Dark")
-            SensorOverViewGraph()
+            SensorOverViewGraph(measurementsVM: testmeasVM)
                 .preferredColorScheme(.dark)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
                 .previewDisplayName("iPhone 11 Pro Dark")
-            SensorOverViewGraph()
+            SensorOverViewGraph(measurementsVM: testmeasVM)
                 .preferredColorScheme(.dark)
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
                 .previewDisplayName("iPhone SE Dark")
@@ -63,7 +63,7 @@ struct SensorOverViewGraph_Previews: PreviewProvider {
     }
 }
 struct DayChart: View {
-    @ObservedObject var measurementsVM : measurementsViewModel
+    @ObservedObject var measurementsVM : MeasurementsVM
     var body: some View {
         if measurementsVM.measurementsArrayDay.count != 0{
             LineView(data: makeDate(data: measurementsVM.measurementsArrayDay))
@@ -91,7 +91,7 @@ struct DayChart: View {
     }
 }
 struct WeekChart: View {
-    @ObservedObject var measurementsVM : measurementsViewModel
+    @ObservedObject var measurementsVM : MeasurementsVM
     var body: some View {
         if measurementsVM.measurementsArrayWeek.count != 0{
             LineView(data: makeDate(data: measurementsVM.measurementsArrayWeek))
@@ -119,7 +119,7 @@ struct WeekChart: View {
     }
 }
 struct MonthChart: View {
-    @ObservedObject var measurementsVM : measurementsViewModel
+    @ObservedObject var measurementsVM : MeasurementsVM
     var body: some View {
         if measurementsVM.measurementsArrayMonth.count != 0{
             LineView(data: measurementsVM.measurementsArrayMonth)
