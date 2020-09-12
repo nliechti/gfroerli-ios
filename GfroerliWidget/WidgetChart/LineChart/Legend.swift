@@ -43,8 +43,9 @@ struct Legend: View {
             ForEach((0...2), id: \.self) { height in
                 HStack(alignment: .center){
                     Text("\(self.getYLegendSafe(height: height), specifier: "%.1f")").offset(x: 0, y: self.getYposition(height: height) )
+                        .font(.system(size: 13))
                         .foregroundColor(Color.white)
-                        .font(.caption)
+                        
                     self.line(atHeight: self.getYLegendSafe(height: height), width: self.frame.width)
                         .stroke(Color.white, style: StrokeStyle(lineWidth: 1.5, lineCap: .round, dash: [5,10]))
                         .opacity((self.hideHorizontalLines && height != 0) ? 0 : 1)

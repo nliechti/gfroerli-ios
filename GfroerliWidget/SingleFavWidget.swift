@@ -202,25 +202,22 @@ struct SingleFavWidgetViewMedium:View {
                                 .font(.system(size: 20))
                         }
                         
-                        Image(systemName: "thermometer").foregroundColor(.red).font(.system(size: 25))
-                    }.padding([.horizontal, .top])
+                        Image(systemName: "thermometer").foregroundColor(.red).font(.system(size: 20))
+                    }
                     
                     
                     if entry.temp != 0.0{
                         HStack{
-                            Text("Last 24h:").foregroundColor(.white).font(.system(size: 10)).bold()
+                            Text("Last 24h:").foregroundColor(.white).font(.system(size: 13)).bold()
                          Spacer()
-                        }.padding(.horizontal)
-                        LineView(data: entry.data).padding([.horizontal,.bottom],15)
-                            .preferredColorScheme(.dark)
+                        }
+                        LineView(data: entry.data)
+                            .preferredColorScheme(.dark).padding(.bottom,5)
                     }else{
                         Spacer()
                     }
                     
-                        
-                    
-                    
-                }
+                }.padding()
             }
             .background(Color("GfroerliDarkBlue"))
             .widgetURL(URL(string: "ch.coredump.gfroerli://settings/widgetSettings"))

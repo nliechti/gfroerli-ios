@@ -47,7 +47,7 @@ public struct LineView: View {
                              maxDataValue: .constant(nil),
                              showBackground: false
                         )
-                        .offset(x: 30, y: -20)
+                        .offset(x: 30, y: 0)
                         .onAppear(){
                             self.showLegend = true
                         }

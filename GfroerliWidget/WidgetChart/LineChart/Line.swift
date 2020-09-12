@@ -19,7 +19,7 @@ public struct Line: View {
     @State var showBackground: Bool = true
     var gradient: GradientColor = GradientColor(start: Colors.GradientPurple, end: Colors.GradientNeonBlue)
     var index:Int = 0
-    let padding:CGFloat = 24
+    let padding:CGFloat = 3
     var curvedLines: Bool = true
     var stepWidth: CGFloat {
         if data.points.count < 2 {
