@@ -10,10 +10,6 @@ import SwiftUI
 
 public struct LineView: View {
     @ObservedObject var data: ChartData
-    public var title: String?
-    public var legend: String?
-    public var style: ChartStyle
-    public var darkModeStyle: ChartStyle
     public var valueSpecifier:String
     
     @Environment(\.colorScheme) var colorScheme: ColorScheme
@@ -26,38 +22,17 @@ public struct LineView: View {
     @State private var hideHorizontalLines: Bool = false
     
     public init(data: [Double],
-                title: String? = nil,
-                legend: String? = nil,
-                style: ChartStyle = Styles.lineChartStyleOne,
-                valueSpecifier: String? = "%.1f") {
-        
+        valueSpecifier: String? = "%.1f") {
         self.data = ChartData(points: data)
-        self.title = title
-        self.legend = legend
-        self.style = style
         self.valueSpecifier = valueSpecifier!
-        self.darkModeStyle = style.darkModeStyle != nil ? style.darkModeStyle! : Styles.lineViewDarkMode
     }
     
     public var body: some View {
         GeometryReader{ geometry in
             VStack(alignment: .leading, spacing: 8) {
-                Group{
-                    if (self.title != nil){
-                        Text(self.title!)
-                            .font(.title)
-                            .bold().foregroundColor(self.colorScheme == .dark ? self.darkModeStyle.textColor : self.style.textColor)
-                    }
-                    if (self.legend != nil){
-                        Text(self.legend!)
-                            .font(.callout)
-                            .foregroundColor(self.colorScheme == .dark ? self.darkModeStyle.legendTextColor : self.style.legendTextColor)
-                    }
-                }
                 ZStack{
                     GeometryReader{ reader in
-                        Rectangle()
-                            .foregroundColor(self.colorScheme == .dark ? self.darkModeStyle.backgroundColor : self.style.backgroundColor)
+                        Rectangle().opacity(0.0)
                         if(self.showLegend){
                             Legend(data: self.data,
                                    frame: .constant(reader.frame(in: .local)), hideHorizontalLines: self.$hideHorizontalLines)
@@ -70,8 +45,7 @@ public struct LineView: View {
                              showIndicator: self.$hideHorizontalLines,
                              minDataValue: .constant(nil),
                              maxDataValue: .constant(nil),
-                             showBackground: false,
-                             gradient: self.style.gradientColor
+                             showBackground: false
                         )
                         .offset(x: 30, y: -20)
                         .onAppear(){
@@ -121,9 +95,9 @@ public struct LineView: View {
 struct LineView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            LineView(data: [8,23,30,12,30,7,23,3], title: "Full chart", style: Styles.lineChartStyleOne)
+            LineView(data: [8,23,30,12,30,7,23,3])
             
-            LineView(data: [282.502, 284.495, 283.51, 285.019, 285.197, 286.118, 288.737, 288.455, 289.391, 287.691, 285.878, 286.46, 286.252, 284.652, 284.129, 284.188], title: "Full chart", style: Styles.lineChartStyleOne)
+            LineView(data: [282.502, 284.495, 283.51, 285.019, 285.197, 286.118, 288.737, 288.455, 289.391, 287.691, 285.878, 286.46, 286.252, 284.652, 284.129, 284.188])
             
         }
     }

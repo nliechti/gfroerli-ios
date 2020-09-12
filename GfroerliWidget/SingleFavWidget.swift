@@ -207,7 +207,7 @@ struct SingleFavWidgetViewMedium:View {
                     Text("Last 24h:").foregroundColor(.white).font(.system(size: 8))
                      Spacer()
                     }.padding(.horizontal)
-                    LineView(data: entry.data).padding(9).background(Color.white).cornerRadius(15).padding([.horizontal,.bottom],9)
+                    LineView(data: entry.data).padding(9).cornerRadius(15).padding([.horizontal,.bottom],9)
                         
                     
                     
