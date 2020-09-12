@@ -35,7 +35,7 @@ struct iOSMainView: View {
                 
                 CostumTabBarButton(tab: $selectedTab, title: "Settings", imageName: "gearshape")
             }.padding(.top)
-            .padding(.bottom, 15)
+            .padding(.bottom, 25)
             
             .padding(.horizontal, 35)
             .background(Color(.systemGray5).opacity(0.5))

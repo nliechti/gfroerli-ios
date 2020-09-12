@@ -33,7 +33,7 @@ struct SingleProvider: TimelineProvider {
         
         var date = Date()
         let update = Calendar.current.date(byAdding: .second,value: 30, to: date)
-        getSingleSensor(id: 1) { (sens) in
+        getSingleSensor(id: widgetSensorID) { (sens) in
             completion(Timeline(entries: [sens], policy: .after(update!)))
         }
         
@@ -119,7 +119,7 @@ func getSingleSensor(id: Int,completion: @escaping (SingleSensorEntry) -> ()){
                     }
                     
                 }else{
-                    completion(SingleSensorEntry(name: "no", temp: 0.0, data: [Double]()))
+                    completion(SingleSensorEntry(name: "Tap to configure Sensor", temp: 0.0, data: [Double]()))
                 }
                 
             }
@@ -153,7 +153,7 @@ struct SingleFavWidgetViewSmall:View {
             VStack{
                 HStack {
                     Text(entry.name)
-                        .foregroundColor(.white)
+                        .foregroundColor(.white).bold()
                     
                     Spacer()
                 }.padding(.bottom,4)
@@ -161,7 +161,7 @@ struct SingleFavWidgetViewSmall:View {
                     HStack{
                         Spacer()
                         Text(String(format: "%.1f", entry.temp)+"°")
-                            .foregroundColor(.white)
+                            .foregroundColor(.white).bold()
                     }
                 }
                 Spacer()
@@ -192,28 +192,38 @@ struct SingleFavWidgetViewMedium:View {
                 VStack{
                     HStack {
                         Text(entry.name)
-                            .font(.system(size: 15))
+                            .font(.system(size: 20)).bold()
                             .foregroundColor(.white)
-                        
+                        Spacer()
                         if entry.temp != 0.0{
-                            Spacer()
+                            
                             Text(String(format: "%.1f", entry.temp)+"°")
-                                .foregroundColor(.white)
-                                .font(.system(size: 15))
+                                .foregroundColor(.white).bold()
+                                .font(.system(size: 20))
                         }
-                        Image(systemName: "thermometer").foregroundColor(.red).font(.system(size: 15))
+                        
+                        Image(systemName: "thermometer").foregroundColor(.red).font(.system(size: 25))
                     }.padding([.horizontal, .top])
-                    HStack{
-                    Text("Last 24h:").foregroundColor(.white).font(.system(size: 8))
-                     Spacer()
-                    }.padding(.horizontal)
-                    LineView(data: entry.data).padding(9).cornerRadius(15).padding([.horizontal,.bottom],9)
+                    
+                    
+                    if entry.temp != 0.0{
+                        HStack{
+                            Text("Last 24h:").foregroundColor(.white).font(.system(size: 10)).bold()
+                         Spacer()
+                        }.padding(.horizontal)
+                        LineView(data: entry.data).padding([.horizontal,.bottom],15)
+                            .preferredColorScheme(.dark)
+                    }else{
+                        Spacer()
+                    }
+                    
                         
                     
                     
                 }
             }
             .background(Color("GfroerliDarkBlue"))
+            .widgetURL(URL(string: "ch.coredump.gfroerli://settings/widgetSettings"))
         }
     }
 }
@@ -251,11 +261,11 @@ struct SingleFavWidget: Widget {
 struct GfroerliWidget_Previews: PreviewProvider {
     static var previews: some View {
         Group{
-            smallWidgetView(entry: SingleSensorEntry(name: "test", temp: 20.0, data: [30.0])).previewContext(WidgetPreviewContext(family: .systemSmall))
-            smallWidgetView(entry: SingleSensorEntry(name: "test", temp: 20.0, data: [30.0])).previewContext(WidgetPreviewContext(family: .systemSmall))
+            smallWidgetView(entry: SingleSensorEntry(name: "HSR Badewiese", temp: 20.0, data: [30.0])).previewContext(WidgetPreviewContext(family: .systemSmall))
+            smallWidgetView(entry: SingleSensorEntry(name: "Tap to configure Sensor", temp: 0.0, data: [0.0])).previewContext(WidgetPreviewContext(family: .systemSmall))
                 .preferredColorScheme(.dark)
-            smallWidgetView(entry: SingleSensorEntry(name: "test", temp: 20.0, data: [30.0])).previewContext(WidgetPreviewContext(family: .systemMedium))
-            smallWidgetView(entry: SingleSensorEntry(name: "test", temp: 20.0, data: [30.0]))
+            smallWidgetView(entry: SingleSensorEntry(name: "HSR Badewiese", temp: 20.0, data: [20.0,15.0,30.0])).previewContext(WidgetPreviewContext(family: .systemMedium))
+            smallWidgetView(entry: SingleSensorEntry(name: "Tap to configure Sensor", temp: 0.0, data: [0.0]))
                 .preferredColorScheme(.dark)
                 .previewContext(WidgetPreviewContext(family: .systemMedium))
                 

@@ -34,8 +34,7 @@ public struct LineView: View {
                     GeometryReader{ reader in
                         Rectangle().opacity(0.0)
                         if(self.showLegend){
-                            Legend(data: self.data,
-                                   frame: .constant(reader.frame(in: .local)), hideHorizontalLines: self.$hideHorizontalLines)
+                            Legend(frame: .constant(reader.frame(in: .local)), hideHorizontalLines: self.$hideHorizontalLines)
                                 .transition(.opacity)
                                 .animation(Animation.easeOut(duration: 1).delay(1))
                         }

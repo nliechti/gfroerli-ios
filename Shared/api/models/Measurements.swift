@@ -77,7 +77,7 @@ class MeasurementsVM: ObservableObject{
         let now = df.string(from: Calendar.current.date(byAdding: .day, value:-1, to:Date())!)
         var request = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/measurements?id=1&created_after=\(now)")!)
         var request2 = URLRequest(url: URL(string: "http://10.99.0.57:3000/api/measurements?id=1&created_after=\(now)")!)
-
+print(request)
         request.setValue("Bearer XTZA6H0Hg2f02bzVefmVlr8fIJMy2FGCJ0LlDlejj2Pi0i1JvZiL0Ycv1t6JoZzD", forHTTPHeaderField: "Authorization")
         request.httpMethod = "GET"
         
@@ -88,8 +88,9 @@ class MeasurementsVM: ObservableObject{
                 
                 let jsonDecoder = JSONDecoder()
                 var measurements = try jsonDecoder.decode([Measure].self, from: data)
-                measurements.sort(by: {$0.created_at! < $1.created_at!})
+                measurements.sort(by: {$0.id! < $1.id!})
                 self.measurementsArrayDay = measurements
+                print(measurements)
             } catch let error {
                 print(error)
             }
@@ -112,7 +113,7 @@ class MeasurementsVM: ObservableObject{
                 
                 let jsonDecoder = JSONDecoder()
                 var measurements = try jsonDecoder.decode([Measure].self, from: data)
-                measurements.sort(by: {$0.created_at! < $1.created_at!})
+                measurements.sort(by: {$0.id! < $1.id!})
                 self.measurementsArrayMonth = self.makeDailyAvg(data: measurements)
             } catch let error {
                 print(error)
@@ -137,7 +138,7 @@ class MeasurementsVM: ObservableObject{
                 
                 let jsonDecoder = JSONDecoder()
                 var measurements = try jsonDecoder.decode([Measure].self, from: data)
-                measurements.sort(by: {$0.created_at! < $1.created_at!})
+                measurements.sort(by: {$0.id! < $1.id!})
                 self.measurementsArrayWeek = measurements
             } catch let error {
                 print(error)

@@ -23,9 +23,7 @@ struct Legend: View {
     }
     var stepHeight: CGFloat {
         let points = self.data.onlyPoints()
-        let min = 0.0
-        let max = 30.0
-        if  min != max {
+        if let min = points.min(), let max = points.max(), min != max {
             if (min < 0){
                 return (frame.size.height-padding) / CGFloat(max - min)
             }else{
@@ -37,18 +35,18 @@ struct Legend: View {
     
     var min: CGFloat {
         let points = self.data.onlyPoints()
-        return CGFloat(0.01)
+        return CGFloat(points.min() ?? 0)
     }
     
     var body: some View {
         ZStack(alignment: .topLeading){
-            ForEach((0...6), id: \.self) { height in
+            ForEach((0...2), id: \.self) { height in
                 HStack(alignment: .center){
-                    Text("\(self.getYLegendSafe(height: height), specifier: "%.0f")").offset(x: 0, y: self.getYposition(height: height) )
-                        .foregroundColor(Colors.LegendText)
+                    Text("\(self.getYLegendSafe(height: height), specifier: "%.1f")").offset(x: 0, y: self.getYposition(height: height) )
+                        .foregroundColor(Color.white)
                         .font(.caption)
                     self.line(atHeight: self.getYLegendSafe(height: height), width: self.frame.width)
-                        .stroke(self.colorScheme == .dark ? Colors.LegendDarkColor : Colors.LegendColor, style: StrokeStyle(lineWidth: 1.5, lineCap: .round, dash: [5,height == 0 ? 0 : 10]))
+                        .stroke(Color.white, style: StrokeStyle(lineWidth: 1.5, lineCap: .round, dash: [5,10]))
                         .opacity((self.hideHorizontalLines && height != 0) ? 0 : 1)
                         .rotationEffect(.degrees(180), anchor: .center)
                         .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
@@ -85,10 +83,10 @@ struct Legend: View {
     
     func getYLegend() -> [Double]? {
         let points = self.data.onlyPoints()
-        let max = 30.0
-        let min = 0.0
-        let step = Double(max - min)/6
-        return [min+step * 0, min+step * 1, min+step * 2, min+step * 3, min+step * 4, min+step * 5, min+step * 6]
+        guard let max = points.max() else { return nil }
+        guard let min = points.min() else { return nil }
+        let step = Double(max - min)/2
+        return [min+0.001, min+step, max]
     }
 }
 
