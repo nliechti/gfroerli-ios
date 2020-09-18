@@ -16,6 +16,7 @@
 		8D0D7FE624F107D30068176C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE524F107D30068176C /* SettingsView.swift */; };
 		8D0D7FE824F10F610068176C /* LakesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE724F10F610068176C /* LakesData.swift */; };
 		8D0D7FEA24F1109A0068176C /* ScrollItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE924F1109A0068176C /* ScrollItem.swift */; };
+		8D2701C725153082007BB0E1 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2701C625153082007BB0E1 /* LoadingView.swift */; };
 		8D2A3F2F250CF1E90070B4CB /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2A3F27250CF1E90070B4CB /* LineChartView.swift */; };
 		8D2A3F30250CF1E90070B4CB /* IndicatorPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2A3F28250CF1E90070B4CB /* IndicatorPoint.swift */; };
 		8D2A3F31250CF1E90070B4CB /* Legend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2A3F29250CF1E90070B4CB /* Legend.swift */; };
@@ -114,6 +115,7 @@
 		8D0D7FE524F107D30068176C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		8D0D7FE724F10F610068176C /* LakesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LakesData.swift; sourceTree = "<group>"; };
 		8D0D7FE924F1109A0068176C /* ScrollItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollItem.swift; sourceTree = "<group>"; };
+		8D2701C625153082007BB0E1 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		8D2A3F27250CF1E90070B4CB /* LineChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChartView.swift; sourceTree = "<group>"; };
 		8D2A3F28250CF1E90070B4CB /* IndicatorPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorPoint.swift; sourceTree = "<group>"; };
 		8D2A3F29250CF1E90070B4CB /* Legend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Legend.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				8D04196724F50258003D64D4 /* SensorScrollItem.swift */,
 				8DF3BBCC250B748800DBCC37 /* SearchBar.swift */,
 				8D3D3716250C1C3B00F11E48 /* SiriButton.swift */,
+				8D2701C625153082007BB0E1 /* LoadingView.swift */,
 			);
 			path = CostumUI;
 			sourceTree = "<group>";
@@ -730,6 +733,7 @@
 				8D5066EF24F7F33400E426DE /* LineView.swift in Sources */,
 				E4C24FE924EEB5AA00FB4F51 /* Measurements.swift in Sources */,
 				8D0D7FE224F107B60068176C /* OverView.swift in Sources */,
+				8D2701C725153082007BB0E1 /* LoadingView.swift in Sources */,
 				E438B4CC24ACFB7D008A2E01 /* iOSMainView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

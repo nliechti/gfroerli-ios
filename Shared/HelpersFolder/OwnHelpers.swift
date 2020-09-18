@@ -37,3 +37,11 @@ public func createStringFromDate(date: Date)->String{
     return stringFormatter.string(from: date)
     
 }
+
+enum NetworkError: Error {
+    case badURL, requestFailed, decodeFailed ,unknown
+}
+
+enum loadingState{
+    case loading, loaded, error
+}

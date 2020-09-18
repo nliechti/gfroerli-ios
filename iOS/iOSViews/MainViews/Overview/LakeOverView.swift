@@ -11,25 +11,34 @@ import MapKit
 struct LakeOverView: View {
     var lake : Lake
     @ObservedObject var sensors : SensorViewModel
+    @Binding var loadingState: loadingState
     var body: some View {
         VStack(alignment: .leading) {
             topMap(lake: lake, region: lake.region, sensors: sensors)
             Text("Locations").font(.title).bold().padding(.horizontal)
             Form(){
                 Section(){
-                ForEach(sensors.sensorArray){ sensor in
-                    if(lake.sensors.contains(String(sensor.id!))){
-                        NavigationLink(
-                            destination: SensorOverView(sensor: sensor),
-                            label: {
-                                HStack {
-                                    Text(sensor.device_name!)
-                                    Spacer()
-                                    Text(String(sensor.last_measurement!.temperature!)+"°")
-                                }
-                            })
+                    switch loadingState{
+                    case .loading:
+                        LoadingView()
+                    case .loaded:
+                        ForEach(sensors.sensorArray){ sensor in
+                            if(lake.sensors.contains(String(sensor.id!))){
+                                NavigationLink(
+                                    destination: SensorOverView(sensor: sensor),
+                                    label: {
+                                        HStack {
+                                            Text(sensor.device_name!)
+                                            Spacer()
+                                            Text(String(format: "%.1f",sensor.last_measurement!.temperature!)+"°")
+                                        }
+                                    })
+                            }
+                        }
+                    case .error:
+                        ErrorView()
                     }
-                }
+                
             }
             }
         }.navigationBarTitle(lake.name)
@@ -39,26 +48,26 @@ struct LakeOverView: View {
 struct LakeOverView_Previews: PreviewProvider {
     static var previews: some View {
         Group{
-            LakeOverView(lake: lakeOfZurich, sensors: testSensorVM)
+            LakeOverView(lake: lakeOfZurich, sensors: testSensorVM, loadingState: .constant(.loaded))
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
                 .previewDisplayName("iPhone 11 Pro Max")
-            LakeOverView(lake: lakeOfZurich, sensors: testSensorVM)
+            LakeOverView(lake: lakeOfZurich, sensors: testSensorVM, loadingState: .constant(.loaded))
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
                 .previewDisplayName("iPhone 11 Pro")
-            LakeOverView(lake: lakeOfZurich, sensors: testSensorVM)
+            LakeOverView(lake: lakeOfZurich, sensors: testSensorVM, loadingState: .constant(.loaded))
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
                 .previewDisplayName("iPhone SE")
         }
         Group{
-            LakeOverView(lake: lakeOfZurich, sensors: testSensorVM)
+            LakeOverView(lake: lakeOfZurich, sensors: testSensorVM, loadingState: .constant(.loaded))
                 .preferredColorScheme(.dark)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
                 .previewDisplayName("iPhone 11 Pro Max Dark")
-            LakeOverView(lake: lakeOfZurich, sensors: testSensorVM)
+            LakeOverView(lake: lakeOfZurich, sensors: testSensorVM, loadingState: .constant(.loaded))
                 .preferredColorScheme(.dark)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
                 .previewDisplayName("iPhone 11 Pro Dark")
-            LakeOverView(lake: lakeOfZurich, sensors: testSensorVM)               .preferredColorScheme(.dark)
+            LakeOverView(lake: lakeOfZurich, sensors: testSensorVM, loadingState: .constant(.loaded))               .preferredColorScheme(.dark)
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
                 .previewDisplayName("iPhone SE Dark")
                 

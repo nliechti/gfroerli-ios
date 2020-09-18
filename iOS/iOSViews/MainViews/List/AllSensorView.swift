@@ -9,18 +9,18 @@ import SwiftUI
 
 struct AllSensorView: View {
     @ObservedObject var sensorsVm : SensorViewModel
+    @Binding var loadingState: loadingState
     @State var id : String?
     @State var searchText = ""
     @State var isSearching = false
     var body: some View {
         NavigationView{
             VStack{
-                
-                if sensorsVm.sensorArray.isEmpty{
-                    ProgressView().progressViewStyle(CircularProgressViewStyle())
-                }else{
-                    SearchBar(searchText: $searchText, isSearching: $isSearching)
-
+                SearchBar(searchText: $searchText, isSearching: $isSearching)
+                switch loadingState{
+                case .loading:
+                    LoadingView()
+                case .loaded:
                     List{
                         ForEach(sensorsVm.sensorArray.filter({ "\($0.device_name!)".localizedCaseInsensitiveContains(searchText) || searchText.isEmpty })){ sensor in
                             NavigationLink(destination: SensorOverView(sensor: sensor),tag: String(sensor.id!), selection: $id, label: {Text(sensor.device_name!)})
@@ -28,7 +28,13 @@ struct AllSensorView: View {
                         }
                     }.listStyle(InsetListStyle())
                     Spacer()
+
+                case .error:
+                    ErrorView()
                 }
+                    
+
+                                    
                 
             }.navigationTitle("All Sensors")
         }
@@ -38,26 +44,26 @@ struct AllSensorView: View {
 struct AllSensorView_Previews: PreviewProvider {
     static var previews: some View {
         Group{
-            AllSensorView(sensorsVm: SensorViewModel())
+            AllSensorView(sensorsVm: SensorViewModel(), loadingState: .constant(.loaded))
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
                 .previewDisplayName("iPhone 11 Pro Max")
-            AllSensorView(sensorsVm: SensorViewModel())
+            AllSensorView(sensorsVm: SensorViewModel(), loadingState: .constant(.loaded))
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
                 .previewDisplayName("iPhone 11 Pro")
-            AllSensorView(sensorsVm: SensorViewModel())
+            AllSensorView(sensorsVm: SensorViewModel(), loadingState: .constant(.loaded))
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
                 .previewDisplayName("iPhone SE")
         }
         Group{
-            AllSensorView(sensorsVm: SensorViewModel())
+            AllSensorView(sensorsVm: SensorViewModel(), loadingState: .constant(.loaded))
                 .preferredColorScheme(.dark)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
                 .previewDisplayName("iPhone 11 Pro Max Dark")
-            AllSensorView(sensorsVm: SensorViewModel())
+            AllSensorView(sensorsVm: SensorViewModel(), loadingState: .constant(.loaded))
                 .preferredColorScheme(.dark)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
                 .previewDisplayName("iPhone 11 Pro Dark")
-            AllSensorView(sensorsVm: SensorViewModel())                .preferredColorScheme(.dark)
+            AllSensorView(sensorsVm: SensorViewModel(), loadingState: .constant(.loaded))                .preferredColorScheme(.dark)
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
                 .previewDisplayName("iPhone SE Dark")
                 

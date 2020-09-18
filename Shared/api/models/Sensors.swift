@@ -20,32 +20,43 @@ class SensorViewModel: ObservableObject {
     @Published var sensorArray = [Sensor]() { didSet { didChange.send(())}}
     
     init() {
-        loadSensorData()
+        
     }
     
     init(sensors: [Sensor]) {
         sensorArray = sensors
     }
     
-    func loadSensorData() {
-        var request = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/sensors")!)
-        var request2 = URLRequest(url: URL(string: "http://10.99.0.57:3000/api/sensors")!)
-
-        request.setValue("Bearer XTZA6H0Hg2f02bzVefmVlr8fIJMy2FGCJ0LlDlejj2Pi0i1JvZiL0Ycv1t6JoZzD", forHTTPHeaderField: "Authorization")
-        request.httpMethod = "GET"
+    
+    
+    func getAllSensors(completion: @escaping (Result<String, NetworkError>) -> Void) {
         
-        let session = URLSession.shared
-        session.dataTask(with: request, completionHandler: {data, response, error -> Void in
-            do {
-                guard let data = data else {return}
-                
-                let jsonDecoder = JSONDecoder()
-                let sensors = try jsonDecoder.decode([Sensor].self, from: data)
-                self.sensorArray = sensors
-            } catch let error {
-                print(error)
+        var url = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/sensors")!)
+        url.setValue("Bearer XTZA6H0Hg2f02bzVefmVlr8fIJMy2FGCJ0LlDlejj2Pi0i1JvZiL0Ycv1t6JoZzD", forHTTPHeaderField: "Authorization")
+        url.httpMethod = "GET"
+
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            // the task has completed – push our work back to the main thread
+            DispatchQueue.main.async {
+                do {
+                if let data = data {
+                    // success: convert the data to a Sensors and send it back
+                    let jsonDecoder = JSONDecoder()
+                    let sensors = try jsonDecoder.decode([Sensor].self, from: data)
+                    self.sensorArray = sensors
+                    completion(.success("Sensors successfuly loaded!"))
+                } else if error != nil {
+                    // any sort of network failure
+                    completion(.failure(.requestFailed))
+                } else {
+                    // this ought not to be possible, yet here we are
+                    completion(.failure(.unknown))
+                }
+                }catch let error {
+                    completion(.failure(.decodeFailed))
+                }
             }
-        }).resume()
+        }.resume()
     }
 }
 

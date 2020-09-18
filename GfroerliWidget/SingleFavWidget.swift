@@ -192,13 +192,13 @@ struct SingleFavWidgetViewMedium:View {
                 VStack{
                     HStack {
                         Text(entry.name)
-                            .font(.system(size: 20)).bold()
+                            .font(.system(size: 20))
                             .foregroundColor(.white)
                         Spacer()
                         if entry.temp != 0.0{
                             
                             Text(String(format: "%.1f", entry.temp)+"°")
-                                .foregroundColor(.white).bold()
+                                .foregroundColor(.white)
                                 .font(.system(size: 20))
                         }
                         
@@ -208,8 +208,9 @@ struct SingleFavWidgetViewMedium:View {
                     
                     if entry.temp != 0.0{
                         HStack{
-                            Text("Last 24h:").foregroundColor(.white).font(.system(size: 13)).bold()
+                            Text("Last 24h:").foregroundColor(.white).font(.system(size: 13))
                          Spacer()
+                            Text("\(entry.data.count) data-points").foregroundColor(.white).font(.system(size: 13))
                         }
                         LineView(data: entry.data)
                             .preferredColorScheme(.dark).padding(.bottom,5)
