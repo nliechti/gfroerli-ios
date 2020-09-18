@@ -15,32 +15,24 @@ struct iOSMainView: View {
     
     var body: some View {
         
-        VStack(spacing: 0){
-            switch(selectedTab){
-            case "Overview": OverView(sensors: sensorsVm)
-            case "Favorites": FavoritesView(sensorsVm: sensorsVm)
-            case "Settings": SettingsView(activePath: pathComp, sensorsVm: sensorsVm)
-            case "All": AllSensorView(sensorsVm: sensorsVm)
-
-            default: Text("YIKES")
-            }
-
-            HStack(spacing:0){
-                CostumTabBarButton(tab: $selectedTab, title: "Overview", imageName: "thermometer.sun")
-                Spacer(minLength: 0)
-                CostumTabBarButton(tab: $selectedTab, title: "All", imageName: "line.horizontal.3.circle")
-                Spacer(minLength: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/)
-                CostumTabBarButton(tab: $selectedTab, title: "Favorites", imageName: "star")
-                Spacer(minLength: 0)
-                
-                CostumTabBarButton(tab: $selectedTab, title: "Settings", imageName: "gearshape")
-            }.padding(.top)
-            .padding(.bottom, 25)
-            
-            .padding(.horizontal, 35)
-            .background(Color(.systemGray5).opacity(0.5))
-            
-        }.edgesIgnoringSafeArea(.all)
+        TabView(selection: $selectedTab){
+            OverView(sensors: sensorsVm)
+                .tabItem { Image(systemName: "thermometer.sun.fill")
+                    Text("Overview") }
+                .tag("Overview")
+            AllSensorView(sensorsVm: sensorsVm)
+                .tabItem { Image(systemName: "line.horizontal.3.circle.fill")
+                    Text("All") }
+                .tag("All")
+            FavoritesView(sensorsVm: sensorsVm)
+                .tabItem { Image(systemName: "star.fill")
+                    Text("Favorites") }
+                .tag("Favorites")
+            SettingsView(activePath: pathComp, sensorsVm: sensorsVm)
+                .tabItem { Image(systemName: "gearshape.fill")
+                    Text("Settings") }
+                .tag("Settings")
+        }
         .onOpenURL(perform: { url in
             guard let tabIdentifier = url.tabIdentifier else {
                       return

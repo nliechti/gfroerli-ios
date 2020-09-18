@@ -11,7 +11,6 @@
 		8D04196A24F50349003D64D4 /* RiverData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D04196924F50349003D64D4 /* RiverData.swift */; };
 		8D04196B24F50353003D64D4 /* LakesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE724F10F610068176C /* LakesData.swift */; };
 		8D04196C24F50353003D64D4 /* RiverData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D04196924F50349003D64D4 /* RiverData.swift */; };
-		8D0D7FE024F102030068176C /* CostumTabBaButtonr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FDF24F102030068176C /* CostumTabBaButtonr.swift */; };
 		8D0D7FE224F107B60068176C /* OverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE124F107B60068176C /* OverView.swift */; };
 		8D0D7FE424F107C10068176C /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE324F107C10068176C /* FavoritesView.swift */; };
 		8D0D7FE624F107D30068176C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE524F107D30068176C /* SettingsView.swift */; };
@@ -110,7 +109,6 @@
 /* Begin PBXFileReference section */
 		8D04196724F50258003D64D4 /* SensorScrollItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorScrollItem.swift; sourceTree = "<group>"; };
 		8D04196924F50349003D64D4 /* RiverData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiverData.swift; sourceTree = "<group>"; };
-		8D0D7FDF24F102030068176C /* CostumTabBaButtonr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostumTabBaButtonr.swift; sourceTree = "<group>"; };
 		8D0D7FE124F107B60068176C /* OverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverView.swift; sourceTree = "<group>"; };
 		8D0D7FE324F107C10068176C /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		8D0D7FE524F107D30068176C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -220,7 +218,6 @@
 		8D0D7FDE24F101E70068176C /* CostumUI */ = {
 			isa = PBXGroup;
 			children = (
-				8D0D7FDF24F102030068176C /* CostumTabBaButtonr.swift */,
 				8D0D7FE924F1109A0068176C /* ScrollItem.swift */,
 				8D04196724F50258003D64D4 /* SensorScrollItem.swift */,
 				8DF3BBCC250B748800DBCC37 /* SearchBar.swift */,
@@ -712,7 +709,6 @@
 				8DF3BBCD250B748800DBCC37 /* SearchBar.swift in Sources */,
 				8D9B0FE424F3BEA4003502C8 /* WaveShape.swift in Sources */,
 				E4C24FE724EEB58400FB4F51 /* Sensors.swift in Sources */,
-				8D0D7FE024F102030068176C /* CostumTabBaButtonr.swift in Sources */,
 				8D5066F324F7F33400E426DE /* Line.swift in Sources */,
 				8D0D7FE624F107D30068176C /* SettingsView.swift in Sources */,
 				8D0D7FEA24F1109A0068176C /* ScrollItem.swift in Sources */,
