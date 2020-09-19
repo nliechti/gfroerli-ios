@@ -45,3 +45,6 @@ enum NetworkError: Error {
 enum loadingState{
     case loading, loaded, error
 }
+enum TimeFrame{
+    case day, week, month
+}

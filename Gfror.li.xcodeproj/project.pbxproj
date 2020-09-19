@@ -47,8 +47,14 @@
 		8D9B0FDA24F3A2E8003502C8 /* Widgets.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8D9B0FCC24F3A2E7003502C8 /* Widgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8D9B0FE424F3BEA4003502C8 /* WaveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9B0FE324F3BEA4003502C8 /* WaveShape.swift */; };
 		8D9B0FE524F3BEA4003502C8 /* WaveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9B0FE324F3BEA4003502C8 /* WaveShape.swift */; };
-		8D9B1AEA24F463290047FAC2 /* Sensors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C24FE624EEB58400FB4F51 /* Sensors.swift */; };
+		8D9B1AEA24F463290047FAC2 /* Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C24FE624EEB58400FB4F51 /* Sensor.swift */; };
 		8D9B1AEC24F463750047FAC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D9B0FD524F3A2E8003502C8 /* Assets.xcassets */; };
+		8DA7CEF52516108000395465 /* SensorListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA7CEF42516108000395465 /* SensorListViewModel.swift */; };
+		8DA7CEF62516108000395465 /* SensorListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA7CEF42516108000395465 /* SensorListViewModel.swift */; };
+		8DA7CF02251611C800395465 /* SingleSensorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA7CF01251611C700395465 /* SingleSensorViewModel.swift */; };
+		8DA7CF03251611C800395465 /* SingleSensorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA7CF01251611C700395465 /* SingleSensorViewModel.swift */; };
+		8DA7CF0F2516176300395465 /* MeasurementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA7CF0E2516176300395465 /* MeasurementViewModel.swift */; };
+		8DA7CF102516176300395465 /* MeasurementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA7CF0E2516176300395465 /* MeasurementViewModel.swift */; };
 		8DC0D495250CC499009E20B5 /* SingleFavWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9B0FD324F3A2E7003502C8 /* SingleFavWidget.swift */; };
 		8DC0D496250CC4A6009E20B5 /* Measurements.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C24FE824EEB5AA00FB4F51 /* Measurements.swift */; };
 		8DF3BBC9250B4F2700DBCC37 /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBC8250B4F2700DBCC37 /* URLExtension.swift */; };
@@ -65,7 +71,7 @@
 		E461459224A34831006233AE /* GfrorliApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E461456824A34823006233AE /* GfrorliApp.swift */; };
 		E461459524A34831006233AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E461456A24A34831006233AE /* Assets.xcassets */; };
 		E461459624A34831006233AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E461456A24A34831006233AE /* Assets.xcassets */; };
-		E4C24FE724EEB58400FB4F51 /* Sensors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C24FE624EEB58400FB4F51 /* Sensors.swift */; };
+		E4C24FE724EEB58400FB4F51 /* Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C24FE624EEB58400FB4F51 /* Sensor.swift */; };
 		E4C24FE924EEB5AA00FB4F51 /* Measurements.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C24FE824EEB5AA00FB4F51 /* Measurements.swift */; };
 /* End PBXBuildFile section */
 
@@ -152,6 +158,9 @@
 		8D9B0FDF24F3A35A003502C8 /* Gfror.li.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Gfror.li.entitlements; sourceTree = "<group>"; };
 		8D9B0FE024F3A3A3003502C8 /* GfroerliWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GfroerliWidgetExtension.entitlements; sourceTree = "<group>"; };
 		8D9B0FE324F3BEA4003502C8 /* WaveShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveShape.swift; sourceTree = "<group>"; };
+		8DA7CEF42516108000395465 /* SensorListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorListViewModel.swift; sourceTree = "<group>"; };
+		8DA7CF01251611C700395465 /* SingleSensorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSensorViewModel.swift; sourceTree = "<group>"; };
+		8DA7CF0E2516176300395465 /* MeasurementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementViewModel.swift; sourceTree = "<group>"; };
 		8DF3BBC8250B4F2700DBCC37 /* URLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
 		8DF3BBCA250B709700DBCC37 /* AllSensorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSensorView.swift; sourceTree = "<group>"; };
 		8DF3BBCC250B748800DBCC37 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
@@ -172,7 +181,7 @@
 		E461458A24A34831006233AE /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E461458E24A34831006233AE /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		E461459024A34831006233AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E4C24FE624EEB58400FB4F51 /* Sensors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sensors.swift; sourceTree = "<group>"; };
+		E4C24FE624EEB58400FB4F51 /* Sensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sensor.swift; sourceTree = "<group>"; };
 		E4C24FE824EEB5AA00FB4F51 /* Measurements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measurements.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -297,6 +306,16 @@
 				8D9B0FD724F3A2E8003502C8 /* Info.plist */,
 			);
 			path = GfroerliWidget;
+			sourceTree = "<group>";
+		};
+		8DA7CEF32516105900395465 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				8DA7CEF42516108000395465 /* SensorListViewModel.swift */,
+				8DA7CF01251611C700395465 /* SingleSensorViewModel.swift */,
+				8DA7CF0E2516176300395465 /* MeasurementViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		8DF3BBCE250BB4A900DBCC37 /* MainViews */ = {
@@ -472,21 +491,22 @@
 		E4C24FE424EEB57500FB4F51 /* api */ = {
 			isa = PBXGroup;
 			children = (
-				E4C24FE524EEB57A00FB4F51 /* models */,
+				8DA7CEF32516105900395465 /* ViewModels */,
+				E4C24FE524EEB57A00FB4F51 /* Models */,
 				8D3D376D250CBAAF00F11E48 /* Notes.rtf */,
 			);
 			path = api;
 			sourceTree = "<group>";
 		};
-		E4C24FE524EEB57A00FB4F51 /* models */ = {
+		E4C24FE524EEB57A00FB4F51 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E4C24FE624EEB58400FB4F51 /* Sensors.swift */,
+				E4C24FE624EEB58400FB4F51 /* Sensor.swift */,
 				E4C24FE824EEB5AA00FB4F51 /* Measurements.swift */,
 				8D0D7FE724F10F610068176C /* LakesData.swift */,
 				8D04196924F50349003D64D4 /* RiverData.swift */,
 			);
-			path = models;
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -691,7 +711,10 @@
 				8D2A3F34250CF1E90070B4CB /* LineView.swift in Sources */,
 				8DF3BBD9250BB6BB00DBCC37 /* OwnHelpers.swift in Sources */,
 				8DC0D496250CC4A6009E20B5 /* Measurements.swift in Sources */,
-				8D9B1AEA24F463290047FAC2 /* Sensors.swift in Sources */,
+				8D9B1AEA24F463290047FAC2 /* Sensor.swift in Sources */,
+				8DA7CF102516176300395465 /* MeasurementViewModel.swift in Sources */,
+				8DA7CEF62516108000395465 /* SensorListViewModel.swift in Sources */,
+				8DA7CF03251611C800395465 /* SingleSensorViewModel.swift in Sources */,
 				8D2A3F37250CF1EF0070B4CB /* Helpers.swift in Sources */,
 				8D2A3F33250CF1E90070B4CB /* Path+QuadCurve.swift in Sources */,
 				8D2A3F31250CF1E90070B4CB /* Legend.swift in Sources */,
@@ -709,12 +732,14 @@
 				8DF3BBCB250B709700DBCC37 /* AllSensorView.swift in Sources */,
 				8D6A7DC624F14115009A0026 /* LakeOverView.swift in Sources */,
 				8D4731B124F3F93200EE5536 /* WidgetSettingsView.swift in Sources */,
+				8DA7CF0F2516176300395465 /* MeasurementViewModel.swift in Sources */,
 				8DF3BBCD250B748800DBCC37 /* SearchBar.swift in Sources */,
 				8D9B0FE424F3BEA4003502C8 /* WaveShape.swift in Sources */,
-				E4C24FE724EEB58400FB4F51 /* Sensors.swift in Sources */,
+				E4C24FE724EEB58400FB4F51 /* Sensor.swift in Sources */,
 				8D5066F324F7F33400E426DE /* Line.swift in Sources */,
 				8D0D7FE624F107D30068176C /* SettingsView.swift in Sources */,
 				8D0D7FEA24F1109A0068176C /* ScrollItem.swift in Sources */,
+				8DA7CF02251611C800395465 /* SingleSensorViewModel.swift in Sources */,
 				8D0D7FE824F10F610068176C /* LakesData.swift in Sources */,
 				8D04196A24F50349003D64D4 /* RiverData.swift in Sources */,
 				8D5066E924F7F33400E426DE /* Legend.swift in Sources */,
@@ -726,6 +751,7 @@
 				8D5066ED24F7F33400E426DE /* Path+QuadCurve.swift in Sources */,
 				8D5066E724F7F33400E426DE /* IndicatorPoint.swift in Sources */,
 				8D3D36F0250BBC8500F11E48 /* SensorOverViewGraph.swift in Sources */,
+				8DA7CEF52516108000395465 /* SensorListViewModel.swift in Sources */,
 				8D50670324F7F33400E426DE /* Helpers.swift in Sources */,
 				8D6A7DC824F15187009A0026 /* SensorOverView.swift in Sources */,
 				8DF3BBC9250B4F2700DBCC37 /* URLExtension.swift in Sources */,

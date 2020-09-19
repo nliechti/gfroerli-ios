@@ -8,7 +8,7 @@
 import SwiftUI
 import MapKit
 struct OverView: View {
-    @ObservedObject var sensors : SensorViewModel
+    @ObservedObject var sensors : SensorListViewModel
     @Binding var loadingState : loadingState
     
     var body: some View {

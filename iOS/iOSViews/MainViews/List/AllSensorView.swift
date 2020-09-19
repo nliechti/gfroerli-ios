@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AllSensorView: View {
-    @ObservedObject var sensorsVm : SensorViewModel
+    @ObservedObject var sensorsVm : SensorListViewModel
     @Binding var loadingState: loadingState
     @State var id : String?
     @State var searchText = ""
@@ -44,26 +44,26 @@ struct AllSensorView: View {
 struct AllSensorView_Previews: PreviewProvider {
     static var previews: some View {
         Group{
-            AllSensorView(sensorsVm: SensorViewModel(), loadingState: .constant(.loaded))
+            AllSensorView(sensorsVm: SensorListViewModel(), loadingState: .constant(.loaded))
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
                 .previewDisplayName("iPhone 11 Pro Max")
-            AllSensorView(sensorsVm: SensorViewModel(), loadingState: .constant(.loaded))
+            AllSensorView(sensorsVm: SensorListViewModel(), loadingState: .constant(.loaded))
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
                 .previewDisplayName("iPhone 11 Pro")
-            AllSensorView(sensorsVm: SensorViewModel(), loadingState: .constant(.loaded))
+            AllSensorView(sensorsVm: SensorListViewModel(), loadingState: .constant(.loaded))
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
                 .previewDisplayName("iPhone SE")
         }
         Group{
-            AllSensorView(sensorsVm: SensorViewModel(), loadingState: .constant(.loaded))
+            AllSensorView(sensorsVm: SensorListViewModel(), loadingState: .constant(.loaded))
                 .preferredColorScheme(.dark)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
                 .previewDisplayName("iPhone 11 Pro Max Dark")
-            AllSensorView(sensorsVm: SensorViewModel(), loadingState: .constant(.loaded))
+            AllSensorView(sensorsVm: SensorListViewModel(), loadingState: .constant(.loaded))
                 .preferredColorScheme(.dark)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
                 .previewDisplayName("iPhone 11 Pro Dark")
-            AllSensorView(sensorsVm: SensorViewModel(), loadingState: .constant(.loaded))                .preferredColorScheme(.dark)
+            AllSensorView(sensorsVm: SensorListViewModel(), loadingState: .constant(.loaded))                .preferredColorScheme(.dark)
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
                 .previewDisplayName("iPhone SE Dark")
                 

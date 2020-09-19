@@ -12,56 +12,9 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
-import Combine
-
-class SensorViewModel: ObservableObject {
-    let didChange = PassthroughSubject<Void, Never>()
-    
-    @Published var sensorArray = [Sensor]() { didSet { didChange.send(())}}
-    
-    init() {
-        
-    }
-    
-    init(sensors: [Sensor]) {
-        sensorArray = sensors
-    }
-    
-    
-    
-    func getAllSensors(completion: @escaping (Result<String, NetworkError>) -> Void) {
-        
-        var url = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/sensors")!)
-        url.setValue("Bearer XTZA6H0Hg2f02bzVefmVlr8fIJMy2FGCJ0LlDlejj2Pi0i1JvZiL0Ycv1t6JoZzD", forHTTPHeaderField: "Authorization")
-        url.httpMethod = "GET"
-
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            // the task has completed – push our work back to the main thread
-            DispatchQueue.main.async {
-                do {
-                if let data = data {
-                    // success: convert the data to a Sensors and send it back
-                    let jsonDecoder = JSONDecoder()
-                    let sensors = try jsonDecoder.decode([Sensor].self, from: data)
-                    self.sensorArray = sensors
-                    completion(.success("Sensors successfuly loaded!"))
-                } else if error != nil {
-                    // any sort of network failure
-                    completion(.failure(.requestFailed))
-                } else {
-                    // this ought not to be possible, yet here we are
-                    completion(.failure(.unknown))
-                }
-                }catch let error {
-                    completion(.failure(.decodeFailed))
-                }
-            }
-        }.resume()
-    }
-}
 
 struct Sensor: Codable, Identifiable {
-    init(id: Int?, device_name: String?, caption: String?, latitude: Double?, longitude: Double?, sponsor_id: Int?, measurement_ids: [Int]?, created_at: String?, updated_at: String?, last_measurement: Measure?, url: String?) {
+    init(id: Int?, device_name: String?, caption: String?, latitude: Double?, longitude: Double?, sponsor_id: Int?, measurement_ids: [Int]?, created_at: String?, updated_at: String?, last_measurement: Measuring?, url: String?) {
         self.id = id
         self.device_name = device_name
         self.caption = caption
@@ -84,7 +37,7 @@ struct Sensor: Codable, Identifiable {
     let measurement_ids : [Int]?
     let created_at : String?
     let updated_at : String?
-    let last_measurement : Measure?
+    let last_measurement : Measuring?
     let url : String?
 
     enum CodingKeys: String, CodingKey {
@@ -114,7 +67,7 @@ struct Sensor: Codable, Identifiable {
         measurement_ids = try values.decodeIfPresent([Int].self, forKey: .measurement_ids)
         created_at = try values.decodeIfPresent(String.self, forKey: .created_at)
         updated_at = try values.decodeIfPresent(String.self, forKey: .updated_at)
-        last_measurement = try values.decodeIfPresent(Measure.self, forKey: .last_measurement)
+        last_measurement = try values.decodeIfPresent(Measuring.self, forKey: .last_measurement)
         url = try values.decodeIfPresent(String.self, forKey: .url)
     }
 }
@@ -122,4 +75,3 @@ struct Sensor: Codable, Identifiable {
 
 let testSensor = Sensor(id: 2, device_name: "testSensor", caption: "caption", latitude: 47.28073, longitude: 8.72869, sponsor_id: 0, measurement_ids: [Int](), created_at: "23.2.2200", updated_at: "23.2.2200", last_measurement: measurement1, url: "none")
 
-let testSensorVM = SensorViewModel(sensors: [testSensor])

@@ -18,7 +18,7 @@ struct SensorOverView: View {
         
         VStack(alignment:.leading){
             SensorOverviewLastMeasurementView(sensor: sensor).padding(.bottom)
-            SensorOverViewGraph()
+            SensorOverViewGraph(sensorID: sensor.id!)
             SensorOverviewSponsorView(sensor: $sensor)
            
             Spacer()

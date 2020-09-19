@@ -12,7 +12,7 @@ struct iOSMainView: View {
     @State var selectedTab = "Overview"
     @State var pathComp: String?
     @State var loadingState: loadingState = .loading
-    @StateObject var sensorsVm = SensorViewModel()
+    @StateObject var sensorsVm = SensorListViewModel()
     
     var body: some View {
         //TabsView and Tabs

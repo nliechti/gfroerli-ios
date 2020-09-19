@@ -73,7 +73,7 @@ func getMeasurements(id: Int,completion: @escaping ([Double]) -> ()){
         
         do{
             
-            let jsonData = try JSONDecoder().decode([Measure].self, from: data!)
+            let jsonData = try JSONDecoder().decode([Measuring].self, from: data!)
             
             for meas in jsonData{
                 values.append(meas.temperature!)

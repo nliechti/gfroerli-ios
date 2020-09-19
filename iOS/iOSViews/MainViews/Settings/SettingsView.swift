@@ -10,7 +10,7 @@ import SwiftUI
 struct SettingsView: View {
     @State var activePath: String?
     @Binding var loadingState: loadingState
-    @ObservedObject var sensorsVm : SensorViewModel
+    @ObservedObject var sensorsVm : SensorListViewModel
     var body: some View {
         NavigationView{
             VStack{
@@ -35,26 +35,26 @@ struct SettingsView: View {
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         Group{
-            SettingsView(activePath: nil, loadingState: .constant(.loaded), sensorsVm: SensorViewModel())
+            SettingsView(activePath: nil, loadingState: .constant(.loaded), sensorsVm: SensorListViewModel())
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
                 .previewDisplayName("iPhone 11 Pro Max")
-            SettingsView(activePath: nil, loadingState: .constant(.loaded), sensorsVm: SensorViewModel())
+            SettingsView(activePath: nil, loadingState: .constant(.loaded), sensorsVm: SensorListViewModel())
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
                 .previewDisplayName("iPhone 11 Pro")
-            SettingsView(activePath: nil, loadingState: .constant(.loaded), sensorsVm: SensorViewModel())
+            SettingsView(activePath: nil, loadingState: .constant(.loaded), sensorsVm: SensorListViewModel())
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
                 .previewDisplayName("iPhone SE")
         }
         Group{
-            SettingsView(activePath: nil, loadingState: .constant(.loaded), sensorsVm: SensorViewModel())
+            SettingsView(activePath: nil, loadingState: .constant(.loaded), sensorsVm: SensorListViewModel())
                 .preferredColorScheme(.dark)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
                 .previewDisplayName("iPhone 11 Pro Max Dark")
-            SettingsView(activePath: nil, loadingState: .constant(.loaded), sensorsVm: SensorViewModel())
+            SettingsView(activePath: nil, loadingState: .constant(.loaded), sensorsVm: SensorListViewModel())
                 .preferredColorScheme(.dark)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
                 .previewDisplayName("iPhone 11 Pro Dark")
-            SettingsView(activePath: nil, loadingState: .constant(.loaded), sensorsVm: SensorViewModel())                .preferredColorScheme(.dark)
+            SettingsView(activePath: nil, loadingState: .constant(.loaded), sensorsVm: SensorListViewModel())                .preferredColorScheme(.dark)
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
                 .previewDisplayName("iPhone SE Dark")
         }

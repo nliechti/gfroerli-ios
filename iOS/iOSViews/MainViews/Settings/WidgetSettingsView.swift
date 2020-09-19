@@ -9,7 +9,7 @@ import SwiftUI
 import WidgetKit
 
 struct WidgetSettingsView: View {
-    @ObservedObject var sensors : SensorViewModel
+    @ObservedObject var sensors : SensorListViewModel
     @Binding var loadingState: loadingState
     @AppStorage("widgetSensorID", store: UserDefaults(suiteName: "group.ch.test")) var widgetSensorID: Int = -1
 
@@ -51,26 +51,26 @@ struct WidgetSettingsView: View {
 struct WidgetSettingsView_Previews: PreviewProvider {
     static var previews: some View {
         Group{
-            WidgetSettingsView(sensors: SensorViewModel(), loadingState: .constant(.loaded))
+            WidgetSettingsView(sensors: SensorListViewModel(), loadingState: .constant(.loaded))
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
                 .previewDisplayName("iPhone 11 Pro Max")
-            WidgetSettingsView(sensors: SensorViewModel(), loadingState: .constant(.loaded))
+            WidgetSettingsView(sensors: SensorListViewModel(), loadingState: .constant(.loaded))
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
                 .previewDisplayName("iPhone 11 Pro")
-            WidgetSettingsView(sensors: SensorViewModel(), loadingState: .constant(.loaded))
+            WidgetSettingsView(sensors: SensorListViewModel(), loadingState: .constant(.loaded))
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
                 .previewDisplayName("iPhone SE")
         }
         Group{
-            WidgetSettingsView(sensors: SensorViewModel(), loadingState: .constant(.loaded))
+            WidgetSettingsView(sensors: SensorListViewModel(), loadingState: .constant(.loaded))
                 .preferredColorScheme(.dark)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
                 .previewDisplayName("iPhone 11 Pro Max Dark")
-            WidgetSettingsView(sensors: SensorViewModel(), loadingState: .constant(.loaded))
+            WidgetSettingsView(sensors: SensorListViewModel(), loadingState: .constant(.loaded))
                 .preferredColorScheme(.dark)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
                 .previewDisplayName("iPhone 11 Pro Dark")
-            WidgetSettingsView(sensors: SensorViewModel(), loadingState: .constant(.loaded))                .preferredColorScheme(.dark)
+            WidgetSettingsView(sensors: SensorListViewModel(), loadingState: .constant(.loaded))                .preferredColorScheme(.dark)
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
                 .previewDisplayName("iPhone SE Dark")
         }

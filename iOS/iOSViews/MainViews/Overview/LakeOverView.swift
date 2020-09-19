@@ -10,7 +10,7 @@ import MapKit
 
 struct LakeOverView: View {
     var lake : Lake
-    @ObservedObject var sensors : SensorViewModel
+    @ObservedObject var sensors : SensorListViewModel
     @Binding var loadingState: loadingState
     var body: some View {
         VStack(alignment: .leading) {
@@ -79,7 +79,7 @@ struct LakeOverView_Previews: PreviewProvider {
 struct topMap: View{
     var lake: Lake
     @State var region: MKCoordinateRegion
-    @ObservedObject var sensors: SensorViewModel
+    @ObservedObject var sensors: SensorListViewModel
     var body: some View{
         Map (coordinateRegion: $region, interactionModes: [],annotationItems: sensors.sensorArray, annotationContent: { pin in
                         MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: pin.latitude!, longitude: pin.longitude!), content: {
