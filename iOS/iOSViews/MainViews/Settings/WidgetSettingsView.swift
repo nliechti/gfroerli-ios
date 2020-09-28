@@ -11,7 +11,7 @@ import WidgetKit
 struct WidgetSettingsView: View {
     @ObservedObject var sensors : SensorListViewModel
     @Binding var loadingState: loadingState
-    @AppStorage("widgetSensorID", store: UserDefaults(suiteName: "group.gfroerli")) var widgetSensorID: Int = -1
+    @AppStorage("widgetSensorID", store: UserDefaults(suiteName: "group.ch.gfroerli")) var widgetSensorID: Int = -1
 
     var body: some View {
         VStack{

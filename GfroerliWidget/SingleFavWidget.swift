@@ -20,7 +20,7 @@ struct SingleSensorEntry: TimelineEntry{
 
 struct SingleProvider: TimelineProvider {
     typealias Entry = SingleSensorEntry
-    @AppStorage("widgetSensorID", store: UserDefaults(suiteName: "group.gfroerli")) var widgetSensorID: Int = -1
+    @AppStorage("widgetSensorID", store: UserDefaults(suiteName: "group.ch.gfroerli")) var widgetSensorID: Int = -1
     
     
     func getSnapshot(in context: Context, completion: @escaping (Entry) -> ()) {

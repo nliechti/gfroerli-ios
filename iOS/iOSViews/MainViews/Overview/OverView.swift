@@ -52,7 +52,7 @@ struct OverView: View {
                             }
                         }
                     }
-                    Text("Rivers")
+                   /* Text("Rivers")
                         .font(.title)
                         .bold()
                         .padding([.horizontal,.top])
@@ -68,7 +68,7 @@ struct OverView: View {
                                     .padding()
                             }
                         }
-                    }
+                    }*/
                 }
                 Spacer()
             }.navigationTitle("Gfrör.li")

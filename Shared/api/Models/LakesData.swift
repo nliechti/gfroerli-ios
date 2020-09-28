@@ -18,4 +18,4 @@ struct Lake:Identifiable{
 
 let lakeOfZurich = Lake(id: UUID().uuidString, name: "Lake of Zurich", sensors: ["1"], region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 47.28073, longitude: 8.72869), span: MKCoordinateSpan(latitudeDelta: 0.4, longitudeDelta: 0.4)))
 let lakeOfLucerne = Lake(id: UUID().uuidString, name: "Lake of Lucerne", sensors: [], region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 46.99728, longitude: 8.43128), span: MKCoordinateSpan(latitudeDelta: 0.4, longitudeDelta: 0.4)))
-let lakes: [Lake] = [lakeOfZurich,lakeOfLucerne]
+let lakes: [Lake] = [lakeOfZurich]

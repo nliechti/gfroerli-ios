@@ -10,7 +10,7 @@ import MapKit
 
 struct FavoritesView: View {
     
-    @State var favorites = UserDefaults(suiteName: "group.gfroerli")?.array(forKey: "favoritesIDs") as? [Int] ?? [Int]()
+    @State var favorites = UserDefaults(suiteName: "group.ch.gfroerli")?.array(forKey: "favoritesIDs") as? [Int] ?? [Int]()
     @ObservedObject var sensorsVm: SensorListViewModel
     @Binding var loadingState: loadingState
     
