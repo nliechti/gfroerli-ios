@@ -10,6 +10,7 @@ import MapKit
 struct OverView: View {
     @ObservedObject var sensors : SensorListViewModel
     @Binding var loadingState : loadingState
+    var featuredSensorID = 1
     
     var body: some View {
         NavigationView{
@@ -25,19 +26,14 @@ struct OverView: View {
                     case .loading:
                         LoadingView().frame(width: UIScreen.main.bounds.width, height: 250)
                     case .loaded:
-                        ForEach(sensors.sensorArray){sensor in
-                                
-                                NavigationLink(
-                                    destination: SensorOverView(sensor: sensor),
-                                    label: {
-                                        SensorScrollItem(sensor: sensor, region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: sensor.latitude!, longitude: sensor.longitude!), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)))
-                                    }).buttonStyle(PlainButtonStyle())
-                               
-                        }
-                    case .error:
+                        NavigationLink(
+                            destination: SensorOverView(sensor: sensors.sensorArray.first(where: {$0.id == featuredSensorID})!),
+                            label: {
+                                SensorScrollItem(sensor: sensors.sensorArray.first(where: {$0.id == featuredSensorID})!, region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: sensors.sensorArray.first(where: {$0.id == featuredSensorID})!.latitude!, longitude: sensors.sensorArray.first(where: {$0.id == featuredSensorID})!.longitude!), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)))
+                            }).buttonStyle(PlainButtonStyle())
+                        case .error:
                         ErrorView().frame(width: UIScreen.main.bounds.width, height: 250)
                     }
-                     
                     Divider()
                     
                     Text("Lakes")
@@ -74,10 +70,9 @@ struct OverView: View {
                         }
                     }
                 }
-                
-                
                 Spacer()
             }.navigationTitle("Gfrör.li")
+            
             
             
         }
@@ -110,7 +105,7 @@ struct OverView_Previews: PreviewProvider {
                 .preferredColorScheme(.dark)
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
                 .previewDisplayName("iPhone SE Dark")
-                
+            
         }
     }
 }

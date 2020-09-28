@@ -13,7 +13,7 @@ struct SensorOverView: View {
     @State var isFav = false
    
     
-    @State var favorites  = UserDefaults(suiteName: "group.ch.gfroerli.gfroerli")?.array(forKey: "favoritesIDs") as? [Int] ?? [Int]()
+    @State var favorites  = UserDefaults(suiteName: "group.gfroerli")?.array(forKey: "favoritesIDs") as? [Int] ?? [Int]()
     var body: some View {
         
         VStack(alignment:.leading){

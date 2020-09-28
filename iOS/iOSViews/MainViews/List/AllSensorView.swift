@@ -21,12 +21,20 @@ struct AllSensorView: View {
                 case .loading:
                     LoadingView()
                 case .loaded:
-                    List{
-                        ForEach(sensorsVm.sensorArray.filter({ "\($0.device_name!)".localizedCaseInsensitiveContains(searchText) || searchText.isEmpty })){ sensor in
-                            NavigationLink(destination: SensorOverView(sensor: sensor),tag: String(sensor.id!), selection: $id, label: {Text(sensor.device_name!)})
-                            
+                    if !sensorsVm.sensorArray.isEmpty {
+                        List{
+                            ForEach(sensorsVm.sensorArray.filter({ "\($0.device_name!)".localizedCaseInsensitiveContains(searchText) || searchText.isEmpty })){ sensor in
+                                NavigationLink(destination: SensorOverView(sensor: sensor),tag: String(sensor.id!), selection: $id, label: {Text(sensor.device_name!)})
+                                
+                            }
+                        }.listStyle(InsetListStyle())
+                    } else {
+                        VStack{
+                            Spacer()
+                            Text("No Sensors").font(.largeTitle).foregroundColor(.gray)
+                            Spacer()
                         }
-                    }.listStyle(InsetListStyle())
+                    }
                     Spacer()
 
                 case .error:

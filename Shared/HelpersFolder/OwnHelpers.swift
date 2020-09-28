@@ -42,7 +42,7 @@ enum NetworkError: Error {
     case badURL, requestFailed, decodeFailed ,unknown
 }
 
-enum loadingState{
+enum loadingState: Equatable{
     case loading, loaded, error
 }
 enum TimeFrame{

@@ -10,7 +10,7 @@ import MapKit
 
 struct FavoritesView: View {
     
-    @State var favorites = UserDefaults(suiteName: "group.ch.gfroerli.gfroerli")?.array(forKey: "favoritesIDs") as? [Int] ?? [Int]()
+    @State var favorites = UserDefaults(suiteName: "group.gfroerli")?.array(forKey: "favoritesIDs") as? [Int] ?? [Int]()
     @ObservedObject var sensorsVm: SensorListViewModel
     @Binding var loadingState: loadingState
     
@@ -20,7 +20,7 @@ struct FavoritesView: View {
                 if favorites.isEmpty{
                     VStack{
                         Spacer()
-                        Text("no Favorites").font(.largeTitle).foregroundColor(.gray)
+                        Text("No Favorites").font(.largeTitle).foregroundColor(.gray)
                         Spacer()
                     }
                 }else{

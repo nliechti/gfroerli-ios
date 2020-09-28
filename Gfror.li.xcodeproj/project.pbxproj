@@ -102,14 +102,14 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		8D9B0FDB24F3A2E8003502C8 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
 				8D9B0FDA24F3A2E8003502C8 /* Widgets.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -816,6 +816,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = GfroerliWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 202009282;
 				DEVELOPMENT_TEAM = T7M5358433;
 				INFOPLIST_FILE = GfroerliWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -823,7 +824,8 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.nliechti.Gfro-r-li.GfroerliWidget";
+				MARKETING_VERSION = 0.31;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -839,14 +841,16 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = WidgetsRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T7M5358433;
+				CURRENT_PROJECT_VERSION = 202009282;
+				DEVELOPMENT_TEAM = VDVQE324N6;
 				INFOPLIST_FILE = GfroerliWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.nliechti.Gfro-r-li.GfroerliWidget";
+				MARKETING_VERSION = 0.31;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -979,6 +983,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = iOS/Gfror.li.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 202009282;
 				DEVELOPMENT_TEAM = T7M5358433;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
@@ -987,7 +992,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.nliechti.Gfro-r-li";
+				MARKETING_VERSION = 0.31;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli;
 				PRODUCT_NAME = Gfror.li;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
@@ -1002,8 +1008,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = iOS/Gfror.liRelease.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T7M5358433;
+				CURRENT_PROJECT_VERSION = 202009282;
+				DEVELOPMENT_TEAM = VDVQE324N6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1011,8 +1019,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.nliechti.Gfro-r-li";
+				MARKETING_VERSION = 0.31;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli;
 				PRODUCT_NAME = Gfror.li;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1061,7 +1071,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.16;
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.nliechti.Gfro-r-li";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli;
 				PRODUCT_NAME = Gfror.li;
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
