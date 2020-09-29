@@ -29,7 +29,7 @@ struct SensorOverView: View {
         .navigationBarItems(trailing:
                                 Button {
                                     isFav ? removeFav() : makeFav()
-                                    UserDefaults(suiteName: "group.ch.gfroerli.gfroerli")?.set(favorites, forKey: "favoritesIDs")
+                                    UserDefaults(suiteName: "group.ch.gfroerli")?.set(favorites, forKey: "favoritesIDs")
                                 } label: {
                                     Image(systemName: isFav ? "star.fill" : "star")
                                         .foregroundColor(isFav ? .yellow : .none)
