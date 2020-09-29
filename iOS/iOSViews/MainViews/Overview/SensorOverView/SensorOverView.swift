@@ -40,10 +40,13 @@ struct SensorOverView: View {
     func makeFav(){
         favorites.append(sensor.id!)
         isFav = true
+        UserDefaults(suiteName: "group.ch.gfroerli")?.set(favorites, forKey: "favoritesIDs")
+        
     }
     func removeFav(){
         favorites.removeFirst(sensor.id!)
         isFav=false
+        UserDefaults(suiteName: "group.ch.gfroerli")?.set(favorites, forKey: "favoritesIDs")
     }
     
     

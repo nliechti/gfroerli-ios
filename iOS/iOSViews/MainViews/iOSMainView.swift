@@ -25,7 +25,7 @@ struct iOSMainView: View {
                 .tabItem { Image(systemName: "line.horizontal.3.circle.fill")
                     Text("All") }
                 .tag("All")
-            FavoritesView(sensorsVm: sensorsVm, loadingState: $loadingState)
+            FavoritesView()
                 .tabItem { Image(systemName: "star.fill")
                     Text("Favorites") }
                 .tag("Favorites")

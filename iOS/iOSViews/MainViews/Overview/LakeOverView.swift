@@ -81,15 +81,21 @@ struct topMap: View{
     @State var region: MKCoordinateRegion
     @ObservedObject var sensors: SensorListViewModel
     var body: some View{
-        Map (coordinateRegion: $region, interactionModes: [],annotationItems: sensors.sensorArray, annotationContent: { pin in
+        Map (coordinateRegion: $region,annotationItems: sensors.sensorArray, annotationContent: { pin in
                         MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: pin.latitude!, longitude: pin.longitude!), content: {
-                            Text(String(format: "%.1f", pin.last_measurement!.temperature!)+"°")
-                                .minimumScaleFactor(0.3)
-                                .foregroundColor(.white)
-                                .lineLimit(1)
-                                .frame(width: 40, height: 40)
-                                .background(Color.blue)
-                                .cornerRadius(90)
+                            
+                            NavigationLink(
+                                destination: /*@START_MENU_TOKEN@*/Text("Destination")/*@END_MENU_TOKEN@*/,
+                                label: {
+                                    Text(String(format: "%.1f", pin.last_measurement!.temperature!)+"°")
+                                        .minimumScaleFactor(0.3)
+                                        .foregroundColor(.white)
+                                        .lineLimit(1)
+                                        .frame(width: 40, height: 40)
+                                        .background(Color.blue)
+                                        .cornerRadius(90)
+                                })
+                            
                                 
                         
                             
