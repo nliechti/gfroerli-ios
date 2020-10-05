@@ -19,11 +19,12 @@ struct SettingsView: View {
                         NavigationLink(destination: WidgetSettingsView(sensors: sensorsVm, loadingState: $loadingState), tag: "widgetSettings", selection: $activePath ,label: {Text("Widget Settings")})
                     }
                     Section(header:Text("Other")){
-                        NavigationLink(destination: Text("Privacy Policy"),tag: "privacypolicy", selection: $activePath, label: {Text("Privacy Policy")})
+                        Link("Privacy Policy", destination: URL(string: "https://xn--gfrr-7qa.li/about")!)
                         
                         Link("Gfrör.li Website", destination: URL(string: "https://xn--gfrr-7qa.li/")!)
 
                         Link("CoreDump Website", destination: URL(string: "https://www.coredump.ch/")!)
+                        Text("Version: \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "fail")").foregroundColor(.gray)
                     }
                 }
             }.navigationTitle("Settings")

@@ -27,12 +27,13 @@ struct SensorOverViewGraph: View {
             .onAppear(perform: {
                 
             })
-            
+            Divider()
             switch pickerSelection{
             case 0: DayChart(measurementsVM: measurementsVM, loadingState: $dayLoading, sensorID: $sensorID).padding(.vertical)
             case 1: WeekChart(measurementsVM: measurementsVM, loadingState: $weekLoading, sensorID: $sensorID).padding(.vertical)
             default : MonthChart(loadingState: $monthLoading, measurementsVM: measurementsVM, sensorID: $sensorID).padding(.vertical)
             }
+            Divider()
             //load data
         }.onAppear(perform: {
             weekLoading = .loading
@@ -187,9 +188,17 @@ struct MonthChart: View {
             LoadingView().frame(height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
 
         case .loaded:
-            LineView(data: measurementsVM.measuringListMonth)
+            LineView(data: makeDate(data: measurementsVM.measuringListWeek))
         case .error:
             ErrorView().frame(height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         }
+        
+    }
+    func makeDate(data: [Measuring])->[Double]{
+        var plotData = [Double]()
+        for meas in data{
+            plotData.append(meas.temperature!)
+        }
+        return plotData
     }
 }

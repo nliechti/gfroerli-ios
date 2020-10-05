@@ -14,8 +14,8 @@ struct SensorOverviewLastMeasurementView: View {
             
             Text("Last Measurement").font(.title).bold()
             Text(String(format: "%.1f", sensor.last_measurement!.temperature!)+"°" ).font(.system(size: 50))
-            //Text(createDateStringfromStringDate(string: sensor.last_measurement!.created_at!))
-                //.font(.footnote)
+            Text(createDateStringfromStringDate(string: sensor.last_measurement!.created_at!))
+                .font(.footnote).foregroundColor(.gray)
         }
     }
 }

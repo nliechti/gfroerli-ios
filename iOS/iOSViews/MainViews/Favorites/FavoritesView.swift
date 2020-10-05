@@ -50,7 +50,7 @@ struct FavoritesView: View {
                 load()
             })
             .navigationTitle("Favorites")
-            .toolbar(content: {
+           /* .toolbar(content: {
                 ToolbarItem{
                     Button(action: {
                         load()
@@ -59,7 +59,7 @@ struct FavoritesView: View {
                         Image(systemName:"arrow.clockwise")
                     })
                 }
-            })
+            })*/
         }
     }
     

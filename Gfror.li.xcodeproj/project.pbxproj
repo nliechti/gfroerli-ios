@@ -42,6 +42,10 @@
 		8D50670324F7F33400E426DE /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5066E424F7F33400E426DE /* Helpers.swift */; };
 		8D6A7DC624F14115009A0026 /* LakeOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A7DC524F14115009A0026 /* LakeOverView.swift */; };
 		8D6A7DC824F15187009A0026 /* SensorOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A7DC724F15187009A0026 /* SensorOverView.swift */; };
+		8D73772F252BA7200075E04E /* Sponsor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73772E252BA7200075E04E /* Sponsor.swift */; };
+		8D737730252BA7200075E04E /* Sponsor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73772E252BA7200075E04E /* Sponsor.swift */; };
+		8D737737252BA8750075E04E /* SponsorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D737736252BA8750075E04E /* SponsorsViewModel.swift */; };
+		8D737738252BA8750075E04E /* SponsorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D737736252BA8750075E04E /* SponsorsViewModel.swift */; };
 		8D9B0FCF24F3A2E7003502C8 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D9B0FCE24F3A2E7003502C8 /* WidgetKit.framework */; };
 		8D9B0FD124F3A2E7003502C8 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D9B0FD024F3A2E7003502C8 /* SwiftUI.framework */; };
 		8D9B0FDA24F3A2E8003502C8 /* Widgets.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8D9B0FCC24F3A2E7003502C8 /* Widgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -149,6 +153,8 @@
 		8D5066E424F7F33400E426DE /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		8D6A7DC524F14115009A0026 /* LakeOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LakeOverView.swift; sourceTree = "<group>"; };
 		8D6A7DC724F15187009A0026 /* SensorOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorOverView.swift; sourceTree = "<group>"; };
+		8D73772E252BA7200075E04E /* Sponsor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sponsor.swift; sourceTree = "<group>"; };
+		8D737736252BA8750075E04E /* SponsorsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorsViewModel.swift; sourceTree = "<group>"; };
 		8D9B0FCC24F3A2E7003502C8 /* Widgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Widgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D9B0FCE24F3A2E7003502C8 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		8D9B0FD024F3A2E7003502C8 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -314,6 +320,7 @@
 				8DA7CEF42516108000395465 /* SensorListViewModel.swift */,
 				8DA7CF01251611C700395465 /* SingleSensorViewModel.swift */,
 				8DA7CF0E2516176300395465 /* MeasurementViewModel.swift */,
+				8D737736252BA8750075E04E /* SponsorsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -502,6 +509,7 @@
 			isa = PBXGroup;
 			children = (
 				E4C24FE624EEB58400FB4F51 /* Sensor.swift */,
+				8D73772E252BA7200075E04E /* Sponsor.swift */,
 				E4C24FE824EEB5AA00FB4F51 /* Measurements.swift */,
 				8D0D7FE724F10F610068176C /* LakesData.swift */,
 				8D04196924F50349003D64D4 /* RiverData.swift */,
@@ -708,11 +716,13 @@
 				8D9B0FE524F3BEA4003502C8 /* WaveShape.swift in Sources */,
 				8D49A37C250A506C000B26CD /* MultiFavWidget.swift in Sources */,
 				8D2A3F32250CF1E90070B4CB /* MultiLineChartView.swift in Sources */,
+				8D737738252BA8750075E04E /* SponsorsViewModel.swift in Sources */,
 				8D2A3F34250CF1E90070B4CB /* LineView.swift in Sources */,
 				8DF3BBD9250BB6BB00DBCC37 /* OwnHelpers.swift in Sources */,
 				8DC0D496250CC4A6009E20B5 /* Measurements.swift in Sources */,
 				8D9B1AEA24F463290047FAC2 /* Sensor.swift in Sources */,
 				8DA7CF102516176300395465 /* MeasurementViewModel.swift in Sources */,
+				8D737730252BA7200075E04E /* Sponsor.swift in Sources */,
 				8DA7CEF62516108000395465 /* SensorListViewModel.swift in Sources */,
 				8DA7CF03251611C800395465 /* SingleSensorViewModel.swift in Sources */,
 				8D2A3F37250CF1EF0070B4CB /* Helpers.swift in Sources */,
@@ -744,6 +754,7 @@
 				8D04196A24F50349003D64D4 /* RiverData.swift in Sources */,
 				8D5066E924F7F33400E426DE /* Legend.swift in Sources */,
 				8D3D36F2250BBEF000F11E48 /* SensorOverviewSponsorView.swift in Sources */,
+				8D737737252BA8750075E04E /* SponsorsViewModel.swift in Sources */,
 				8D5066F124F7F33400E426DE /* MagnifierRect.swift in Sources */,
 				8D04196824F50258003D64D4 /* SensorScrollItem.swift in Sources */,
 				E44EA3AD24EEA7EA00380E27 /* MapExtension.swift in Sources */,
@@ -757,6 +768,7 @@
 				8DF3BBC9250B4F2700DBCC37 /* URLExtension.swift in Sources */,
 				8DF3BBD5250BB62D00DBCC37 /* SensorOverviewLastMeasurementView.swift in Sources */,
 				8D5066EF24F7F33400E426DE /* LineView.swift in Sources */,
+				8D73772F252BA7200075E04E /* Sponsor.swift in Sources */,
 				E4C24FE924EEB5AA00FB4F51 /* Measurements.swift in Sources */,
 				8D0D7FE224F107B60068176C /* OverView.swift in Sources */,
 				8D2701C725153082007BB0E1 /* LoadingView.swift in Sources */,
@@ -816,7 +828,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = GfroerliWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 202009284;
+				CURRENT_PROJECT_VERSION = 202010051;
 				DEVELOPMENT_TEAM = VDVQE324N6;
 				INFOPLIST_FILE = GfroerliWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -824,7 +836,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.33;
+				MARKETING_VERSION = 0.35;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -841,7 +853,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = WidgetsRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 202009284;
+				CURRENT_PROJECT_VERSION = 202010051;
 				DEVELOPMENT_TEAM = VDVQE324N6;
 				INFOPLIST_FILE = GfroerliWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -849,7 +861,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.33;
+				MARKETING_VERSION = 0.35;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -983,7 +995,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = iOS/Gfror.li.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 202009284;
+				CURRENT_PROJECT_VERSION = 202010051;
 				DEVELOPMENT_TEAM = VDVQE324N6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
@@ -992,7 +1004,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.33;
+				MARKETING_VERSION = 0.35;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli;
 				PRODUCT_NAME = Gfror.li;
 				SDKROOT = iphoneos;
@@ -1010,7 +1022,7 @@
 				CODE_SIGN_ENTITLEMENTS = iOS/Gfror.liRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 202009284;
+				CURRENT_PROJECT_VERSION = 202010051;
 				DEVELOPMENT_TEAM = VDVQE324N6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
@@ -1019,7 +1031,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.33;
+				MARKETING_VERSION = 0.35;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli;
 				PRODUCT_NAME = Gfror.li;
 				PROVISIONING_PROFILE_SPECIFIER = "";

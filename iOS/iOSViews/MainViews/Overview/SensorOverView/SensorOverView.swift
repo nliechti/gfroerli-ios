@@ -11,19 +11,22 @@ struct SensorOverView: View {
     
     @State var sensor: Sensor
     @State var isFav = false
-   
+    
     
     @State var favorites  = UserDefaults(suiteName: "group.ch.gfroerli")?.array(forKey: "favoritesIDs") as? [Int] ?? [Int]()
     var body: some View {
         
-        VStack(alignment:.leading){
-            SensorOverviewLastMeasurementView(sensor: sensor).padding(.bottom)
-            SensorOverViewGraph(sensorID: sensor.id!)
-            SensorOverviewSponsorView(sensor: $sensor)
-           
-            Spacer()
-        }.padding()
+        
+        ScrollView{
+            VStack(alignment:.leading){
+                SensorOverviewLastMeasurementView(sensor: sensor).padding(.bottom)
+                SensorOverViewGraph(sensorID: sensor.id!).frame(height: 300).padding(.bottom)
+                SensorOverviewSponsorView(sensor: $sensor)
+            }.padding(.horizontal)
+        }
+        
         .onAppear {
+            favorites  = UserDefaults(suiteName: "group.ch.gfroerli")?.array(forKey: "favoritesIDs") as? [Int] ?? [Int]()
             isFav = favorites.contains(sensor.id!)
         }.navigationTitle(Text(sensor.device_name!))
         .navigationBarItems(trailing:
@@ -80,7 +83,7 @@ struct SensorOverView_Previews: PreviewProvider {
                 .preferredColorScheme(.dark)
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
                 .previewDisplayName("iPhone SE Dark")
-                
+            
         }
     }
 }

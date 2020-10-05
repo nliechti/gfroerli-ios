@@ -13,7 +13,7 @@ class MeasuringListViewModel: ObservableObject{
     
     @Published var measuringListDay = [Measuring]() { didSet { didChange.send(())}}
     @Published var measuringListWeek = [Measuring]() { didSet { didChange.send(())}}
-    @Published var measuringListMonth = [Double]() { didSet { didChange.send(())}}
+    @Published var measuringListMonth = [Measuring]() { didSet { didChange.send(())}}
     
     init() {
     }
@@ -21,7 +21,7 @@ class MeasuringListViewModel: ObservableObject{
     init(measurements: [Measuring]) {
         measuringListDay = measurements
         measuringListWeek = measurements
-        measuringListMonth = [0.0,5.0,10.0,15.0,20.0,25.0]
+        measuringListMonth = measurements
     }
     func loadMeasurings(sensorID: Int, timeFrame: TimeFrame, completion: @escaping (Result<String, NetworkError>) -> Void) {
         
@@ -55,7 +55,7 @@ class MeasuringListViewModel: ObservableObject{
                     case .week:
                         self.measuringListWeek = measurings
                     case .month:
-                        self.measuringListMonth = self.makeDailyAvg(data: measurings)
+                        self.measuringListMonth = measurings
                     }
                     completion(.success("Measurings successfuly loaded!"))
                 } else if error != nil {
