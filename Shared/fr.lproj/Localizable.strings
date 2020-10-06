@@ -1,0 +1,58 @@
+/*
+  LocailzableFrench.strings
+  Gfror.li
+
+  Created by Marc Kramer on 06.10.20.
+  
+*/
+//MainView
+"Overview" = "Résumé";
+"All" = "Tous les Capteurs";
+"Favorites" = "Favoris";
+"Settings" = "Réglages";
+
+
+//Overview
+"Lakes" = "Lacs";
+"Sensors" = "Capteurs";
+"Featured" = "Parcouvir";
+
+
+//AllSensorsView
+"All Sensors" = "Tous le Capteurs";
+"Search terms here" = "Recherche Capteur";
+
+//WaterBodyOverview
+"Locations" = "Sites";
+
+//SensorsOverview
+"Last Measurement" = "Dernier Mesurage";
+"History" = "Histoire";
+"Day" = "Jour";
+"Week" = "Semaine";
+"Month" = "Mois";
+"Sponsored by:" = "Sponsorisé par:";
+
+
+//FavoritesView
+"Favorites" = "Favoris";
+"No Favorites" = "aucune Favori";
+
+//Settings
+"Settings" = "Réglages";
+"General" = "Général";
+"Other" = "Autres";
+"Widget Settings" = "Widget Réglages";
+"Privacy Policy" = "Politique de Confidentialité";
+
+//WidgetSettings
+"Choose Sensor to Display on Widget" = "Choissisez un Capteur pour le Widget";
+"reset" = "reculer";
+
+//WaterBodies
+"Lake of Zurich" = "Lac de Zurich";
+
+
+//Widget
+"Last 24h:" = "Dernière 24h:";
+

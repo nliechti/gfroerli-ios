@@ -210,7 +210,7 @@ struct SingleFavWidgetViewMedium:View {
                         HStack{
                             Text("Last 24h:").foregroundColor(.white).font(.system(size: 13))
                          Spacer()
-                            Text("\(entry.data.count) data-points").foregroundColor(.white).font(.system(size: 13))
+                           /* Text("\(entry.data.count) data-points").foregroundColor(.white).font(.system(size: 13))*/
                         }
                         LineView(data: entry.data)
                             .preferredColorScheme(.dark).padding(.bottom,5)

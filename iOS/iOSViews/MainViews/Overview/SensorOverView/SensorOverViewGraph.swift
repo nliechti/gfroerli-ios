@@ -11,7 +11,7 @@ struct SensorOverViewGraph: View {
     @State var sensorID: Int
     @StateObject var measurementsVM = MeasuringListViewModel()
     @State var pickerSelection = 0
-    @State var pickerOptions = ["Day", "Week", "Month"]
+    @State var pickerOptions = [NSLocalizedString("Day", comment: ""), NSLocalizedString("Week", comment: ""), NSLocalizedString("Month", comment: "")]
     @State var dayLoading: loadingState = .loading
     @State var weekLoading: loadingState = .loading
     @State var monthLoading: loadingState = .loading

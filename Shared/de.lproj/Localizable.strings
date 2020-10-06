@@ -1,0 +1,55 @@
+/*
+  Localizable.strings
+  Gfror.li
+
+  Created by Marc Kramer on 06.10.20.
+  
+*/
+//MainView
+"Overview" = "Übersicht";
+"All" = "Alle";
+"Favorites" = "Favoriten";
+"Settings" = "Einstellungen";
+
+
+//Overview
+"Lakes" = "Seen";
+"Sensors" = "Sensoren";
+"Featured" = "Entdecken";
+
+//AllSensorsView
+"All Sensors" = "Alle Sensoren";
+"Search terms here" = "Senor suchen";
+
+//WaterBodyOverview
+"Locations" = "Standorte";
+
+//SensorsOverview
+"Last Measurement" = "Letzte Messung";
+"History" = "Verlauf";
+"Day" = "Tag";
+"Week" = "Woche";
+"Month" = "Monat";
+"Sponsored by:" = "Gesponsert durch:";
+
+
+//FavoritesView
+"Favorites" = "Favoriten";
+"No Favorites" = "Keine Favoriten";
+
+//Settings
+"Settings" = "Einstellungen";
+"General" = "Allgemein";
+"Other" = "Andere";
+"Widget Settings" = "Widget-Einstellungen";
+"Privacy Policy" = "Datenschutzerklärung";
+
+//WidgetSettings
+"Choose Sensor to Display on Widget" = "Sensor für Widget wählen";
+"reset" = "zurücksetzen";
+
+//WaterBodies
+"Lake of Zurich" = "Zürichsee";
+
+//Widget
+"Last 24h:" = "Letzte 24h:";
