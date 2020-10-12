@@ -43,6 +43,11 @@
 "Other" = "Andere";
 "Widget Settings" = "Widget-Einstellungen";
 "Privacy Policy" = "Datenschutzerklärung";
+"Do you want to reset the app?" = "Alle Favoriten und andere lokale Einstellungen werden zurückgesetzt.";
+"Are you sure?" = "Bist du dir sicher?";
+"Reset App" = "App zurücksetzen";
+"Reset" = "Zurücksetzen";
+"Cancel" = "Abbrechen";
 
 //WidgetSettings
 "Choose Sensor to Display on Widget" = "Sensor für Widget wählen";
