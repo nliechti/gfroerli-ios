@@ -188,7 +188,7 @@ struct MonthChart: View {
             LoadingView().frame(height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
 
         case .loaded:
-            LineView(data: makeDate(data: measurementsVM.measuringListWeek))
+            LineView(data: makeDate(data: measurementsVM.measuringListMonth))
         case .error:
             ErrorView().frame(height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         }

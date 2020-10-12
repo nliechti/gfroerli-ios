@@ -138,8 +138,8 @@ struct SingleFavWidgetViewSmall:View {
     @Environment(\.widgetFamily) var size
     var body: some View{
         ZStack {
-            Wave(strength: 7, frequency: 8, offset: -30).fill(LinearGradient(gradient: Gradient(colors: [ Color.blue,Color("GfroerliBlue")]), startPoint: .bottom, endPoint: .top)).offset(y:30)
-            Wave(strength: 10, frequency: 10, offset: -40).fill(Color("GfroerliLightBlue").opacity(0.3)).offset(y:20).rotation3DEffect(
+            Wave(strength: 10, frequency: 8, offset: -300).fill(LinearGradient(gradient: Gradient(colors: [ Color.blue.opacity(0.6),Color("GfroerliLightBlue").opacity(0.4)]), startPoint: .leading, endPoint: .trailing)).offset(y:40)
+            Wave(strength: 10, frequency: 10, offset: -10.0).fill(LinearGradient(gradient: Gradient(colors: [ Color("GfroerliLightBlue").opacity(0.5),Color.blue.opacity(0.4)]), startPoint: .trailing, endPoint: .leading)).offset(x:0,y:20).rotation3DEffect(
                 .degrees(180),
                 axis: (x: 0.0, y: 1.0, z: 0.0),
                 anchor: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/,
@@ -147,21 +147,28 @@ struct SingleFavWidgetViewSmall:View {
                 perspective: /*@START_MENU_TOKEN@*/1.0/*@END_MENU_TOKEN@*/
             )
             HStack{
-                Image(systemName: "thermometer").font(.system(size: 56.0)).foregroundColor(.red).frame(width: 50, height: 50).offset(y:40)
+                Image(systemName: "thermometer").font(.system(size: 40.0)).foregroundColor(.red).frame(width: 50, height: 50).offset(y:40)
                 Spacer()
             }
             VStack{
+                if entry.temp != 0.0{
                 HStack {
                     Text(entry.name)
-                        .foregroundColor(.white).bold()
+                        .foregroundColor(.white)
                     
                     Spacer()
                 }.padding(.bottom,4)
-                if entry.temp != 0.0{
+                
                     HStack{
                         Spacer()
                         Text(String(format: "%.1f", entry.temp)+"°")
                             .foregroundColor(.white).bold()
+                    }
+                }else{
+                    HStack{
+                    Text("Tap to configure Sensor")
+                        .foregroundColor(.white)
+                        Spacer()
                     }
                 }
                 Spacer()
@@ -180,8 +187,8 @@ struct SingleFavWidgetViewMedium:View {
     var body: some View{
         GeometryReader{ geo in
             ZStack(alignment: .center){
-                Wave(strength: 15, frequency: 16, offset: -300).fill(LinearGradient(gradient: Gradient(colors: [ Color.blue,Color("GfroerliBlue")]), startPoint: .bottom, endPoint: .top)).offset(y:30)
-                Wave(strength: 10, frequency: 12, offset: -10.0).fill(Color("GfroerliLightBlue").opacity(0.3)).offset(x:0,y:20).rotation3DEffect(
+                Wave(strength: 14, frequency: 14, offset: -300).fill(LinearGradient(gradient: Gradient(colors: [ Color.blue.opacity(0.6),Color("GfroerliLightBlue").opacity(0.4)]), startPoint: .leading, endPoint: .trailing)).offset(y:30)
+                Wave(strength: 10, frequency: 12, offset: -10.0).fill(LinearGradient(gradient: Gradient(colors: [ Color("GfroerliLightBlue").opacity(0.5),Color.blue.opacity(0.4)]), startPoint: .trailing, endPoint: .leading)).offset(x:0,y:20).rotation3DEffect(
                     .degrees(180),
                     axis: (x: 0.0, y: 1.0, z: 0.0),
                     anchor: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/,
@@ -191,9 +198,15 @@ struct SingleFavWidgetViewMedium:View {
                 
                 VStack{
                     HStack {
-                        Text(entry.name)
-                            .font(.system(size: 20))
-                            .foregroundColor(.white)
+                        if entry.temp != 0.0 {
+                            Text(entry.name)
+                                .font(.system(size: 20))
+                                .foregroundColor(.white)
+                        } else {
+                            Text("Tap to configure Sensor")
+                                .font(.system(size: 20))
+                                .foregroundColor(.white)
+                        }
                         Spacer()
                         if entry.temp != 0.0{
                             
@@ -210,7 +223,6 @@ struct SingleFavWidgetViewMedium:View {
                         HStack{
                             Text("Last 24h:").foregroundColor(.white).font(.system(size: 13))
                          Spacer()
-                           /* Text("\(entry.data.count) data-points").foregroundColor(.white).font(.system(size: 13))*/
                         }
                         LineView(data: entry.data)
                             .preferredColorScheme(.dark).padding(.bottom,5)
