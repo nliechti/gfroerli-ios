@@ -47,32 +47,7 @@ struct LakeOverView: View {
 
 struct LakeOverView_Previews: PreviewProvider {
     static var previews: some View {
-        Group{
-            LakeOverView(lake: lakeOfZurich, sensors: testSensorVM, loadingState: .constant(.loaded))
-                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
-                .previewDisplayName("iPhone 11 Pro Max")
-            LakeOverView(lake: lakeOfZurich, sensors: testSensorVM, loadingState: .constant(.loaded))
-                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
-                .previewDisplayName("iPhone 11 Pro")
-            LakeOverView(lake: lakeOfZurich, sensors: testSensorVM, loadingState: .constant(.loaded))
-                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
-                .previewDisplayName("iPhone SE")
-        }
-        Group{
-            LakeOverView(lake: lakeOfZurich, sensors: testSensorVM, loadingState: .constant(.loaded))
-                .preferredColorScheme(.dark)
-                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
-                .previewDisplayName("iPhone 11 Pro Max Dark")
-            LakeOverView(lake: lakeOfZurich, sensors: testSensorVM, loadingState: .constant(.loaded))
-                .preferredColorScheme(.dark)
-                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
-                .previewDisplayName("iPhone 11 Pro Dark")
-            LakeOverView(lake: lakeOfZurich, sensors: testSensorVM, loadingState: .constant(.loaded))               .preferredColorScheme(.dark)
-                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
-                .previewDisplayName("iPhone SE Dark")
-                
-        }
-        
+        LakeOverView(lake: lakeOfZurich, sensors: testSensorVM, loadingState: .constant(.loaded)).makePreViewModifier()
     }
 }
 

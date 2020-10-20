@@ -11,6 +11,7 @@
 		8D04196A24F50349003D64D4 /* RiverData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D04196924F50349003D64D4 /* RiverData.swift */; };
 		8D04196B24F50353003D64D4 /* LakesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE724F10F610068176C /* LakesData.swift */; };
 		8D04196C24F50353003D64D4 /* RiverData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D04196924F50349003D64D4 /* RiverData.swift */; };
+		8D05A2DB253F645300E7C1BD /* PreViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D05A2DA253F645300E7C1BD /* PreViewExtension.swift */; };
 		8D0D7FE224F107B60068176C /* OverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE124F107B60068176C /* OverView.swift */; };
 		8D0D7FE424F107C10068176C /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE324F107C10068176C /* FavoritesView.swift */; };
 		8D0D7FE624F107D30068176C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE524F107D30068176C /* SettingsView.swift */; };
@@ -122,6 +123,7 @@
 /* Begin PBXFileReference section */
 		8D04196724F50258003D64D4 /* SensorScrollItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorScrollItem.swift; sourceTree = "<group>"; };
 		8D04196924F50349003D64D4 /* RiverData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiverData.swift; sourceTree = "<group>"; };
+		8D05A2DA253F645300E7C1BD /* PreViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreViewExtension.swift; sourceTree = "<group>"; };
 		8D0D7FE124F107B60068176C /* OverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverView.swift; sourceTree = "<group>"; };
 		8D0D7FE324F107C10068176C /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		8D0D7FE524F107D30068176C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -418,6 +420,7 @@
 				8D5066D124F7F33400E426DE /* SwiftUICharts */,
 				E44EA3AC24EEA7EA00380E27 /* MapExtension.swift */,
 				8DF3BBC8250B4F2700DBCC37 /* URLExtension.swift */,
+				8D05A2DA253F645300E7C1BD /* PreViewExtension.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -773,6 +776,7 @@
 				8D5066E724F7F33400E426DE /* IndicatorPoint.swift in Sources */,
 				8D3D36F0250BBC8500F11E48 /* SensorOverViewGraph.swift in Sources */,
 				8DA7CEF52516108000395465 /* SensorListViewModel.swift in Sources */,
+				8D05A2DB253F645300E7C1BD /* PreViewExtension.swift in Sources */,
 				8D50670324F7F33400E426DE /* Helpers.swift in Sources */,
 				8D6A7DC824F15187009A0026 /* SensorOverView.swift in Sources */,
 				8DF3BBC9250B4F2700DBCC37 /* URLExtension.swift in Sources */,
@@ -851,7 +855,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = GfroerliWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 202010051;
+				CURRENT_PROJECT_VERSION = 202010121;
 				DEVELOPMENT_TEAM = VDVQE324N6;
 				INFOPLIST_FILE = GfroerliWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -859,7 +863,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.35;
+				MARKETING_VERSION = 0.36;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -876,7 +880,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = WidgetsRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 202010051;
+				CURRENT_PROJECT_VERSION = 202010121;
 				DEVELOPMENT_TEAM = VDVQE324N6;
 				INFOPLIST_FILE = GfroerliWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -884,7 +888,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.35;
+				MARKETING_VERSION = 0.36;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1020,7 +1024,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = iOS/Gfror.li.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 202010051;
+				CURRENT_PROJECT_VERSION = 202010121;
 				DEVELOPMENT_TEAM = VDVQE324N6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
@@ -1029,7 +1033,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.35;
+				MARKETING_VERSION = 0.36;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli;
 				PRODUCT_NAME = Gfror.li;
 				SDKROOT = iphoneos;
@@ -1047,7 +1051,7 @@
 				CODE_SIGN_ENTITLEMENTS = iOS/Gfror.liRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 202010051;
+				CURRENT_PROJECT_VERSION = 202010121;
 				DEVELOPMENT_TEAM = VDVQE324N6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
@@ -1056,7 +1060,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.35;
+				MARKETING_VERSION = 0.36;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli;
 				PRODUCT_NAME = Gfror.li;
 				PROVISIONING_PROFILE_SPECIFIER = "";

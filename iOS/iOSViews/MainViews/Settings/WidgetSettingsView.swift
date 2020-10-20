@@ -50,31 +50,7 @@ struct WidgetSettingsView: View {
 
 struct WidgetSettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        Group{
-            WidgetSettingsView(sensors: SensorListViewModel(), loadingState: .constant(.loaded))
-                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
-                .previewDisplayName("iPhone 11 Pro Max")
-            WidgetSettingsView(sensors: SensorListViewModel(), loadingState: .constant(.loaded))
-                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
-                .previewDisplayName("iPhone 11 Pro")
-            WidgetSettingsView(sensors: SensorListViewModel(), loadingState: .constant(.loaded))
-                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
-                .previewDisplayName("iPhone SE")
-        }
-        Group{
-            WidgetSettingsView(sensors: SensorListViewModel(), loadingState: .constant(.loaded))
-                .preferredColorScheme(.dark)
-                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
-                .previewDisplayName("iPhone 11 Pro Max Dark")
-            WidgetSettingsView(sensors: SensorListViewModel(), loadingState: .constant(.loaded))
-                .preferredColorScheme(.dark)
-                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
-                .previewDisplayName("iPhone 11 Pro Dark")
-            WidgetSettingsView(sensors: SensorListViewModel(), loadingState: .constant(.loaded))                .preferredColorScheme(.dark)
-                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
-                .previewDisplayName("iPhone SE Dark")
-        }
-        
+            WidgetSettingsView(sensors: SensorListViewModel(), loadingState: .constant(.loaded)).makePreViewModifier()
     }
 }
 

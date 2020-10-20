@@ -104,32 +104,9 @@ struct SensorOverViewGraph: View {
 
 struct SensorOverViewGraph_Previews: PreviewProvider {
     static var previews: some View {
-        Group{
             SensorOverViewGraph(sensorID: 1, measurementsVM: testmeasVM)
-                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
-                .previewDisplayName("iPhone 11 Pro Max")
-            SensorOverViewGraph(sensorID: 1, measurementsVM: testmeasVM)
-                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
-                .previewDisplayName("iPhone 11 Pro")
-            SensorOverViewGraph(sensorID: 1, measurementsVM: testmeasVM)
-                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
-                .previewDisplayName("iPhone SE")
-        }
-        Group{
-            SensorOverViewGraph(sensorID: 1, measurementsVM: testmeasVM)
-                .preferredColorScheme(.dark)
-                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
-                .previewDisplayName("iPhone 11 Pro Max Dark")
-            SensorOverViewGraph(sensorID: 1, measurementsVM: testmeasVM)
-                .preferredColorScheme(.dark)
-                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
-                .previewDisplayName("iPhone 11 Pro Dark")
-            SensorOverViewGraph(sensorID: 1, measurementsVM: testmeasVM)
-                .preferredColorScheme(.dark)
-                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
-                .previewDisplayName("iPhone SE Dark")
-                
-        }
+                .makePreViewModifier()
+            
     }
 }
 struct DayChart: View {

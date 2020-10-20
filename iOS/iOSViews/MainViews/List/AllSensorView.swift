@@ -36,13 +36,13 @@ struct AllSensorView: View {
                         }
                     }
                     Spacer()
-
+                    
                 case .error:
                     ErrorView()
                 }
-                    
-
-                                    
+                
+                
+                
                 
             }.navigationTitle("All Sensors")
         }
@@ -51,30 +51,6 @@ struct AllSensorView: View {
 
 struct AllSensorView_Previews: PreviewProvider {
     static var previews: some View {
-        Group{
-            AllSensorView(sensorsVm: SensorListViewModel(), loadingState: .constant(.loaded))
-                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
-                .previewDisplayName("iPhone 11 Pro Max")
-            AllSensorView(sensorsVm: SensorListViewModel(), loadingState: .constant(.loaded))
-                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
-                .previewDisplayName("iPhone 11 Pro")
-            AllSensorView(sensorsVm: SensorListViewModel(), loadingState: .constant(.loaded))
-                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
-                .previewDisplayName("iPhone SE")
-        }
-        Group{
-            AllSensorView(sensorsVm: SensorListViewModel(), loadingState: .constant(.loaded))
-                .preferredColorScheme(.dark)
-                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
-                .previewDisplayName("iPhone 11 Pro Max Dark")
-            AllSensorView(sensorsVm: SensorListViewModel(), loadingState: .constant(.loaded))
-                .preferredColorScheme(.dark)
-                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
-                .previewDisplayName("iPhone 11 Pro Dark")
-            AllSensorView(sensorsVm: SensorListViewModel(), loadingState: .constant(.loaded))                .preferredColorScheme(.dark)
-                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
-                .previewDisplayName("iPhone SE Dark")
-                
-        }
+        AllSensorView(sensorsVm: SensorListViewModel(), loadingState: .constant(.loaded)).makePreViewModifier()
     }
 }

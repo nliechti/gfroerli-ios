@@ -31,7 +31,7 @@ struct OverView: View {
                             label: {
                                 SensorScrollItem(sensor: sensors.sensorArray.first(where: {$0.id == featuredSensorID})!, region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: sensors.sensorArray.first(where: {$0.id == featuredSensorID})!.latitude!, longitude: sensors.sensorArray.first(where: {$0.id == featuredSensorID})!.longitude!), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)))
                             }).buttonStyle(PlainButtonStyle())
-                        case .error:
+                    case .error:
                         ErrorView().frame(width: UIScreen.main.bounds.width, height: 250)
                     }
                     Divider()
@@ -52,23 +52,23 @@ struct OverView: View {
                             }
                         }
                     }
-                   /* Text("Rivers")
-                        .font(.title)
-                        .bold()
-                        .padding([.horizontal,.top])
-                    ScrollView(.horizontal, showsIndicators: false){
-                        HStack(spacing:0){
-                            ForEach(rivers){ river in
-                                NavigationLink(
-                                    destination: Text(river.name),
-                                    label: {
-                                        ScrollItem(sensorCount: river.sensors.count, name: river.name, region: river.region)
-                                        
-                                    }).buttonStyle(PlainButtonStyle())
-                                    .padding()
-                            }
-                        }
-                    }*/
+                    /* Text("Rivers")
+                     .font(.title)
+                     .bold()
+                     .padding([.horizontal,.top])
+                     ScrollView(.horizontal, showsIndicators: false){
+                     HStack(spacing:0){
+                     ForEach(rivers){ river in
+                     NavigationLink(
+                     destination: Text(river.name),
+                     label: {
+                     ScrollItem(sensorCount: river.sensors.count, name: river.name, region: river.region)
+                     
+                     }).buttonStyle(PlainButtonStyle())
+                     .padding()
+                     }
+                     }
+                     }*/
                 }
                 Spacer()
             }.navigationTitle("Gfrör.li")
@@ -81,31 +81,6 @@ struct OverView: View {
 
 struct OverView_Previews: PreviewProvider {
     static var previews: some View {
-        Group{
-            OverView(sensors: testSensorVM, loadingState: .constant(.loaded))
-                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
-                .previewDisplayName("iPhone 11 Pro Max")
-            OverView(sensors: testSensorVM, loadingState: .constant(.loaded))
-                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
-                .previewDisplayName("iPhone 11 Pro")
-            OverView(sensors: testSensorVM, loadingState: .constant(.loaded))
-                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
-                .previewDisplayName("iPhone SE")
-        }
-        Group{
-            OverView(sensors: testSensorVM, loadingState: .constant(.loaded))
-                .preferredColorScheme(.dark)
-                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
-                .previewDisplayName("iPhone 11 Pro Max Dark")
-            OverView(sensors: testSensorVM, loadingState: .constant(.loaded))
-                .preferredColorScheme(.dark)
-                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
-                .previewDisplayName("iPhone 11 Pro Dark")
-            OverView(sensors: testSensorVM, loadingState: .constant(.loaded))
-                .preferredColorScheme(.dark)
-                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
-                .previewDisplayName("iPhone SE Dark")
-            
-        }
+        OverView(sensors: testSensorVM, loadingState: .constant(.loading)).makePreViewModifier()
     }
 }
