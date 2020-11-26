@@ -16,12 +16,13 @@ struct LakeOverView: View {
         VStack(alignment: .leading) {
             topMap(lake: lake, region: lake.region, sensors: sensors)
             Text("Locations").font(.title).bold().padding(.horizontal)
-            Form(){
-                Section(){
-                    switch loadingState{
-                    case .loading:
-                        LoadingView()
-                    case .loaded:
+            
+            switch loadingState{
+            case .loading:
+                LoadingView()
+            case .loaded:
+                Form(){
+                    Section(){
                         ForEach(sensors.sensorArray){ sensor in
                             if(lake.sensors.contains(String(sensor.id!))){
                                 NavigationLink(
@@ -30,18 +31,20 @@ struct LakeOverView: View {
                                         HStack {
                                             Text(sensor.device_name!)
                                             Spacer()
-                                            Text(String(format: "%.1f",sensor.last_measurement!.temperature!)+"°")
+                                            Text(String(format: "%.1f",sensor.latestTemp!)+"°")
                                         }
                                     })
                             }
                         }
-                    case .error:
-                        ErrorView()
                     }
-                
+                }
+            case .error:
+                ErrorView()
             }
-            }
-        }.navigationBarTitle(lake.name)
+            
+            
+        }.background(Color.systemGroupedBackground.ignoresSafeArea())
+        .navigationBarTitle(lake.name)
     }
 }
 
@@ -57,30 +60,26 @@ struct topMap: View{
     @ObservedObject var sensors: SensorListViewModel
     var body: some View{
         Map (coordinateRegion: $region,annotationItems: sensors.sensorArray, annotationContent: { pin in
-                        MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: pin.latitude!, longitude: pin.longitude!), content: {
-                            
-                            NavigationLink(
-                                destination: /*@START_MENU_TOKEN@*/Text("Destination")/*@END_MENU_TOKEN@*/,
-                                label: {
-                                    Text(String(format: "%.1f", pin.last_measurement!.temperature!)+"°")
-                                        .minimumScaleFactor(0.3)
-                                        .foregroundColor(.white)
-                                        .lineLimit(1)
-                                        .frame(width: 40, height: 40)
-                                        .background(Color.blue)
-                                        .cornerRadius(90)
-                                })
-                            
-                                
-                        
-                            
-                        })
+            MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: pin.latitude!, longitude: pin.longitude!), content: {
+                
+                NavigationLink(
+                    destination: /*@START_MENU_TOKEN@*/Text("Destination")/*@END_MENU_TOKEN@*/,
+                    label: {
+                        Text(String(format: "%.1f", pin.latestTemp!)+"°")
+                            .minimumScaleFactor(0.3)
+                            .foregroundColor(.white)
+                            .lineLimit(1)
+                            .frame(width: 40, height: 40)
+                            .background(Color.blue)
+                            .cornerRadius(90)
+                    })
+            })
             
-                    }).frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/3.5, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+        }).frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/3.5, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         
         .onAppear(perform: {
             region = MKCoordinateRegion(center: lake.region.center, span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta:0.2))
-
+            
         })
         
         

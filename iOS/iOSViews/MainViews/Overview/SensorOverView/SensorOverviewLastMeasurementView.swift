@@ -13,10 +13,14 @@ struct SensorOverviewLastMeasurementView: View {
         VStack(alignment: .leading){
             
             Text("Last Measurement").font(.title).bold()
-            Text(String(format: "%.1f", sensor.last_measurement!.temperature!)+"°" ).font(.system(size: 50))
-            //Text(createDateStringfromStringDate(string: sensor.last_measurement!.created_at!))
-              //  .font(.footnote).foregroundColor(.gray)
-        }
+            Text(String(format: "%.1f", sensor.latestTemp!)+"°" ).font(.system(size: 50))
+            #warning("add remove if api fixed")
+            // Text("Highest: " + String(format: "%.1f", sensor.maxTemp!))
+            // Text("Lowest: " + String(format: "%.1f", sensor.minTemp!))
+            // Text("Average: " + String(format: "%.1f", sensor.avgTemp!))
+            
+        }.padding()
+        .frame(maxWidth:.infinity,alignment: .topLeading)
     }
 }
 

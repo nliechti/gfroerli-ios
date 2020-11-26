@@ -14,18 +14,18 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 import Foundation
 
 struct Sensor: Codable, Identifiable {
-    init(id: Int?, device_name: String?, caption: String?, latitude: Double?, longitude: Double?, sponsor_id: Int?, measurement_ids: [Int]?, created_at: String?, updated_at: String?, last_measurement: Measuring?, url: String?) {
+    init(id: Int?, device_name: String?, caption: String?, latitude: Double?, longitude: Double?, sponsor_id: Int?, created_at: String?, latestTemp: Double?, maxTemp: Double?, minTemp:Double?,avgTemp:Double?) {
         self.id = id
         self.device_name = device_name
         self.caption = caption
         self.latitude = latitude
         self.longitude = longitude
         self.sponsor_id = sponsor_id
-        self.measurement_ids = measurement_ids
         self.created_at = created_at
-        self.updated_at = updated_at
-        self.last_measurement = last_measurement
-        self.url = url
+        self.latestTemp = latestTemp
+        self.maxTemp = maxTemp
+        self.minTemp = minTemp
+        self.avgTemp = avgTemp
     }
     
     let id : Int?
@@ -34,11 +34,11 @@ struct Sensor: Codable, Identifiable {
     let latitude : Double?
     let longitude : Double?
     let sponsor_id : Int?
-    let measurement_ids : [Int]?
     let created_at : String?
-    let updated_at : String?
-    let last_measurement : Measuring?
-    let url : String?
+    let latestTemp : Double?
+    let maxTemp: Double?
+    let minTemp: Double?
+    let avgTemp: Double?
 
     enum CodingKeys: String, CodingKey {
 
@@ -48,11 +48,12 @@ struct Sensor: Codable, Identifiable {
         case latitude = "latitude"
         case longitude = "longitude"
         case sponsor_id = "sponsor_id"
-        case measurement_ids = "measurement_ids"
         case created_at = "created_at"
-        case updated_at = "updated_at"
-        case last_measurement = "last_measurement"
-        case url = "url"
+        case latestTemp = "latest_temperature"
+        case maxTemp = "maximum_temperature"
+        case minTemp = "minimum_temperature"
+        case avgTemp = "average_temperature"
+        
     }
 
     
@@ -64,14 +65,15 @@ struct Sensor: Codable, Identifiable {
         latitude = try values.decodeIfPresent(Double.self, forKey: .latitude)
         longitude = try values.decodeIfPresent(Double.self, forKey: .longitude)
         sponsor_id = try values.decodeIfPresent(Int.self, forKey: .sponsor_id)
-        measurement_ids = try values.decodeIfPresent([Int].self, forKey: .measurement_ids)
         created_at = try values.decodeIfPresent(String.self, forKey: .created_at)
-        updated_at = try values.decodeIfPresent(String.self, forKey: .updated_at)
-        last_measurement = try values.decodeIfPresent(Measuring.self, forKey: .last_measurement)
-        url = try values.decodeIfPresent(String.self, forKey: .url)
+        latestTemp = try values.decodeIfPresent(Double.self, forKey: .latestTemp)
+        minTemp = try values.decodeIfPresent(Double.self, forKey: .minTemp)
+        maxTemp = try values.decodeIfPresent(Double.self, forKey: .maxTemp)
+        avgTemp = try values.decodeIfPresent(Double.self, forKey: .avgTemp)
+
     }
 }
 
 
-let testSensor = Sensor(id: 2, device_name: "testSensor", caption: "caption", latitude: 47.28073, longitude: 8.72869, sponsor_id: 0, measurement_ids: [Int](), created_at: "23.2.2200", updated_at: "23.2.2200", last_measurement: measurement1, url: "none")
+let testSensor = Sensor(id: 2, device_name: "testSensor", caption: "caption", latitude: 47.28073, longitude: 8.72869, sponsor_id: 0, created_at: "10-10-10", latestTemp: 20.0, maxTemp: 20.0, minTemp: 0.0, avgTemp: 10.0)
 

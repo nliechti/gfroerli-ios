@@ -14,17 +14,16 @@ struct SensorOverviewSponsorView: View {
     @Binding var sensor : Sensor
     var body: some View {
         VStack(alignment: .leading){
-            
             Text("Sponsored by:").font(.title).bold()
             
             switch loadingState{
             case .loading:
-                LoadingView().frame(width: UIScreen.main.bounds.width, height: 250)
+                LoadingView()
             case .loaded:
                 if sponsor != nil {
                     VStack{
                         HStack{
-                        Text( sponsor!.name!).font(.title).bold()
+                        Text( sponsor!.name!).font(.largeTitle).bold()
                             Spacer()
                         }.padding(.bottom)
                         Text( sponsor!.description!)
@@ -33,10 +32,11 @@ struct SensorOverviewSponsorView: View {
                     }
                 
             case .error:
-                ErrorView().frame(width: UIScreen.main.bounds.width, height: 250)
+                ErrorView()
             }
-            
-        }.onAppear(perform: {
+        }
+        .padding()
+        .onAppear(perform: {
             loadingState = .loading
             sponsorListVM.getAllSponsors{ (result) in
                 switch result {

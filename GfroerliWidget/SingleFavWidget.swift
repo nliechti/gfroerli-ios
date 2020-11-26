@@ -33,9 +33,9 @@ struct SingleProvider: TimelineProvider {
         
         var date = Date()
         let update = Calendar.current.date(byAdding: .second,value: 30, to: date)
-        getSingleSensor(id: widgetSensorID) { (sens) in
-            completion(Timeline(entries: [sens], policy: .after(update!)))
-        }
+        //getSingleSensor(id: widgetSensorID) { (sens) in
+         //   completion(Timeline(entries: [sens], policy: .after(update!)))
+        //}
         
     }
     
@@ -50,7 +50,7 @@ struct SingleProvider: TimelineProvider {
 
 
 
-func getMeasurements(id: Int,completion: @escaping ([Double]) -> ()){
+/*func getMeasurements(id: Int,completion: @escaping ([Double]) -> ()){
     
     let df = DateFormatter()
     df.dateFormat = "yyyy-MM-ddThh:mm:ss"
@@ -131,7 +131,7 @@ func getSingleSensor(id: Int,completion: @escaping (SingleSensorEntry) -> ()){
         }
     }.resume()
 }
-
+*/
 
 struct SingleFavWidgetViewSmall:View {
     let entry: SingleProvider.Entry

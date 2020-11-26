@@ -49,7 +49,6 @@ struct iOSMainView: View {
                 switch result {
                 case .success(let str):
                     loadingState = .loaded
-                    print(str)
                 case .failure(let error):
                     loadingState = .error
                     switch error {

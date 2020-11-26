@@ -49,6 +49,7 @@
 		8D737730252BA7200075E04E /* Sponsor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73772E252BA7200075E04E /* Sponsor.swift */; };
 		8D737737252BA8750075E04E /* SponsorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D737736252BA8750075E04E /* SponsorsViewModel.swift */; };
 		8D737738252BA8750075E04E /* SponsorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D737736252BA8750075E04E /* SponsorsViewModel.swift */; };
+		8D7E98BD257025EC00BC32EB /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7E98BC257025EC00BC32EB /* ColorExtension.swift */; };
 		8D9B0FCF24F3A2E7003502C8 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D9B0FCE24F3A2E7003502C8 /* WidgetKit.framework */; };
 		8D9B0FD124F3A2E7003502C8 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D9B0FD024F3A2E7003502C8 /* SwiftUI.framework */; };
 		8D9B0FDA24F3A2E8003502C8 /* Widgets.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8D9B0FCC24F3A2E7003502C8 /* Widgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -60,10 +61,10 @@
 		8DA7CEF62516108000395465 /* SensorListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA7CEF42516108000395465 /* SensorListViewModel.swift */; };
 		8DA7CF02251611C800395465 /* SingleSensorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA7CF01251611C700395465 /* SingleSensorViewModel.swift */; };
 		8DA7CF03251611C800395465 /* SingleSensorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA7CF01251611C700395465 /* SingleSensorViewModel.swift */; };
-		8DA7CF0F2516176300395465 /* MeasurementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA7CF0E2516176300395465 /* MeasurementViewModel.swift */; };
-		8DA7CF102516176300395465 /* MeasurementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA7CF0E2516176300395465 /* MeasurementViewModel.swift */; };
+		8DA7CF0F2516176300395465 /* TempAggregationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA7CF0E2516176300395465 /* TempAggregationsViewModel.swift */; };
+		8DA7CF102516176300395465 /* TempAggregationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA7CF0E2516176300395465 /* TempAggregationsViewModel.swift */; };
 		8DC0D495250CC499009E20B5 /* SingleFavWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9B0FD324F3A2E7003502C8 /* SingleFavWidget.swift */; };
-		8DC0D496250CC4A6009E20B5 /* Measurements.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C24FE824EEB5AA00FB4F51 /* Measurements.swift */; };
+		8DC0D496250CC4A6009E20B5 /* TempAggregations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C24FE824EEB5AA00FB4F51 /* TempAggregations.swift */; };
 		8DF3BBC9250B4F2700DBCC37 /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBC8250B4F2700DBCC37 /* URLExtension.swift */; };
 		8DF3BBCB250B709700DBCC37 /* AllSensorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBCA250B709700DBCC37 /* AllSensorView.swift */; };
 		8DF3BBCD250B748800DBCC37 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBCC250B748800DBCC37 /* SearchBar.swift */; };
@@ -79,7 +80,7 @@
 		E461459524A34831006233AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E461456A24A34831006233AE /* Assets.xcassets */; };
 		E461459624A34831006233AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E461456A24A34831006233AE /* Assets.xcassets */; };
 		E4C24FE724EEB58400FB4F51 /* Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C24FE624EEB58400FB4F51 /* Sensor.swift */; };
-		E4C24FE924EEB5AA00FB4F51 /* Measurements.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C24FE824EEB5AA00FB4F51 /* Measurements.swift */; };
+		E4C24FE924EEB5AA00FB4F51 /* TempAggregations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C24FE824EEB5AA00FB4F51 /* TempAggregations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,6 +163,7 @@
 		8D6A7DC724F15187009A0026 /* SensorOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorOverView.swift; sourceTree = "<group>"; };
 		8D73772E252BA7200075E04E /* Sponsor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sponsor.swift; sourceTree = "<group>"; };
 		8D737736252BA8750075E04E /* SponsorsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorsViewModel.swift; sourceTree = "<group>"; };
+		8D7E98BC257025EC00BC32EB /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		8D9B0FCC24F3A2E7003502C8 /* Widgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Widgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D9B0FCE24F3A2E7003502C8 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		8D9B0FD024F3A2E7003502C8 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -173,7 +175,7 @@
 		8D9B0FE324F3BEA4003502C8 /* WaveShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveShape.swift; sourceTree = "<group>"; };
 		8DA7CEF42516108000395465 /* SensorListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorListViewModel.swift; sourceTree = "<group>"; };
 		8DA7CF01251611C700395465 /* SingleSensorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSensorViewModel.swift; sourceTree = "<group>"; };
-		8DA7CF0E2516176300395465 /* MeasurementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementViewModel.swift; sourceTree = "<group>"; };
+		8DA7CF0E2516176300395465 /* TempAggregationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempAggregationsViewModel.swift; sourceTree = "<group>"; };
 		8DF3BBC8250B4F2700DBCC37 /* URLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
 		8DF3BBCA250B709700DBCC37 /* AllSensorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSensorView.swift; sourceTree = "<group>"; };
 		8DF3BBCC250B748800DBCC37 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
@@ -195,7 +197,7 @@
 		E461458E24A34831006233AE /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		E461459024A34831006233AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4C24FE624EEB58400FB4F51 /* Sensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sensor.swift; sourceTree = "<group>"; };
-		E4C24FE824EEB5AA00FB4F51 /* Measurements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measurements.swift; sourceTree = "<group>"; };
+		E4C24FE824EEB5AA00FB4F51 /* TempAggregations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempAggregations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -326,7 +328,7 @@
 			children = (
 				8DA7CEF42516108000395465 /* SensorListViewModel.swift */,
 				8DA7CF01251611C700395465 /* SingleSensorViewModel.swift */,
-				8DA7CF0E2516176300395465 /* MeasurementViewModel.swift */,
+				8DA7CF0E2516176300395465 /* TempAggregationsViewModel.swift */,
 				8D737736252BA8750075E04E /* SponsorsViewModel.swift */,
 			);
 			path = ViewModels;
@@ -421,6 +423,7 @@
 				E44EA3AC24EEA7EA00380E27 /* MapExtension.swift */,
 				8DF3BBC8250B4F2700DBCC37 /* URLExtension.swift */,
 				8D05A2DA253F645300E7C1BD /* PreViewExtension.swift */,
+				8D7E98BC257025EC00BC32EB /* ColorExtension.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -469,9 +472,9 @@
 		E461457124A34831006233AE /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				E438B4C924ACFB49008A2E01 /* iOSViews */,
 				8D49A370250A3E6B000B26CD /* Gfror.liRelease.entitlements */,
 				8D9B0FDF24F3A35A003502C8 /* Gfror.li.entitlements */,
-				E438B4C924ACFB49008A2E01 /* iOSViews */,
 				E461457224A34831006233AE /* Info.plist */,
 			);
 			path = iOS;
@@ -519,7 +522,7 @@
 			children = (
 				E4C24FE624EEB58400FB4F51 /* Sensor.swift */,
 				8D73772E252BA7200075E04E /* Sponsor.swift */,
-				E4C24FE824EEB5AA00FB4F51 /* Measurements.swift */,
+				E4C24FE824EEB5AA00FB4F51 /* TempAggregations.swift */,
 				8D0D7FE724F10F610068176C /* LakesData.swift */,
 				8D04196924F50349003D64D4 /* RiverData.swift */,
 			);
@@ -625,7 +628,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1200;
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1230;
 				TargetAttributes = {
 					8D9B0FCB24F3A2E7003502C8 = {
 						CreatedOnToolsVersion = 12.0;
@@ -732,9 +735,9 @@
 				8D737738252BA8750075E04E /* SponsorsViewModel.swift in Sources */,
 				8D2A3F34250CF1E90070B4CB /* LineView.swift in Sources */,
 				8DF3BBD9250BB6BB00DBCC37 /* OwnHelpers.swift in Sources */,
-				8DC0D496250CC4A6009E20B5 /* Measurements.swift in Sources */,
+				8DC0D496250CC4A6009E20B5 /* TempAggregations.swift in Sources */,
 				8D9B1AEA24F463290047FAC2 /* Sensor.swift in Sources */,
-				8DA7CF102516176300395465 /* MeasurementViewModel.swift in Sources */,
+				8DA7CF102516176300395465 /* TempAggregationsViewModel.swift in Sources */,
 				8D737730252BA7200075E04E /* Sponsor.swift in Sources */,
 				8DA7CEF62516108000395465 /* SensorListViewModel.swift in Sources */,
 				8DA7CF03251611C800395465 /* SingleSensorViewModel.swift in Sources */,
@@ -755,7 +758,7 @@
 				8DF3BBCB250B709700DBCC37 /* AllSensorView.swift in Sources */,
 				8D6A7DC624F14115009A0026 /* LakeOverView.swift in Sources */,
 				8D4731B124F3F93200EE5536 /* WidgetSettingsView.swift in Sources */,
-				8DA7CF0F2516176300395465 /* MeasurementViewModel.swift in Sources */,
+				8DA7CF0F2516176300395465 /* TempAggregationsViewModel.swift in Sources */,
 				8DF3BBCD250B748800DBCC37 /* SearchBar.swift in Sources */,
 				8D9B0FE424F3BEA4003502C8 /* WaveShape.swift in Sources */,
 				E4C24FE724EEB58400FB4F51 /* Sensor.swift in Sources */,
@@ -783,10 +786,11 @@
 				8DF3BBD5250BB62D00DBCC37 /* SensorOverviewLastMeasurementView.swift in Sources */,
 				8D5066EF24F7F33400E426DE /* LineView.swift in Sources */,
 				8D73772F252BA7200075E04E /* Sponsor.swift in Sources */,
-				E4C24FE924EEB5AA00FB4F51 /* Measurements.swift in Sources */,
+				E4C24FE924EEB5AA00FB4F51 /* TempAggregations.swift in Sources */,
 				8D0D7FE224F107B60068176C /* OverView.swift in Sources */,
 				8D2701C725153082007BB0E1 /* LoadingView.swift in Sources */,
 				E438B4CC24ACFB7D008A2E01 /* iOSMainView.swift in Sources */,
+				8D7E98BD257025EC00BC32EB /* ColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1077,6 +1081,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = VDVQE324N6;
@@ -1101,6 +1106,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = VDVQE324N6;

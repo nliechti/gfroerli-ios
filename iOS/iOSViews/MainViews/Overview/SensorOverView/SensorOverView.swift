@@ -15,17 +15,34 @@ struct SensorOverView: View {
     
     var body: some View {
         ScrollView{
-            VStack(alignment:.leading){
-                SensorOverviewLastMeasurementView(sensor: sensor).padding(.bottom)
-                SensorOverViewGraph(sensorID: sensor.id!).frame(height: 300).padding(.bottom)
+            VStack{
+                SensorOverviewLastMeasurementView(sensor: sensor)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .background(Color.secondarySystemGroupedBackground)
+                    .cornerRadius(15)
+                    .padding(.bottom)
+                    .padding(.horizontal)
+                SensorOverViewGraph(sensorID: sensor.id!)
+                    .frame(minHeight: 350)
+                    .background(Color.secondarySystemGroupedBackground)
+                    .cornerRadius(15)
+                    .padding(.bottom)
+                    .padding(.horizontal)
                 SensorOverviewSponsorView(sensor: $sensor)
-            }.padding(.horizontal)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .background(Color.secondarySystemGroupedBackground)
+                    .cornerRadius(15)
+                    .padding(.horizontal)
+                
+            }
+            
         }
         
         .onAppear {
             favorites  = UserDefaults(suiteName: "group.ch.gfroerli")?.array(forKey: "favoritesIDs") as? [Int] ?? [Int]()
             isFav = favorites.contains(sensor.id!)
         }.navigationTitle(Text(sensor.device_name!))
+        .background(Color.systemGroupedBackground.ignoresSafeArea())
         .navigationBarItems(trailing:
                                 Button {
                                     isFav ? removeFav() : makeFav()

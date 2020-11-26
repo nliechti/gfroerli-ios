@@ -24,7 +24,7 @@ class SensorListViewModel: ObservableObject {
     
     func getAllSensors(completion: @escaping (Result<String, NetworkError>) -> Void) {
         
-        var url = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/sensors")!)
+        var url = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/mobile_app/sensors")!)
         url.setValue("Bearer XTZA6H0Hg2f02bzVefmVlr8fIJMy2FGCJ0LlDlejj2Pi0i1JvZiL0Ycv1t6JoZzD", forHTTPHeaderField: "Authorization")
         url.httpMethod = "GET"
 

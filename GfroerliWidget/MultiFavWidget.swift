@@ -78,11 +78,11 @@ struct MultiProvider: TimelineProvider {
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         var date = Date()
         let update = Calendar.current.date(byAdding: .second,value: 30, to: date)
-        getMultiSensorEntry(id: widgetSensorID){ (modelData) in
+        /*getMultiSensorEntry(id: widgetSensorID){ (modelData) in
             let entry = MultiSensorEntry(name: (modelData.name), temp: (modelData.temp))
             completion(Timeline(entries: [entry], policy: .after(update!)))
 
-            }
+            }*/
 
         }
         
@@ -95,7 +95,7 @@ struct MultiProvider: TimelineProvider {
     
 }
 
-func getMultiSensorEntry(id: Int,completion: @escaping (MultiSensorEntry)-> ()){
+/*func getMultiSensorEntry(id: Int,completion: @escaping (MultiSensorEntry)-> ()){
     
     var request = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/sensors")!)
     request.setValue("Bearer XTZA6H0Hg2f02bzVefmVlr8fIJMy2FGCJ0LlDlejj2Pi0i1JvZiL0Ycv1t6JoZzD", forHTTPHeaderField: "Authorization")
@@ -133,7 +133,7 @@ func getMultiSensorEntry(id: Int,completion: @escaping (MultiSensorEntry)-> ()){
     }.resume()
 }
 
-
+*/
 struct MultiFavWidget_Previews: PreviewProvider {
     static var previews: some View {
         Group{

@@ -8,6 +8,7 @@
 import Foundation
 
 struct Sponsor: Codable, Identifiable {
+    
     init(id: Int?, name: String?, description: String?, active: Bool?,  created_at: String?, updated_at: String?, url: String?) {
         self.id = id
         self.name = name

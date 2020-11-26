@@ -16,7 +16,7 @@ struct OverView: View {
         NavigationView{
             ScrollView(.vertical){
                 VStack(alignment: .leading, spacing: 0){
-                    Divider()
+                    
                     Text("Featured")
                         .font(.title)
                         .bold()
@@ -34,8 +34,6 @@ struct OverView: View {
                     case .error:
                         ErrorView().frame(width: UIScreen.main.bounds.width, height: 250)
                     }
-                    Divider()
-                    
                     Text("Lakes")
                         .font(.title)
                         .bold()
@@ -46,36 +44,19 @@ struct OverView: View {
                                 NavigationLink(
                                     destination: LakeOverView(lake: lake, sensors: sensors, loadingState: $loadingState),
                                     label: {
-                                        ScrollItem(sensorCount: lake.sensors.count, name: lake.name, region: lake.region)
+                                        ScrollItem(lake:lake)
                                     }).buttonStyle(PlainButtonStyle())
                                     .padding()
                             }
                         }
                     }
-                    /* Text("Rivers")
-                     .font(.title)
-                     .bold()
-                     .padding([.horizontal,.top])
-                     ScrollView(.horizontal, showsIndicators: false){
-                     HStack(spacing:0){
-                     ForEach(rivers){ river in
-                     NavigationLink(
-                     destination: Text(river.name),
-                     label: {
-                     ScrollItem(sensorCount: river.sensors.count, name: river.name, region: river.region)
-                     
-                     }).buttonStyle(PlainButtonStyle())
-                     .padding()
-                     }
-                     }
-                     }*/
                 }
                 Spacer()
-            }.navigationTitle("Gfrör.li")
-            
-            
+            }.background(Color.systemGroupedBackground.ignoresSafeArea())
+            .navigationTitle("Gfrör.li")
             
         }
+        
     }
 }
 

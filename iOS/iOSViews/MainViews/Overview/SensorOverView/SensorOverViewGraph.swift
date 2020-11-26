@@ -8,13 +8,20 @@
 import SwiftUI
 
 struct SensorOverViewGraph: View {
-    @State var sensorID: Int
-    @StateObject var measurementsVM = MeasuringListViewModel()
+    
+    var sensorID: Int
+    @StateObject var tempAggVM = TempAggregationsViewModel()
     @State var pickerSelection = 0
     @State var pickerOptions = [NSLocalizedString("Day", comment: ""), NSLocalizedString("Week", comment: ""), NSLocalizedString("Month", comment: "")]
+    
     @State var dayLoading: loadingState = .loading
     @State var weekLoading: loadingState = .loading
     @State var monthLoading: loadingState = .loading
+    
+    init(sensorID: Int) {
+        self.sensorID = sensorID
+        
+    }
     var body: some View {
         VStack(alignment: .leading){
             Text("History").font(.title).bold()
@@ -29,36 +36,13 @@ struct SensorOverViewGraph: View {
             })
             Divider()
             switch pickerSelection{
-            case 0: DayChart(measurementsVM: measurementsVM, loadingState: $dayLoading, sensorID: $sensorID).padding(.vertical)
-            case 1: WeekChart(measurementsVM: measurementsVM, loadingState: $weekLoading, sensorID: $sensorID).padding(.vertical)
-            default : MonthChart(loadingState: $monthLoading, measurementsVM: measurementsVM, sensorID: $sensorID).padding(.vertical)
+            case 0: DayChart(tempAggregVM: tempAggVM, loadingState: $dayLoading)
+            case 1: EmptyView()//WeekChart(measurementsVM: measurementsVM, loadingState: $weekLoading, sensorID: $sensorID).padding(.vertical)
+            default : EmptyView()//MonthChart(loadingState: $monthLoading, measurementsVM: measurementsVM, sensorID: $sensorID).padding(.vertical)
             }
-            Divider()
-            //load data
-        }.onAppear(perform: {
-            weekLoading = .loading
-            measurementsVM.loadMeasurings(sensorID: sensorID, timeFrame: .week) { (result) in
-                switch result {
-                case .success(let str):
-                    weekLoading = .loaded
-                    print(str)
-                case .failure(let error):
-                    weekLoading = .error
-                    switch error {
-                    case .badURL:
-                        print("Bad URL")
-                    case .requestFailed:
-                        print("Network problems")
-                    case.decodeFailed:
-                        print("Decoding data failed")
-                    case .unknown:
-                        print("Unknown error")
-                    }
-                }
-            }
-            
-            dayLoading = .loading
-            measurementsVM.loadMeasurings(sensorID: sensorID, timeFrame: .day) { (result) in
+        }.padding()
+        .onAppear(perform: {
+            tempAggVM.loadAggregationsDay(sensorID: sensorID) { (result) in
                 switch result {
                 case .success(let str):
                     dayLoading = .loaded
@@ -77,64 +61,44 @@ struct SensorOverViewGraph: View {
                     }
                 }
             }
-            
-            monthLoading = .loading
-            measurementsVM.loadMeasurings(sensorID: sensorID, timeFrame: .month) { (result) in
-                switch result {
-                case .success(let str):
-                    monthLoading = .loaded
-                    print(str)
-                case .failure(let error):
-                    monthLoading = .error
-                    switch error {
-                    case .badURL:
-                        print("Bad URL")
-                    case .requestFailed:
-                        print("Network problems")
-                    case.decodeFailed:
-                        print("Decoding data failed")
-                    case .unknown:
-                        print("Unknown error")
-                    }
-                }
-            }
         })
     }
 }
 
 struct SensorOverViewGraph_Previews: PreviewProvider {
     static var previews: some View {
-            SensorOverViewGraph(sensorID: 1, measurementsVM: testmeasVM)
-                .makePreViewModifier()
-            
+        SensorOverViewGraph(sensorID: 1)
+            .makePreViewModifier()
+        
     }
 }
 struct DayChart: View {
-    @ObservedObject var measurementsVM : MeasuringListViewModel
+    @ObservedObject var tempAggregVM : TempAggregationsViewModel
     @Binding var loadingState : loadingState
-    @Binding var sensorID: Int
     var body: some View {
         switch loadingState{
         case .loading:
             LoadingView().frame(height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-
+            
         case .loaded:
-            LineView(data: makeDate(data: measurementsVM.measuringListDay))
+            LineView(data: makeDate(data: tempAggregVM.dataDay))
         case .error:
             ErrorView().frame(height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         }
         
     }
-    func makeDate(data: [Measuring])->[Double]{
-        var plotData = [Double]()
-        for meas in data{
-            plotData.append(meas.temperature!)
+    
+    func makeDate(data: [HourlyAggregation])->[Double]{
+            var plotData = [Double]()
+            for entry in data{
+                plotData.append(entry.avgTemp!)
+            }
+            return plotData
         }
-        return plotData
-    }
+    
 }
 struct WeekChart: View {
-    @ObservedObject var measurementsVM : MeasuringListViewModel
+    @ObservedObject var tempAggrVM : TempAggregationsViewModel
     @Binding var loadingState : loadingState
     @Binding var sensorID: Int
     var body: some View {
@@ -142,40 +106,26 @@ struct WeekChart: View {
         case .loading:
             LoadingView().frame(height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         case .loaded:
-            LineView(data: makeDate(data: measurementsVM.measuringListWeek))
+            Text("Add")
         case .error:
             ErrorView().frame(height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         }
-    }
-    func makeDate(data: [Measuring])->[Double]{
-        var plotData = [Double]()
-        for meas in data{
-            plotData.append(meas.temperature!)
-        }
-        return plotData
     }
 }
 struct MonthChart: View {
     @Binding var loadingState : loadingState
-    @ObservedObject var measurementsVM : MeasuringListViewModel
+    @ObservedObject var tempAggrVM : TempAggregationsViewModel
     @Binding var sensorID: Int
     var body: some View {
         switch loadingState{
         case .loading:
             LoadingView().frame(height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-
+            
         case .loaded:
-            LineView(data: makeDate(data: measurementsVM.measuringListMonth))
+            Text("Add")
         case .error:
             ErrorView().frame(height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         }
         
-    }
-    func makeDate(data: [Measuring])->[Double]{
-        var plotData = [Double]()
-        for meas in data{
-            plotData.append(meas.temperature!)
-        }
-        return plotData
     }
 }
