@@ -276,3 +276,10 @@ class HapticFeedback {
     }
     #endif
 }
+
+enum tempType{
+    case minimum, maximum, average;
+}
+enum DaySpan{
+    case week, month
+}

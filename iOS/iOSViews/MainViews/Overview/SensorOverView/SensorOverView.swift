@@ -23,7 +23,7 @@ struct SensorOverView: View {
                     .padding(.bottom)
                     .padding(.horizontal)
                 SensorOverViewGraph(sensorID: sensor.id!)
-                    .frame(minHeight: 350)
+                    .frame(minHeight: 400)
                     .background(Color.secondarySystemGroupedBackground)
                     .cornerRadius(15)
                     .padding(.bottom)

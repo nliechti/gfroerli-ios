@@ -14,7 +14,17 @@
 import Foundation
 import Combine
 
-struct HourlyAggregation : Codable, Identifiable{
+struct HourlyAggregation : Codable, Identifiable,Aggregation{
+    
+    internal init(id: String?, date: String?, hour: Int?, maxTemp: Double?, minTemp: Double?, avgTemp: Double?) {
+        self.id = id
+        self.date = date
+        self.hour = hour
+        self.maxTemp = maxTemp
+        self.minTemp = minTemp
+        self.avgTemp = avgTemp
+    }
+    
     let id: String?
     let date: String?
     let hour: Int?
@@ -40,12 +50,12 @@ struct HourlyAggregation : Codable, Identifiable{
         maxTemp = try values.decodeIfPresent(Double.self, forKey: .maxTemp)
         minTemp = try values.decodeIfPresent(Double.self, forKey: .minTemp)
         avgTemp = try values.decodeIfPresent(Double.self, forKey: .avgTemp)
-
-        
     }
+    
+
 }
 
-struct DailyAggregation : Codable, Identifiable{
+struct DailyAggregation : Codable, Identifiable, Aggregation{
     let id: String?
     let date: String?
     let maxTemp: Double?
@@ -71,4 +81,12 @@ struct DailyAggregation : Codable, Identifiable{
         
     }
     
+}
+
+protocol Aggregation{
+    var id: String? {get}
+    var date:String? {get}
+    var minTemp:Double? {get}
+    var maxTemp:Double? {get}
+    var avgTemp:Double? {get}
 }

@@ -18,6 +18,12 @@ struct SensorOverViewGraph: View {
     @State var weekLoading: loadingState = .loading
     @State var monthLoading: loadingState = .loading
     
+    @State var showMin = false
+    @State var showMax = false
+    @State var showAvg = true
+    @State var showCircles = true
+
+    
     init(sensorID: Int) {
         self.sensorID = sensorID
         
@@ -31,24 +37,82 @@ struct SensorOverViewGraph: View {
                     Text(self.pickerOptions[index]).tag(index)
                 }
             }.pickerStyle(SegmentedPickerStyle())
-            .onAppear(perform: {
-                
-            })
-            Divider()
+            .padding(.bottom)
+            
             switch pickerSelection{
-            case 0: DayChart(tempAggregVM: tempAggVM, loadingState: $dayLoading)
-            case 1: EmptyView()//WeekChart(measurementsVM: measurementsVM, loadingState: $weekLoading, sensorID: $sensorID).padding(.vertical)
-            default : EmptyView()//MonthChart(loadingState: $monthLoading, measurementsVM: measurementsVM, sensorID: $sensorID).padding(.vertical)
+            case 0: DayChart(tempAggregVM: tempAggVM, loadingState: $dayLoading, showMin: $showMin, showMax: $showMax, showAvg: $showAvg, showCircles: $showCircles).onTapGesture {
+                showCircles.toggle()
             }
+            case 1: WeekChart(tempAggregVM: tempAggVM, loadingState: $weekLoading, showMin: $showMin, showMax: $showMax, showAvg: $showAvg, showCircles: $showCircles).onTapGesture {
+                showCircles.toggle()
+            }
+            default : MonthChart(tempAggregVM: tempAggVM, loadingState: $monthLoading, showMin: $showMin, showMax: $showMax, showAvg: $showAvg, showCircles: $showCircles).onTapGesture {
+                showCircles.toggle()
+            }
+            }
+            Text("Tap to show:").padding(.top)
+            HStack{
+                Button {
+                    showAvg.toggle()
+                } label: {
+                    Label("averages", systemImage: showAvg ? "checkmark.circle.fill": "circle").foregroundColor(.green)
+                }
+                Button {
+                    showMin.toggle()
+                } label: {
+                    Label("minimums", systemImage: showMin ? "checkmark.circle.fill": "circle").foregroundColor(.blue)
+                }
+                Button {
+                    showMax.toggle()
+                } label: {
+                    Label("maximums", systemImage: showMax ? "checkmark.circle.fill": "circle").foregroundColor(.red)
+                }
+            }
+            
         }.padding()
         .onAppear(perform: {
             tempAggVM.loadAggregationsDay(sensorID: sensorID) { (result) in
                 switch result {
                 case .success(let str):
                     dayLoading = .loaded
-                    print(str)
                 case .failure(let error):
                     dayLoading = .error
+                    switch error {
+                    case .badURL:
+                        print("Bad URL")
+                    case .requestFailed:
+                        print("Network problems")
+                    case.decodeFailed:
+                        print("Decoding data failed")
+                    case .unknown:
+                        print("Unknown error")
+                    }
+                }
+            }
+            tempAggVM.loadAggregationsWeek(sensorID: sensorID) { (result) in
+                switch result {
+                case .success(let str):
+                    weekLoading = .loaded
+                case .failure(let error):
+                    weekLoading = .error
+                    switch error {
+                    case .badURL:
+                        print("Bad URL")
+                    case .requestFailed:
+                        print("Network problems")
+                    case.decodeFailed:
+                        print("Decoding data failed")
+                    case .unknown:
+                        print("Unknown error")
+                    }
+                }
+            }
+            tempAggVM.loadAggregationsMonth(sensorID: sensorID) { (result) in
+                switch result {
+                case .success(let str):
+                    monthLoading = .loaded
+                case .failure(let error):
+                    monthLoading = .error
                     switch error {
                     case .badURL:
                         print("Bad URL")
@@ -75,57 +139,81 @@ struct SensorOverViewGraph_Previews: PreviewProvider {
 struct DayChart: View {
     @ObservedObject var tempAggregVM : TempAggregationsViewModel
     @Binding var loadingState : loadingState
+    @Binding var showMin : Bool
+    @Binding var showMax : Bool
+    @Binding var showAvg : Bool
+    @Binding var showCircles: Bool
+
     var body: some View {
-        switch loadingState{
-        case .loading:
-            LoadingView().frame(height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-            
-        case .loaded:
-            LineView(data: makeDate(data: tempAggregVM.dataDay))
-        case .error:
-            ErrorView().frame(height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-        }
-        
-    }
-    
-    func makeDate(data: [HourlyAggregation])->[Double]{
-            var plotData = [Double]()
-            for entry in data{
-                plotData.append(entry.avgTemp!)
+        VStack{
+            GeometryReader{ geo in
+                switch loadingState{
+                case .loading:
+                    LoadingView().frame(height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    
+                case .loaded:
+                    VStack(alignment:.leading){
+                        HourlyChartView(showMax: $showMax, showMin: $showMin, showAvg: $showAvg, showCircles: $showCircles, data: tempAggregVM.dataDay, frame: geo.frame(in: .local))
+                    }
+                case .error:
+                    ErrorView().frame(height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                }
             }
-            return plotData
         }
+    }
     
 }
 struct WeekChart: View {
-    @ObservedObject var tempAggrVM : TempAggregationsViewModel
+    @ObservedObject var tempAggregVM : TempAggregationsViewModel
     @Binding var loadingState : loadingState
-    @Binding var sensorID: Int
+    @Binding var showMin : Bool
+    @Binding var showMax : Bool
+    @Binding var showAvg : Bool
+    @Binding var showCircles: Bool
+    
     var body: some View {
-        switch loadingState{
-        case .loading:
-            LoadingView().frame(height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-        case .loaded:
-            Text("Add")
-        case .error:
-            ErrorView().frame(height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+        VStack{
+            GeometryReader{ geo in
+                switch loadingState{
+                case .loading:
+                    LoadingView().frame(height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    
+                case .loaded:
+                    VStack(alignment:.leading){
+                        
+                        DailyChartView(showMax: $showMax, showMin: $showMin, showAvg: $showAvg, showCircles: $showCircles, daySpan: .week, data: tempAggregVM.dataWeek, frame: geo.frame(in: .local))
+                    }
+                case .error:
+                    ErrorView().frame(height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                }
+            }
         }
     }
 }
 struct MonthChart: View {
+    @ObservedObject var tempAggregVM : TempAggregationsViewModel
     @Binding var loadingState : loadingState
-    @ObservedObject var tempAggrVM : TempAggregationsViewModel
-    @Binding var sensorID: Int
+    @Binding var showMin : Bool
+    @Binding var showMax : Bool
+    @Binding var showAvg : Bool
+    @Binding var showCircles: Bool
+
     var body: some View {
-        switch loadingState{
-        case .loading:
-            LoadingView().frame(height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-            
-        case .loaded:
-            Text("Add")
-        case .error:
-            ErrorView().frame(height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+        VStack{
+            GeometryReader{ geo in
+                switch loadingState{
+                case .loading:
+                    LoadingView().frame(height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    
+                case .loaded:
+                    VStack(alignment:.leading){
+                        
+                        DailyChartView(showMax: $showMax, showMin: $showMin, showAvg: $showAvg, showCircles: $showCircles, daySpan: .month, data: tempAggregVM.dataMonth, frame: geo.frame(in: .local))
+                    }
+                case .error:
+                    ErrorView().frame(height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                }
+            }
         }
-        
     }
 }
