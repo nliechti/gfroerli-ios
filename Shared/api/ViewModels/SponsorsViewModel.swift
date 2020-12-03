@@ -35,7 +35,6 @@ class SponsorListViewModel: ObservableObject {
                     let jsonDecoder = JSONDecoder()
                     let sponsors = try jsonDecoder.decode([Sponsor].self, from: data)
                     self.sponsorArray = sponsors
-                    print(sponsors)
                     completion(.success("Sponsors successfuly loaded!"))
                 } else if error != nil {
                     // network failures

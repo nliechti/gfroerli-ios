@@ -7,7 +7,7 @@
 
 import Foundation
 import SwiftUI
-#if DEBUG
+
 struct PreviewProviderModifier : ViewModifier{
     func body(content:Content)->some View{
         Group{
@@ -51,6 +51,3 @@ extension View {
         modifier(PreviewProviderModifier())
     }
 }
-
-
-#endif
