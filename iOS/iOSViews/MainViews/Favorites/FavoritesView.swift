@@ -33,7 +33,7 @@ struct FavoritesView: View {
                             ForEach(sensorsVm.sensorArray){ sensor in
                                 if favorites.contains(sensor.id!){
                                 NavigationLink(
-                                    destination: SensorOverView(sensor: sensor),
+                                    destination: SensorOverView(id: sensor.id!),
                                     label: {
                                         SensorScrollItem(sensor: sensor, region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: sensor.latitude!, longitude: sensor.longitude!), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)))
                                     }).buttonStyle(PlainButtonStyle())

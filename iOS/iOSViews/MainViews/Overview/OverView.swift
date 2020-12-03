@@ -27,7 +27,7 @@ struct OverView: View {
                         LoadingView().frame(width: UIScreen.main.bounds.width, height: 250)
                     case .loaded:
                         NavigationLink(
-                            destination: SensorOverView(sensor: sensors.sensorArray.first(where: {$0.id == featuredSensorID})!),
+                            destination: SensorOverView(id: featuredSensorID),
                             label: {
                                 SensorScrollItem(sensor: sensors.sensorArray.first(where: {$0.id == featuredSensorID})!, region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: sensors.sensorArray.first(where: {$0.id == featuredSensorID})!.latitude!, longitude: sensors.sensorArray.first(where: {$0.id == featuredSensorID})!.longitude!), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)))
                             }).buttonStyle(PlainButtonStyle())

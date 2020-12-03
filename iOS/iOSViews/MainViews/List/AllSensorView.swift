@@ -24,7 +24,7 @@ struct AllSensorView: View {
                     if !sensorsVm.sensorArray.isEmpty {
                         List{
                             ForEach(sensorsVm.sensorArray.filter({ "\($0.device_name!)".localizedCaseInsensitiveContains(searchText) || searchText.isEmpty })){ sensor in
-                                NavigationLink(destination: SensorOverView(sensor: sensor),tag: String(sensor.id!), selection: $id, label: {Text(sensor.device_name!)})
+                                NavigationLink(destination: SensorOverView(id: sensor.id!),tag: String(sensor.id!), selection: $id, label: {Text(sensor.device_name!)})
                                 
                             }
                         }.listStyle(InsetListStyle())

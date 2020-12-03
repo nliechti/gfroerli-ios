@@ -26,7 +26,7 @@ struct LakeOverView: View {
                         ForEach(sensors.sensorArray){ sensor in
                             if(lake.sensors.contains(String(sensor.id!))){
                                 NavigationLink(
-                                    destination: SensorOverView(sensor: sensor),
+                                    destination: SensorOverView(id: sensor.id!),
                                     label: {
                                         HStack {
                                             Text(sensor.device_name!)

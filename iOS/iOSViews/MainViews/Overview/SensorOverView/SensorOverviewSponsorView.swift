@@ -11,7 +11,7 @@ struct SensorOverviewSponsorView: View {
     @StateObject var sponsorListVM = SponsorListViewModel()
     @State var loadingState : loadingState = .loading
     @State var sponsor : Sponsor?
-    @Binding var sensor : Sensor
+    var sensor : Sensor
     var body: some View {
         VStack(alignment: .leading){
             Text("Sponsored by:").font(.title).bold()
@@ -64,6 +64,6 @@ struct SensorOverviewSponsorView: View {
 
 struct SensorOverviewSponsorView_Previews: PreviewProvider {
     static var previews: some View {
-        SensorOverviewSponsorView(sensor: Binding.constant(testSensor)).makePreViewModifier()
+        SensorOverviewSponsorView(sensor: testSensor).makePreViewModifier()
     }
 }

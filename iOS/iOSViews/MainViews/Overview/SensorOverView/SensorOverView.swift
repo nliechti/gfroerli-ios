@@ -9,45 +9,79 @@ import SwiftUI
 
 struct SensorOverView: View {
     
-    @State var sensor: Sensor
+    @ObservedObject var sensorVM = SingleSensorViewModel()
+    var id : Int
     @State var isFav = false
     @State var favorites  = UserDefaults(suiteName: "group.ch.gfroerli")?.array(forKey: "favoritesIDs") as? [Int] ?? [Int]()
+    @State var loadingState: loadingState = .loading
+
     
     var body: some View {
-        ScrollView{
-            VStack{
-                SensorOverviewLastMeasurementView(sensor: sensor)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .background(Color.secondarySystemGroupedBackground)
-                    .cornerRadius(15)
-                    .padding(.bottom)
-                    .padding(.horizontal)
-                SensorOverViewGraph(sensorID: sensor.id!)
-                    .frame(minHeight: 400)
-                    .background(Color.secondarySystemGroupedBackground)
-                    .cornerRadius(15)
-                    .padding(.bottom)
-                    .padding(.horizontal)
-                SensorOverviewMap(inSensor: sensor)
-                    .frame(minHeight: 400)
-                    .background(Color.secondarySystemGroupedBackground)
-                    .cornerRadius(15)
-                    .padding(.bottom)
-                    .padding(.horizontal)
-                SensorOverviewSponsorView(sensor: $sensor)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .background(Color.secondarySystemGroupedBackground)
-                    .cornerRadius(15)
-                    .padding(.horizontal)
+        VStack{
+        switch loadingState {
+        case .loaded:
+            ScrollView{
+                VStack{
+                    SensorOverviewLastMeasurementView(sensor: sensorVM.sensor!)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .background(Color.secondarySystemGroupedBackground)
+                        .cornerRadius(15)
+                        .padding(.bottom)
+                        .padding(.horizontal)
+                    SensorOverViewGraph(sensorID: sensorVM.sensor!.id!)
+                        .frame(minHeight: 400)
+                        .background(Color.secondarySystemGroupedBackground)
+                        .cornerRadius(15)
+                        .padding(.bottom)
+                        .padding(.horizontal)
+                    SensorOverviewMap(inSensor: sensorVM.sensor!)
+                        .frame(minHeight: 400)
+                        .background(Color.secondarySystemGroupedBackground)
+                        .cornerRadius(15)
+                        .padding(.bottom)
+                        .padding(.horizontal)
+                    SensorOverviewSponsorView(sensor: sensorVM.sensor!)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .background(Color.secondarySystemGroupedBackground)
+                        .cornerRadius(15)
+                        .padding(.horizontal)
+                    
+                }
                 
             }
+        case .loading:
+            LoadingView()
             
+        case .error:
+            ErrorView()
         }
         
+        }.padding(.bottom)
         .onAppear {
-            favorites  = UserDefaults(suiteName: "group.ch.gfroerli")?.array(forKey: "favoritesIDs") as? [Int] ?? [Int]()
-            isFav = favorites.contains(sensor.id!)
-        }.navigationTitle(Text(sensor.device_name!))
+            sensorVM.getSensor(id: id) {(result) in
+                switch result {
+                case .success(let str):
+                    loadingState = .loaded
+                    favorites  = UserDefaults(suiteName: "group.ch.gfroerli")?.array(forKey: "favoritesIDs") as? [Int] ?? [Int]()
+                    isFav = favorites.contains(sensorVM.sensor!.id!)
+                case .failure(let error):
+                    loadingState = .error
+                    switch error {
+                    case .badURL:
+                        print("Bad URL")
+                    case .requestFailed:
+                        print("Network problems")
+                    case.decodeFailed:
+                        print("Decoding data failed")
+                    case .unknown:
+                        print("Unknown error")
+                    }
+                }
+            }
+            
+            
+            
+        }.navigationTitle(loadingState == .loaded ? sensorVM.sensor!.device_name! : "")
         .background(Color.systemGroupedBackground.ignoresSafeArea())
         .navigationBarItems(trailing:
                                 Button {
@@ -61,13 +95,13 @@ struct SensorOverView: View {
     
     
     func makeFav(){
-        favorites.append(sensor.id!)
+        favorites.append(sensorVM.sensor!.id!)
         isFav = true
         UserDefaults(suiteName: "group.ch.gfroerli")?.set(favorites, forKey: "favoritesIDs")
         
     }
     func removeFav(){
-        favorites.removeFirst(sensor.id!)
+        favorites.removeFirst(sensorVM.sensor!.id!)
         isFav=false
         UserDefaults(suiteName: "group.ch.gfroerli")?.set(favorites, forKey: "favoritesIDs")
     }
@@ -77,6 +111,6 @@ struct SensorOverView: View {
 
 struct SensorOverView_Previews: PreviewProvider {
     static var previews: some View {
-        SensorOverView(sensor:testSensor).makePreViewModifier()
+        SensorOverView(id: 1).makePreViewModifier()
     }
 }
