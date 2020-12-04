@@ -20,7 +20,7 @@ struct OverView: View {
                     Text("Featured")
                         .font(.title)
                         .bold()
-                        .padding()
+                        .padding(.horizontal)
                     
                     switch loadingState{
                     case .loading:

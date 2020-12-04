@@ -32,9 +32,11 @@ struct SensorScrollItem: View {
                 Text(sensor.caption!)
                     .font(.footnote)
 
-            }.padding()
+            }
+            .padding()
             .background(Color.secondarySystemGroupedBackground)
-        }
+        }.cornerRadius(15)
+        .padding()
         .frame(width: UIScreen.main.bounds.width, height: 250)
                 
                 .padding(.bottom,10)

@@ -46,7 +46,9 @@ struct FavoritesView: View {
                     }
                 }
                 }
-            }.onAppear(perform: {
+            }                .background(Color.systemGroupedBackground.ignoresSafeArea())
+
+            .onAppear(perform: {
                 load()
             })
             .navigationTitle("Favorites")
