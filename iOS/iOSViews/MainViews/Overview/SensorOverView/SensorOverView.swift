@@ -46,51 +46,55 @@ struct SensorOverView: View {
                         .cornerRadius(15)
                         .padding(.horizontal)
                     
-                }
+                }.padding(.vertical)
+                .background(Color.systemGroupedBackground.ignoresSafeArea())
+                .navigationTitle(loadingState == .loaded ? sensorVM.sensor!.device_name! : "")
+                .navigationBarItems(trailing:
+                                        Button {
+                                            isFav ? removeFav() : makeFav()
+                                            UserDefaults(suiteName: "group.ch.gfroerli")?.set(favorites, forKey: "favoritesIDs")
+                                        } label: {
+                                            Image(systemName: isFav ? "star.fill" : "star")
+                                                .foregroundColor(isFav ? .yellow : .none)
+                                        })
                 
             }
         case .loading:
             LoadingView()
-            
-        case .error:
-            ErrorView()
-        }
-        
-        }.padding(.bottom)
-        .onAppear {
-            sensorVM.getSensor(id: id) {(result) in
-                switch result {
-                case .success(let str):
-                    loadingState = .loaded
-                    favorites  = UserDefaults(suiteName: "group.ch.gfroerli")?.array(forKey: "favoritesIDs") as? [Int] ?? [Int]()
-                    isFav = favorites.contains(sensorVM.sensor!.id!)
-                case .failure(let error):
-                    loadingState = .error
-                    switch error {
-                    case .badURL:
-                        print("Bad URL")
-                    case .requestFailed:
-                        print("Network problems")
-                    case.decodeFailed:
-                        print("Decoding data failed")
-                    case .unknown:
-                        print("Unknown error")
+                .background(Color.systemGroupedBackground.ignoresSafeArea())
+                .onAppear {
+                sensorVM.getSensor(id: id) {(result) in
+                    switch result {
+                    case .success(let str):
+                        loadingState = .loaded
+                        favorites  = UserDefaults(suiteName: "group.ch.gfroerli")?.array(forKey: "favoritesIDs") as? [Int] ?? [Int]()
+                        isFav = favorites.contains(sensorVM.sensor!.id!)
+                    case .failure(let error):
+                        loadingState = .error
+                        switch error {
+                        case .badURL:
+                            print("Bad URL")
+                        case .requestFailed:
+                            print("Network problems")
+                        case.decodeFailed:
+                            print("Decoding data failed")
+                        case .unknown:
+                            print("Unknown error")
+                        }
                     }
                 }
+                
+                
+                
             }
             
-            
-            
-        }.navigationTitle(loadingState == .loaded ? sensorVM.sensor!.device_name! : "")
-        .background(Color.systemGroupedBackground.ignoresSafeArea())
-        .navigationBarItems(trailing:
-                                Button {
-                                    isFav ? removeFav() : makeFav()
-                                    UserDefaults(suiteName: "group.ch.gfroerli")?.set(favorites, forKey: "favoritesIDs")
-                                } label: {
-                                    Image(systemName: isFav ? "star.fill" : "star")
-                                        .foregroundColor(isFav ? .yellow : .none)
-                                })
+        case .error:
+            ErrorView().background(Color.systemGroupedBackground.ignoresSafeArea())
+        }
+        
+        }.background(Color.systemGroupedBackground.ignoresSafeArea())
+
+        
     }
     
     
