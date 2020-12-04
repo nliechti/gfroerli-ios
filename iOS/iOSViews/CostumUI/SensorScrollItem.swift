@@ -38,12 +38,7 @@ struct SensorScrollItem: View {
         }.cornerRadius(15)
         .padding()
         .frame(width: UIScreen.main.bounds.width, height: 250)
-                
-                .padding(.bottom,10)
-            
-        
-        
-        
+        .shadow(radius: 1 )  
     }
 }
 

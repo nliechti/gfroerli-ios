@@ -42,6 +42,7 @@ struct ScrollItem: View {
         }
         .frame(width: 300, height: 250, alignment: .leading)
         .cornerRadius(15)
+        .shadow(radius: 1)  
     }
 }
 
