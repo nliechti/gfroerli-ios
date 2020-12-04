@@ -66,6 +66,9 @@ struct HourlyLineChartShape: Shape {
             }else{
                 var steps = data[dataInd].hour! - currHour  //number of hours between current entry and next entry
                 var tempDiff = data[dataInd].avgTemp!-currVal
+                if steps < 0{
+                    steps += 23
+                }
                 currentStep = tempDiff/Double(steps+1) // step size
                 
                 for i in 1..<steps+1{
@@ -74,7 +77,6 @@ struct HourlyLineChartShape: Shape {
                 }
                 
                 normedData[lastPos] = data[dataInd].avgTemp!
-                dataInd+1
                 currHour = data[dataInd].hour!
                 
             }
@@ -107,6 +109,9 @@ struct HourlyLineChartShape: Shape {
             }else{
                 var steps = data[dataInd].hour! - currHour  //number of hours between current entry and next entry
                 var tempDiff = data[dataInd].maxTemp!-currVal
+                if steps < 0{
+                    steps += 23
+                }
                 currentStep = tempDiff/Double(steps+1) // step size
                 
                 for i in 1..<steps+1{
@@ -115,7 +120,6 @@ struct HourlyLineChartShape: Shape {
                 }
                 
                 normedData[lastPos] = data[dataInd].maxTemp!
-                dataInd+1
                 currHour = data[dataInd].hour!
                 
             }
@@ -146,7 +150,10 @@ struct HourlyLineChartShape: Shape {
                 dataInd += 1
                 currHour = (currHour+1)%24
             }else{
-                var steps = data[dataInd].hour! - currHour  //number of hours between current entry and next entry
+                var steps = data[dataInd].hour! - currHour//number of hours between current entry and next entry
+                if steps<0 {
+                    steps += 23
+                }
                 var tempDiff = data[dataInd].minTemp!-currVal
                 currentStep = tempDiff/Double(steps+1) // step size
                 
@@ -156,7 +163,6 @@ struct HourlyLineChartShape: Shape {
                 }
                 
                 normedData[lastPos] = data[dataInd].minTemp!
-                dataInd+1
                 currHour = data[dataInd].hour!
                 
             }
@@ -201,7 +207,7 @@ struct HourlyLineChartShape: Shape {
             if showCircles{
             x -= pointSize / 2
             y -= pointSize / 2
-            
+            print(index)
             if (self.hours.contains(index)){
                 path.addEllipse(in: CGRect(x: x , y: y, width: pointSize, height: pointSize))
                 path.move(to: CGPoint(x: x+pointSize/2, y: y+pointSize/2))
@@ -220,7 +226,7 @@ struct HourlyLineChartShape: Shape {
             if p.hour! >= offset{
                 hours.append(p.hour! - offset)
             }else{
-                hours.append(p.hour! + (24-offset))
+                hours.append(p.hour! + (23-offset))
         }
         
     }
@@ -277,7 +283,7 @@ struct HourlyChartView: View{
         var labels = [String]()
         let hour = Calendar.current.component(.hour, from: Date())
         labels.append(String(hour)+":00")
-        labels.append(String(Int(hour/2))+":00")
+        labels.append(String((hour+12)%24)+":00")
         labels.append(String(hour)+":00")
         return labels
     }
