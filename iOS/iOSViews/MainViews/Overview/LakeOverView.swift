@@ -13,39 +13,34 @@ struct LakeOverView: View {
     @ObservedObject var sensors : SensorListViewModel
     @Binding var loadingState: loadingState
     var body: some View {
-        VStack(alignment: .leading) {
-            topMap(lake: lake, region: lake.region, sensors: sensors)
-            Text("Locations").font(.title).bold().padding(.horizontal)
-            
-            switch loadingState{
-            case .loading:
-                LoadingView()
-            case .loaded:
-                Form(){
-                    Section(){
+    
+        VStack(alignment: .leading,spacing: 0) {
+                    topMap(lake: lake, region: lake.region, sensors: sensors)
+                             .navigationBarTitle(lake.name)
+                    switch loadingState{
+                    case .loading:
+                        LoadingView().background(Color.systemGroupedBackground.ignoresSafeArea())
+                    case .loaded:
+                        ScrollView(showsIndicators: true){
+                            HStack{
+                                Text("Locations").font(.title).bold().padding([.top,.horizontal])
+                                Spacer()
+                            }
                         ForEach(sensors.sensorArray){ sensor in
                             if(lake.sensors.contains(String(sensor.id!))){
-                                NavigationLink(
-                                    destination: SensorOverView(id: sensor.id!),
-                                    label: {
-                                        HStack {
-                                            Text(sensor.device_name!)
-                                            Spacer()
-                                            Text(String(format: "%.1f",sensor.latestTemp!)+"°")
-                                        }
-                                    })
+                                SensorListItem(sensor: sensor).padding(.horizontal)
                             }
                         }
+                        Spacer()
+                        }.background(Color.systemGroupedBackground.ignoresSafeArea())
+                        
+                    case .error:
+                        ErrorView().background(Color.systemGroupedBackground.ignoresSafeArea())
                     }
-                }
-            case .error:
-                ErrorView()
+                }.padding()
+                .background(Color.systemGroupedBackground.ignoresSafeArea())
             }
-            
-            
-        }.background(Color.systemGroupedBackground.ignoresSafeArea())
-        .navigationBarTitle(lake.name)
-    }
+    
 }
 
 struct LakeOverView_Previews: PreviewProvider {
@@ -59,7 +54,9 @@ struct topMap: View{
     @State var region: MKCoordinateRegion
     @ObservedObject var sensors: SensorListViewModel
     var body: some View{
-        Map (coordinateRegion: $region,annotationItems: sensors.sensorArray, annotationContent: { pin in
+        
+        Map (coordinateRegion: $region,
+             annotationItems: sensors.sensorArray, annotationContent: { pin in
             MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: pin.latitude!, longitude: pin.longitude!), content: {
                 
                 NavigationLink(
@@ -75,7 +72,8 @@ struct topMap: View{
                     })
             })
             
-        }).frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/3.5, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+             }).disabled(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
+            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/3.5, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         
         .onAppear(perform: {
             region = MKCoordinateRegion(center: lake.region.center, span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta:0.2))

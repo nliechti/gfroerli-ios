@@ -67,7 +67,7 @@ struct SensorOverViewGraph: View {
                 } label: {
                     Label("maximums", systemImage: showMax ? "checkmark.circle.fill": "circle").foregroundColor(.red)
                 }
-            }
+            }.padding(.top,3)
             
         }.padding()
         .onAppear(perform: {
@@ -153,7 +153,18 @@ struct DayChart: View {
                     
                 case .loaded:
                     VStack(alignment:.leading){
+                    if tempAggregVM.dataDay.count>1 {
                         HourlyChartView(showMax: $showMax, showMin: $showMin, showAvg: $showAvg, showCircles: $showCircles, data: tempAggregVM.dataDay, frame: geo.frame(in: .local))
+                    
+                    }else{
+                        Spacer()
+                        HStack {
+                            Spacer()
+                            Text("No data available").font(.callout).foregroundColor(.secondary)
+                            Spacer()
+                        }
+                        Spacer()
+                    }
                     }
                 case .error:
                     ErrorView().frame(height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
