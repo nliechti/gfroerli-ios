@@ -15,11 +15,13 @@ struct AllSensorView: View {
     @State var isSearching = false
     var body: some View {
         NavigationView{
-            VStack{
+            VStack(spacing:0){
                 SearchBar(searchText: $searchText, isSearching: $isSearching)
+                
                 switch loadingState{
                 case .loading:
                     LoadingView()
+                    
                 case .loaded:
                     if !sensorsVm.sensorArray.isEmpty {
                         List{
@@ -27,7 +29,8 @@ struct AllSensorView: View {
                                 NavigationLink(destination: SensorOverView(id: sensor.id!),tag: String(sensor.id!), selection: $id, label: {Text(sensor.device_name!)})
                                 
                             }
-                        }.listStyle(InsetListStyle())
+                        }.listStyle(InsetGroupedListStyle())
+                        
                     } else {
                         VStack{
                             Spacer()
@@ -40,11 +43,8 @@ struct AllSensorView: View {
                 case .error:
                     ErrorView()
                 }
-                
-                
-                
-                
-            }.navigationTitle("All Sensors")
+            }.background(Color.systemGroupedBackground.ignoresSafeArea())
+            .navigationTitle("All Sensors")
         }
     }
 }
