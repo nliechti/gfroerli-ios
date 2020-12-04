@@ -7,12 +7,14 @@
 
 import SwiftUI
 import WidgetKit
+import StoreKit
 
 struct SettingsView: View {
     @State var activePath: String?
     @State var alertShowing = false
     @Binding var loadingState: loadingState
     @ObservedObject var sensorsVm : SensorListViewModel
+    @Environment(\.openURL) var openURL
     var body: some View {
         NavigationView{
             VStack{
@@ -27,6 +29,35 @@ struct SettingsView: View {
 
                         Link("CoreDump Website", destination: URL(string: "https://www.coredump.ch/")!)
                         
+                    }
+                    Section(header:Text("Feedback")){
+                    Button(action: {
+                        let email = "appdev@coredump.ch"
+                             let subject = "Feedback iOS Version: \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "fail")"
+                        
+                            let body = "Thank you for providing feedback! If you encountered a bug, please describe the steps to reproduce it."
+                           guard let url = URL(string: "mailto:\(email)?subject=\(subject.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? "")&body=\(body.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? "")") else { return }
+                        UIApplication.shared.open(url)
+                        
+                    }, label: {
+                            Text("Send Feedback")
+                        
+                    })
+                        Button(action: {
+                            var components = URLComponents(url: URL(string: "https://apps.apple.com/us/app/gfr%C3%B6r-li/id1451431723")!, resolvingAgainstBaseURL: false)
+                                                           
+                            components?.queryItems = [
+                              URLQueryItem(name: "action", value: "write-review")
+                            ]
+                            guard let writeReviewURL = components?.url else {
+                              return
+                            }
+                            openURL(writeReviewURL)
+                            
+                        }, label: {
+                                Text("Write a Review")
+                            
+                        })
                     }
                     Section(header: Text("Other"),footer:Text("Version: \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "fail")").foregroundColor(.gray)){
                         Button(action: {alertShowing=true}, label: {
