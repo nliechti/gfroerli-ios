@@ -40,7 +40,7 @@ struct SettingsView: View {
                         UIApplication.shared.open(url)
                         
                     }, label: {
-                            Text("Send Feedback")
+                            Text("Send E-Mail")
                         
                     })
                         Button(action: {

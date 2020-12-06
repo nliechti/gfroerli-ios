@@ -20,7 +20,11 @@ struct FavoritesView: View {
                 if favorites.isEmpty{
                     VStack{
                         Spacer()
+                        HStack{
+                        Spacer()
                         Text("No Favorites").font(.largeTitle).foregroundColor(.gray)
+                        Spacer()
+                        }
                         Spacer()
                     }
                 }else{
