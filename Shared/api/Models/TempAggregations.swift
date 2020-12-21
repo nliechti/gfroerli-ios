@@ -56,6 +56,15 @@ struct HourlyAggregation : Codable, Identifiable,Aggregation{
 }
 
 struct DailyAggregation : Codable, Identifiable, Aggregation{
+    
+    internal init(id: String?, date: String?, maxTemp: Double?, minTemp: Double?, avgTemp: Double?) {
+        self.id = id
+        self.date = date
+        self.maxTemp = maxTemp
+        self.minTemp = minTemp
+        self.avgTemp = avgTemp
+    }
+    
     let id: String?
     let date: String?
     let maxTemp: Double?

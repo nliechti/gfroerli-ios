@@ -56,7 +56,7 @@ struct SensorOverviewMap: View {
         
         let coordinate = region.center
         let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate, addressDictionary:nil))
-        mapItem.name = sensor.device_name!
+        mapItem.name = sensor.device_name
         mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving])
     }
 }

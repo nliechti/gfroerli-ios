@@ -22,9 +22,9 @@ struct WidgetSettingsView: View {
                         LoadingView()
                     case .loaded:
                         ForEach(sensors.sensorArray) {sensor in
-                            SingleSelectionRow(title: sensor.device_name!, isSelected: widgetSensorID==sensor.id!) {
+                            SingleSelectionRow(title: sensor.device_name, isSelected: widgetSensorID==sensor.id!) {
                                 widgetSensorID=sensor.id!
-                                
+                                print(sensor.id!)
                                 WidgetCenter.shared.reloadAllTimelines()
                                 
                             }
@@ -35,7 +35,7 @@ struct WidgetSettingsView: View {
                     
                     
                     Button {
-                        widgetSensorID=2
+                        widgetSensorID = -1
                         WidgetCenter.shared.reloadAllTimelines()
                     } label: {
                         Text("reset")

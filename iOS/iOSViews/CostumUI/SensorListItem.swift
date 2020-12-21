@@ -16,7 +16,7 @@ struct SensorListItem: View {
                 destination: SensorOverView(id: sensor.id!),
                 label: {
                     HStack(){
-                        Text(sensor.device_name!).foregroundColor(colorScheme == .dark ? Color.white : Color.black)
+                        Text(sensor.device_name).foregroundColor(colorScheme == .dark ? Color.white : Color.black)
                         Spacer()
                         Text(String(format: "%.1f", sensor.latestTemp!)+"°" ).foregroundColor(colorScheme == .dark ? Color.white : Color.black)
                         Image(systemName: "chevron.right").foregroundColor(.secondary)

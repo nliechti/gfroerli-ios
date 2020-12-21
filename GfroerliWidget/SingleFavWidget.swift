@@ -13,125 +13,69 @@ struct SingleSensorEntry: TimelineEntry{
     var date: Date = Date()
     var name: String
     var temp: Double
-    var data: [Double]
+    var data: [DailyAggregation]
 }
 
 
 
 struct SingleProvider: TimelineProvider {
     typealias Entry = SingleSensorEntry
+    var singleSensVM = SingleSensorViewModel()
+    var aggVM = TempAggregationsViewModel()
     @AppStorage("widgetSensorID", store: UserDefaults(suiteName: "group.ch.gfroerli")) var widgetSensorID: Int = -1
     
     
     func getSnapshot(in context: Context, completion: @escaping (Entry) -> ()) {
         
-        let entry = SingleSensorEntry(name: "Zürich", temp: 22.0, data: [22.0,22.5,22.5,20.3,29.8])
+        let entry = SingleSensorEntry(name: "Zürich", temp: 22.0, data: [DailyAggregation(id: "1", date: "0000-00-00", maxTemp: 0.0, minTemp: 0.0, avgTemp: 10.0),DailyAggregation(id: "1", date: "0000-00-00",  maxTemp: 0.0, minTemp: 0.0, avgTemp: 10.0),DailyAggregation(id: "1", date: "0000-00-00",  maxTemp: 0.0, minTemp: 0.0, avgTemp: 20.0)])
         completion(entry)
     }
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        print("timeline requested")
+        var data = [DailyAggregation]()
+        aggVM.loadAggregationsWeek(sensorID: widgetSensorID) { (result) in
+            switch result {
+            case .success(let str):
+                data = aggVM.dataWeek
+            case .failure(let error):
+                switch error {
+                default:
+                    data = [DailyAggregation(id: "1", date: "0000-00-00", maxTemp: 0.0, minTemp: 0.0, avgTemp: 0.0)]
+                }
+            }
+        }
         
-        var date = Date()
-        let update = Calendar.current.date(byAdding: .second,value: 30, to: date)
-        //getSingleSensor(id: widgetSensorID) { (sens) in
-         //   completion(Timeline(entries: [sens], policy: .after(update!)))
-        //}
         
+        singleSensVM.getSensor(id: widgetSensorID) { (result) in
+            switch result {
+            case .success(let str):
+                completion(Timeline(entries: [SingleSensorEntry(name: singleSensVM.sensor?.device_name ?? "A", temp: singleSensVM.sensor?.latestTemp! ?? 0.0 , data: data)], policy: .after(Calendar.current.date(byAdding: .second,value: 5, to: Date())!)))
+            case .failure(let error):
+                switch error {
+                default:
+                    completion(Timeline(entries: [SingleSensorEntry(name: "A", temp: 0.0 , data: data)], policy: .after(Calendar.current.date(byAdding: .second,value: 5, to: Date())!)))
+                }
+            }
+            
+        }
+        
+        print(singleSensVM.sensor)
+        
+
+            
     }
     
     func placeholder(in context: Context) -> SingleSensorEntry {
-        let entry = SingleSensorEntry(name: "Zürich", temp: 22.0,data:[22.0,22.5,22.5,20.3,29.8])
+        let entry = SingleSensorEntry(name: "Zürich", temp: 22.0, data: [DailyAggregation(id: "1", date: "0000-00-00",  maxTemp: 0.0, minTemp: 0.0, avgTemp: 10.0),DailyAggregation(id: "1", date: "0000-00-00",  maxTemp: 0.0, minTemp: 0.0, avgTemp: 10.0),DailyAggregation(id: "1", date: "0000-00-00", maxTemp: 0.0, minTemp: 0.0, avgTemp: 20.0)])
         return entry
     }
-    
-    
-    
+        
 }
 
 
 
-/*func getMeasurements(id: Int,completion: @escaping ([Double]) -> ()){
-    
-    let df = DateFormatter()
-    df.dateFormat = "yyyy-MM-ddThh:mm:ss"
-    let now = df.string(from: Calendar.current.date(byAdding: .day, value:-1, to:Date())!)
-    var request = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/measurements?id="+String(id)+"&created_after=\(now)")!)
-    var request2 = URLRequest(url: URL(string: "http://10.99.0.57:3000/api/measurements?id="+String(id)+"&created_after=\(now)")!)
-    
-    request.setValue("Bearer XTZA6H0Hg2f02bzVefmVlr8fIJMy2FGCJ0LlDlejj2Pi0i1JvZiL0Ycv1t6JoZzD", forHTTPHeaderField: "Authorization")
-    request.httpMethod = "GET"
-    let session = URLSession.shared
-    
-    session.dataTask(with: request) { (data, _, err) in
-        var values = [Double]()
-        if err != nil{
-            
-            print(err!.localizedDescription)
-            
-            return
-        }
-        
-        do{
-            
-            let jsonData = try JSONDecoder().decode([Measuring].self, from: data!)
-            
-            for meas in jsonData{
-                values.append(meas.temperature!)
-            }
-                completion(values)
-            
-            
-            
-            
-        }
-        catch{
-            
-            print(error.localizedDescription)
-        }
-    }.resume()
-}
 
-func getSingleSensor(id: Int,completion: @escaping (SingleSensorEntry) -> ()){
-    
-    var request = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/sensors")!)
-    request.setValue("Bearer XTZA6H0Hg2f02bzVefmVlr8fIJMy2FGCJ0LlDlejj2Pi0i1JvZiL0Ycv1t6JoZzD", forHTTPHeaderField: "Authorization")
-    request.httpMethod = "GET"
-    
-    let session = URLSession.shared
-    
-    session.dataTask(with: request) { (data, _, err) in
-        
-        if err != nil{
-            
-            print(err!.localizedDescription)
-            
-            return
-        }
-        
-        do{
-            
-            let jsonData = try JSONDecoder().decode([Sensor].self, from: data!)
-            
-            for sensor in jsonData{
-                if sensor.id! == id{
-                    getMeasurements(id: id) { (data) in
-                        completion(SingleSensorEntry(name: sensor.device_name!, temp: sensor.last_measurement!.temperature!, data: data))
-                    }
-                    
-                }else{
-                    completion(SingleSensorEntry(name: "Tap to configure Sensor", temp: 0.0, data: [Double]()))
-                }
-                
-            }
-            
-        }
-        catch{
-            
-            print(error.localizedDescription)
-        }
-    }.resume()
-}
-*/
+
+
 
 struct SingleFavWidgetViewSmall:View {
     let entry: SingleProvider.Entry
@@ -221,11 +165,13 @@ struct SingleFavWidgetViewMedium:View {
                     
                     if entry.temp != 0.0{
                         HStack{
-                            Text("Last 24h:").foregroundColor(.white).font(.system(size: 13))
+                            Text("Last Week:").foregroundColor(.white).font(.system(size: 13))
                          Spacer()
                         }
-                        LineView(data: entry.data)
-                            .preferredColorScheme(.dark).padding(.bottom,5)
+                        GeometryReader{ g in
+                            DailyChartView(showMax: .constant(false), showMin: .constant(false), showAvg: .constant(true), showCircles: .constant(false), daySpan: .week, data: entry.data, frame: g.frame(in: .local)).colorScheme(.light)
+                        }
+                        Divider().hidden()
                     }else{
                         Spacer()
                     }
@@ -271,14 +217,15 @@ struct SingleFavWidget: Widget {
 struct GfroerliWidget_Previews: PreviewProvider {
     static var previews: some View {
         Group{
-            smallWidgetView(entry: SingleSensorEntry(name: "HSR Badewiese", temp: 20.0, data: [30.0])).previewContext(WidgetPreviewContext(family: .systemSmall))
+            /*smallWidgetView(entry: SingleSensorEntry(name: "HSR Badewiese", temp: 20.0, data: [30.0])).previewContext(WidgetPreviewContext(family: .systemSmall))
             smallWidgetView(entry: SingleSensorEntry(name: "Tap to configure Sensor", temp: 0.0, data: [0.0])).previewContext(WidgetPreviewContext(family: .systemSmall))
                 .preferredColorScheme(.dark)
             smallWidgetView(entry: SingleSensorEntry(name: "HSR Badewiese", temp: 20.0, data: [20.0,15.0,30.0])).previewContext(WidgetPreviewContext(family: .systemMedium))
             smallWidgetView(entry: SingleSensorEntry(name: "Tap to configure Sensor", temp: 0.0, data: [0.0]))
                 .preferredColorScheme(.dark)
                 .previewContext(WidgetPreviewContext(family: .systemMedium))
-                
+                */
+            EmptyView()
         }
     }
 }

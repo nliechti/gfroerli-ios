@@ -52,7 +52,7 @@ struct SensorOverView: View {
                     
                 }.padding(.vertical)
                 .background(Color.systemGroupedBackground.ignoresSafeArea())
-                .navigationTitle(loadingState == .loaded ? sensorVM.sensor!.device_name! : "")
+                .navigationTitle(loadingState == .loaded ? sensorVM.sensor!.device_name : "")
                 .navigationBarItems(trailing:
                                         Button {
                                             isFav ? removeFav() : makeFav()

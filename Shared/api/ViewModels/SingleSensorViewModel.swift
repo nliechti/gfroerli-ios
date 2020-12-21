@@ -22,10 +22,8 @@ class SingleSensorViewModel: ObservableObject {
     }
     
     
-    func getSensor(id: Int, completion: @escaping (Result<String, NetworkError>) -> Void) {
-        
-        #warning("implement id into URL when api available")
-        
+    public func getSensor(id: Int, completion: @escaping (Result<String, NetworkError>) -> Void) {
+                
         var url = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/mobile_app/sensors/\(id)")!)
         url.setValue("Bearer XTZA6H0Hg2f02bzVefmVlr8fIJMy2FGCJ0LlDlejj2Pi0i1JvZiL0Ycv1t6JoZzD", forHTTPHeaderField: "Authorization")
         url.httpMethod = "GET"
@@ -35,10 +33,11 @@ class SingleSensorViewModel: ObservableObject {
                 do {
                 if let data = data {
                     // success: convert to  Sensors
-                    
+                    print(id)
                     let jsonDecoder = JSONDecoder()
                     let sensor = try jsonDecoder.decode(Sensor.self, from: data)
                     self.sensor = sensor
+                    print("SUCCESS")
                     completion(.success("Sensor successfuly loaded!"))
                 } else if error != nil {
                     // network failures

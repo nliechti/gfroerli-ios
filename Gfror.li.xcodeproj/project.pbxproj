@@ -18,14 +18,6 @@
 		8D0D7FE824F10F610068176C /* LakesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE724F10F610068176C /* LakesData.swift */; };
 		8D0D7FEA24F1109A0068176C /* ScrollItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE924F1109A0068176C /* ScrollItem.swift */; };
 		8D2701C725153082007BB0E1 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2701C625153082007BB0E1 /* LoadingView.swift */; };
-		8D2A3F2F250CF1E90070B4CB /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2A3F27250CF1E90070B4CB /* LineChartView.swift */; };
-		8D2A3F30250CF1E90070B4CB /* IndicatorPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2A3F28250CF1E90070B4CB /* IndicatorPoint.swift */; };
-		8D2A3F31250CF1E90070B4CB /* Legend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2A3F29250CF1E90070B4CB /* Legend.swift */; };
-		8D2A3F32250CF1E90070B4CB /* MultiLineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2A3F2A250CF1E90070B4CB /* MultiLineChartView.swift */; };
-		8D2A3F33250CF1E90070B4CB /* Path+QuadCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2A3F2B250CF1E90070B4CB /* Path+QuadCurve.swift */; };
-		8D2A3F34250CF1E90070B4CB /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2A3F2C250CF1E90070B4CB /* LineView.swift */; };
-		8D2A3F35250CF1E90070B4CB /* MagnifierRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2A3F2D250CF1E90070B4CB /* MagnifierRect.swift */; };
-		8D2A3F36250CF1E90070B4CB /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2A3F2E250CF1E90070B4CB /* Line.swift */; };
 		8D2A3F37250CF1EF0070B4CB /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5066E424F7F33400E426DE /* Helpers.swift */; };
 		8D3D36F0250BBC8500F11E48 /* SensorOverViewGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3D36EF250BBC8500F11E48 /* SensorOverViewGraph.swift */; };
 		8D3D36F2250BBEF000F11E48 /* SensorOverviewSponsorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3D36F1250BBEF000F11E48 /* SensorOverviewSponsorView.swift */; };
@@ -45,6 +37,11 @@
 		8D737737252BA8750075E04E /* SponsorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D737736252BA8750075E04E /* SponsorsViewModel.swift */; };
 		8D737738252BA8750075E04E /* SponsorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D737736252BA8750075E04E /* SponsorsViewModel.swift */; };
 		8D7E98BD257025EC00BC32EB /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7E98BC257025EC00BC32EB /* ColorExtension.swift */; };
+		8D90895A258E360D0017BAB8 /* SingleFavWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9B0FD324F3A2E7003502C8 /* SingleFavWidget.swift */; };
+		8D90896A259110F40017BAB8 /* SingleFavWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9B0FD324F3A2E7003502C8 /* SingleFavWidget.swift */; };
+		8D908970259121820017BAB8 /* HourlyChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBC3C4A25756C080010D55B /* HourlyChartView.swift */; };
+		8D908976259121850017BAB8 /* DailyChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBCDB8E2576C4C400CBDAA6 /* DailyChartView.swift */; };
+		8D90897C259121AF0017BAB8 /* Legend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBCDB952576D55800CBDAA6 /* Legend.swift */; };
 		8D9B0FCF24F3A2E7003502C8 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D9B0FCE24F3A2E7003502C8 /* WidgetKit.framework */; };
 		8D9B0FD124F3A2E7003502C8 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D9B0FD024F3A2E7003502C8 /* SwiftUI.framework */; };
 		8D9B0FDA24F3A2E8003502C8 /* Widgets.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8D9B0FCC24F3A2E7003502C8 /* Widgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -61,7 +58,6 @@
 		8DBC3C4B25756C080010D55B /* HourlyChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBC3C4A25756C080010D55B /* HourlyChartView.swift */; };
 		8DBCDB8F2576C4C400CBDAA6 /* DailyChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBCDB8E2576C4C400CBDAA6 /* DailyChartView.swift */; };
 		8DBCDB962576D55800CBDAA6 /* Legend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBCDB952576D55800CBDAA6 /* Legend.swift */; };
-		8DC0D495250CC499009E20B5 /* SingleFavWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9B0FD324F3A2E7003502C8 /* SingleFavWidget.swift */; };
 		8DC0D496250CC4A6009E20B5 /* TempAggregations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C24FE824EEB5AA00FB4F51 /* TempAggregations.swift */; };
 		8DCB9A58257972E30063C628 /* SensorOverviewMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DCB9A57257972E30063C628 /* SensorOverviewMap.swift */; };
 		8DF3BBC9250B4F2700DBCC37 /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBC8250B4F2700DBCC37 /* URLExtension.swift */; };
@@ -130,14 +126,6 @@
 		8D0D7FE724F10F610068176C /* LakesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LakesData.swift; sourceTree = "<group>"; };
 		8D0D7FE924F1109A0068176C /* ScrollItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollItem.swift; sourceTree = "<group>"; };
 		8D2701C625153082007BB0E1 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
-		8D2A3F27250CF1E90070B4CB /* LineChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChartView.swift; sourceTree = "<group>"; };
-		8D2A3F28250CF1E90070B4CB /* IndicatorPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorPoint.swift; sourceTree = "<group>"; };
-		8D2A3F29250CF1E90070B4CB /* Legend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Legend.swift; sourceTree = "<group>"; };
-		8D2A3F2A250CF1E90070B4CB /* MultiLineChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiLineChartView.swift; sourceTree = "<group>"; };
-		8D2A3F2B250CF1E90070B4CB /* Path+QuadCurve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Path+QuadCurve.swift"; sourceTree = "<group>"; };
-		8D2A3F2C250CF1E90070B4CB /* LineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
-		8D2A3F2D250CF1E90070B4CB /* MagnifierRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagnifierRect.swift; sourceTree = "<group>"; };
-		8D2A3F2E250CF1E90070B4CB /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		8D3D36EF250BBC8500F11E48 /* SensorOverViewGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorOverViewGraph.swift; sourceTree = "<group>"; };
 		8D3D36F1250BBEF000F11E48 /* SensorOverviewSponsorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorOverviewSponsorView.swift; sourceTree = "<group>"; };
 		8D3D3701250C190500F11E48 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = Library/Frameworks/IntentsUI.framework; sourceTree = DEVELOPER_DIR; };
@@ -252,29 +240,6 @@
 			path = CostumUI;
 			sourceTree = "<group>";
 		};
-		8D2A3F25250CF1D60070B4CB /* WidgetChart */ = {
-			isa = PBXGroup;
-			children = (
-				8D2A3F26250CF1E90070B4CB /* LineChart */,
-			);
-			path = WidgetChart;
-			sourceTree = "<group>";
-		};
-		8D2A3F26250CF1E90070B4CB /* LineChart */ = {
-			isa = PBXGroup;
-			children = (
-				8D2A3F27250CF1E90070B4CB /* LineChartView.swift */,
-				8D2A3F28250CF1E90070B4CB /* IndicatorPoint.swift */,
-				8D2A3F29250CF1E90070B4CB /* Legend.swift */,
-				8D2A3F2A250CF1E90070B4CB /* MultiLineChartView.swift */,
-				8D2A3F2B250CF1E90070B4CB /* Path+QuadCurve.swift */,
-				8D2A3F2C250CF1E90070B4CB /* LineView.swift */,
-				8D2A3F2D250CF1E90070B4CB /* MagnifierRect.swift */,
-				8D2A3F2E250CF1E90070B4CB /* Line.swift */,
-			);
-			path = LineChart;
-			sourceTree = "<group>";
-		};
 		8D5066D124F7F33400E426DE /* SwiftUICharts */ = {
 			isa = PBXGroup;
 			children = (
@@ -307,7 +272,6 @@
 		8D9B0FD224F3A2E7003502C8 /* GfroerliWidget */ = {
 			isa = PBXGroup;
 			children = (
-				8D2A3F25250CF1D60070B4CB /* WidgetChart */,
 				8DFCB3E8250A7A64007A966F /* WidgetGraph */,
 				8D9B0FD324F3A2E7003502C8 /* SingleFavWidget.swift */,
 				8D49A378250A4F27000B26CD /* MultiFavWidget.swift */,
@@ -720,28 +684,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D908970259121820017BAB8 /* HourlyChartView.swift in Sources */,
 				8D49A37E250A5095000B26CD /* MainWidgetFile.swift in Sources */,
-				8D2A3F2F250CF1E90070B4CB /* LineChartView.swift in Sources */,
-				8D2A3F36250CF1E90070B4CB /* Line.swift in Sources */,
 				8D04196C24F50353003D64D4 /* RiverData.swift in Sources */,
-				8D2A3F30250CF1E90070B4CB /* IndicatorPoint.swift in Sources */,
-				8DC0D495250CC499009E20B5 /* SingleFavWidget.swift in Sources */,
 				8D9B0FE524F3BEA4003502C8 /* WaveShape.swift in Sources */,
+				8D908976259121850017BAB8 /* DailyChartView.swift in Sources */,
 				8D49A37C250A506C000B26CD /* MultiFavWidget.swift in Sources */,
-				8D2A3F32250CF1E90070B4CB /* MultiLineChartView.swift in Sources */,
 				8D737738252BA8750075E04E /* SponsorsViewModel.swift in Sources */,
-				8D2A3F34250CF1E90070B4CB /* LineView.swift in Sources */,
 				8DF3BBD9250BB6BB00DBCC37 /* OwnHelpers.swift in Sources */,
 				8DC0D496250CC4A6009E20B5 /* TempAggregations.swift in Sources */,
 				8D9B1AEA24F463290047FAC2 /* Sensor.swift in Sources */,
 				8DA7CF102516176300395465 /* TempAggregationsViewModel.swift in Sources */,
+				8D90897C259121AF0017BAB8 /* Legend.swift in Sources */,
 				8D737730252BA7200075E04E /* Sponsor.swift in Sources */,
+				8D90896A259110F40017BAB8 /* SingleFavWidget.swift in Sources */,
 				8DA7CEF62516108000395465 /* SensorListViewModel.swift in Sources */,
 				8DA7CF03251611C800395465 /* SingleSensorViewModel.swift in Sources */,
 				8D2A3F37250CF1EF0070B4CB /* Helpers.swift in Sources */,
-				8D2A3F33250CF1E90070B4CB /* Path+QuadCurve.swift in Sources */,
-				8D2A3F31250CF1E90070B4CB /* Legend.swift in Sources */,
-				8D2A3F35250CF1E90070B4CB /* MagnifierRect.swift in Sources */,
 				8D04196B24F50353003D64D4 /* LakesData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -775,6 +734,7 @@
 				8D05A2DB253F645300E7C1BD /* PreViewExtension.swift in Sources */,
 				8DBCDB8F2576C4C400CBDAA6 /* DailyChartView.swift in Sources */,
 				8D50670324F7F33400E426DE /* Helpers.swift in Sources */,
+				8D90895A258E360D0017BAB8 /* SingleFavWidget.swift in Sources */,
 				8D6A7DC824F15187009A0026 /* SensorOverView.swift in Sources */,
 				8DF3BBC9250B4F2700DBCC37 /* URLExtension.swift in Sources */,
 				8D5D25CB257A98D1002852F4 /* SensorListItem.swift in Sources */,
@@ -855,7 +815,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = GfroerliWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20201204;
+				CURRENT_PROJECT_VERSION = 20201206;
 				DEVELOPMENT_TEAM = VDVQE324N6;
 				INFOPLIST_FILE = GfroerliWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -863,7 +823,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.38;
+				MARKETING_VERSION = 0.39;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -880,7 +840,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = WidgetsRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20201204;
+				CURRENT_PROJECT_VERSION = 20201206;
 				DEVELOPMENT_TEAM = VDVQE324N6;
 				INFOPLIST_FILE = GfroerliWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -888,7 +848,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.38;
+				MARKETING_VERSION = 0.39;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1024,7 +984,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = iOS/Gfror.li.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20201204;
+				CURRENT_PROJECT_VERSION = 20201206;
 				DEVELOPMENT_TEAM = VDVQE324N6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
@@ -1033,7 +993,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.38;
+				MARKETING_VERSION = 0.39;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli;
 				PRODUCT_NAME = Gfror.li;
 				SDKROOT = iphoneos;
@@ -1051,7 +1011,7 @@
 				CODE_SIGN_ENTITLEMENTS = iOS/Gfror.liRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20201204;
+				CURRENT_PROJECT_VERSION = 20201206;
 				DEVELOPMENT_TEAM = VDVQE324N6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
@@ -1060,7 +1020,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.38;
+				MARKETING_VERSION = 0.39;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli;
 				PRODUCT_NAME = Gfror.li;
 				PROVISIONING_PROFILE_SPECIFIER = "";

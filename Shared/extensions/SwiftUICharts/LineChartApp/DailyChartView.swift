@@ -124,6 +124,7 @@ struct DailyChartView: View{
     }
     
     var body: some View {
+        VStack{
         ZStack(alignment: .center) {
             
             Legend(frame: frame, xLabels: getXLabels(data: data), max: CGFloat(maxVal), min:CGFloat(minVal))
@@ -137,6 +138,7 @@ struct DailyChartView: View{
             
     
         }
+        Spacer()
         HStack{
             Text("0.00").foregroundColor(.clear)
                 .font(.caption)
@@ -148,6 +150,7 @@ struct DailyChartView: View{
             Spacer()
             Text(xLabels[2]).foregroundColor(Color(.systemGray4))
                 .font(.caption)
+        }
         }
     }
     func getXLabels(data: [DailyAggregation]) -> [String] {

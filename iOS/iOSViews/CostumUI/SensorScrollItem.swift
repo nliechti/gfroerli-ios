@@ -25,7 +25,7 @@ struct SensorScrollItem: View {
             VStack(alignment: .leading){
                 
                 HStack {
-                    Text(sensor.device_name!)
+                    Text(sensor.device_name)
                         .font(.headline)
                     Spacer()
                 }
