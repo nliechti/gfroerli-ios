@@ -27,156 +27,143 @@ struct HourlyLineChartShape: Shape {
     }
     
     static func createData(data: [HourlyAggregation], type: tempType)->[Double]{
-        if data.isEmpty{
-            return[0.0]
-        }
+        //if no data available
+        if data.isEmpty {return [0.0]}
         
-        
-        
-        var normedData = [Double].init(repeating: 0.000001, count: 25)
-        let df = DateFormatter()
-        df.dateFormat = "yyyy-MM-dd"
-        let string = df.string(from: Date())
-        var currHour = Calendar.current.component(.hour, from: Date())
-        
-        
-        switch type {
+        switch type{
         case .average:
-            var currPos = data.first!.hour!
-            var dataInd = 1 // 1 because first index gets handled in forloop
-            var currentStep = 0.0
-            var lastPos = 0
+            // init needed variables
+            var temperatureArray = [Double].init(repeating: 0.0, count: 25)
+            var currentHour = Calendar.current.component(.hour, from: Date())
+            var dataHour = data.first!.hour!
+            var tempArrIndex = 0
+            var dataIndex = 0
             
-            //Fill entries upto first entries hour with first entries temp
-            var currVal = data.first!.avgTemp!
-            for i in 0...currPos-currHour{
-                normedData[i] = currVal
-                lastPos=i
-                currHour += 1
-            }
-            lastPos += 1
-            while dataInd < data.count{
-            //if next entry is also next hour fill it in else grab next entry and interpolate values until its position
-            if data[dataInd].hour! == currHour{
-                normedData[lastPos] = data[dataInd].avgTemp!
-                currVal = data[dataInd].avgTemp!
-                lastPos += 1
-                dataInd += 1
-                currHour = (currHour+1)%24
-            }else{
-                var steps = data[dataInd].hour! - currHour  //number of hours between current entry and next entry
-                var tempDiff = data[dataInd].avgTemp!-currVal
-                if steps < 0{
-                    steps += 23
-                }
-                currentStep = tempDiff/Double(steps+1) // step size
-                
-                for i in 1..<steps+1{
-                    normedData[lastPos] = data[dataInd-1].avgTemp! + Double(i)*currentStep
-                    lastPos += 1
-                }
-                
-                normedData[lastPos] = data[dataInd].avgTemp!
-                currHour = data[dataInd].hour!
-                
-            }
-            }
-            while normedData.count <= 25 {
-                normedData.append(data.last!.avgTemp!)
-            }
-        case .maximum:
-            var currPos = data.first!.hour!
-            var dataInd = 1 // 1 because first index gets handled in forloop
-            var currentStep = 0.0
-            var lastPos = 0
             
-            //Fill entries upto first entries hour with first entries temp
-            var currVal = data.first!.maxTemp!
-            for i in 0...currPos-currHour{
-                normedData[i] = currVal
-                lastPos=i
-                currHour += 1
+            //fill hours from -24h until first available point
+            for index in 0...(dataHour-currentHour+24)%24{
+                temperatureArray[index] = data.first!.avgTemp!
+                tempArrIndex=index
             }
-            lastPos += 1
-            while dataInd < data.count{
-            //if next entry is also next hour fill it in else grab next entry and interpolate values until its position
-            if data[dataInd].hour! == currHour{
-                normedData[lastPos] = data[dataInd].maxTemp!
-                currVal = data[dataInd].maxTemp!
-                lastPos += 1
-                dataInd += 1
-                currHour = (currHour+1)%24
+            while dataIndex < data.count-1 {
+              
+            //check if next datapoint is subsequent hour of last entry
+            if data[dataIndex+1].hour! == ((data[dataIndex].hour!+1)%24){
+                tempArrIndex+=1
+                dataIndex+=1
+                temperatureArray[tempArrIndex] = data[dataIndex].avgTemp!
             }else{
-                var steps = data[dataInd].hour! - currHour  //number of hours between current entry and next entry
-                var tempDiff = data[dataInd].maxTemp!-currVal
-                if steps < 0{
-                    steps += 23
+                //calculate steps BETWEEEN hours and step value
+                var steps = (data[dataIndex+1].hour!-data[dataIndex].hour!-1+24)%24
+                var stepTemp = (data[dataIndex+1].avgTemp!-data[dataIndex].avgTemp!)/(Double(steps+1))
+                var lastTemp = data[dataIndex].avgTemp!
+                //fill steps
+                for s in 1...steps{
+                    tempArrIndex+=1
+                    temperatureArray[tempArrIndex] = lastTemp + Double(s)*stepTemp
                 }
-                currentStep = tempDiff/Double(steps+1) // step size
-                
-                for i in 1..<steps+1{
-                    normedData[lastPos] = data[dataInd-1].maxTemp! + Double(i)*currentStep
-                    lastPos += 1
-                }
-                
-                normedData[lastPos] = data[dataInd].maxTemp!
-                currHour = data[dataInd].hour!
-                
+                //fill value of datapoint
+                tempArrIndex+=1
+                dataIndex+=1
+                temperatureArray[tempArrIndex] = data[dataIndex].avgTemp!
             }
             }
-            while normedData.count <= 25 {
-                normedData.append(data.last!.maxTemp!)
+            //fill remaining slots with data of last index
+            while tempArrIndex < 24{
+                tempArrIndex+=1
+                temperatureArray[tempArrIndex]=data.last!.avgTemp!
             }
+            return temperatureArray
+            
         case .minimum:
-            var currPos = data.first!.hour!
-            var dataInd = 1 // 1 because first index gets handled in forloop
-            var currentStep = 0.0
-            var lastPos = 0
+            // init needed variables
+            var temperatureArray = [Double].init(repeating: 0.0, count: 25)
+            var currentHour = Calendar.current.component(.hour, from: Date())
+            var dataHour = data.first!.hour!
+            var tempArrIndex = 0
+            var dataIndex = 0
             
-            //Fill entries upto first entries hour with first entries temp
-            var currVal = data.first!.minTemp!
-            for i in 0...currPos-currHour{
-                normedData[i] = currVal
-                lastPos=i
-                currHour += 1
+            
+            //fill hours from -24h until first available point
+            for index in 0...(dataHour-currentHour+24)%24{
+                temperatureArray[index] = data.first!.minTemp!
+                tempArrIndex=index
             }
-            lastPos += 1
-            while dataInd < data.count{
-            //if next entry is also next hour fill it in else grab next entry and interpolate values until its position
-            if data[dataInd].hour! == currHour{
-                normedData[lastPos] = data[dataInd].minTemp!
-                currVal = data[dataInd].minTemp!
-                lastPos += 1
-                dataInd += 1
-                currHour = (currHour+1)%24
+            while dataIndex < data.count-1 {
+              
+            //check if next datapoint is subsequent hour of last entry
+            if data[dataIndex+1].hour! == ((data[dataIndex].hour!+1)%24){
+                tempArrIndex+=1
+                dataIndex+=1
+                temperatureArray[tempArrIndex] = data[dataIndex].minTemp!
             }else{
-                var steps = data[dataInd].hour! - currHour//number of hours between current entry and next entry
-                if steps<0 {
-                    steps += 23
+                //calculate steps BETWEEEN hours and step value
+                var steps = (data[dataIndex+1].hour!-data[dataIndex].hour!-1+24)%24
+                var stepTemp = (data[dataIndex+1].minTemp!-data[dataIndex].minTemp!)/(Double(steps+1))
+                var lastTemp = data[dataIndex].minTemp!
+                //fill steps
+                for s in 1...steps{
+                    tempArrIndex+=1
+                    temperatureArray[tempArrIndex] = lastTemp + Double(s)*stepTemp
                 }
-                var tempDiff = data[dataInd].minTemp!-currVal
-                currentStep = tempDiff/Double(steps+1) // step size
-                
-                for i in 1..<steps+1{
-                    normedData[lastPos] = data[dataInd-1].minTemp! + Double(i)*currentStep
-                    lastPos += 1
+                //fill value of datapoint
+                tempArrIndex+=1
+                dataIndex+=1
+                temperatureArray[tempArrIndex] = data[dataIndex].minTemp!
+            }
+            }
+            //fill remaining slots with data of last index
+            while tempArrIndex < 24{
+                tempArrIndex+=1
+                temperatureArray[tempArrIndex]=data.last!.minTemp!
+            }
+            return temperatureArray
+        case .maximum:
+            // init needed variables
+            var temperatureArray = [Double].init(repeating: 0.0, count: 25)
+            var currentHour = Calendar.current.component(.hour, from: Date())
+            var dataHour = data.first!.hour!
+            var tempArrIndex = 0
+            var dataIndex = 0
+            
+            
+            //fill hours from -24h until first available point
+            for index in 0...(dataHour-currentHour+24)%24{
+                temperatureArray[index] = data.first!.maxTemp!
+                tempArrIndex=index
+            }
+            while dataIndex < data.count-1 {
+              
+            //check if next datapoint is subsequent hour of last entry
+            if data[dataIndex+1].hour! == ((data[dataIndex].hour!+1)%24){
+                tempArrIndex+=1
+                dataIndex+=1
+                temperatureArray[tempArrIndex] = data[dataIndex].maxTemp!
+            }else{
+                //calculate steps BETWEEEN hours and step value
+                var steps = (data[dataIndex+1].hour!-data[dataIndex].hour!-1+24)%24
+                var stepTemp = (data[dataIndex+1].maxTemp!-data[dataIndex].maxTemp!)/(Double(steps+1))
+                var lastTemp = data[dataIndex].maxTemp!
+                //fill steps
+                for s in 1...steps{
+                    tempArrIndex+=1
+                    temperatureArray[tempArrIndex] = lastTemp + Double(s)*stepTemp
                 }
-                
-                normedData[lastPos] = data[dataInd].minTemp!
-                currHour = data[dataInd].hour!
-                
+                //fill value of datapoint
+                tempArrIndex+=1
+                dataIndex+=1
+                temperatureArray[tempArrIndex] = data[dataIndex].maxTemp!
             }
             }
-            while normedData.count <= 25 {
-                normedData.append(data.last!.minTemp!)
+            //fill remaining slots with data of last index
+            while tempArrIndex < 24{
+                tempArrIndex+=1
+                temperatureArray[tempArrIndex]=data.last!.maxTemp!
             }
+            return temperatureArray
         }
-        
-        
-        return normedData
         
     }
-    
     
     
     
@@ -221,7 +208,7 @@ struct HourlyLineChartShape: Shape {
     }
     static func getHours(data:[HourlyAggregation])->[Int]{
         var hours = [Int]();
-        var offset = Calendar.current.component(.hour, from: Date())
+        var offset = Calendar.current.component(.hour, from: Date())-1
         for p in data{
             if p.hour! >= offset{
                 hours.append(p.hour! - offset)
