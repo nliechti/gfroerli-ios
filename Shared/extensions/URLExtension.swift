@@ -16,6 +16,7 @@ extension URL {
     guard isDeeplink else { return nil }
 
     switch host {
+    case "home": return "Overview"
     case "overview": return "Overview"
     case "favorites": return "Favorites"
     case "settings": return "Settings"

@@ -14,6 +14,7 @@ struct SingleSensorEntry: TimelineEntry{
     var name: String
     var temp: Double
     var data: [DailyAggregation]
+    var id: Int
 }
 
 
@@ -27,7 +28,7 @@ struct SingleProvider: TimelineProvider {
     
     func getSnapshot(in context: Context, completion: @escaping (Entry) -> ()) {
         
-        let entry = SingleSensorEntry(name: "Zürich", temp: 22.0, data: [DailyAggregation(id: "1", date: "0000-00-00", maxTemp: 0.0, minTemp: 0.0, avgTemp: 10.0),DailyAggregation(id: "1", date: "0000-00-00",  maxTemp: 0.0, minTemp: 0.0, avgTemp: 10.0),DailyAggregation(id: "1", date: "0000-00-00",  maxTemp: 0.0, minTemp: 0.0, avgTemp: 20.0)])
+        let entry = SingleSensorEntry(name: "Zürich", temp: 22.0, data: [DailyAggregation(id: "1", date: "0000-00-00", maxTemp: 0.0, minTemp: 0.0, avgTemp: 10.0),DailyAggregation(id: "1", date: "0000-00-00",  maxTemp: 0.0, minTemp: 0.0, avgTemp: 10.0),DailyAggregation(id: "1", date: "0000-00-00",  maxTemp: 0.0, minTemp: 0.0, avgTemp: 20.0)], id: 0)
         completion(entry)
     }
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
@@ -48,11 +49,11 @@ struct SingleProvider: TimelineProvider {
         singleSensVM.getSensor(id: widgetSensorID) { (result) in
             switch result {
             case .success(let str):
-                completion(Timeline(entries: [SingleSensorEntry(name: singleSensVM.sensor?.device_name ?? "A", temp: singleSensVM.sensor?.latestTemp! ?? 0.0 , data: data)], policy: .after(Calendar.current.date(byAdding: .second,value: 5, to: Date())!)))
+                completion(Timeline(entries: [SingleSensorEntry(name: singleSensVM.sensor?.device_name ?? "A", temp: singleSensVM.sensor?.latestTemp! ?? 0.0 , data: data, id: singleSensVM.sensor?.id! ?? 0)], policy: .after(Calendar.current.date(byAdding: .second,value: 5, to: Date())!)))
             case .failure(let error):
                 switch error {
                 default:
-                    completion(Timeline(entries: [SingleSensorEntry(name: "A", temp: 0.0 , data: data)], policy: .after(Calendar.current.date(byAdding: .second,value: 5, to: Date())!)))
+                    completion(Timeline(entries: [SingleSensorEntry(name: "A", temp: 0.0 , data: data, id: 0)], policy: .after(Calendar.current.date(byAdding: .second,value: 5, to: Date())!)))
                 }
             }
             
@@ -65,7 +66,7 @@ struct SingleProvider: TimelineProvider {
     }
     
     func placeholder(in context: Context) -> SingleSensorEntry {
-        let entry = SingleSensorEntry(name: "Zürich", temp: 22.0, data: [DailyAggregation(id: "1", date: "0000-00-00",  maxTemp: 0.0, minTemp: 0.0, avgTemp: 10.0),DailyAggregation(id: "1", date: "0000-00-00",  maxTemp: 0.0, minTemp: 0.0, avgTemp: 10.0),DailyAggregation(id: "1", date: "0000-00-00", maxTemp: 0.0, minTemp: 0.0, avgTemp: 20.0)])
+        let entry = SingleSensorEntry(name: "Zürich", temp: 22.0, data: [DailyAggregation(id: "1", date: "0000-00-00",  maxTemp: 0.0, minTemp: 0.0, avgTemp: 10.0),DailyAggregation(id: "1", date: "0000-00-00",  maxTemp: 0.0, minTemp: 0.0, avgTemp: 10.0),DailyAggregation(id: "1", date: "0000-00-00", maxTemp: 0.0, minTemp: 0.0, avgTemp: 20.0)], id: 0)
         return entry
     }
         
@@ -121,7 +122,7 @@ struct SingleFavWidgetViewSmall:View {
             }.padding()
         }
         .background(Color("GfroerliDarkBlue"))
-        .widgetURL(URL(string: "ch.coredump.gfroerli://settings/widgetSettings"))
+        .widgetURL(entry.temp != 0.0 ? URL(string: "ch.coredump.gfroerli://home/\(entry.id)") : URL(string: "ch.coredump.gfroerli://settings/widgetSettings"))
     }
 }
 
@@ -179,7 +180,7 @@ struct SingleFavWidgetViewMedium:View {
                 }.padding()
             }
             .background(Color("GfroerliDarkBlue"))
-            .widgetURL(URL(string: "ch.coredump.gfroerli://settings/widgetSettings"))
+            .widgetURL(entry.temp != 0.0 ? URL(string: "ch.coredump.gfroerli://home/\(entry.id)") : URL(string: "ch.coredump.gfroerli://settings/widgetSettings"))
         }
     }
 }

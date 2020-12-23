@@ -175,7 +175,7 @@ struct HourlyLineChartShape: Shape {
         let yMultiplier = rect.height / CGFloat(maxVal-minVal)
         
         for (index, dataPoint) in data.enumerated() {
-            if dataPoint == 0.000001{
+            if dataPoint == 0.0{
                 continue
             }
             
@@ -194,7 +194,6 @@ struct HourlyLineChartShape: Shape {
             if showCircles{
             x -= pointSize / 2
             y -= pointSize / 2
-            print(index)
             if (self.hours.contains(index)){
                 path.addEllipse(in: CGRect(x: x , y: y, width: pointSize, height: pointSize))
                 path.move(to: CGPoint(x: x+pointSize/2, y: y+pointSize/2))

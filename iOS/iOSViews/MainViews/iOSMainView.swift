@@ -9,6 +9,7 @@ import SwiftUI
 import MapKit
 
 struct iOSMainView: View {
+    @State var showSens = false
     @State var selectedTab = "Overview"
     @State var pathComp: String?
     @State var loadingState: loadingState = .loading
@@ -33,14 +34,23 @@ struct iOSMainView: View {
                 .tabItem { Image(systemName: "gear")
                     Text("Settings") }
                 .tag("Settings")
-        }
+        }.sheet(isPresented: $showSens, content: {
+            NavigationView{
+            SensorOverView(id:Int(pathComp!)!).navigationBarItems(leading: Button(action: {showSens=false}, label: {Text("Close")}))
+            }
+        })
         //DeepLink handling
         .onOpenURL(perform: { url in
             guard let tabIdentifier = url.tabIdentifier else {
                 return
             }
+            
             pathComp = url.pathComponents[1]
             selectedTab=tabIdentifier
+            if selectedTab == "Overview"{
+                showSens=true
+            }
+            
         })
         //fetching Sensors
         .onAppear(perform: {
@@ -71,7 +81,7 @@ struct iOSMainView: View {
 
 struct iOSMainView_Previews: PreviewProvider {
     static var previews: some View {
-            iOSMainView(sensorsVm: testSensorVM)
-                .makePreViewModifier()
+        iOSMainView(sensorsVm: testSensorVM)
+            .makePreViewModifier()
     }
 }

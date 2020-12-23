@@ -11,7 +11,6 @@ struct OverView: View {
     @ObservedObject var sensors : SensorListViewModel
     @Binding var loadingState : loadingState
     var featuredSensorID = 1
-    
     var body: some View {
         NavigationView{
             ScrollView(.vertical){
@@ -50,13 +49,24 @@ struct OverView: View {
                             }
                         }
                     }
+                   
                 }
                 Spacer()
-            }.background(Color.systemGroupedBackground.ignoresSafeArea())
+                    
+            }
+            .background(Color.systemGroupedBackground.ignoresSafeArea())
             .navigationTitle("Gfrör.li")
+            .toolbar{
+                ToolbarItem{
+                Button {
+                    #warning("implement")
+                } label: {
+                    Image(systemName: "info.circle")
+                }
+                }
+            }
             
         }
-        
     }
 }
 
