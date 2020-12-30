@@ -171,7 +171,7 @@ struct SingleFavWidgetViewMedium:View {
                          Spacer()
                         }
                         GeometryReader{ g in
-                            DailyChartView(showMax: .constant(false), showMin: .constant(false), showAvg: .constant(true), showCircles: .constant(false),avgColor: .white, daySpan: .week, data: entry.data, frame: g.frame(in: .local)).colorScheme(.light)
+                            DailyChartView(showMax: .constant(false), showMin: .constant(false), showAvg: .constant(true), showCircles: .constant(false),avgColor: .white, daySpan: .week, data: entry.data, frame: g.frame(in: .local)).colorScheme(.dark)
                         }
                         Divider().hidden()
                     }else{
@@ -182,6 +182,7 @@ struct SingleFavWidgetViewMedium:View {
             }
             .background(Color("GfroerliDarkBlue"))
             .widgetURL(entry.temp != 0.0 ? URL(string: "ch.coredump.gfroerli://home/\(entry.id)") : URL(string: "ch.coredump.gfroerli://settings/widgetSettings"))
+            .preferredColorScheme(.dark)
         }
     }
 }
