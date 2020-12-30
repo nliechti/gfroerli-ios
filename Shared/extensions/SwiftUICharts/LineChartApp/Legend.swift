@@ -23,10 +23,10 @@ struct Legend: View {
                         ForEach((0...4), id: \.self) { height in
                             HStack(alignment: .center){
                                 Text("\(self.getYLegendSafeText(height: height), specifier: "%.2f")°").offset(x: 0, y: self.getYposition(height: height) )
-                                    .foregroundColor(Color(.systemGray4))
+                                    .foregroundColor(Color.secondary)
                                     .font(.caption)
                                 self.line(atHeight: self.getYLegendSafe(height: height), width: self.frame.width)
-                                    .stroke(Color(.systemGray4), style: StrokeStyle(lineWidth: 1, lineCap: .round))
+                                    .stroke((Color.secondary), style: StrokeStyle(lineWidth: 1, lineCap: .round))
                                     .rotationEffect(.degrees(180), anchor: .center)
                                     .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
                                     .clipped()

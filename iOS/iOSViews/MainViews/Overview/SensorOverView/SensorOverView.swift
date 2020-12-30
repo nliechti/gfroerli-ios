@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SensorOverView: View {
     
-    @ObservedObject var sensorVM = SingleSensorViewModel()
+    @StateObject var sensorVM = SingleSensorViewModel()
     var id : Int
     @State var isFav = false
     @State var favorites  = UserDefaults(suiteName: "group.ch.gfroerli")?.array(forKey: "favoritesIDs") as? [Int] ?? [Int]()
@@ -19,6 +19,10 @@ struct SensorOverView: View {
     var body: some View {
         VStack{
         switch loadingState {
+        case .loading:
+            LoadingView()
+                .background(Color.systemGroupedBackground.ignoresSafeArea())
+
         case .loaded:
             ScrollView{
                 VStack{
@@ -50,7 +54,8 @@ struct SensorOverView: View {
                         .shadow(radius: 1)
                         .padding(.horizontal)
                     
-                }.padding(.vertical)
+                }
+                .padding(.vertical)
                 .background(Color.systemGroupedBackground.ignoresSafeArea())
                 .navigationTitle(loadingState == .loaded ? sensorVM.sensor!.device_name : "")
                 .navigationBarItems(trailing:
@@ -71,28 +76,27 @@ struct SensorOverView: View {
                                         }})
                                         
             }
-        case .loading:
-            LoadingView()
-                .background(Color.systemGroupedBackground.ignoresSafeArea())
-                .onAppear {
-                load()
-            }
             
         case .error:
             ErrorView().background(Color.systemGroupedBackground.ignoresSafeArea())
         }
         
-        }.background(Color.systemGroupedBackground.ignoresSafeArea())
+        }.background(Color.systemGroupedBackground.ignoresSafeArea()).onAppear(perform: {
+            load()
+        })
+        
 
         
     }
     func load(){
+        loadingState = .loading
         sensorVM.getSensor(id: id) {(result) in
             switch result {
             case .success(let str):
-                loadingState = .loaded
+                
                 favorites  = UserDefaults(suiteName: "group.ch.gfroerli")?.array(forKey: "favoritesIDs") as? [Int] ?? [Int]()
                 isFav = favorites.contains(sensorVM.sensor!.id!)
+                loadingState = .loaded
             case .failure(let error):
                 loadingState = .error
                 switch error {

@@ -107,7 +107,8 @@ struct SingleFavWidgetViewSmall:View {
                     HStack{
                         Spacer()
                         Text(String(format: "%.1f", entry.temp)+"°")
-                            .foregroundColor(.white).bold()
+                            .font(.title2)
+                            .foregroundColor(.white)
                     }
                 }else{
                     HStack{
@@ -170,7 +171,7 @@ struct SingleFavWidgetViewMedium:View {
                          Spacer()
                         }
                         GeometryReader{ g in
-                            DailyChartView(showMax: .constant(false), showMin: .constant(false), showAvg: .constant(true), showCircles: .constant(false), daySpan: .week, data: entry.data, frame: g.frame(in: .local)).colorScheme(.light)
+                            DailyChartView(showMax: .constant(false), showMin: .constant(false), showAvg: .constant(true), showCircles: .constant(false),avgColor: .white, daySpan: .week, data: entry.data, frame: g.frame(in: .local)).colorScheme(.light)
                         }
                         Divider().hidden()
                     }else{

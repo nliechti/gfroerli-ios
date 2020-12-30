@@ -103,11 +103,12 @@ struct DailyLineChartShape: Shape {
 }
 
 struct DailyChartView: View{
+    
     @Binding var showMax : Bool
     @Binding var showMin : Bool
     @Binding var showAvg : Bool
     @Binding var showCircles : Bool
-    
+    var avgColor: Color?
     var daySpan : DaySpan
     let data: [DailyAggregation]
     var lineWidth: CGFloat = 2
@@ -134,7 +135,7 @@ struct DailyChartView: View{
             DailyLineChartShape(pointSize: pointSize, data: data, type: .maximum,span: daySpan, max: maxVal, min: minVal, showCircles: showCircles)
                 .stroke(showMax ? Color.red : Color.clear, style: StrokeStyle(lineWidth: 2,lineCap: .round, lineJoin: .round)).frame(width: frame.width-40, height: frame.height).offset(x:+20)
             DailyLineChartShape(pointSize: pointSize, data: data, type: .average, span: daySpan, max: maxVal, min: minVal, showCircles: showCircles)
-                .stroke(showAvg ? Color.green : Color.clear,style: StrokeStyle(lineWidth: 2,lineCap: .round, lineJoin: .round)).frame(width: frame.width-40, height: frame.height).offset(x:+20)
+                .stroke(showAvg ? ((avgColor != nil) ? Color.white : Color.green) : Color.clear,style: StrokeStyle(lineWidth: 2,lineCap: .round, lineJoin: .round)).frame(width: frame.width-40, height: frame.height).offset(x:+20)
             
     
         }
@@ -142,13 +143,13 @@ struct DailyChartView: View{
         HStack{
             Text("0.00").foregroundColor(.clear)
                 .font(.caption)
-            Text(xLabels[0]).foregroundColor(Color(.systemGray4))
+            Text(xLabels[0]).foregroundColor(Color.secondary)
                 .font(.caption)
             Spacer()
-            Text(xLabels[1]).foregroundColor(Color(.systemGray4))
+            Text(xLabels[1]).foregroundColor(Color.secondary)
                 .font(.caption)
             Spacer()
-            Text(xLabels[2]).foregroundColor(Color(.systemGray4))
+            Text(xLabels[2]).foregroundColor(Color.secondary)
                 .font(.caption)
         }
         }

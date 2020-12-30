@@ -18,7 +18,7 @@ struct iOSMainView: View {
     var body: some View {
         //TabsView and Tabs
         TabView(selection: $selectedTab){
-            OverView(sensors: sensorsVm, loadingState: $loadingState)
+            OverView(showDetail: $showSens, pathComp: $pathComp,sensors: sensorsVm, loadingState: $loadingState)
                 .tabItem { Image(systemName: "thermometer.sun.fill")
                     Text("Overview") }
                 .tag("Overview")
@@ -34,14 +34,11 @@ struct iOSMainView: View {
                 .tabItem { Image(systemName: "gear")
                     Text("Settings") }
                 .tag("Settings")
-        }.sheet(isPresented: $showSens, content: {
-            NavigationView{
-            SensorOverView(id:Int(pathComp!)!).navigationBarItems(leading: Button(action: {showSens=false}, label: {Text("Close")}))
-            }
-        })
+        }
         //DeepLink handling
         .onOpenURL(perform: { url in
             guard let tabIdentifier = url.tabIdentifier else {
+                print("OWOOOO")
                 return
             }
             

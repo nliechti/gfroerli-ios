@@ -815,7 +815,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = GfroerliWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20201206;
+				CURRENT_PROJECT_VERSION = 20201223;
 				DEVELOPMENT_TEAM = VDVQE324N6;
 				INFOPLIST_FILE = GfroerliWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -823,7 +823,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.39;
+				MARKETING_VERSION = 0.41;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -840,7 +840,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = WidgetsRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20201206;
+				CURRENT_PROJECT_VERSION = 20201223;
 				DEVELOPMENT_TEAM = VDVQE324N6;
 				INFOPLIST_FILE = GfroerliWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -848,7 +848,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.39;
+				MARKETING_VERSION = 0.41;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -984,7 +984,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = iOS/Gfror.li.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20201206;
+				CURRENT_PROJECT_VERSION = 20201223;
 				DEVELOPMENT_TEAM = VDVQE324N6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
@@ -993,7 +993,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.39;
+				MARKETING_VERSION = 0.41;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli;
 				PRODUCT_NAME = Gfror.li;
 				SDKROOT = iphoneos;
@@ -1011,7 +1011,7 @@
 				CODE_SIGN_ENTITLEMENTS = iOS/Gfror.liRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20201206;
+				CURRENT_PROJECT_VERSION = 20201223;
 				DEVELOPMENT_TEAM = VDVQE324N6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
@@ -1020,7 +1020,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.39;
+				MARKETING_VERSION = 0.41;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli;
 				PRODUCT_NAME = Gfror.li;
 				PROVISIONING_PROFILE_SPECIFIER = "";

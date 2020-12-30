@@ -8,6 +8,8 @@
 import SwiftUI
 import MapKit
 struct OverView: View {
+    @Binding var showDetail: Bool
+    @Binding var pathComp: String?
     @ObservedObject var sensors : SensorListViewModel
     @Binding var loadingState : loadingState
     var featuredSensorID = 1
@@ -66,12 +68,16 @@ struct OverView: View {
                 }
             }
             
-        }
+        }.sheet(isPresented: $showDetail, content: {
+            NavigationView{
+            SensorOverView(id:Int(pathComp!)!).navigationBarItems(leading: Button(action: {showDetail=false}, label: {Text("Close")}))
+            }
+        })
     }
 }
 
 struct OverView_Previews: PreviewProvider {
     static var previews: some View {
-        OverView(sensors: testSensorVM, loadingState: .constant(.loading)).makePreViewModifier()
+        OverView(showDetail: .constant(false), pathComp: .constant(nil), sensors: testSensorVM, loadingState: .constant(.loading)).makePreViewModifier()
     }
 }
