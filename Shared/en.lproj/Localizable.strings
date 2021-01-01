@@ -5,3 +5,14 @@
   Created by Marc Kramer on 06.10.20.
   
 */
+
+
+// About/FAQ
+
+"Q1_String" = "Why this App?";
+"A1_String" = "Water temperature is an important value for a lot of people, e.g. swimmers, divers, fishermen and more. Until now, there was no reliable way of looking up real-time water temperature information. There are some sensor networks today, but they often don't provide multiple locations in one waterbody, or they just publish their measurements once a day. Now, we are building a network of cheap watertemperature sensors with very low engergy usage. This allows us to measure the temperatures locally and to provide them to you in real-time!";
+
+
+"Q2_String" = "Who is developping this project?";
+"A2_String" = "This App, the server infrastructure as well as the hardware of our sensors, are developped by the members of the Coredump Hackerspace in Rapperswil-Jona in their freetime. For more information visit:";
+

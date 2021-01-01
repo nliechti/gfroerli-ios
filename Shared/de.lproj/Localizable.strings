@@ -19,7 +19,7 @@
 
 //AllSensorsView
 "All Sensors" = "Alle Sensoren";
-"Search terms here" = "Senor suchen";
+"Search terms here" = "Sensor suchen";
 
 //WaterBodyOverview
 "Locations" = "Standorte";
@@ -59,3 +59,12 @@
 //Widget
 "Last 24h:" = "Letzte 24h:";
 "Tap to configure Sensor" = "Tippen um Sensor auszuwählen";
+
+
+//About/Faq
+
+"Q1_String" = "Warum diese App?";
+"A1_String" = "Die Wassertemperatur ist für viele Menschen ein wichtiger Wert, zum Beispiel für Schwimmer, Taucher, Fischer und viele mehr. Aber bisher gab es keine verlässliche Methode, um Echtzeit-Temperaturinformationen in deiner Gegend zu erhalten. Es gibt heute bereits ein paar Wassertemperatur-Sensor-Netzwerke, aber meistens gibt es nur einen Sensor pro See, wodurch lokale Temperaturunterschiede (z.B. an einer Flussmündung) ignoriert werden. Viele Sensoren werden zudem nur ein mal pro Tag publiziert. Wir bauen ein Netzwerk von kostengünstigen Wassertemperatur-Sensoren mit sehr geringem Energieverbrauch auf. Dies ermöglicht uns, die Wassertemperatur lokal zu messen und sie dir kostenlos in Quasi-Echtzeit anzuzeigen";
+
+"Q2_String" = "Wer hat diese App entwickelt?";
+"A2_String" = "Diese App, die Server-Infrastruktur wie auch die Sensor-Hardware werden vom Coredump Hackerspace in Rapperswil-Jona entwickelt. Mehr Informationen über uns findest du auf unserer Website:";

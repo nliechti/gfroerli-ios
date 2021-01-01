@@ -27,6 +27,7 @@
 		8D49A37C250A506C000B26CD /* MultiFavWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D49A378250A4F27000B26CD /* MultiFavWidget.swift */; };
 		8D49A37E250A5095000B26CD /* MainWidgetFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D49A37D250A5095000B26CD /* MainWidgetFile.swift */; };
 		8D50670324F7F33400E426DE /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5066E424F7F33400E426DE /* Helpers.swift */; };
+		8D580B59259FA33800202262 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D580B58259FA33800202262 /* AboutView.swift */; };
 		8D5D25CB257A98D1002852F4 /* SensorListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5D25CA257A98D1002852F4 /* SensorListItem.swift */; };
 		8D5EACE9252CE407006EBCD6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D5EACEC252CE407006EBCD6 /* Localizable.strings */; };
 		8D5EACEA252CE407006EBCD6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D5EACEC252CE407006EBCD6 /* Localizable.strings */; };
@@ -137,6 +138,7 @@
 		8D49A378250A4F27000B26CD /* MultiFavWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiFavWidget.swift; sourceTree = "<group>"; };
 		8D49A37D250A5095000B26CD /* MainWidgetFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWidgetFile.swift; sourceTree = "<group>"; };
 		8D5066E424F7F33400E426DE /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		8D580B58259FA33800202262 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		8D5D25CA257A98D1002852F4 /* SensorListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorListItem.swift; sourceTree = "<group>"; };
 		8D5EACEB252CE407006EBCD6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8D5EACF2252CE414006EBCD6 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -311,6 +313,7 @@
 			children = (
 				8D0D7FE124F107B60068176C /* OverView.swift */,
 				8D6A7DC524F14115009A0026 /* LakeOverView.swift */,
+				8D580B58259FA33800202262 /* AboutView.swift */,
 				8DF3BBD3250BB54C00DBCC37 /* SensorOverView */,
 			);
 			path = Overview;
@@ -713,6 +716,7 @@
 				8DF3BBD8250BB6BB00DBCC37 /* OwnHelpers.swift in Sources */,
 				8DF3BBCB250B709700DBCC37 /* AllSensorView.swift in Sources */,
 				8D6A7DC624F14115009A0026 /* LakeOverView.swift in Sources */,
+				8D580B59259FA33800202262 /* AboutView.swift in Sources */,
 				8D4731B124F3F93200EE5536 /* WidgetSettingsView.swift in Sources */,
 				8DA7CF0F2516176300395465 /* TempAggregationsViewModel.swift in Sources */,
 				8DF3BBCD250B748800DBCC37 /* SearchBar.swift in Sources */,

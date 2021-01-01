@@ -8,6 +8,7 @@
 import SwiftUI
 import MapKit
 struct OverView: View {
+    @State var showAbout: Bool = false
     @Binding var showDetail: Bool
     @Binding var pathComp: String?
     @ObservedObject var sensors : SensorListViewModel
@@ -61,17 +62,21 @@ struct OverView: View {
             .toolbar{
                 ToolbarItem{
                 Button {
-                    #warning("implement")
+                    showAbout.toggle()
                 } label: {
                     Image(systemName: "info.circle")
                 }
                 }
-            }
+            }.sheet(isPresented: $showAbout, content: {
+                AboutView(showView: $showAbout)
+            })
             
         }.sheet(isPresented: $showDetail, content: {
-            NavigationView{
-            SensorOverView(id:Int(pathComp!)!).navigationBarItems(leading: Button(action: {showDetail=false}, label: {Text("Close")}))
+            
+                NavigationView{
+                SensorOverView(id:Int(pathComp!)!).navigationBarItems(leading: Button(action: {showDetail=false}, label: {Text("Close")}))
             }
+            
         })
     }
 }
