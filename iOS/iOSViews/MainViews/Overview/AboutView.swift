@@ -17,16 +17,16 @@ struct AboutView: View {
                     DisclosureGroup(
                         content: { Text("A1_String") },
                         label: { Text("Q1_String").font(.headline) })
-                    Divider()
                     DisclosureGroup(
                         content: { Text("A2_String")
                             Link("www.gfrör.li", destination: URL(string: "https://xn--gfrr-7qa.li/")!)
                         },
                         label: { Text("Q2_String").font(.headline) })
                     
-                }
+                }.groupBoxStyle(ColoredGroupBox())
                 Spacer()
             }.padding()
+            .background(Color.systemGroupedBackground.ignoresSafeArea())
             .navigationTitle("About")
             .navigationBarItems(leading:
                                     Button(action: {showView=false}

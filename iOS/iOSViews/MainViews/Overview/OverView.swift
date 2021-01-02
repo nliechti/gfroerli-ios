@@ -62,7 +62,7 @@ struct OverView: View {
             .toolbar{
                 ToolbarItem{
                 Button {
-                    showAbout.toggle()
+                    showAbout=true
                 } label: {
                     Image(systemName: "info.circle")
                 }
