@@ -35,7 +35,7 @@ struct SettingsView: View {
                         let email = "appdev@coredump.ch"
                              let subject = "Feedback iOS Version: \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "fail")"
                         
-                            let body = "Thank you for providing feedback! If you encountered a bug, please describe the steps to reproduce it."
+                            let body = getEmailBody()
                            guard let url = URL(string: "mailto:\(email)?subject=\(subject.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? "")&body=\(body.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? "")") else { return }
                         UIApplication.shared.open(url)
                         

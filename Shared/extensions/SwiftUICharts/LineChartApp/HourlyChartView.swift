@@ -129,9 +129,9 @@ struct HourlyChartView: View{
     var frame: CGRect
     var avgColor: Color = .green
     
-    var maxVal : Double {var highestPoint = data.max { $0.maxTemp! < $1.maxTemp! }
+    var maxVal : Double {let highestPoint = data.max { $0.maxTemp! < $1.maxTemp! }
         return highestPoint?.maxTemp ?? 1}
-    var minVal : Double {var lowestPoint = data.min { $0.minTemp! < $1.minTemp! }
+    var minVal : Double {let lowestPoint = data.min { $0.minTemp! < $1.minTemp! }
         return lowestPoint?.minTemp ?? 1}
     var xLabels: [String]{
         return getXLabels(data: data)

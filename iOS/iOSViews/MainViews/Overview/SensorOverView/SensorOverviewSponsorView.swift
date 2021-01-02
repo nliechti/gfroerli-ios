@@ -40,7 +40,7 @@ struct SensorOverviewSponsorView: View {
             loadingState = .loading
             sponsorListVM.getAllSponsors{ (result) in
                 switch result {
-                case .success(let str):
+                case .success(_):
                     loadingState = .loaded
                     sponsor = sponsorListVM.sponsorArray.first(where: {$0.id == sensor.id})
                 case .failure(let error):

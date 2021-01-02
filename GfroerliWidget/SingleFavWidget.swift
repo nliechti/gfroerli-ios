@@ -35,7 +35,7 @@ struct SingleProvider: TimelineProvider {
         var data = [DailyAggregation]()
         aggVM.loadAggregationsWeek(sensorID: widgetSensorID) { (result) in
             switch result {
-            case .success(let str):
+            case .success(_):
                 data = aggVM.dataWeek
             case .failure(let error):
                 switch error {
@@ -48,7 +48,7 @@ struct SingleProvider: TimelineProvider {
         
         singleSensVM.getSensor(id: widgetSensorID) { (result) in
             switch result {
-            case .success(let str):
+            case .success(_):
                 completion(Timeline(entries: [SingleSensorEntry(name: singleSensVM.sensor?.device_name ?? "A", temp: singleSensVM.sensor?.latestTemp! ?? 0.0 , data: data, id: singleSensVM.sensor?.id! ?? 0)], policy: .after(Calendar.current.date(byAdding: .second,value: 5, to: Date())!)))
             case .failure(let error):
                 switch error {
@@ -58,11 +58,6 @@ struct SingleProvider: TimelineProvider {
             }
             
         }
-        
-        print(singleSensVM.sensor)
-        
-
-            
     }
     
     func placeholder(in context: Context) -> SingleSensorEntry {

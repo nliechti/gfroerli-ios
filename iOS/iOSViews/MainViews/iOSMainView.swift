@@ -54,7 +54,7 @@ struct iOSMainView: View {
             loadingState = .loading
             sensorsVm.getAllSensors { (result) in
                 switch result {
-                case .success(let str):
+                case .success(_):
                     loadingState = .loaded
                 case .failure(let error):
                     loadingState = .error

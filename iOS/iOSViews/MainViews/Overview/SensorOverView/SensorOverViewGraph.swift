@@ -73,7 +73,7 @@ struct SensorOverViewGraph: View {
         .onAppear(perform: {
             tempAggVM.loadAggregationsDay(sensorID: sensorID) { (result) in
                 switch result {
-                case .success(let str):
+                case .success(_):
                     dayLoading = .loaded
                 case .failure(let error):
                     dayLoading = .error
@@ -91,7 +91,7 @@ struct SensorOverViewGraph: View {
             }
             tempAggVM.loadAggregationsWeek(sensorID: sensorID) { (result) in
                 switch result {
-                case .success(let str):
+                case .success(_):
                     weekLoading = .loaded
                 case .failure(let error):
                     weekLoading = .error
@@ -109,7 +109,7 @@ struct SensorOverViewGraph: View {
             }
             tempAggVM.loadAggregationsMonth(sensorID: sensorID) { (result) in
                 switch result {
-                case .success(let str):
+                case .success(_):
                     monthLoading = .loaded
                 case .failure(let error):
                     monthLoading = .error

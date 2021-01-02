@@ -116,9 +116,9 @@ struct DailyChartView: View{
     var frame: CGRect
     
     
-    var maxVal : Double {var highestPoint = data.max { $0.maxTemp! < $1.maxTemp! }
+    var maxVal : Double {let highestPoint = data.max { $0.maxTemp! < $1.maxTemp! }
         return highestPoint?.maxTemp ?? 1}
-    var minVal : Double {var lowestPoint = data.min { $0.minTemp! < $1.minTemp! }
+    var minVal : Double {let lowestPoint = data.min { $0.minTemp! < $1.minTemp! }
         return lowestPoint?.minTemp ?? 1}
     var xLabels: [String]{
         return getXLabels(data: data)
@@ -156,16 +156,15 @@ struct DailyChartView: View{
     }
     func getXLabels(data: [DailyAggregation]) -> [String] {
         var labels = [String]()
-        var mid: Int = data.count/2
+        let mid: Int = data.count/2
         labels.append(makeDMString(string: data.first!.date!))
         labels.append(makeDMString(string: data[mid].date!))
         labels.append(makeDMString(string: data.last!.date!))
         return labels
     }
     func makeDMString(string: String)->String{
-        var str = string
-        var str1 = str.removeLast(3)
-        var str2 = str.suffix(2)
+        let str = string
+        let str2 = str.suffix(2)
         return string.suffix(2)+"."+str2+"."
     }
 }

@@ -92,7 +92,7 @@ struct SensorOverView: View {
         loadingState = .loading
         sensorVM.getSensor(id: id) {(result) in
             switch result {
-            case .success(let str):
+            case .success(_):
                 
                 favorites  = UserDefaults(suiteName: "group.ch.gfroerli")?.array(forKey: "favoritesIDs") as? [Int] ?? [Int]()
                 isFav = favorites.contains(sensorVM.sensor!.id!)

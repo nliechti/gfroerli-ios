@@ -61,6 +61,9 @@
 		8DBCDB962576D55800CBDAA6 /* Legend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBCDB952576D55800CBDAA6 /* Legend.swift */; };
 		8DC0D496250CC4A6009E20B5 /* TempAggregations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C24FE824EEB5AA00FB4F51 /* TempAggregations.swift */; };
 		8DCB9A58257972E30063C628 /* SensorOverviewMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DCB9A57257972E30063C628 /* SensorOverviewMap.swift */; };
+		8DD06C2925A0E7340081250B /* GroupBoxExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD06C2825A0E7340081250B /* GroupBoxExtension.swift */; };
+		8DD06C3025A0EF290081250B /* UIDeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD06C2F25A0EF290081250B /* UIDeviceExtension.swift */; };
+		8DD06C3B25A0F0910081250B /* UIDeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD06C2F25A0EF290081250B /* UIDeviceExtension.swift */; };
 		8DF3BBC9250B4F2700DBCC37 /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBC8250B4F2700DBCC37 /* URLExtension.swift */; };
 		8DF3BBCB250B709700DBCC37 /* AllSensorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBCA250B709700DBCC37 /* AllSensorView.swift */; };
 		8DF3BBCD250B748800DBCC37 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBCC250B748800DBCC37 /* SearchBar.swift */; };
@@ -164,6 +167,8 @@
 		8DBCDB8E2576C4C400CBDAA6 /* DailyChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyChartView.swift; sourceTree = "<group>"; };
 		8DBCDB952576D55800CBDAA6 /* Legend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Legend.swift; sourceTree = "<group>"; };
 		8DCB9A57257972E30063C628 /* SensorOverviewMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorOverviewMap.swift; sourceTree = "<group>"; };
+		8DD06C2825A0E7340081250B /* GroupBoxExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupBoxExtension.swift; sourceTree = "<group>"; };
+		8DD06C2F25A0EF290081250B /* UIDeviceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExtension.swift; sourceTree = "<group>"; };
 		8DF3BBC8250B4F2700DBCC37 /* URLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
 		8DF3BBCA250B709700DBCC37 /* AllSensorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSensorView.swift; sourceTree = "<group>"; };
 		8DF3BBCC250B748800DBCC37 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
@@ -385,9 +390,11 @@
 			children = (
 				8D5066D124F7F33400E426DE /* SwiftUICharts */,
 				E44EA3AC24EEA7EA00380E27 /* MapExtension.swift */,
+				8DD06C2825A0E7340081250B /* GroupBoxExtension.swift */,
 				8DF3BBC8250B4F2700DBCC37 /* URLExtension.swift */,
 				8D05A2DA253F645300E7C1BD /* PreViewExtension.swift */,
 				8D7E98BC257025EC00BC32EB /* ColorExtension.swift */,
+				8DD06C2F25A0EF290081250B /* UIDeviceExtension.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -698,6 +705,7 @@
 				8DC0D496250CC4A6009E20B5 /* TempAggregations.swift in Sources */,
 				8D9B1AEA24F463290047FAC2 /* Sensor.swift in Sources */,
 				8DA7CF102516176300395465 /* TempAggregationsViewModel.swift in Sources */,
+				8DD06C3B25A0F0910081250B /* UIDeviceExtension.swift in Sources */,
 				8D90897C259121AF0017BAB8 /* Legend.swift in Sources */,
 				8D737730252BA7200075E04E /* Sponsor.swift in Sources */,
 				8D90896A259110F40017BAB8 /* SingleFavWidget.swift in Sources */,
@@ -718,6 +726,7 @@
 				8D6A7DC624F14115009A0026 /* LakeOverView.swift in Sources */,
 				8D580B59259FA33800202262 /* AboutView.swift in Sources */,
 				8D4731B124F3F93200EE5536 /* WidgetSettingsView.swift in Sources */,
+				8DD06C3025A0EF290081250B /* UIDeviceExtension.swift in Sources */,
 				8DA7CF0F2516176300395465 /* TempAggregationsViewModel.swift in Sources */,
 				8DF3BBCD250B748800DBCC37 /* SearchBar.swift in Sources */,
 				8D9B0FE424F3BEA4003502C8 /* WaveShape.swift in Sources */,
@@ -733,6 +742,7 @@
 				8D04196824F50258003D64D4 /* SensorScrollItem.swift in Sources */,
 				E44EA3AD24EEA7EA00380E27 /* MapExtension.swift in Sources */,
 				8D0D7FE424F107C10068176C /* FavoritesView.swift in Sources */,
+				8DD06C2925A0E7340081250B /* GroupBoxExtension.swift in Sources */,
 				8D3D36F0250BBC8500F11E48 /* SensorOverViewGraph.swift in Sources */,
 				8DA7CEF52516108000395465 /* SensorListViewModel.swift in Sources */,
 				8D05A2DB253F645300E7C1BD /* PreViewExtension.swift in Sources */,

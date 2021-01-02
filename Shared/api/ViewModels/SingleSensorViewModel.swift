@@ -36,7 +36,6 @@ class SingleSensorViewModel: ObservableObject {
                     let jsonDecoder = JSONDecoder()
                     let sensor = try jsonDecoder.decode(Sensor.self, from: data)
                     self.sensor = sensor
-                    print(self.sensor)
                     completion(.success("Sensor successfuly loaded!"))
                 } else if error != nil {
                     // network failures
