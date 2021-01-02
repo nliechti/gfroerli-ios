@@ -55,17 +55,25 @@ struct SensorOverViewGraph: View {
                 Button {
                     showAvg.toggle()
                 } label: {
-                    Label("averages", systemImage: showAvg ? "checkmark.circle.fill": "circle").foregroundColor(.green)
+                    Image(systemName: showAvg ? "checkmark.circle.fill": "circle").foregroundColor(.green)
+                    Text("Average").lineLimit(1)
+                        .minimumScaleFactor(0.1)
                 }
+                Spacer()
                 Button {
                     showMin.toggle()
                 } label: {
-                    Label("minimums", systemImage: showMin ? "checkmark.circle.fill": "circle").foregroundColor(.blue)
+                    Image(systemName: showMin ? "checkmark.circle.fill": "circle").foregroundColor(.blue)
+                    Text("Minimum").lineLimit(1)
+                        .minimumScaleFactor(0.1)
                 }
+                Spacer()
                 Button {
                     showMax.toggle()
                 } label: {
-                    Label("maximums", systemImage: showMax ? "checkmark.circle.fill": "circle").foregroundColor(.red)
+                    Image(systemName: showMax ? "checkmark.circle.fill": "circle").foregroundColor(.red)
+                    Text("Maximum").lineLimit(1)
+                        .minimumScaleFactor(0.1)
                 }
             }.padding(.top,3)
             

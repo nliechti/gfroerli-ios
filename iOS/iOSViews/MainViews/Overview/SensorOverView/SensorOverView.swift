@@ -27,7 +27,7 @@ struct SensorOverView: View {
             ScrollView{
                 VStack{
                     SensorOverviewLastMeasurementView(sensor: sensorVM.sensor!)
-                        .fixedSize(horizontal: false, vertical: true)
+                        
                         .background(Color.secondarySystemGroupedBackground)
                         .cornerRadius(15)
                         .shadow(radius: 1) 

@@ -163,7 +163,8 @@ struct DailyChartView: View{
         return labels
     }
     func makeDMString(string: String)->String{
-        let str = string
+        var str = string
+        str.removeLast(3)
         let str2 = str.suffix(2)
         return string.suffix(2)+"."+str2+"."
     }

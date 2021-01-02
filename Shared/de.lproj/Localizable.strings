@@ -25,7 +25,7 @@
 "Locations" = "Standorte";
 
 //SensorsOverview
-"Last Measurement" = "Letzte Messung";
+"Latest" = "Aktuell";
 "History" = "Verlauf";
 "Day" = "Tag";
 "Week" = "Woche";
