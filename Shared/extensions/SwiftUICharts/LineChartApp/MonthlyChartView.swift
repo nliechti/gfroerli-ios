@@ -1,14 +1,16 @@
 //
-//  DailyChartView.swift
-//  iOS
+//  MonthlyChartView.swift
+//  Gfror.li
 //
-//  Created by Marc Kramer on 01.12.20.
+//  Created by Marc Kramer on 03.01.21.
 //
+
+import Foundation
 
 import SwiftUI
 
-struct DailyLineChartShape: Shape {
-    var data: [Double]
+struct MothlyLineChartShape: Shape {
+    var data: [DailyAggregation]
     var pointSize: CGFloat
     var maxVal : Double
     var minVal: Double
@@ -19,15 +21,14 @@ struct DailyLineChartShape: Shape {
     
     init(pointSize: CGFloat, data: [DailyAggregation],type: tempType, span: DaySpan, max: Double, min : Double, showCircles: Bool){
         self.tempType = type
-        self.data = DailyLineChartShape.createData(data: data, type: type,span: span)
+        self.data = data
         self.pointSize = pointSize
         self.maxVal = max
         self.minVal = min
-        hours = DailyLineChartShape.getDays(data: data)
+        hours = WeeklyLineChartShape.getDays(data: data)
         daySpan = span
         self.showCircles = showCircles
     }
-    
     
     
     static func getDays(data:[DailyAggregation])->[Int]{
@@ -37,56 +38,68 @@ struct DailyLineChartShape: Shape {
         }
         return days
     }
-    
-    static func createData(data: [DailyAggregation], type: tempType, span: DaySpan)->[Double]{
-        var normedData = [Double].init(repeating: 0.0, count: data.count)
         
-        switch type {
-        case .average:
-            for i in 0..<data.count{
-                normedData[i] = data[i].avgTemp!
-            }
-            
-        case .minimum:
-            for i in 0..<data.count{
-                normedData[i] = data[i].minTemp!
-            }
-            
-        case .maximum:
-            for i in 0..<data.count{
-                normedData[i] = data[i].maxTemp!
-            }
-        }
-        
-        
-        return normedData
-        
+    public  func daysBetween(start: Date, end: Date) -> Int {
+       Calendar.current.dateComponents([.day], from: start, to: end).day!
     }
     
+    public  func makeDateFromAggreg(string: String)->Date{
+        var newDate = string
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let date = dateFormatter.date(from:newDate)!
+        return date
+        
+    }
     
     func path(in rect: CGRect) -> Path {
         var path = Path()
         
-        let xMultiplier = rect.width / CGFloat(data.count - 1)
+        let xMultiplier = rect.width / CGFloat(31)
         let yMultiplier = rect.height / CGFloat(maxVal-minVal)
+        let start = Calendar.current.date(byAdding: .day, value:-31, to:Date())!
+        let end = Calendar.current.date(byAdding: .day, value:0, to:Date())!
         
-        for (index, dataPoint) in data.enumerated() {
-            if dataPoint == 0.000001{
-                continue
+        //First DataPoint
+        var x = xMultiplier * CGFloat(0)
+        var y = yMultiplier * CGFloat(getTemp(dataPoint: data[0])-minVal)
+        var step = daysBetween(start: start, end: makeDateFromAggreg(string: data[0].date!))
+        print("Start Date: \(start)")
+        print("First Date: \(makeDateFromAggreg(string: data[0].date!))")
+        print("Step: \(step)")
+        y = rect.height - y
+        x += rect.minX
+        y += rect.minY
+        path.move(to: CGPoint(x: x, y: y))
+        x = xMultiplier * CGFloat(step)
+        path.addLine(to: CGPoint(x: x,y: y))
+        x -= pointSize / 2
+        y -= pointSize / 2
+        
+        path.addEllipse(in: CGRect(x: x , y: y, width: pointSize, height: pointSize))
+        path.move(to: CGPoint(x: x+pointSize/2, y: y+pointSize/2))
+        
+        for index in 1..<data.count {
+            print("next Date: \(makeDateFromAggreg(string: data[index].date!))")
+            if daysBetween(start: makeDateFromAggreg(string: data[index-1].date!), end: makeDateFromAggreg(string: data[index].date!)) == 0{
+                step+=1
+                print("ISNEXT")
+            }else{
+                step+=daysBetween(start: makeDateFromAggreg(string: data[index-1].date!), end: makeDateFromAggreg(string: data[index].date!))
+                print(step)
             }
             
-            var x = xMultiplier * CGFloat(index)
-            var y = yMultiplier * CGFloat(dataPoint-minVal)
+            
+            var x = xMultiplier * CGFloat(step)
+            var y = yMultiplier * CGFloat(getTemp(dataPoint: data[index])-minVal)
             
             y = rect.height - y
             x += rect.minX
             y += rect.minY
             
-            if index == 0 {
-                path.move(to: CGPoint(x: x, y: y))
-            } else {
-                path.addLine(to: CGPoint(x: x,y: y))
-            }
+           
+            path.addLine(to: CGPoint(x: x,y: y))
+        
             if showCircles{
             x -= pointSize / 2
             y -= pointSize / 2
@@ -96,13 +109,35 @@ struct DailyLineChartShape: Shape {
             
             }
         }
+        
+        // last points
+        step += daysBetween(start: makeDateFromAggreg(string:data[data.count-1].date!), end: end)
+        print("Last step\(step)")
+        x = xMultiplier * CGFloat(step)
+        y = yMultiplier * CGFloat(getTemp(dataPoint: data[data.count-1])-minVal)
+        y = rect.height - y
+        x += rect.minX
+        y += rect.minY
+        path.addLine(to: CGPoint(x: x,y: y))
         return path
         
     }
     
+   private func getTemp(dataPoint: DailyAggregation)->Double{
+        switch tempType{
+        case .average:
+            return dataPoint.avgTemp!
+        case.maximum:
+            return dataPoint.maxTemp!
+        case.minimum:
+            return dataPoint.minTemp!
+
+        }
+    }
+    
 }
 
-struct DailyChartView: View{
+struct MonthlyChartView: View{
     
     @Binding var showMax : Bool
     @Binding var showMin : Bool
@@ -130,11 +165,11 @@ struct DailyChartView: View{
             
             Legend(frame: frame, xLabels: getXLabels(data: data), max: CGFloat(maxVal), min:CGFloat(minVal))
             
-            DailyLineChartShape(pointSize: pointSize, data: data, type: .minimum,span: daySpan, max: maxVal, min: minVal, showCircles: showCircles)
+            MothlyLineChartShape(pointSize: pointSize, data: data, type: .minimum,span: daySpan, max: maxVal, min: minVal, showCircles: showCircles)
                 .stroke(showMin ? Color.blue : Color.clear,style: StrokeStyle(lineWidth: 2,lineCap: .round, lineJoin: .round)).frame(width: frame.width-40, height: frame.height).offset(x:+20)
-            DailyLineChartShape(pointSize: pointSize, data: data, type: .maximum,span: daySpan, max: maxVal, min: minVal, showCircles: showCircles)
+            MothlyLineChartShape(pointSize: pointSize, data: data, type: .maximum,span: daySpan, max: maxVal, min: minVal, showCircles: showCircles)
                 .stroke(showMax ? Color.red : Color.clear, style: StrokeStyle(lineWidth: 2,lineCap: .round, lineJoin: .round)).frame(width: frame.width-40, height: frame.height).offset(x:+20)
-            DailyLineChartShape(pointSize: pointSize, data: data, type: .average, span: daySpan, max: maxVal, min: minVal, showCircles: showCircles)
+            MothlyLineChartShape(pointSize: pointSize, data: data, type: .average, span: daySpan, max: maxVal, min: minVal, showCircles: showCircles)
                 .stroke(showAvg ? ((avgColor != nil) ? Color.white : Color.green) : Color.clear,style: StrokeStyle(lineWidth: 2,lineCap: .round, lineJoin: .round)).frame(width: frame.width-40, height: frame.height).offset(x:+20)
             
     
@@ -170,7 +205,7 @@ struct DailyChartView: View{
     }
 }
 
-struct DailyChartView_Previews: PreviewProvider {
+struct MonthlyChartView_Previews: PreviewProvider {
     static var previews: some View {
         EmptyView()
     }

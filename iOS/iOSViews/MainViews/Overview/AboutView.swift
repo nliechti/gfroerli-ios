@@ -28,6 +28,7 @@ struct AboutView: View {
             }.padding()
             .background(Color.systemGroupedBackground.ignoresSafeArea())
             .navigationTitle("About")
+            .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(leading:
                                     Button(action: {showView=false}
                                            , label: {

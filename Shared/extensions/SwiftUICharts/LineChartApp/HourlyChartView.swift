@@ -103,7 +103,7 @@ struct HourlyLineChartShape: Shape {
         
     }
     
-    func getTemp(dataPoint: HourlyAggregation)->Double{
+    private func getTemp(dataPoint: HourlyAggregation)->Double{
         switch tempType{
         case .average:
             return dataPoint.avgTemp!

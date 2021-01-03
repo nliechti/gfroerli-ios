@@ -199,8 +199,18 @@ struct WeekChart: View {
                     
                 case .loaded:
                     VStack(alignment:.leading){
-                        
-                        DailyChartView(showMax: $showMax, showMin: $showMin, showAvg: $showAvg, showCircles: $showCircles, daySpan: .week, data: tempAggregVM.dataWeek, frame: geo.frame(in: .local))
+                    if tempAggregVM.dataWeek.count>1 {
+                        WeeklyChartView(showMax: $showMax, showMin: $showMin, showAvg: $showAvg, showCircles: $showCircles, daySpan:.week, data: tempAggregVM.dataWeek , frame: geo.frame(in: .local))
+                    
+                    }else{
+                        Spacer()
+                        HStack {
+                            Spacer()
+                            Text("No data available").font(.callout).foregroundColor(.secondary)
+                            Spacer()
+                        }
+                        Spacer()
+                    }
                     }
                 case .error:
                     ErrorView().frame(height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -226,8 +236,18 @@ struct MonthChart: View {
                     
                 case .loaded:
                     VStack(alignment:.leading){
-                        
-                        DailyChartView(showMax: $showMax, showMin: $showMin, showAvg: $showAvg, showCircles: $showCircles, daySpan: .month, data: tempAggregVM.dataMonth, frame: geo.frame(in: .local))
+                    if tempAggregVM.dataMonth.count>1 {
+                        MonthlyChartView(showMax: $showMax, showMin: $showMin, showAvg: $showAvg, showCircles: $showCircles, daySpan: .month, data: tempAggregVM.dataMonth, frame: geo.frame(in: .local))
+                    
+                    }else{
+                        Spacer()
+                        HStack {
+                            Spacer()
+                            Text("No data available").font(.callout).foregroundColor(.secondary)
+                            Spacer()
+                        }
+                        Spacer()
+                    }
                     }
                 case .error:
                     ErrorView().frame(height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
