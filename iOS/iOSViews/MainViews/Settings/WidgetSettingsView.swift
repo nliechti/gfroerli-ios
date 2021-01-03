@@ -24,7 +24,6 @@ struct WidgetSettingsView: View {
                         ForEach(sensors.sensorArray) {sensor in
                             SingleSelectionRow(title: sensor.device_name, isSelected: widgetSensorID==sensor.id!) {
                                 widgetSensorID=sensor.id!
-                                print(sensor.id!)
                                 WidgetCenter.shared.reloadAllTimelines()
                                 
                             }

@@ -38,7 +38,6 @@ struct iOSMainView: View {
         //DeepLink handling
         .onOpenURL(perform: { url in
             guard let tabIdentifier = url.tabIdentifier else {
-                print("OWOOOO")
                 return
             }
             

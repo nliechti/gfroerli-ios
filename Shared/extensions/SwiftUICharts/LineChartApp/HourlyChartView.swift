@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct HourlyLineChartShape: Shape {
     var data: [HourlyAggregation]
@@ -19,8 +20,8 @@ struct HourlyLineChartShape: Shape {
         self.tempType = type
         self.data = data
         self.pointSize = pointSize
-        self.maxVal = max
-        self.minVal = min
+        self.maxVal = max.rounded(.up)
+        self.minVal = min.rounded(.down)
         self.showCircles = showCircles
     }
         
@@ -72,7 +73,6 @@ struct HourlyLineChartShape: Shape {
             }else{
                 step+=1
             }
-            print(step)
         }
         //last data point
          x = xMultiplier * CGFloat(step)
@@ -139,8 +139,7 @@ struct HourlyChartView: View{
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            Legend(frame: frame, xLabels: getXLabels(data: data), max: CGFloat(maxVal), min:CGFloat(minVal))
-            
+            Legend(frame: frame, xLabels: getXLabels(data: data), max: CGFloat(maxVal.rounded(.up)), min:CGFloat(minVal.rounded(.down)))
             HourlyLineChartShape(pointSize: pointSize, data: data, type: .minimum, max: maxVal, min: minVal, showCircles: showCircles)
                 .stroke(showMin ? Color.blue : Color.clear,style: StrokeStyle(lineWidth: 2,lineCap: .round, lineJoin: .round)).frame(width: frame.width-40, height: frame.height).offset(x:+20)
             HourlyLineChartShape(pointSize: pointSize, data: data, type: .maximum, max: maxVal, min: minVal, showCircles: showCircles)

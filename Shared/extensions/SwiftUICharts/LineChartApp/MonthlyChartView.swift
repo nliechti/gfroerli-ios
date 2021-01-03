@@ -23,8 +23,8 @@ struct MothlyLineChartShape: Shape {
         self.tempType = type
         self.data = data
         self.pointSize = pointSize
-        self.maxVal = max
-        self.minVal = min
+        self.maxVal = max.rounded(.up)
+        self.minVal = min.rounded(.down)
         hours = WeeklyLineChartShape.getDays(data: data)
         daySpan = span
         self.showCircles = showCircles
@@ -64,29 +64,26 @@ struct MothlyLineChartShape: Shape {
         var x = xMultiplier * CGFloat(0)
         var y = yMultiplier * CGFloat(getTemp(dataPoint: data[0])-minVal)
         var step = daysBetween(start: start, end: makeDateFromAggreg(string: data[0].date!))
-        print("Start Date: \(start)")
-        print("First Date: \(makeDateFromAggreg(string: data[0].date!))")
-        print("Step: \(step)")
+        
         y = rect.height - y
         x += rect.minX
         y += rect.minY
         path.move(to: CGPoint(x: x, y: y))
         x = xMultiplier * CGFloat(step)
         path.addLine(to: CGPoint(x: x,y: y))
+        if showCircles{
         x -= pointSize / 2
         y -= pointSize / 2
         
         path.addEllipse(in: CGRect(x: x , y: y, width: pointSize, height: pointSize))
         path.move(to: CGPoint(x: x+pointSize/2, y: y+pointSize/2))
+        }
         
         for index in 1..<data.count {
-            print("next Date: \(makeDateFromAggreg(string: data[index].date!))")
             if daysBetween(start: makeDateFromAggreg(string: data[index-1].date!), end: makeDateFromAggreg(string: data[index].date!)) == 0{
                 step+=1
-                print("ISNEXT")
             }else{
                 step+=daysBetween(start: makeDateFromAggreg(string: data[index-1].date!), end: makeDateFromAggreg(string: data[index].date!))
-                print(step)
             }
             
             
@@ -112,7 +109,6 @@ struct MothlyLineChartShape: Shape {
         
         // last points
         step += daysBetween(start: makeDateFromAggreg(string:data[data.count-1].date!), end: end)
-        print("Last step\(step)")
         x = xMultiplier * CGFloat(step)
         y = yMultiplier * CGFloat(getTemp(dataPoint: data[data.count-1])-minVal)
         y = rect.height - y
@@ -163,7 +159,7 @@ struct MonthlyChartView: View{
         VStack{
         ZStack(alignment: .center) {
             
-            Legend(frame: frame, xLabels: getXLabels(data: data), max: CGFloat(maxVal), min:CGFloat(minVal))
+            Legend(frame: frame, xLabels: getXLabels(data: data), max: CGFloat(maxVal.rounded(.up)), min:CGFloat(minVal.rounded(.down)))
             
             MothlyLineChartShape(pointSize: pointSize, data: data, type: .minimum,span: daySpan, max: maxVal, min: minVal, showCircles: showCircles)
                 .stroke(showMin ? Color.blue : Color.clear,style: StrokeStyle(lineWidth: 2,lineCap: .round, lineJoin: .round)).frame(width: frame.width-40, height: frame.height).offset(x:+20)
