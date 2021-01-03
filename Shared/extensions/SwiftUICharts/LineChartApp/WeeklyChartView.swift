@@ -186,8 +186,8 @@ struct WeeklyChartView: View{
         var labels = [String]()
         let mid: Int = data.count/2
         labels.append(makeDMString(string: data.first!.date!))
-        labels.append(makeDMString(string: data[mid].date!))
-        labels.append(makeDMString(string: data.last!.date!))
+        labels.append("")
+        labels.append(createLegendDateString(date: Date()))
         return labels
     }
     func makeDMString(string: String)->String{
@@ -196,6 +196,14 @@ struct WeeklyChartView: View{
         let str2 = str.suffix(2)
         return string.suffix(2)+"."+str2+"."
     }
+    func createLegendDateString(date: Date)->String{
+        
+        let stringFormatter = DateFormatter()
+        stringFormatter.dateFormat = "dd.MM."
+        return stringFormatter.string(from: date)
+        
+    }
+
 }
 
 struct DailyChartView_Previews: PreviewProvider {
