@@ -36,7 +36,7 @@ struct OverView: View {
                     case .error:
                         ErrorView().frame(width: UIScreen.main.bounds.width, height: 250)
                     }
-                    Text("Lakes")
+                    Text("Water Bodies")
                         .font(.title)
                         .bold()
                         .padding([.horizontal,.top])

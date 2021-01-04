@@ -37,7 +37,7 @@ struct WidgetSettingsView: View {
                         widgetSensorID = -1
                         WidgetCenter.shared.reloadAllTimelines()
                     } label: {
-                        Text("reset")
+                        Text("Reset selection").foregroundColor(.red)
                     }
 
                 }

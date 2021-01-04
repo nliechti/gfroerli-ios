@@ -25,9 +25,9 @@ struct SettingsView: View {
                     Section(header:Text("Web")){
                         Link("Privacy Policy", destination: URL(string: "https://xn--gfrr-7qa.li/about")!)
                         
-                        Link("Gfrör.li Website", destination: URL(string: "https://xn--gfrr-7qa.li/")!)
+                        Link("Visit gfrör.li", destination: URL(string: "https://xn--gfrr-7qa.li/")!)
 
-                        Link("CoreDump Website", destination: URL(string: "https://www.coredump.ch/")!)
+                        Link("Visit coredump.ch", destination: URL(string: "https://www.coredump.ch/")!)
                         
                     }
                     Section(header:Text("Feedback")){
@@ -40,7 +40,7 @@ struct SettingsView: View {
                         UIApplication.shared.open(url)
                         
                     }, label: {
-                            Text("Send E-Mail")
+                            Text("Contact us")
                         
                     })
                         Button(action: {
@@ -59,7 +59,7 @@ struct SettingsView: View {
                             
                         })
                     }
-                    Section(header: Text("Other"),footer:Text("Version: \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "fail")").foregroundColor(.gray)){
+                    Section(header: Text("Other"),footer:Text("Version:"+" \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "fail")").foregroundColor(.gray)){
                         Button(action: {alertShowing=true}, label: {
                             Text("Reset App").foregroundColor(.red)
                         }).alert(isPresented: $alertShowing, content: {

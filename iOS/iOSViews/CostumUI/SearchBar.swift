@@ -15,7 +15,7 @@ struct SearchBar: View {
     var body: some View {
         HStack {
             HStack {
-                TextField("Search terms here", text: $searchText)
+                TextField("Search Sensors here", text: $searchText)
                     .padding(.leading, 30)
             }
             .padding(8)

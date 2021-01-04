@@ -5,34 +5,58 @@
   Created by Marc Kramer on 06.10.20.
   
 */
+
+//Other
+"Loading" = "Loading";
+"Error while fetching data" = "Error while fetching data";
+
 //MainView
 "Overview" = "Résumé";
 "All" = "Tous les Capteurs";
 "Favorites" = "Favoris";
 "Settings" = "Réglages";
 
-
 //Overview
-"Lakes" = "Lacs";
+"Gfrör.li" = "Gfrör.li";
+"Water Bodies" = "Water Bodies";
 "Sensors" = "Capteurs";
 "Featured" = "Parcouvir";
 
+//About View
+"About" = "About";
 
 //AllSensorsView
 "All Sensors" = "Tous le Capteurs";
-"Search terms here" = "Recherche Capteur";
+"Search Sensors here" = "Recherche Capteur";
 
 //WaterBodyOverview
 "Locations" = "Sites";
+"Sensors:" = "Capteurs:";
 
 //SensorsOverview
+//Top Box
+"All time:" = "All time:";
+"Average:" = "Average:";
+"Highest:" = "Highest:";
+"Lowest:" = "Lowest:";
 "Latest" = "Actuel";
+//Graph Box
 "History" = "Histoire";
 "Day" = "Jour";
 "Week" = "Semaine";
 "Month" = "Mois";
-"Sponsored by:" = "Sponsorisé par:";
+"Average" = "Average";
+"Minimum" = "Minimum";
+"Maximum" = "Maximum";
+"No data available" = "No data available";
+"Tap to show:" = "Tap to show:";
 
+// Location Box
+"Location" = "Location";
+"Directions" = "Directions";
+
+//Sponsor Box
+"Sponsored by:" = "Sponsorisé par:";
 
 //FavoritesView
 "Favorites" = "Favoris";
@@ -42,6 +66,10 @@
 "Settings" = "Réglages";
 "General" = "Général";
 "Other" = "Autres";
+"Visit gfrör.li" = "Visit gfrör.li";
+"Visit coredump.ch" = "Visit coredump.ch";
+"Contact us" = "Contact us";
+"Write a Review" = "Write a Review";
 "Widget Settings" = "Widget Réglages";
 "Privacy Policy" = "Politique de Confidentialité";
 "Do you want to reset the app?" = "Tous les favoris et les réglages locales vont étre effacées.";
@@ -49,17 +77,25 @@
 "Reset App" = "Reculer App";
 "Reset" = "Reculer";
 "Cancel" = "Annuler";
+"Version" = "Version";
 
 //WidgetSettings
 "Choose Sensor to Display on Widget" = "Choissisez un Capteur pour le Widget";
-"reset" = "reculer";
+"Reset selection" = "reculer";
 
 //WaterBodies
 "Lake of Zurich" = "Lac de Zurich";
 
-
 //Widget
+"Last Week:" = "Letzte Woche:";
 "Last 24h:" = "Dernière 24h:";
 "Tap to configure Sensor" = "Tapper pour choisir un Capteur";
 
+//Email: DO NOT REMOVE </br> and add no space before and after it
+"email_text" = "Please provide your feedback above 👆🏻</br>If you encountered a bug, please tell us the interactions that lead to it!</br> We try to get back to you as soon as possible!";
 
+// About/FAQ
+"Q1_String" = "Why this App?";
+"A1_String" = "Water temperature is an important value for a lot of people, e.g. swimmers, divers, fishermen and more. Until now, there was no reliable way of looking up real-time water temperature information. There are some sensor networks today, but they often don't provide multiple locations in one waterbody, or they just publish their measurements once a day. Now, we are building a network of cheap watertemperature sensors with very low engergy usage. This allows us to measure the temperatures locally and to provide them to you in real-time!";
+"Q2_String" = "Who is developping this project?";
+"A2_String" = "This App, the server infrastructure as well as the hardware of our sensors, are developped by the members of the Coredump Hackerspace in Rapperswil-Jona in their freetime. For more information visit:";

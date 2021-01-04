@@ -45,7 +45,7 @@ struct SensorOverviewMap: View {
                 Button {
                     openMaps()
                 } label: {
-                    Label("Get Directions", systemImage: "car.fill").foregroundColor(.white).padding(7)
+                    Label("Directions", systemImage: "car.fill").foregroundColor(.white).padding(7)
                 }.background(Color.blue)
                 .cornerRadius(10)
             }.padding()

@@ -58,8 +58,8 @@ public func getEmailBody() -> String{
     let model = "Device-Model: \(machineName())"
     let systemVersion = "OS-Version: \(UIDevice.current.systemName) \(UIDevice.current.systemVersion)"
     let lang = "Language: \(Locale.current.languageCode ?? "unkown")"
-    
-    return "</br></br></br></br></br>Please provide your feedback above 👆🏻</br>If you encountered a bug, please tell us the interactions that lead to it!</br> We try to get back to you as soon as possible!</br></br>Info:</br>\(version)</br>\(model)</br>\(systemVersion)</br>\(lang)"
+    let str = NSLocalizedString("email_text", comment: "")
+    return "</br></br></br></br></br>\(str)</br></br>Info:</br>\(version)</br>\(model)</br>\(systemVersion)</br>\(lang)"
     
 }
 

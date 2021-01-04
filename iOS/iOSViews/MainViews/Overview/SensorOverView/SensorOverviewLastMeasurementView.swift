@@ -22,9 +22,9 @@ struct SensorOverviewLastMeasurementView: View {
             VStack(alignment: .leading) {
                 
                 Text("All time:").bold()
-                Text("Average: ")
-                Text("Highest: ")
-                Text("Lowest: ")
+                Text("Average:")
+                Text("Highest:")
+                Text("Lowest:")
             }
             VStack(alignment: .trailing) {
                 
