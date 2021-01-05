@@ -21,6 +21,12 @@ struct SettingsView: View {
                 Form{
                     Section(header:Text("General")){
                         NavigationLink(destination: WidgetSettingsView(sensors: sensorsVm, loadingState: $loadingState), tag: "widgetSettings", selection: $activePath ,label: {Text("Widget Settings")})
+                        Button(action: {
+                            UIApplication.shared.open(URL.init(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
+
+                        }, label: {
+                            Text("Change Language")
+                        })
                     }
                     Section(header:Text("Web")){
                         Link("Privacy Policy", destination: URL(string: "https://xn--gfrr-7qa.li/about")!)

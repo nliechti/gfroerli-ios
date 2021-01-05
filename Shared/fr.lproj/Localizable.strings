@@ -7,52 +7,52 @@
 */
 
 //Other
-"Loading" = "Loading";
-"Error while fetching data" = "Error while fetching data";
+"Loading" = "Chargement";
+"Error while fetching data" = "Erreur lors de l'extraction des données";
 
 //MainView
-"Overview" = "Résumé";
+"Overview" = "Vue d'ensemble";
 "All" = "Tous les Capteurs";
 "Favorites" = "Favoris";
 "Settings" = "Réglages";
 
 //Overview
 "Gfrör.li" = "Gfrör.li";
-"Water Bodies" = "Water Bodies";
+"Water Bodies" = "Plans d'eau";
 "Sensors" = "Capteurs";
-"Featured" = "Parcouvir";
+"Featured" = "Parcourir";
 
 //About View
-"About" = "About";
+"About" = "À Propos";
 
 //AllSensorsView
-"All Sensors" = "Tous le Capteurs";
-"Search Sensors here" = "Recherche Capteur";
+"All Sensors" = "Tous les Capteurs";
+"Search Sensors here" = "Recherche de Capteurs";
 
 //WaterBodyOverview
-"Locations" = "Sites";
+"Locations" = "Emplacements";
 "Sensors:" = "Capteurs:";
 
 //SensorsOverview
 //Top Box
-"All time:" = "All time:";
-"Average:" = "Average:";
-"Highest:" = "Highest:";
-"Lowest:" = "Lowest:";
+"All time:" = "Référence:";
+"Average:" = "En moyenne:";
+"Highest:" = "Le plus haut:";
+"Lowest:" = "Le plus bas:";
 "Latest" = "Actuel";
 //Graph Box
-"History" = "Histoire";
+"History" = "Historique";
 "Day" = "Jour";
 "Week" = "Semaine";
 "Month" = "Mois";
-"Average" = "Average";
+"Average" = "Moyenne";
 "Minimum" = "Minimum";
 "Maximum" = "Maximum";
-"No data available" = "No data available";
-"Tap to show:" = "Tap to show:";
+"No data available" = "Aucune donnée disponible";
+"Tap to show:" = "Appuyer pour afficher:";
 
 // Location Box
-"Location" = "Location";
+"Location" = "Emplacement";
 "Directions" = "Directions";
 
 //Sponsor Box
@@ -60,42 +60,44 @@
 
 //FavoritesView
 "Favorites" = "Favoris";
-"No Favorites" = "aucune Favori";
+"No Favorites" = "Aucun favori";
 
 //Settings
 "Settings" = "Réglages";
 "General" = "Général";
 "Other" = "Autres";
-"Visit gfrör.li" = "Visit gfrör.li";
-"Visit coredump.ch" = "Visit coredump.ch";
-"Contact us" = "Contact us";
-"Write a Review" = "Write a Review";
-"Widget Settings" = "Widget Réglages";
+"Visit gfrör.li" = "Visiter gfrör.li";
+"Visit coredump.ch" = "Visiter coredump.ch";
+"Contact us" = "Contactez-nous";
+"Write a Review" = "Ecris une évaluation";
+"Widget Settings" = "Règlages Widget";
 "Privacy Policy" = "Politique de Confidentialité";
-"Do you want to reset the app?" = "Tous les favoris et les réglages locales vont étre effacées.";
-"Are you sure?" = "Est-tu sûr?";
-"Reset App" = "Reculer App";
-"Reset" = "Reculer";
+"Change Language" = "Changer de langue";
+"Do you want to reset the app?" = "Tous les favoris et réglages locaux vont étre effacés.";
+"Are you sure?" = "Es-tu sûr(e)?";
+"Reset App" = "Réinitialiser l'App";
+"Reset" = "Réinistialiser";
 "Cancel" = "Annuler";
 "Version" = "Version";
 
 //WidgetSettings
 "Choose Sensor to Display on Widget" = "Choissisez un Capteur pour le Widget";
-"Reset selection" = "reculer";
+"Reset selection" = "Réinitialiser la sélection";
 
 //WaterBodies
 "Lake of Zurich" = "Lac de Zurich";
 
 //Widget
-"Last Week:" = "Letzte Woche:";
-"Last 24h:" = "Dernière 24h:";
-"Tap to configure Sensor" = "Tapper pour choisir un Capteur";
+"Last Week:" = "La semaine dernière:";
+"Last 24h:" = "Dernières 24h:";
+"Tap to configure Sensor" = "Taper pour choisir un Capteur";
 
 //Email: DO NOT REMOVE </br> and add no space before and after it
-"email_text" = "Please provide your feedback above 👆🏻</br>If you encountered a bug, please tell us the interactions that lead to it!</br> We try to get back to you as soon as possible!";
+"email_text" = "Fais-nous part de ton évaluation ci-dessus 👆🏻</br>Si tu as rencontré un bug, dis-nous s'il-te plaît les étapes qui t'y ont conduit!</br> Nous essayerons de te répondre dans les plus brefs délais!";
+
 
 // About/FAQ
-"Q1_String" = "Why this App?";
-"A1_String" = "Water temperature is an important value for a lot of people, e.g. swimmers, divers, fishermen and more. Until now, there was no reliable way of looking up real-time water temperature information. There are some sensor networks today, but they often don't provide multiple locations in one waterbody, or they just publish their measurements once a day. Now, we are building a network of cheap watertemperature sensors with very low engergy usage. This allows us to measure the temperatures locally and to provide them to you in real-time!";
-"Q2_String" = "Who is developping this project?";
-"A2_String" = "This App, the server infrastructure as well as the hardware of our sensors, are developped by the members of the Coredump Hackerspace in Rapperswil-Jona in their freetime. For more information visit:";
+"Q1_String" = "Pourquoi cette App?";
+"A1_String" = "La température de l'eau est une donnée importante pour de nombreuses personnes, dont les nageurs, plongeurs et pêcheurs parmi d'autres. Auparavant il n'y avait pas de manière fiable de mesurer en temps réel la température de l'eau. Depuis peu existent certains réseaux de capteurs, mais ils ne sont pas capables de donner plusieurs mesures au sein d'un même plan d'eau et leurs mesures sont publiées seulement une fois par jour. Aujourd'hui, nous construisons un réseau de capteurs aquatiques économiques et à forte efficience énergétique qui permet de mesurer les tempartures localement et te les fournir en temps réel!";
+"Q2_String" = "Qui développe ce projet?";
+"A2_String" = "Cette App ainsi que l'infrastructure des serveurs et le hardware des capteurs sont développés par les membres du Coredump Hackerspace à Rapperswil-Jona durant leur temps libre. Pour plus d'informations, visite:";
