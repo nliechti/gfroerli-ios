@@ -166,7 +166,7 @@ struct SingleFavWidgetViewMedium:View {
                          Spacer()
                         }
                         GeometryReader{ g in
-                            WeeklyChartView(showMax: .constant(false), showMin: .constant(false), showAvg: .constant(true), showCircles: .constant(false),avgColor: .white, daySpan: .week, data: entry.data, frame: g.frame(in: .local)).colorScheme(.dark)
+                            WeeklyChartView(showMax: .constant(false), showMin: .constant(false), showAvg: .constant(true), showCircles: .constant(true),avgColor: .white, daySpan: .week, data: entry.data, frame: g.frame(in: .local)).colorScheme(.dark)
                         }
                         Divider().hidden()
                     }else{
