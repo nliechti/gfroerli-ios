@@ -56,7 +56,7 @@ struct WeeklyLineChartShape: Shape {
         
         let xMultiplier = rect.width / CGFloat(7)
         let yMultiplier = rect.height / CGFloat(maxVal-minVal)
-        let start = Calendar.current.date(byAdding: .day, value:-7, to:Date())!
+        let start = Calendar.current.date(byAdding: .day, value:-8, to:Date())!
         let end = Calendar.current.date(byAdding: .day, value:0, to:Date())!
         
         //First DataPoint
@@ -185,8 +185,8 @@ struct WeeklyChartView: View{
     func getXLabels(data: [DailyAggregation]) -> [String] {
         var labels = [String]()
         let mid: Int = data.count/2
-        labels.append(makeDMString(string: data.first!.date!))
-        labels.append("")
+        labels.append(createLegendDateString(date: Calendar.current.date(byAdding: .day, value:-7, to:Date())!))
+        labels.append(createLegendDateString(date: Calendar.current.date(byAdding: .day, value:-3, to:Date())!))
         labels.append(createLegendDateString(date: Date()))
         return labels
     }

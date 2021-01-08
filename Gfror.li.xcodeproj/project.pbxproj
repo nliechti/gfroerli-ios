@@ -39,6 +39,7 @@
 		8D737738252BA8750075E04E /* SponsorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D737736252BA8750075E04E /* SponsorsViewModel.swift */; };
 		8D7E98BD257025EC00BC32EB /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7E98BC257025EC00BC32EB /* ColorExtension.swift */; };
 		8D815A2C25A641D80060AC85 /* AppStore_DE.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8D815A2B25A641D80060AC85 /* AppStore_DE.rtf */; };
+		8D8533FA25A788A800B8BD2E /* AppStore_ENG.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8D8533F925A788A800B8BD2E /* AppStore_ENG.rtf */; };
 		8D90895A258E360D0017BAB8 /* SingleFavWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9B0FD324F3A2E7003502C8 /* SingleFavWidget.swift */; };
 		8D90896A259110F40017BAB8 /* SingleFavWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9B0FD324F3A2E7003502C8 /* SingleFavWidget.swift */; };
 		8D908970259121820017BAB8 /* HourlyChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBC3C4A25756C080010D55B /* HourlyChartView.swift */; };
@@ -157,6 +158,7 @@
 		8D815A1E25A475590060AC85 /* gsw */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = gsw; path = gsw.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8D815A2425A476D80060AC85 /* rm-CH */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "rm-CH"; path = "rm-CH.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		8D815A2B25A641D80060AC85 /* AppStore_DE.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = AppStore_DE.rtf; sourceTree = "<group>"; };
+		8D8533F925A788A800B8BD2E /* AppStore_ENG.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = AppStore_ENG.rtf; sourceTree = "<group>"; };
 		8D996DE225A23A2B00724453 /* MonthlyChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyChartView.swift; sourceTree = "<group>"; };
 		8D9B0FCC24F3A2E7003502C8 /* Widgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Widgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D9B0FCE24F3A2E7003502C8 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -278,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				8D815A2B25A641D80060AC85 /* AppStore_DE.rtf */,
+				8D8533F925A788A800B8BD2E /* AppStore_ENG.rtf */,
 			);
 			path = AppStoreData;
 			sourceTree = "<group>";
@@ -681,6 +684,7 @@
 				8D5EACE9252CE407006EBCD6 /* Localizable.strings in Resources */,
 				E461459524A34831006233AE /* Assets.xcassets in Resources */,
 				8D815A2C25A641D80060AC85 /* AppStore_DE.rtf in Resources */,
+				8D8533FA25A788A800B8BD2E /* AppStore_ENG.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

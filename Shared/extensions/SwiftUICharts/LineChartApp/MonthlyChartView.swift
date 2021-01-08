@@ -188,8 +188,8 @@ struct MonthlyChartView: View{
     func getXLabels(data: [DailyAggregation]) -> [String] {
         var labels = [String]()
         let mid: Int = data.count/2
-        labels.append(makeDMString(string: data.first!.date!))
-        labels.append("")
+        labels.append(createLegendDateString(date: Calendar.current.date(byAdding: .day, value:-31, to:Date())!))
+        labels.append(createLegendDateString(date: Calendar.current.date(byAdding: .day, value:-15, to:Date())!))
         labels.append(createLegendDateString(date: Date()))
         return labels
     }

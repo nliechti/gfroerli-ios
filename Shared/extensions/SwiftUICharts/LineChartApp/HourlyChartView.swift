@@ -35,15 +35,17 @@ struct HourlyLineChartShape: Shape {
         let currentHour = Calendar.current.component(.hour, from: Date())
         let dataHour = data.first!.hour!
         
-        //path to first point, adds line if hours are missing
+        //First DataPoint
         var step = (dataHour-currentHour+24)%24
-        var x = xMultiplier
+        var x = xMultiplier * CGFloat(0)
         var y = yMultiplier * CGFloat(getTemp(dataPoint: data.first!)-minVal)
         y = rect.height - y
         x += rect.minX
         y += rect.minY
+        
         path.move(to: CGPoint(x: x, y: y))
         x = xMultiplier * CGFloat(step)
+        print(step)
         x += rect.minX
         path.addLine(to:CGPoint(x: x, y: y))
         
@@ -51,6 +53,7 @@ struct HourlyLineChartShape: Shape {
         for index in 0..<data.count-1 {
             //draw line to point
             var x = xMultiplier * CGFloat(step)
+            print(step)
             var y = yMultiplier * CGFloat(getTemp(dataPoint: data[index])-minVal)
             
             y = rect.height - y
