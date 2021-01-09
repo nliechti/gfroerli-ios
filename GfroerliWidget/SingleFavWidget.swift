@@ -26,11 +26,37 @@ struct SingleProvider: TimelineProvider {
     @AppStorage("widgetSensorID", store: UserDefaults(suiteName: "group.ch.gfroerli")) var widgetSensorID: Int = -1
     
     
+    
     func getSnapshot(in context: Context, completion: @escaping (Entry) -> ()) {
         
-        let entry = SingleSensorEntry(name: "Zürich", temp: 22.0, data: [DailyAggregation(id: "1", date: "0000-00-00", maxTemp: 0.0, minTemp: 0.0, avgTemp: 10.0),DailyAggregation(id: "1", date: "0000-00-00",  maxTemp: 0.0, minTemp: 0.0, avgTemp: 10.0),DailyAggregation(id: "1", date: "0000-00-00",  maxTemp: 0.0, minTemp: 0.0, avgTemp: 20.0)], id: 0)
-        completion(entry)
+        var data = [DailyAggregation]()
+        var entry:SingleSensorEntry? = nil
+        aggVM.loadAggregationsWeek(sensorID: widgetSensorID) { (result) in
+            switch result {
+            case .success(_):
+                data = aggVM.dataWeek
+            case .failure(let error):
+                switch error {
+                default:
+                    data = [DailyAggregation(id: "1", date: "0000-00-00", maxTemp: 0.0, minTemp: 0.0, avgTemp: 0.0)]
+                }
+            }
+        }
+        
+        
+        singleSensVM.getSensor(id: widgetSensorID) { (result) in
+            switch result {
+            case .success(_):
+                completion(SingleSensorEntry(name: singleSensVM.sensor?.device_name ?? "A", temp: singleSensVM.sensor?.latestTemp! ?? 0.0 , data: data, id: singleSensVM.sensor?.id! ?? 0))
+            case .failure(let error):
+                switch error {
+                default:
+                    completion(SingleSensorEntry(name: "A", temp: 0.0 , data: data, id: 0))
+                }
+            }
+        }
     }
+    
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         var data = [DailyAggregation]()
         aggVM.loadAggregationsWeek(sensorID: widgetSensorID) { (result) in
@@ -61,10 +87,35 @@ struct SingleProvider: TimelineProvider {
     }
     
     func placeholder(in context: Context) -> SingleSensorEntry {
-        let entry = SingleSensorEntry(name: "Zürich", temp: 22.0, data: [DailyAggregation(id: "1", date: "0000-00-00",  maxTemp: 0.0, minTemp: 0.0, avgTemp: 10.0),DailyAggregation(id: "1", date: "0000-00-00",  maxTemp: 0.0, minTemp: 0.0, avgTemp: 10.0),DailyAggregation(id: "1", date: "0000-00-00", maxTemp: 0.0, minTemp: 0.0, avgTemp: 20.0)], id: 0)
-        return entry
-    }
+        var data = [DailyAggregation]()
+        var entry:SingleSensorEntry? = nil
+        aggVM.loadAggregationsWeek(sensorID: widgetSensorID) { (result) in
+            switch result {
+            case .success(_):
+                data = aggVM.dataWeek
+            case .failure(let error):
+                switch error {
+                default:
+                    data = [DailyAggregation(id: "1", date: "0000-00-00", maxTemp: 0.0, minTemp: 0.0, avgTemp: 0.0)]
+                }
+            }
+        }
         
+        
+        singleSensVM.getSensor(id: widgetSensorID) { (result) in
+            switch result {
+            case .success(_):
+                var  entry = SingleSensorEntry(name: singleSensVM.sensor?.device_name ?? "A", temp: singleSensVM.sensor?.latestTemp! ?? 0.0 , data: data, id: singleSensVM.sensor?.id! ?? 0)
+            case .failure(let error):
+                switch error {
+                default:
+                    var entry:SingleSensorEntry = SingleSensorEntry(name: "A", temp: 0.0 , data: data, id: 0)
+                }
+            }
+            
+        }
+        return entry!
+    }
 }
 
 
@@ -207,7 +258,7 @@ struct SingleFavWidget: Widget {
             smallWidgetView(entry: entry)
         }.supportedFamilies([.systemSmall, .systemMedium])
         .configurationDisplayName("Single Sensor")
-        .description("Shows the latest Measurement of a single Sensor")
+        .description("Shows latest data of a single Sensor")
     }
 }
 

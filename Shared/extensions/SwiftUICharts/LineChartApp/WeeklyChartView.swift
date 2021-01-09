@@ -186,7 +186,7 @@ struct WeeklyChartView: View{
         var labels = [String]()
         let mid: Int = data.count/2
         labels.append(createLegendDateString(date: Calendar.current.date(byAdding: .day, value:-7, to:Date())!))
-        labels.append(createLegendDateString(date: Calendar.current.date(byAdding: .day, value:-3, to:Date())!))
+        labels.append(createLegendDateString(date: Calendar.current.date(byAdding: .day, value:-4, to:Date())!))
         labels.append(createLegendDateString(date: Date()))
         return labels
     }

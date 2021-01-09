@@ -116,6 +116,13 @@ struct DailyAggregation : Codable, Identifiable, Aggregation{
 
         
     }
+    static var weekExample = [
+        DailyAggregation(id: "0", date: "2020-08-01", maxTemp: 24.3, minTemp: 20.0, avgTemp: 20.2),
+        DailyAggregation(id: "0", date: "2020-08-02", maxTemp: 24.3, minTemp: 20.0, avgTemp: 21.2),
+        DailyAggregation(id: "0", date: "2020-08-03", maxTemp: 24.3, minTemp: 20.0, avgTemp: 22.2),
+        DailyAggregation(id: "0", date: "2020-08-04", maxTemp: 24.3, minTemp: 20.0, avgTemp: 24.2),
+        DailyAggregation(id: "0", date: "2020-08-05", maxTemp: 24.3, minTemp: 20.0, avgTemp: 23.2),
+    ]
     
 }
 

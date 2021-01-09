@@ -55,7 +55,7 @@
 "Directions" = "Route";
 
 //Sponsor Box
-"Sponsored by:" = "Gesponsert vo:";
+"Sponsored by:" = "Gsponseret dur:";
 
 //FavoritesView
 "Favorites" = "Favorite";
@@ -88,9 +88,11 @@
 "Lake of Zurich" = "Zürisee";
 
 //Widget
-"Last Week:" = "Letsti Woche:";
+"Last Week:" = "Letsti Wuche:";
 "Last 24h:" = "Letsti 24h:";
 "Tap to configure Sensor" = "Tippe um Sensor uszwähle";
+"Shows latest data of a single Sensor" = "Zeigt die letschte Wert vomene Sensor ah.";
+"Single Sensor"="Einzelne Sensor";
 
 //Email: DO NOT REMOVE </br> and add no space before and after it
 "email_text" = "Bitte schreibe deinen Text oberhalb 👆🏻</br>Falls du einen Fehler entdeckt hasst, notiere bitte die Schritte die zu ihm geführt haben!</br> Wir versuchen dir schnellstmöglich zu antworten!";

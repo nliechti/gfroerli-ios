@@ -91,6 +91,8 @@
 "Last Week:" = "Letzte Woche:";
 "Last 24h:" = "Letzte 24h:";
 "Tap to configure Sensor" = "Tippen um Sensor auszuwählen";
+"Shows latest data of a single Sensor" = "Zeigt die letzten Werte eines Sensors an.";
+"Single Sensor"="Einzelner Sensor";
 
 //Email: DO NOT REMOVE </br> and add no space before and after it
 "email_text" = "Bitte schreibe deinen Text oberhalb 👆🏻</br>Falls du einen Fehler entdeckt hasst, notiere bitte die Schritte die zu ihm geführt haben!</br> Wir versuchen dir schnellstmöglich zu antworten!";
