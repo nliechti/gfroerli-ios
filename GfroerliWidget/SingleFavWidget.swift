@@ -31,7 +31,7 @@ struct SingleProvider: TimelineProvider {
         
         var data = [DailyAggregation]()
         var entry:SingleSensorEntry? = nil
-        aggVM.loadAggregationsWeek(sensorID: widgetSensorID) { (result) in
+        aggVM.loadAggregationsWeek(sensorID: 1) { (result) in
             switch result {
             case .success(_):
                 data = aggVM.dataWeek
@@ -44,7 +44,7 @@ struct SingleProvider: TimelineProvider {
         }
         
         
-        singleSensVM.getSensor(id: widgetSensorID) { (result) in
+        singleSensVM.getSensor(id: 1) { (result) in
             switch result {
             case .success(_):
                 completion(SingleSensorEntry(name: singleSensVM.sensor?.device_name ?? "A", temp: singleSensVM.sensor?.latestTemp! ?? 0.0 , data: data, id: singleSensVM.sensor?.id! ?? 0))
@@ -89,7 +89,7 @@ struct SingleProvider: TimelineProvider {
     func placeholder(in context: Context) -> SingleSensorEntry {
         var data = [DailyAggregation]()
         var entry:SingleSensorEntry? = nil
-        aggVM.loadAggregationsWeek(sensorID: widgetSensorID) { (result) in
+        aggVM.loadAggregationsWeek(sensorID: 1) { (result) in
             switch result {
             case .success(_):
                 data = aggVM.dataWeek
@@ -102,7 +102,7 @@ struct SingleProvider: TimelineProvider {
         }
         
         
-        singleSensVM.getSensor(id: widgetSensorID) { (result) in
+        singleSensVM.getSensor(id: 1) { (result) in
             switch result {
             case .success(_):
                 var  entry = SingleSensorEntry(name: singleSensVM.sensor?.device_name ?? "A", temp: singleSensVM.sensor?.latestTemp! ?? 0.0 , data: data, id: singleSensVM.sensor?.id! ?? 0)

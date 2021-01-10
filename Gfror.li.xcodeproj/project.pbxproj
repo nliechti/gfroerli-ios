@@ -11,6 +11,7 @@
 		8D04196A24F50349003D64D4 /* RiverData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D04196924F50349003D64D4 /* RiverData.swift */; };
 		8D04196B24F50353003D64D4 /* LakesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE724F10F610068176C /* LakesData.swift */; };
 		8D04196C24F50353003D64D4 /* RiverData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D04196924F50349003D64D4 /* RiverData.swift */; };
+		8D04E84725AB79F100B5902A /* AppStore_FR.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8D04E84625AB79F100B5902A /* AppStore_FR.rtf */; };
 		8D05A2DB253F645300E7C1BD /* PreViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D05A2DA253F645300E7C1BD /* PreViewExtension.swift */; };
 		8D0D7FE224F107B60068176C /* OverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE124F107B60068176C /* OverView.swift */; };
 		8D0D7FE424F107C10068176C /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE324F107C10068176C /* FavoritesView.swift */; };
@@ -127,6 +128,7 @@
 /* Begin PBXFileReference section */
 		8D04196724F50258003D64D4 /* SensorScrollItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorScrollItem.swift; sourceTree = "<group>"; };
 		8D04196924F50349003D64D4 /* RiverData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiverData.swift; sourceTree = "<group>"; };
+		8D04E84625AB79F100B5902A /* AppStore_FR.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = AppStore_FR.rtf; sourceTree = "<group>"; };
 		8D05A2DA253F645300E7C1BD /* PreViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreViewExtension.swift; sourceTree = "<group>"; };
 		8D0D7FE124F107B60068176C /* OverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverView.swift; sourceTree = "<group>"; };
 		8D0D7FE324F107C10068176C /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 			children = (
 				8D815A2B25A641D80060AC85 /* AppStore_DE.rtf */,
 				8D8533F925A788A800B8BD2E /* AppStore_ENG.rtf */,
+				8D04E84625AB79F100B5902A /* AppStore_FR.rtf */,
 			);
 			path = AppStoreData;
 			sourceTree = "<group>";
@@ -680,6 +683,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D04E84725AB79F100B5902A /* AppStore_FR.rtf in Resources */,
 				8D3D376E250CBAAF00F11E48 /* Notes.rtf in Resources */,
 				8D5EACE9252CE407006EBCD6 /* Localizable.strings in Resources */,
 				E461459524A34831006233AE /* Assets.xcassets in Resources */,
