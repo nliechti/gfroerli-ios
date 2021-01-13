@@ -7,97 +7,95 @@
 */
 
 //Other
-"Loading" = "Laden";
-"Error while fetching data" = "Laden fehlgeschlagen";
+"Loading" = "Cargar";
+"Error while fetching data" = "Sbagl da cargar las datas";
 
 //MainView
-"Overview" = "Übersicht";
-"All" = "Alle";
-"Favorites" = "Favoriten";
-"Settings" = "Einstellungen";
+"Overview" = "Survesta";
+"All" = "Tut";
+"Favorites" = "Favorits";
+"Settings" = "Configuraziuns";
 
 //Overview
 "Gfrör.li" = "Gfrör.li";
-"Water Bodies" = "Gewässer";
-"Sensors" = "Sensoren";
-"Featured" = "Entdecken";
+"Water Bodies" = "Auas";
+"Sensors" = "Sensurs";
+"Featured" = "Scuvierer";
 
 //About View
-"About" = "Über";
+"About" = "Davart";
 
 //AllSensorsView
-"All Sensors" = "Alle Sensoren";
-"Search Sensors here" = "Sensor suchen";
+"All Sensors" = "Tut ils sensurs";
+"Search Sensors here" = "Encurir sensurs";
 
 //WaterBodyOverview
-"Locations" = "Standorte";
-"Sensors:" = "Sensoren:";
+"Locations" = "Loghens";
+"Sensors:" = "Sensurs:";
 //SensorsOverview
 //Top Box
-"All time:" = "Insgesamt:";
-"Average:" = "Durchschnitt:";
-"Highest:" = "Höchste:";
-"Lowest:" = "Niedrigste:";
-"Latest" = "Aktuell";
+"All time:" = "Tut:";
+"Average:" = "Media:";
+"Highest:" = "Il pli ault:";
+"Lowest:" = "Il pli bass:";
+"Latest" = "Actual";
 //Graph Box
-"History" = "Verlauf";
-"Day" = "Tag";
-"Week" = "Woche";
-"Month" = "Monat";
-"Average" = "Durchschnitt";
+"History" = "Decuors";
+"Day" = "Gi";
+"Week" = "Jamna";
+"Month" = "Meins";
+"Average" = "Media";
 "Minimum" = "Minimum";
 "Maximum" = "Maximum";
-"No data available" = "Keine Daten verfügbar";
-"Tap to show:" = "Tippe um zu zeigen:";
+"No data available" = "Neginas datas disponiblas";
+"Tap to show:" = "Tippa per mussar:";
 
 // Location Box
-"Location" = "Standort";
-"Directions" = "Route";
+"Location" = "Liug";
+"Directions" = "Ruta";
 
 //Sponsor Box
-"Sponsored by:" = "Gesponsert von:";
+"Sponsored by:" = "Sponsurau da:";
 
 //FavoritesView
-"Favorites" = "Favoriten";
-"No Favorites" = "Keine Favoriten";
+"Favorites" = "Favorits";
+"No Favorites" = "Negins favorits";
 
 //Settings
-"Settings" = "Einstellungen";
-"General" = "Allgemein";
-"Other" = "Andere";
-"Visit gfrör.li" = "Besuche gfrör.li";
-"Visit coredump.ch" = "Besuche coredump.ch";
-"Contact us" = "Kontaktiere uns";
-"Write a Review" = "Rezension schreiben";
-"Widget Settings" = "Widget-Einstellungen";
-"Privacy Policy" = "Datenschutzerklärung";
-"Do you want to reset the app?" = "Alle Favoriten und andere lokale Einstellungen werden zurückgesetzt.";
-"Are you sure?" = "Bist du dir sicher?";
-"Reset App" = "App zurücksetzen";
-"Reset" = "Zurücksetzen";
-"Cancel" = "Abbrechen";
-"Version" = "Version";
+"Settings" = "Configuraziuns";
+"General" = "General";
+"Other" = "Auter";
+"Visit gfrör.li" = "Viseta gfrör.li";
+"Visit coredump.ch" = "Viseta coredump.ch";
+"Contact us" = "Contactescha nus";
+"Write a Review" = "Scriva ina recensiun";
+"Widget Settings" = "Configuraziuns da Widget";
+"Privacy Policy" = "Declaraziun davart la protecziun da datas";
+"Do you want to reset the app?" = "Remetter tut las configuraziuns dall'App?";
+"Are you sure?" = "Eis ti segirs/segira?";
+"Reset App" = "Remetter l'App";
+"Reset" = "Remetter";
+"Cancel" = "Interrumper";
+"Version" = "Versiun";
 
 //WidgetSettings
 "Widget" = "Widget";
-"Choose Sensor to Display on Widget" = "Sensor für Widget wählen";
-"Reset selection" = "Auswahl entfernen";
+"Choose Sensor to Display on Widget" = "Electar il sensur per mussar sil Widget";
+"Reset selection" = "Remetter l'elecziun";
 
 //WaterBodies
-"Lake of Zurich" = "Zürichsee";
+"Lake of Zurich" = "Lag da Turitg";
 
 //Widget
-"Last Week:" = "Letzte Woche:";
-"Last 24h:" = "Letzte 24h:";
-"Tap to configure Sensor" = "Tippen um Sensor auszuwählen";
-"Shows latest data of a single Sensor" = "Zeigt die letzten Werte eines Sensors an.";
-"Single Sensor"="Einzelner Sensor";
+"Last Week:" = "L'jamna vargada:";
+"Last 24h:" = "Davosas 24h:";
+"Tap to configure Sensor" = "Tippa per eleger il sensur";
 
 //Email: DO NOT REMOVE </br> and add no space before and after it
-"email_text" = "Bitte schreibe deinen Text oberhalb 👆🏻</br>Falls du einen Fehler entdeckt hasst, notiere bitte die Schritte die zu ihm geführt haben!</br> Wir versuchen dir schnellstmöglich zu antworten!";
+"email_text" = "Fai aschi bien e scriva il text suren 👆🏻</br>Sche ti has anflau in sbagl, notescha fai aschi bien ils pass che han menau tier tal!</br> Nus empruein da rispunder aschi spert sco pusseivel!";
 
 //About/Faq
-"Q1_String" = "Warum diese App?";
-"A1_String" = "Die Wassertemperatur ist für viele Menschen ein wichtiger Wert, zum Beispiel für Schwimmer, Taucher, Fischer und viele mehr. Aber bisher gab es keine verlässliche Methode, um Echtzeit-Temperaturinformationen in deiner Gegend zu erhalten. Es gibt heute bereits ein paar Wassertemperatur-Sensor-Netzwerke, aber meistens gibt es nur einen Sensor pro See, wodurch lokale Temperaturunterschiede (z.B. an einer Flussmündung) ignoriert werden. Viele Sensoren werden zudem nur ein mal pro Tag publiziert. Wir bauen ein Netzwerk von kostengünstigen Wassertemperatur-Sensoren mit sehr geringem Energieverbrauch auf. Dies ermöglicht uns, die Wassertemperatur lokal zu messen und sie dir kostenlos in Quasi-Echtzeit anzuzeigen";
-"Q2_String" = "Wer hat diese App entwickelt?";
-"A2_String" = "Diese App, die Server-Infrastruktur wie auch die Sensor-Hardware werden vom Coredump Hackerspace in Rapperswil-Jona entwickelt. Mehr Informationen über uns findest du auf unserer Website:";
+"Q1_String" = "Daco quella App?";
+"A1_String" = "La temperatura dall'aua ei per bia glieud ina valur impurtonta, per exempel per sanudaders, sfunsaders, pescadurs e biars auters. Denton entochen dacheu ha ei buc dau ina metoda fideivla da retscheiver informaziuns en temps real en tia regiun. Ozildi dat ei gia entginas reits da sensurs per l'aua cun in pign consum d'energia, denton savens dat ei mo in sensur per lag, aschia che la differenza da temperatura (p.ex. en ina sbuccada dil flum) vegn ignorada. Vitier vegn che bia sensurs vegnan mo publicai ina ga per gi. Nus sviluppein ina reit cun sensurs da mesirar la temperatura bienmarcau cun in pign consum d'energia. Quei possibilitescha da mesirar la temperatura dall'aua localmein e da porscher a ti talas informaziuns gratuitamein";
+"Q2_String" = "Tgi ha sviluppau quella App?";
+"A2_String" = "Quella App, l'infrastructura da server, sco era la hardware dils sensurs vegn sviluppau da Coredump Hackerspace a Rapperswil-Jona. Dapli informaziuns sur da nus anflas ti sin nossa pagina d'internet";
