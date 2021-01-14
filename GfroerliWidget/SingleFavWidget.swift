@@ -75,11 +75,11 @@ struct SingleProvider: TimelineProvider {
         singleSensVM.getSensor(id: widgetSensorID) { (result) in
             switch result {
             case .success(_):
-                completion(Timeline(entries: [SingleSensorEntry(name: singleSensVM.sensor?.device_name ?? "A", temp: singleSensVM.sensor?.latestTemp! ?? 0.0 , data: data, id: singleSensVM.sensor?.id! ?? 0)], policy: .after(Calendar.current.date(byAdding: .second,value: 5, to: Date())!)))
+                completion(Timeline(entries: [SingleSensorEntry(name: singleSensVM.sensor?.device_name ?? "A", temp: singleSensVM.sensor?.latestTemp! ?? 0.0 , data: data, id: singleSensVM.sensor?.id! ?? 0)], policy: .after(Calendar.current.date(byAdding: .minute,value: 15, to: Date())!)))
             case .failure(let error):
                 switch error {
                 default:
-                    completion(Timeline(entries: [SingleSensorEntry(name: "A", temp: 0.0 , data: data, id: 0)], policy: .after(Calendar.current.date(byAdding: .second,value: 5, to: Date())!)))
+                    completion(Timeline(entries: [SingleSensorEntry(name: "A", temp: 0.0 , data: data, id: 0)], policy: .after(Calendar.current.date(byAdding: .minute,value: 15, to: Date())!)))
                 }
             }
             
