@@ -10,23 +10,20 @@ import MapKit
 
 struct LakeOverView: View {
     var lake : Lake
-    @ObservedObject var sensors : SensorListViewModel
+    @ObservedObject var sensorsVM: SensorListViewModel
     @Binding var loadingState: loadingState
     var body: some View {
     
         VStack(alignment: .leading,spacing: 0) {
-                    topMap(lake: lake, region: lake.region, sensors: sensors)
+                    topMap(lake: lake, region: lake.region, sensors: sensorsVM)
                              .navigationBarTitle(lake.name)
-                    switch loadingState{
-                    case .loading:
-                        LoadingView().background(Color.systemGroupedBackground.ignoresSafeArea())
-                    case .loaded:
+            AsyncContentView(source: sensorsVM) { sensors in
                         ScrollView(showsIndicators: true){
                             HStack{
                                 Text("Locations").font(.title).bold().padding([.top,.horizontal])
                                 Spacer()
                             }
-                        ForEach(sensors.sensorArray){ sensor in
+                        ForEach(sensors){ sensor in
                             if(lake.sensors.contains(String(sensor.id))){
                                 SensorListItem(sensor: sensor).padding(.horizontal)
                             }
@@ -34,8 +31,7 @@ struct LakeOverView: View {
                         Spacer()
                         }.background(Color.systemGroupedBackground.ignoresSafeArea())
                         
-                    case .error:
-                        ErrorView().background(Color.systemGroupedBackground.ignoresSafeArea())
+                    
                     }
                 }.padding()
                 .background(Color.systemGroupedBackground.ignoresSafeArea())
@@ -45,7 +41,7 @@ struct LakeOverView: View {
 
 struct LakeOverView_Previews: PreviewProvider {
     static var previews: some View {
-        LakeOverView(lake: lakeOfZurich, sensors: testSensorVM, loadingState: .constant(.loaded)).makePreViewModifier()
+        LakeOverView(lake: lakeOfZurich, sensorsVM: testSensorVM, loadingState: .constant(.loaded)).makePreViewModifier()
     }
 }
 

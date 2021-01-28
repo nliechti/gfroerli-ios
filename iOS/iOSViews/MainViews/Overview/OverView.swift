@@ -40,7 +40,7 @@ struct OverView: View {
                         HStack(spacing:0){
                             ForEach(lakes){ lake in
                                 NavigationLink(
-                                    destination: LakeOverView(lake: lake, sensors: sensorsVM, loadingState: $loadingState),
+                                    destination: LakeOverView(lake: lake, sensorsVM: sensorsVM, loadingState: $loadingState),
                                     label: {
                                         ScrollItem(lake:lake)
                                     }).buttonStyle(PlainButtonStyle())
