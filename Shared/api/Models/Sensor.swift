@@ -14,7 +14,7 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 import Foundation
 
 struct Sensor: Codable, Identifiable {
-    init(id: Int?, device_name: String, caption: String?, latitude: Double?, longitude: Double?, sponsor_id: Int?, created_at: String?, latestTemp: Double?, maxTemp: Double?, minTemp:Double?,avgTemp:Double?) {
+    init(id: Int, device_name: String, caption: String?, latitude: Double?, longitude: Double?, sponsor_id: Int?, created_at: String?, latestTemp: Double?, maxTemp: Double?, minTemp:Double?,avgTemp:Double?) {
         self.id = id
         self.device_name = device_name
         self.caption = caption
@@ -28,7 +28,7 @@ struct Sensor: Codable, Identifiable {
         self.avgTemp = avgTemp
     }
     
-    let id : Int?
+    let id : Int
     let device_name : String
     let caption : String?
     let latitude : Double?
@@ -59,7 +59,7 @@ struct Sensor: Codable, Identifiable {
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        id = try values.decodeIfPresent(Int.self, forKey: .id)
+        id = try values.decode(Int.self, forKey: .id)
         device_name = try values.decode(String.self, forKey: .device_name)
         caption = try values.decodeIfPresent(String.self, forKey: .caption)
         latitude = try values.decodeIfPresent(Double.self, forKey: .latitude)

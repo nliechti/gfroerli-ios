@@ -52,7 +52,7 @@ struct HourlyAggregation : Codable, Identifiable,Aggregation{
         avgTemp = try values.decodeIfPresent(Double.self, forKey: .avgTemp)
     }
     
-    static var example=[
+    static var example = [
         
         HourlyAggregation(id: "0", date: "00", hour: 21, maxTemp: 22.9, minTemp: 22.6, avgTemp: 22.8),
         HourlyAggregation(id: "0", date: "00", hour: 22, maxTemp: 22.9, minTemp: 22.6, avgTemp: 22.7),

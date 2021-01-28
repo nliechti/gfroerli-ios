@@ -13,7 +13,7 @@ struct SensorListItem: View {
     var body: some View {
         VStack(){
             NavigationLink(
-                destination: SensorOverView(id: sensor.id!),
+                destination: SensorOverView(id: sensor.id),
                 label: {
                     HStack(){
                         Text(sensor.device_name).foregroundColor(colorScheme == .dark ? Color.white : Color.black)

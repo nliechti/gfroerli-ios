@@ -5,7 +5,7 @@
 //  Created by Marc Kramer on 24.08.20.
 //
 
-import WidgetKit
+/*import WidgetKit
 import SwiftUI
 import Combine
 
@@ -43,17 +43,10 @@ struct SingleProvider: TimelineProvider {
             }
         }
         
-        
-        singleSensVM.getSensor(id: 1) { (result) in
-            switch result {
-            case .success(_):
-                completion(SingleSensorEntry(name: singleSensVM.sensor?.device_name ?? "A", temp: singleSensVM.sensor?.latestTemp! ?? 0.0 , data: data, id: singleSensVM.sensor?.id! ?? 0))
-            case .failure(let error):
-                switch error {
-                default:
-                    completion(SingleSensorEntry(name: "A", temp: 0.0 , data: data, id: 0))
-                }
-            }
+        singleSensVM.id=1
+        singleSensVM.load()
+                completion(SingleSensorEntry(name: singleSensVM.sensor?.device_name ?? "A", temp: singleSensVM.sensor?.latestTemp! ?? 0.0 , data: data, id: singleSensVM.sensor!.id))
+           
         }
     }
     
@@ -71,11 +64,12 @@ struct SingleProvider: TimelineProvider {
             }
         }
         
-        
+        singleSensVM.id = widgetSensorID
+
         singleSensVM.getSensor(id: widgetSensorID) { (result) in
             switch result {
             case .success(_):
-                completion(Timeline(entries: [SingleSensorEntry(name: singleSensVM.sensor?.device_name ?? "A", temp: singleSensVM.sensor?.latestTemp! ?? 0.0 , data: data, id: singleSensVM.sensor?.id! ?? 0)], policy: .after(Calendar.current.date(byAdding: .minute,value: 15, to: Date())!)))
+                completion(Timeline(entries: [SingleSensorEntry(name: singleSensVM.sensor?.device_name ?? "A", temp: singleSensVM.sensor?.latestTemp! ?? 0.0 , data: data, id: singleSensVM.sensor!.id)], policy: .after(Calendar.current.date(byAdding: .minute,value: 15, to: Date())!)))
             case .failure(let error):
                 switch error {
                 default:
@@ -105,7 +99,7 @@ struct SingleProvider: TimelineProvider {
         singleSensVM.getSensor(id: 1) { (result) in
             switch result {
             case .success(_):
-                var  entry = SingleSensorEntry(name: singleSensVM.sensor?.device_name ?? "A", temp: singleSensVM.sensor?.latestTemp! ?? 0.0 , data: data, id: singleSensVM.sensor?.id! ?? 0)
+                var  entry = SingleSensorEntry(name: singleSensVM.sensor?.device_name ?? "A", temp: singleSensVM.sensor?.latestTemp! ?? 0.0 , data: data, id: singleSensVM.sensor!.id)
             case .failure(let error):
                 switch error {
                 default:
@@ -278,4 +272,4 @@ struct GfroerliWidget_Previews: PreviewProvider {
         }
     }
 }
-
+*/

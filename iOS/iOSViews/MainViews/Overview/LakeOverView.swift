@@ -27,7 +27,7 @@ struct LakeOverView: View {
                                 Spacer()
                             }
                         ForEach(sensors.sensorArray){ sensor in
-                            if(lake.sensors.contains(String(sensor.id!))){
+                            if(lake.sensors.contains(String(sensor.id))){
                                 SensorListItem(sensor: sensor).padding(.horizontal)
                             }
                         }

@@ -42,13 +42,14 @@ struct SensorOverViewGraph: View {
             switch pickerSelection{
             case 0: DayChart(tempAggregVM: tempAggVM, loadingState: $dayLoading, showMin: $showMin, showMax: $showMax, showAvg: $showAvg, showCircles: $showCircles).onTapGesture {
                 showCircles.toggle()
-            }
+            
+            }.frame(minHeight: 200)
             case 1: WeekChart(tempAggregVM: tempAggVM, loadingState: $weekLoading, showMin: $showMin, showMax: $showMax, showAvg: $showAvg, showCircles: $showCircles).onTapGesture {
                 showCircles.toggle()
-            }
+            }.frame(minHeight: 200)
             default : MonthChart(tempAggregVM: tempAggVM, loadingState: $monthLoading, showMin: $showMin, showMax: $showMax, showAvg: $showAvg, showCircles: $showCircles).onTapGesture {
                 showCircles.toggle()
-            }
+            }.frame(minHeight: 200)
             }
             Text("Tap to show:").padding(.top)
             HStack{

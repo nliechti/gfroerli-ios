@@ -39,7 +39,7 @@ struct SensorOverviewMap: View {
                 Map (coordinateRegion: $region, annotationItems: annotation){ mark in
                     MapMarker(coordinate: CLLocationCoordinate2D(latitude: mark.latitude!, longitude: mark.longitude!))
                     
-                }
+                }.frame(minHeight: 300)
             }
             HStack{
                 Button {

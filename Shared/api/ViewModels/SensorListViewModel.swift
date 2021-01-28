@@ -8,21 +8,24 @@
 import Foundation
 import Combine
 
-class SensorListViewModel: ObservableObject {
-    let didChange = PassthroughSubject<Void, Never>()
+class SensorListViewModel: LoadableObject {
+    typealias Output = [Sensor]
     
     @Published var sensorArray = [Sensor]() { didSet { didChange.send(())}}
-    
+    @Published private(set) var state = LoadingState<Output>.idle
+
+    let didChange = PassthroughSubject<Void, Never>()
+        
     init() {
     }
-    
+        
     init(sensors: [Sensor]) {
         sensorArray = sensors
     }
     
     
     
-    func getAllSensors(completion: @escaping (Result<String, NetworkError>) -> Void) {
+    func load() {
         
         var url = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/mobile_app/sensors")!)
         url.setValue("Bearer XTZA6H0Hg2f02bzVefmVlr8fIJMy2FGCJ0LlDlejj2Pi0i1JvZiL0Ycv1t6JoZzD", forHTTPHeaderField: "Authorization")
@@ -36,17 +39,13 @@ class SensorListViewModel: ObservableObject {
                     let jsonDecoder = JSONDecoder()
                     let sensors = try jsonDecoder.decode([Sensor].self, from: data)
                     self.sensorArray = sensors
-                    completion(.success("Sensors successfuly loaded!"))
-                } else if error != nil {
-                    // network failures
-                    completion(.failure(.requestFailed))
-                } else {
-                    // other cases
-                    completion(.failure(.unknown))
+                    self.state = .loaded(sensors)
+                    
+                }else {
+                    self.state = .failed
                 }
-                    // decoding failed
                 }catch{
-                    completion(.failure(.decodeFailed))
+                    self.state = .failed
                 }
             }
         }.resume()

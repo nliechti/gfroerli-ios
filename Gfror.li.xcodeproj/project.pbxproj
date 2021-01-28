@@ -79,6 +79,7 @@
 		B4B37A4A25C2C1D500DA76A5 /* AsyncContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B37A4825C2C1D500DA76A5 /* AsyncContentView.swift */; };
 		B4B37A5625C2C43400DA76A5 /* LoadableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B37A5525C2C43400DA76A5 /* LoadableObject.swift */; };
 		B4B37A5725C2C43400DA76A5 /* LoadableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B37A5525C2C43400DA76A5 /* LoadableObject.swift */; };
+		B4F95C0825C2EC46004C21E1 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F95C0725C2EC46004C21E1 /* ViewExtensions.swift */; };
 		E438B4CC24ACFB7D008A2E01 /* iOSMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E438B4CB24ACFB7D008A2E01 /* iOSMainView.swift */; };
 		E44EA3AD24EEA7EA00380E27 /* MapExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44EA3AC24EEA7EA00380E27 /* MapExtension.swift */; };
 		E461458424A34831006233AE /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = E461458324A34831006233AE /* Tests_iOS.swift */; };
@@ -191,6 +192,7 @@
 		8DF3BBD7250BB6BB00DBCC37 /* OwnHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnHelpers.swift; sourceTree = "<group>"; };
 		B4B37A4825C2C1D500DA76A5 /* AsyncContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncContentView.swift; sourceTree = "<group>"; };
 		B4B37A5525C2C43400DA76A5 /* LoadableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableObject.swift; sourceTree = "<group>"; };
+		B4F95C0725C2EC46004C21E1 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		E438B4CB24ACFB7D008A2E01 /* iOSMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSMainView.swift; sourceTree = "<group>"; };
 		E44EA3AC24EEA7EA00380E27 /* MapExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapExtension.swift; sourceTree = "<group>"; };
 		E461456824A34823006233AE /* GfrorliApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GfrorliApp.swift; sourceTree = "<group>"; };
@@ -423,6 +425,7 @@
 				8D05A2DA253F645300E7C1BD /* PreViewExtension.swift */,
 				8D7E98BC257025EC00BC32EB /* ColorExtension.swift */,
 				8DD06C2F25A0EF290081250B /* UIDeviceExtension.swift */,
+				B4F95C0725C2EC46004C21E1 /* ViewExtensions.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -770,6 +773,7 @@
 				B4B37A5625C2C43400DA76A5 /* LoadableObject.swift in Sources */,
 				8D9B0FE424F3BEA4003502C8 /* WaveShape.swift in Sources */,
 				E4C24FE724EEB58400FB4F51 /* Sensor.swift in Sources */,
+				B4F95C0825C2EC46004C21E1 /* ViewExtensions.swift in Sources */,
 				8D0D7FE624F107D30068176C /* SettingsView.swift in Sources */,
 				8D0D7FEA24F1109A0068176C /* ScrollItem.swift in Sources */,
 				8DA7CF02251611C800395465 /* SingleSensorViewModel.swift in Sources */,

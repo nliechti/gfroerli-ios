@@ -9,9 +9,8 @@ import SwiftUI
 import MapKit
 
 struct FavoritesView: View {
-    
     @State var favorites =  [Int]()
-    @StateObject var sensorsVm = SensorListViewModel()
+    @ObservedObject var sensorsVm : SensorListViewModel
     @State var loadingState: loadingState = .loading
     
     var body: some View {
@@ -21,76 +20,33 @@ struct FavoritesView: View {
                     VStack{
                         Spacer()
                         HStack{
-                        Spacer()
-                        Text("No Favorites").font(.largeTitle).foregroundColor(.gray)
-                        Spacer()
+                            Spacer()
+                            Text("No Favorites").font(.largeTitle).foregroundColor(.gray)
+                            Spacer()
                         }
                         Spacer()
                     }
                 }else{
-                ScrollView(.vertical){
-                    switch loadingState{
-                    case .loading:
-                        LoadingView()
-                    case .loaded:
+                    AsyncContentView(source: sensorsVm) { sensors in
                         VStack(alignment: .center,spacing:0){
-                            ForEach(sensorsVm.sensorArray){ sensor in
-                                if favorites.contains(sensor.id!){
-                                NavigationLink(
-                                    destination: SensorOverView(id: sensor.id!),
-                                    label: {
-                                        SensorScrollItem(sensor: sensor)
-                                    }).buttonStyle(PlainButtonStyle())
-                                    
+                            ForEach(sensors){ sensor in
+                                if favorites.contains(sensor.id){
+                                    NavigationLink(
+                                        destination: SensorOverView(id: sensor.id),
+                                        label: {
+                                            SensorScrollItem(sensor: sensor)
+                                        }).buttonStyle(PlainButtonStyle())
                                 }
                             }
+                            Spacer()
                         }
-                    case .error:
-                        ErrorView()
                     }
                 }
-                }
-            }                .background(Color.systemGroupedBackground.ignoresSafeArea())
-
-            .onAppear(perform: {
-                load()
-            })
-            .navigationTitle("Favorites")
-           /* .toolbar(content: {
-                ToolbarItem{
-                    Button(action: {
-                        load()
-                        print(favorites)
-                    }, label: {
-                        Image(systemName:"arrow.clockwise")
-                    })
-                }
-            })*/
-        }
-    }
-    
-    func load(){
-        favorites = UserDefaults(suiteName: "group.ch.gfroerli")?.array(forKey: "favoritesIDs") as? [Int] ?? [Int]()
-        loadingState = .loading
-        sensorsVm.getAllSensors { (result) in
-            switch result {
-            case .success(let str):
-                loadingState = .loaded
-                print(str)
-            case .failure(let error):
-                loadingState = .error
-                switch error {
-                case .badURL:
-                    print("Bad URL")
-                case .requestFailed:
-                    print("Network problems")
-                case.decodeFailed:
-                    print("Decoding data failed")
-                case .unknown:
-                    print("Unknown error")
-                }
             }
-            
+            .background(Color.systemGroupedBackground.ignoresSafeArea())
+            .navigationTitle("Favorites")
+        }.onAppear {
+            favorites = UserDefaults(suiteName: "group.ch.gfroerli")?.array(forKey: "favoritesIDs") as? [Int] ?? [Int]()
         }
     }
 }

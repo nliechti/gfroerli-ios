@@ -22,7 +22,7 @@ struct LoadingView: View {
                 Spacer()
             }
             Spacer()
-        }
+        }.background(Color.systemGroupedBackground)
     }
 }
 

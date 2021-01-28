@@ -18,16 +18,16 @@ struct SensorOverviewSponsorView: View {
         AsyncContentView(source: sponsorListVM) { sponsor in 
             VStack{
                 HStack{
-                    Text(sponsor.name!).font(.largeTitle).bold()
+                    Text(sponsor.name).font(.largeTitle).bold()
                     Spacer()
                 }.padding(.bottom)
-                Text( sponsor.description!)
+                Text( sponsor.description)
                 Spacer()
             }
         }
         }.padding()
         .onAppear(perform: {
-                    sponsorListVM.id = sensor.id!
+                    sponsorListVM.id = sensor.id
                     sponsorListVM.load()})
     }
 }

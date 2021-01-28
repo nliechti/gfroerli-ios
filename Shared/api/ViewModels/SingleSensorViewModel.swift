@@ -8,11 +8,15 @@
 import Foundation
 import Combine
 
-class SingleSensorViewModel: ObservableObject {
+class SingleSensorViewModel: LoadableObject {
+    typealias Output = Sensor
+    
+    @Published var sensor :Sensor! { didSet { didChange.send(())}}
+    @Published private(set) var state = LoadingState<Output>.idle
+
     let didChange = PassthroughSubject<Void, Never>()
-    
-    @Published var sensor :Sensor? { didSet { didChange.send(())}}
-    
+    var id: Int = 0
+
     init() {
         sensor = nil
     }
@@ -22,8 +26,8 @@ class SingleSensorViewModel: ObservableObject {
     }
     
     
-    public func getSensor(id: Int, completion: @escaping (Result<String, NetworkError>) -> Void) {
-                
+    public func load() {
+        self.state = .loading
         var url = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/mobile_app/sensors/\(id)")!)
         url.setValue("Bearer XTZA6H0Hg2f02bzVefmVlr8fIJMy2FGCJ0LlDlejj2Pi0i1JvZiL0Ycv1t6JoZzD", forHTTPHeaderField: "Authorization")
         url.httpMethod = "GET"
@@ -36,17 +40,14 @@ class SingleSensorViewModel: ObservableObject {
                     let jsonDecoder = JSONDecoder()
                     let sensor = try jsonDecoder.decode(Sensor.self, from: data)
                     self.sensor = sensor
-                    completion(.success("Sensor successfuly loaded!"))
-                } else if error != nil {
-                    // network failures
-                    completion(.failure(.requestFailed))
+                    self.state = .loaded(sensor)
                 } else {
                     // other cases
-                    completion(.failure(.unknown))
+                    self.state = .failed
                 }
                     // decoding failed
                 }catch{
-                    completion(.failure(.decodeFailed))
+                    self.state = .failed
                 }
             }
         }.resume()

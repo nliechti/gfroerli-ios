@@ -18,18 +18,22 @@ struct iOSMainView: View {
     var body: some View {
         //TabsView and Tabs
         TabView(selection: $selectedTab){
-            OverView(showDetail: $showSens, pathComp: $pathComp,sensors: sensorsVm, loadingState: $loadingState)
+            
+            OverView(showDetail: $showSens, pathComp: $pathComp,sensorsVM: sensorsVm, loadingState: $loadingState)
                 .tabItem { Image(systemName: "thermometer.sun.fill")
                     Text("Overview") }
                 .tag("Overview")
-            AllSensorView(sensorsVm: sensorsVm, loadingState: $loadingState)
+            
+            AllSensorView(sensorsVm: sensorsVm)
                 .tabItem { Image(systemName: "line.horizontal.3.circle.fill")
                     Text("All") }
                 .tag("All")
-            FavoritesView()
+            
+            FavoritesView(sensorsVm: sensorsVm)
                 .tabItem { Image(systemName: "star.fill")
                     Text("Favorites") }
                 .tag("Favorites")
+            
             SettingsView(activePath: pathComp, loadingState: $loadingState, sensorsVm: sensorsVm)
                 .tabItem { Image(systemName: "gear")
                     Text("Settings") }
@@ -49,28 +53,7 @@ struct iOSMainView: View {
             
         })
         //fetching Sensors
-        .onAppear(perform: {
-            loadingState = .loading
-            sensorsVm.getAllSensors { (result) in
-                switch result {
-                case .success(_):
-                    loadingState = .loaded
-                case .failure(let error):
-                    loadingState = .error
-                    switch error {
-                    case .badURL:
-                        print("Bad URL")
-                    case .requestFailed:
-                        print("Network problems")
-                    case.decodeFailed:
-                        print("Decoding data failed")
-                    case .unknown:
-                        print("Unknown error")
-                    }
-                }
-                
-            }
-        })
+        .onAppear(perform: sensorsVm.load)
     }
 }
 
