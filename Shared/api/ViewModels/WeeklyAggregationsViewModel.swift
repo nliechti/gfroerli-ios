@@ -1,34 +1,34 @@
 //
-//  MeasurementViewModel.swift
+//  WeeklyAggregationsViewModel.swift
 //  Gfror.li
 //
-//  Created by Marc Kramer on 19.09.20.
+//  Created by Marc on 28.01.21.
 //
 
 import Foundation
+import Foundation
 import Combine
 
-class MonthlyAggregationsViewModel: LoadableObject{
+class WeeklyAggregationsViewModel: LoadableObject{
     
     typealias Output = [DailyAggregation]
 
-    @Published var dataMonth = [DailyAggregation]() { didSet { didChange.send(())}}
+    @Published var dataWeek = [DailyAggregation]() { didSet { didChange.send(())}}
     @Published private(set) var state = LoadingState<Output>.idle
 
     let didChange = PassthroughSubject<Void, Never>()
     var id: Int = 0
+        
     
     public func load() {
         let df = DateFormatter()
         df.dateFormat = "yyyy-MM-dd"
-        let start = df.string(from: Calendar.current.date(byAdding: .day, value:-31, to:Date())!)
+        let start = df.string(from: Calendar.current.date(byAdding: .day, value:-7, to:Date())!)
         let end = df.string(from: Calendar.current.date(byAdding: .day, value:0, to:Date())!)
-        
-        var url = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/mobile_app/sensors/\(id)/daily_temperatures?from=\(start)&to=\(end)&limit=32")!)
+        var url = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/mobile_app/sensors/\(id)/daily_temperatures?from=\(start)&to=\(end)&limit=8")!)
         
         url.setValue("Bearer XTZA6H0Hg2f02bzVefmVlr8fIJMy2FGCJ0LlDlejj2Pi0i1JvZiL0Ycv1t6JoZzD", forHTTPHeaderField: "Authorization")
         url.httpMethod = "GET"
-        
         URLSession.shared.dataTask(with: url) { data, response, error in
             DispatchQueue.main.async {
                 do {
@@ -36,10 +36,9 @@ class MonthlyAggregationsViewModel: LoadableObject{
                     // success: convert to  Measuring, and set according List
                     let jsonDecoder = JSONDecoder()
                     let aggregs = try jsonDecoder.decode([DailyAggregation].self, from: data)
-                    self.dataMonth=aggregs.reversed()
+                    self.dataWeek=aggregs.reversed()
                     self.state = .loaded(aggregs.reversed())
-                    
-                } else {
+                }else {
                     self.state = .failed
                 }
                 }catch{
@@ -49,14 +48,5 @@ class MonthlyAggregationsViewModel: LoadableObject{
         }.resume()
     }
     
-    func createGoodDate(string: String)->Date{
-        var newDate = string
-        newDate.removeLast(5)
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-        let date = dateFormatter.date(from:newDate)!
-        return date
-    }
+    
 }
-

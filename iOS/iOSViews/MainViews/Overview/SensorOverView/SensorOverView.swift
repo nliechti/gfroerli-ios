@@ -52,7 +52,7 @@ struct SensorOverView: View {
                 Button {
                     sensorVM.load()
                 } label: {
-                    Image(systemName:"arrow.triangle.2.circlepath")
+                    Image(systemName:"arrow.clockwise")
                         .imageScale(.large)
                 }
                 

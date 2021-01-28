@@ -9,8 +9,11 @@ import SwiftUI
 
 struct SensorOverViewGraph: View {
     
-    var sensorID: Int
-    @StateObject var tempAggVM = TempAggregationsViewModel()
+    var id: Int
+    @StateObject var monthVM = MonthlyAggregationsViewModel()
+    @StateObject var weekVM = WeeklyAggregationsViewModel()
+    @StateObject var dayVM = HourlyAggregationsViewModel()
+    
     @State var pickerSelection = 0
     @State var pickerOptions = [NSLocalizedString("Day", comment: ""), NSLocalizedString("Week", comment: ""), NSLocalizedString("Month", comment: "")]
     
@@ -22,10 +25,10 @@ struct SensorOverViewGraph: View {
     @State var showMax = false
     @State var showAvg = true
     @State var showCircles = true
-
+    
     
     init(sensorID: Int) {
-        self.sensorID = sensorID
+        self.id = sensorID
         
     }
     var body: some View {
@@ -40,14 +43,15 @@ struct SensorOverViewGraph: View {
             .padding(.bottom)
             
             switch pickerSelection{
-            case 0: DayChart(tempAggregVM: tempAggVM, loadingState: $dayLoading, showMin: $showMin, showMax: $showMax, showAvg: $showAvg, showCircles: $showCircles).onTapGesture {
-                showCircles.toggle()
-            
-            }.frame(minHeight: 200)
-            case 1: WeekChart(tempAggregVM: tempAggVM, loadingState: $weekLoading, showMin: $showMin, showMax: $showMax, showAvg: $showAvg, showCircles: $showCircles).onTapGesture {
-                showCircles.toggle()
-            }.frame(minHeight: 200)
-            default : MonthChart(tempAggregVM: tempAggVM, loadingState: $monthLoading, showMin: $showMin, showMax: $showMax, showAvg: $showAvg, showCircles: $showCircles).onTapGesture {
+            case 0: DayChart(hourlyAggVM: dayVM, showMin: $showMin, showMax: $showMax, showAvg: $showAvg, showCircles: $showCircles)
+                .onTapGesture {showCircles.toggle()}
+                .frame(minHeight: 200)
+                
+            case 1: WeekChart(weekAggVM: weekVM, showMin: $showMin, showMax: $showMax, showAvg: $showAvg, showCircles: $showCircles)
+                .onTapGesture {showCircles.toggle()}
+                .frame(minHeight: 200)
+                
+            default : MonthChart(monthVM: monthVM, showMin: $showMin, showMax: $showMax, showAvg: $showAvg, showCircles: $showCircles).onTapGesture {
                 showCircles.toggle()
             }.frame(minHeight: 200)
             }
@@ -80,60 +84,10 @@ struct SensorOverViewGraph: View {
             
         }.padding()
         .onAppear(perform: {
-            tempAggVM.loadAggregationsDay(sensorID: sensorID) { (result) in
-                switch result {
-                case .success(_):
-                    dayLoading = .loaded
-                case .failure(let error):
-                    dayLoading = .error
-                    switch error {
-                    case .badURL:
-                        print("Bad URL")
-                    case .requestFailed:
-                        print("Network problems")
-                    case.decodeFailed:
-                        print("Decoding data failed")
-                    case .unknown:
-                        print("Unknown error")
-                    }
-                }
-            }
-            tempAggVM.loadAggregationsWeek(sensorID: sensorID) { (result) in
-                switch result {
-                case .success(_):
-                    weekLoading = .loaded
-                case .failure(let error):
-                    weekLoading = .error
-                    switch error {
-                    case .badURL:
-                        print("Bad URL")
-                    case .requestFailed:
-                        print("Network problems")
-                    case.decodeFailed:
-                        print("Decoding data failed")
-                    case .unknown:
-                        print("Unknown error")
-                    }
-                }
-            }
-            tempAggVM.loadAggregationsMonth(sensorID: sensorID) { (result) in
-                switch result {
-                case .success(_):
-                    monthLoading = .loaded
-                case .failure(let error):
-                    monthLoading = .error
-                    switch error {
-                    case .badURL:
-                        print("Bad URL")
-                    case .requestFailed:
-                        print("Network problems")
-                    case.decodeFailed:
-                        print("Decoding data failed")
-                    case .unknown:
-                        print("Unknown error")
-                    }
-                }
-            }
+            dayVM.id = id
+            weekVM.id = id
+            monthVM.id = id
+            
         })
     }
 }
@@ -146,111 +100,99 @@ struct SensorOverViewGraph_Previews: PreviewProvider {
     }
 }
 struct DayChart: View {
-    @ObservedObject var tempAggregVM : TempAggregationsViewModel
-    @Binding var loadingState : loadingState
-    @Binding var showMin : Bool
-    @Binding var showMax : Bool
-    @Binding var showAvg : Bool
+    @StateObject var hourlyAggVM: HourlyAggregationsViewModel
+    @Binding var showMin: Bool
+    @Binding var showMax: Bool
+    @Binding var showAvg: Bool
     @Binding var showCircles: Bool
-
+   
+    
     var body: some View {
         VStack{
             GeometryReader{ geo in
-                switch loadingState{
-                case .loading:
-                    LoadingView().frame(height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    
-                case .loaded:
+                AsyncContentView(source: hourlyAggVM) { data in
                     VStack(alignment:.leading){
-                    if tempAggregVM.dataDay.count>1 {
-                        HourlyChartView(showMax: $showMax, showMin: $showMin, showAvg: $showAvg, showCircles: $showCircles, data: tempAggregVM.dataDay, frame: geo.frame(in: .local))
-                    
-                    }else{
-                        Spacer()
-                        HStack {
+                        if notNilCount(data: data)>1 {
+                            HourlyChartView(showMax: $showMax, showMin: $showMin, showAvg: $showAvg, showCircles: $showCircles, data: data, frame: geo.frame(in: .local))
+                        }else{
                             Spacer()
-                            Text("No data available").font(.callout).foregroundColor(.secondary)
+                            HStack {
+                                Spacer()
+                                Text("No data available").font(.callout).foregroundColor(.secondary)
+                                Spacer()
+                            }
                             Spacer()
+                            
                         }
-                        Spacer()
+                        
                     }
-                    }
-                case .error:
-                    ErrorView().frame(height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 }
             }
+        }.onAppear {
+            hourlyAggVM.load()
         }
     }
     
+    func notNilCount(data: [HourlyAggregation?])->Int{
+        return data.filter({$0 != nil}).count
+    }
 }
 struct WeekChart: View {
-    @ObservedObject var tempAggregVM : TempAggregationsViewModel
-    @Binding var loadingState : loadingState
-    @Binding var showMin : Bool
-    @Binding var showMax : Bool
-    @Binding var showAvg : Bool
+    @StateObject var weekAggVM: WeeklyAggregationsViewModel
+    @Binding var showMin: Bool
+    @Binding var showMax: Bool
+    @Binding var showAvg: Bool
     @Binding var showCircles: Bool
-    
+  
     var body: some View {
         VStack{
             GeometryReader{ geo in
-                switch loadingState{
-                case .loading:
-                    LoadingView().frame(height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    
-                case .loaded:
+                AsyncContentView(source: weekAggVM) { data in
                     VStack(alignment:.leading){
-                    if tempAggregVM.dataWeek.count>1 {
-                        WeeklyChartView(showMax: $showMax, showMin: $showMin, showAvg: $showAvg, showCircles: $showCircles, daySpan:.week, data: tempAggregVM.dataWeek , frame: geo.frame(in: .local))
-                    }else{
-                        Spacer()
-                        HStack {
+                        if data.count>1 {
+                            WeeklyChartView(showMax: $showMax, showMin: $showMin, showAvg: $showAvg, showCircles: $showCircles, daySpan:.week, data: data , frame: geo.frame(in: .local))
+                        }else{
                             Spacer()
-                            Text("No data available").font(.callout).foregroundColor(.secondary)
+                            HStack {
+                                Spacer()
+                                Text("No data available").font(.callout).foregroundColor(.secondary)
+                                Spacer()
+                            }
                             Spacer()
                         }
-                        Spacer()
                     }
-                    }
-                case .error:
-                    ErrorView().frame(height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 }
             }
+        }.onAppear {
+            weekAggVM.load()
         }
     }
 }
 struct MonthChart: View {
-    @ObservedObject var tempAggregVM : TempAggregationsViewModel
-    @Binding var loadingState : loadingState
-    @Binding var showMin : Bool
-    @Binding var showMax : Bool
-    @Binding var showAvg : Bool
+    @ObservedObject var monthVM: MonthlyAggregationsViewModel
+    @Binding var showMin: Bool
+    @Binding var showMax: Bool
+    @Binding var showAvg: Bool
     @Binding var showCircles: Bool
-
+    
     var body: some View {
         VStack{
             GeometryReader{ geo in
-                switch loadingState{
-                case .loading:
-                    LoadingView().frame(height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    
-                case .loaded:
+                AsyncContentView(source: monthVM) { data in
                     VStack(alignment:.leading){
-                    if tempAggregVM.dataMonth.count>1 {
-                        MonthlyChartView(showMax: $showMax, showMin: $showMin, showAvg: $showAvg, showCircles: $showCircles, daySpan: .month, data: tempAggregVM.dataMonth, frame: geo.frame(in: .local))
-                    
-                    }else{
-                        Spacer()
-                        HStack {
+                        if data.count>1 {
+                            MonthlyChartView(showMax: $showMax, showMin: $showMin, showAvg: $showAvg, showCircles: $showCircles, daySpan: .month, data: data, frame: geo.frame(in: .local))
+                            
+                        }else{
                             Spacer()
-                            Text("No data available").font(.callout).foregroundColor(.secondary)
+                            HStack {
+                                Spacer()
+                                Text("No data available").font(.callout).foregroundColor(.secondary)
+                                Spacer()
+                            }
                             Spacer()
                         }
-                        Spacer()
                     }
-                    }
-                case .error:
-                    ErrorView().frame(height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 }
             }
         }
