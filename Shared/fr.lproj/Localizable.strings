@@ -9,7 +9,7 @@
 //Other
 "Loading" = "Chargement";
 "Error while fetching data" = "Erreur lors de l'extraction des données";
-
+"Close" = "Fermer";
 //MainView
 "Overview" = "Vue d'ensemble";
 "All" = "Tous les Capteurs";

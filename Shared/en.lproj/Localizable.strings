@@ -9,6 +9,7 @@
 //Other
 "Loading" = "Loading";
 "Error while fetching data" = "Error while fetching data";
+"Close" = "Close";
 
 //MainView
 "Overview" = "Overview";

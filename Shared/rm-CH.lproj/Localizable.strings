@@ -9,7 +9,7 @@
 //Other
 "Loading" = "Cargar";
 "Error while fetching data" = "Sbagl da cargar las datas";
-
+"Close" = "Serrar";
 //MainView
 "Overview" = "Survesta";
 "All" = "Tut";

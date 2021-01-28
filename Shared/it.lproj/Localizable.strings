@@ -1,0 +1,103 @@
+/*
+  Localizable.strings
+  Gfror.li
+
+  Created by Marc Kramer on 06.10.20.
+  
+*/
+
+//Other
+"Loading" = "Caricare";
+"Error while fetching data" = "Caricamento fallito";
+"Close" = "Chiudere";
+
+//MainView
+"Overview" = "Compendio";
+"All" = "Tutti";
+"Favorites" = "Preferiti";
+"Settings" = "Impostazioni";
+
+//Overview
+"Gfrör.li" = "Gfrör.li";
+"Water Bodies" = "Acque";
+"Sensors" = "Sensori";
+"Featured" = "Scoprire";
+
+//About View
+"About" = "Info";
+
+//AllSensorsView
+"All Sensors" = "Tutti i sensori";
+"Search Sensors here" = "Cercare sensori";
+
+//WaterBodyOverview
+"Locations" = "Posizioni";
+"Sensors:" = "Sensori:";
+
+//SensorsOverview
+//Top Box
+"All time:" = "Tutto sommato:";
+"Average:" = "Media:";
+"Highest:" = "Più alto:";
+"Lowest:" = "Più basso:";
+"Latest" = "Attuale";
+//Graph Box
+"History" = "Corso";
+"Day" = "Giorno";
+"Week" = "Settimana";
+"Month" = "Mese";
+"Average" = "Media";
+"Minimum" = "Minimo";
+"Maximum" = "Massimo";
+"No data available" = "I dati non sono disponibili";
+"Tap to show:" = "Tocca per mostrare:";
+
+// Location Box
+"Location" = "Posizione";
+"Directions" = "Itinerario";
+
+//Sponsor Box
+"Sponsored by:" = "Sponsorizzato di:";
+
+//FavoritesView
+"Favorites" = "Preferiti";
+"No Favorites" = "Alcuni preferiti";
+
+//Settings
+"Settings" = "Impostazioni";
+"General" = "Generale";
+"Other" = "Altri";
+"Visit gfrör.li" = "Visita gfrör.li";
+"Visit coredump.ch" = "Visita coredump.ch";
+"Contact us" = "Contattaci";
+"Write a Review" = "Scrivere una recessione";
+"Widget Settings" = "Impostazioni del aggeggio";
+"Privacy Policy" = "Consenso al trattamento sulla privacy";
+"Do you want to reset the app?" = "Tutti i preferiti e altre impostazioni locali verranno cancellate.";
+"Are you sure?" = "Sei sicuro?";
+"Reset App" = "Cancellare l'App";
+"Reset" = "Cancellare";
+"Cancel" = "Interrompere";
+"Version" = "Versione";
+
+//WidgetSettings
+"Widget" = "Aggeggio";
+"Choose Sensor to Display on Widget" = "Selezionare sensore per l'aggeggio.";
+"Reset selection" = "Rimuovere la selezione";
+
+//WaterBodies
+"Lake of Zurich" = "Lago di Zurigo";
+
+//Widget
+"Last Week:" = "La settimana scorsa:";
+"Last 24h:" = "Le ultime 24 ore:";
+"Tap to configure Sensor" = "Tocca per configurare il sensore ";
+
+//Email: DO NOT REMOVE </br> and add no space before and after it
+"email_text" = "Scrivi il tuo testo qui sopra 👆🏻</br>Se hai trovato dei sbagli, nota i passi che hai dovuto fare per vederlo.!</br> Proviamo a risponderti il più presto possibile.!";
+
+//About/Faq
+"Q1_String" = "Perché quest'App?";
+"A1_String" = "La temperatura dell'acqua è un valore importante per tante persone. Prendiamo in esempio i nuotatori,gli subacquei e i pescatori. Fin'ora non esisteva un modo affidabile per ottenere informazioni sulla temperatura in tempo reale della tua zona. Esistono già alcune reti di sensori della temperatura dell'acqua oggi. Ma per lo più esiste un solo sensore per lago, il che significa che le differenze di temperatura di un lago vengono ignorate. Inoltre, molti sensori vengono pubblicati solo una volta al giorno. Stiamo costruendo una rete di sensori di temperatura dell'acqua economici con un consumo energetico molto basso. Questo ci consente di misurare la temperatura dell'acqua localmente e di visualizzarla gratuitamente in tempo quasi reale";
+"Q2_String" = "Chi ha svillupato quest'App?";
+"A2_String" = "Questa app, l'infrastruttura del server e l'hardware del sensore verrano sviluppati da Coredump Hackerspace a Rapperswil-Jona. Sul nostro sito web puoi trovare ulteriori informazioni.";
