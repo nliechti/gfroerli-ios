@@ -9,7 +9,7 @@ import Foundation
 
 struct Sponsor: Codable, Identifiable {
     
-    init(id: Int?, name: String?, description: String?, active: Bool?,  created_at: String?, updated_at: String?, url: String?) {
+    init(id: Int, name: String?, description: String?, active: Bool?,  created_at: String?, updated_at: String?, url: String?) {
         self.id = id
         self.name = name
         self.description = description
@@ -19,7 +19,7 @@ struct Sponsor: Codable, Identifiable {
         self.url = url
     }
     
-    let id : Int?
+    let id : Int
     let name : String?
     let description : String?
     let active : Bool?
@@ -41,7 +41,7 @@ struct Sponsor: Codable, Identifiable {
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        id = try values.decodeIfPresent(Int.self, forKey: .id)
+        id = try values.decode(Int.self, forKey: .id)
         name = try values.decodeIfPresent(String.self, forKey: .name)
         description = try values.decodeIfPresent(String.self, forKey: .description)
         active = try values.decodeIfPresent(Bool.self, forKey: .active)

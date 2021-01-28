@@ -9,56 +9,26 @@ import SwiftUI
 
 struct SensorOverviewSponsorView: View {
     @StateObject var sponsorListVM = SponsorListViewModel()
-    @State var loadingState : loadingState = .loading
-    @State var sponsor : Sponsor?
-    var sensor : Sensor
+    
+    var sensor: Sensor
+    
     var body: some View {
         VStack(alignment: .leading){
             Text("Sponsored by:").font(.title).bold()
-            
-            switch loadingState{
-            case .loading:
-                LoadingView()
-            case .loaded:
-                if sponsor != nil {
-                    VStack{
-                        HStack{
-                        Text( sponsor!.name!).font(.largeTitle).bold()
-                            Spacer()
-                        }.padding(.bottom)
-                        Text( sponsor!.description!)
-                            Spacer()
-                        }
-                    }
-                
-            case .error:
-                ErrorView()
+        AsyncContentView(source: sponsorListVM) { sponsor in 
+            VStack{
+                HStack{
+                    Text(sponsor.name!).font(.largeTitle).bold()
+                    Spacer()
+                }.padding(.bottom)
+                Text( sponsor.description!)
+                Spacer()
             }
         }
-        .padding()
+        }.padding()
         .onAppear(perform: {
-            loadingState = .loading
-            sponsorListVM.getAllSponsors{ (result) in
-                switch result {
-                case .success(_):
-                    loadingState = .loaded
-                    sponsor = sponsorListVM.sponsorArray.first(where: {$0.id == sensor.id})
-                case .failure(let error):
-                    loadingState = .error
-                    switch error {
-                    case .badURL:
-                        print("Bad URL")
-                    case .requestFailed:
-                        print("Network problems")
-                    case.decodeFailed:
-                        print("Decoding data failed")
-                    case .unknown:
-                        print("Unknown error")
-                    }
-                }
-                
-            }
-        })
+                    sponsorListVM.id = sensor.id!
+                    sponsorListVM.load()})
     }
 }
 

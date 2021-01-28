@@ -75,6 +75,10 @@
 		8DF3BBD5250BB62D00DBCC37 /* SensorOverviewLastMeasurementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBD4250BB62D00DBCC37 /* SensorOverviewLastMeasurementView.swift */; };
 		8DF3BBD8250BB6BB00DBCC37 /* OwnHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBD7250BB6BB00DBCC37 /* OwnHelpers.swift */; };
 		8DF3BBD9250BB6BB00DBCC37 /* OwnHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBD7250BB6BB00DBCC37 /* OwnHelpers.swift */; };
+		B4B37A4925C2C1D500DA76A5 /* AsyncContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B37A4825C2C1D500DA76A5 /* AsyncContentView.swift */; };
+		B4B37A4A25C2C1D500DA76A5 /* AsyncContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B37A4825C2C1D500DA76A5 /* AsyncContentView.swift */; };
+		B4B37A5625C2C43400DA76A5 /* LoadableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B37A5525C2C43400DA76A5 /* LoadableObject.swift */; };
+		B4B37A5725C2C43400DA76A5 /* LoadableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B37A5525C2C43400DA76A5 /* LoadableObject.swift */; };
 		E438B4CC24ACFB7D008A2E01 /* iOSMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E438B4CB24ACFB7D008A2E01 /* iOSMainView.swift */; };
 		E44EA3AD24EEA7EA00380E27 /* MapExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44EA3AC24EEA7EA00380E27 /* MapExtension.swift */; };
 		E461458424A34831006233AE /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = E461458324A34831006233AE /* Tests_iOS.swift */; };
@@ -185,6 +189,8 @@
 		8DF3BBCC250B748800DBCC37 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		8DF3BBD4250BB62D00DBCC37 /* SensorOverviewLastMeasurementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorOverviewLastMeasurementView.swift; sourceTree = "<group>"; };
 		8DF3BBD7250BB6BB00DBCC37 /* OwnHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnHelpers.swift; sourceTree = "<group>"; };
+		B4B37A4825C2C1D500DA76A5 /* AsyncContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncContentView.swift; sourceTree = "<group>"; };
+		B4B37A5525C2C43400DA76A5 /* LoadableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableObject.swift; sourceTree = "<group>"; };
 		E438B4CB24ACFB7D008A2E01 /* iOSMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSMainView.swift; sourceTree = "<group>"; };
 		E44EA3AC24EEA7EA00380E27 /* MapExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapExtension.swift; sourceTree = "<group>"; };
 		E461456824A34823006233AE /* GfrorliApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GfrorliApp.swift; sourceTree = "<group>"; };
@@ -301,7 +307,6 @@
 		8D9B0FD224F3A2E7003502C8 /* GfroerliWidget */ = {
 			isa = PBXGroup;
 			children = (
-				8DFCB3E8250A7A64007A966F /* WidgetGraph */,
 				8D9B0FD324F3A2E7003502C8 /* SingleFavWidget.swift */,
 				8D49A378250A4F27000B26CD /* MultiFavWidget.swift */,
 				8D49A37D250A5095000B26CD /* MainWidgetFile.swift */,
@@ -391,11 +396,12 @@
 			path = HelpersFolder;
 			sourceTree = "<group>";
 		};
-		8DFCB3E8250A7A64007A966F /* WidgetGraph */ = {
+		B4B37A5D25C2C43900DA76A5 /* protocols */ = {
 			isa = PBXGroup;
 			children = (
+				B4B37A5525C2C43400DA76A5 /* LoadableObject.swift */,
 			);
-			path = WidgetGraph;
+			path = protocols;
 			sourceTree = "<group>";
 		};
 		E438B4C924ACFB49008A2E01 /* iOSViews */ = {
@@ -440,6 +446,7 @@
 		E461456724A34823006233AE /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				B4B37A5D25C2C43900DA76A5 /* protocols */,
 				8D815A2A25A63AE80060AC85 /* AppStoreData */,
 				8DF3BBD6250BB69700DBCC37 /* HelpersFolder */,
 				E4C24FE424EEB57500FB4F51 /* api */,
@@ -507,6 +514,7 @@
 				8DA7CEF32516105900395465 /* ViewModels */,
 				E4C24FE524EEB57A00FB4F51 /* Models */,
 				8D3D376D250CBAAF00F11E48 /* Notes.rtf */,
+				B4B37A4825C2C1D500DA76A5 /* AsyncContentView.swift */,
 			);
 			path = api;
 			sourceTree = "<group>";
@@ -754,10 +762,12 @@
 				8DF3BBCB250B709700DBCC37 /* AllSensorView.swift in Sources */,
 				8D6A7DC624F14115009A0026 /* LakeOverView.swift in Sources */,
 				8D580B59259FA33800202262 /* AboutView.swift in Sources */,
+				B4B37A4925C2C1D500DA76A5 /* AsyncContentView.swift in Sources */,
 				8D4731B124F3F93200EE5536 /* WidgetSettingsView.swift in Sources */,
 				8DD06C3025A0EF290081250B /* UIDeviceExtension.swift in Sources */,
 				8DA7CF0F2516176300395465 /* TempAggregationsViewModel.swift in Sources */,
 				8DF3BBCD250B748800DBCC37 /* SearchBar.swift in Sources */,
+				B4B37A5625C2C43400DA76A5 /* LoadableObject.swift in Sources */,
 				8D9B0FE424F3BEA4003502C8 /* WaveShape.swift in Sources */,
 				E4C24FE724EEB58400FB4F51 /* Sensor.swift in Sources */,
 				8D0D7FE624F107D30068176C /* SettingsView.swift in Sources */,
@@ -799,6 +809,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E461459224A34831006233AE /* GfrorliApp.swift in Sources */,
+				B4B37A4A25C2C1D500DA76A5 /* AsyncContentView.swift in Sources */,
+				B4B37A5725C2C43400DA76A5 /* LoadableObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

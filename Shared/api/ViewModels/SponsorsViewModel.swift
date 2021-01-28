@@ -7,23 +7,20 @@
 
 import Foundation
 import Combine
-class SponsorListViewModel: ObservableObject {
+
+class SponsorListViewModel: LoadableObject {
+    
+    @Published private(set) var state = LoadingState<Output>.idle
+    @Published var sponsor: Sponsor! { didSet { didChange.send(())}}
+    
+    typealias Output = Sponsor
+    
     let didChange = PassthroughSubject<Void, Never>()
+    var id: Int = 0
     
-    @Published var sponsorArray = [Sponsor]() { didSet { didChange.send(())}}
-    
-    init() {
-    }
-    
-    init(sponsors: [Sponsor]) {
-        sponsorArray = sponsors
-    }
-    
-    
-    
-    func getAllSponsors(completion: @escaping (Result<String, NetworkError>) -> Void) {
+    func load() {
         
-        var url = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/sponsors")!)
+        var url = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/mobile_app/sensors/\(id)/sponsor")!)
         url.setValue("Bearer XTZA6H0Hg2f02bzVefmVlr8fIJMy2FGCJ0LlDlejj2Pi0i1JvZiL0Ycv1t6JoZzD", forHTTPHeaderField: "Authorization")
         url.httpMethod = "GET"
 
@@ -31,23 +28,34 @@ class SponsorListViewModel: ObservableObject {
             DispatchQueue.main.async {
                 do {
                 if let data = data {
-                    // success: convert to  Sensors
                     let jsonDecoder = JSONDecoder()
-                    let sponsors = try jsonDecoder.decode([Sponsor].self, from: data)
-                    self.sponsorArray = sponsors
-                    completion(.success("Sponsors successfuly loaded!"))
-                } else if error != nil {
-                    // network failures
-                    completion(.failure(.requestFailed))
-                } else {
-                    // other cases
-                    completion(.failure(.unknown))
+                    let sponsor = try jsonDecoder.decode(Sponsor.self, from: data)
+                    self.sponsor = sponsor
+                    self.state = .loaded(sponsor)
+                    
+                }else{
+                    self.state = .failed
                 }
-                    // decoding failed
+                
                 }catch{
-                    completion(.failure(.decodeFailed))
+                    print(error.localizedDescription)
+                    self.state = .failed
+                    
                 }
             }
         }.resume()
     }
+}
+
+protocol LoadableObject: ObservableObject {
+    associatedtype Output
+    var state: LoadingState<Output> { get }
+    func load()
+}
+
+enum LoadingState<Value> {
+    case idle
+    case loading
+    case failed
+    case loaded(Value)
 }
