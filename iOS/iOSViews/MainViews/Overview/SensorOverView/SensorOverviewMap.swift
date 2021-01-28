@@ -10,6 +10,7 @@ import MapKit
 
 struct SensorOverviewMap: View {
     @State var region: MKCoordinateRegion
+    
     var annotation: [Sensor]
     var sensor: Sensor
     var originalRegion: MKCoordinateRegion
@@ -22,7 +23,6 @@ struct SensorOverviewMap: View {
     }
     
     var body: some View {
-    
         ZStack(alignment: .bottom) {
             VStack(alignment:.leading) {
                 HStack {
@@ -33,14 +33,14 @@ struct SensorOverviewMap: View {
                     } label: {
                         Image(systemName: "scope")
                             .font(.title2)
-                            
                     }
                 }.padding([.top, .horizontal])
+                
                 Map (coordinateRegion: $region, annotationItems: annotation){ mark in
                     MapMarker(coordinate: CLLocationCoordinate2D(latitude: mark.latitude!, longitude: mark.longitude!))
-                    
                 }.frame(minHeight: 300)
             }
+            
             HStack{
                 Button {
                     openMaps()
@@ -53,7 +53,6 @@ struct SensorOverviewMap: View {
     }
     
     func openMaps(){
-        
         let coordinate = region.center
         let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate, addressDictionary:nil))
         mapItem.name = sensor.device_name

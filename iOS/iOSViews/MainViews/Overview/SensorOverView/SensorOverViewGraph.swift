@@ -202,7 +202,6 @@ struct WeekChart: View {
                     VStack(alignment:.leading){
                     if tempAggregVM.dataWeek.count>1 {
                         WeeklyChartView(showMax: $showMax, showMin: $showMin, showAvg: $showAvg, showCircles: $showCircles, daySpan:.week, data: tempAggregVM.dataWeek , frame: geo.frame(in: .local))
-                    
                     }else{
                         Spacer()
                         HStack {

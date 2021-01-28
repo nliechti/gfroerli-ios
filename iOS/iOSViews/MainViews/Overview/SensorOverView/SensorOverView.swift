@@ -10,12 +10,12 @@ import SwiftUI
 struct SensorOverView: View {
     
     @StateObject var sensorVM = SingleSensorViewModel()
-    var id : Int
     @State var isFav = false
     @State var favorites  = UserDefaults(suiteName: "group.ch.gfroerli")?.array(forKey: "favoritesIDs") as? [Int] ?? [Int]()
     
+    var id : Int
+    
     var body: some View {
-      
             AsyncContentView(source: sensorVM) { sensor in
                 ScrollView{
                     VStack{
@@ -53,24 +53,24 @@ struct SensorOverView: View {
                     sensorVM.load()
                 } label: {
                     Image(systemName:"arrow.triangle.2.circlepath")
-                    
+                        .imageScale(.large)
                 }
+                
                 Button {
                     isFav ? removeFav() : makeFav()
                     UserDefaults(suiteName: "group.ch.gfroerli")?.set(favorites, forKey: "favoritesIDs")
                 } label: {
                     Image(systemName: isFav ? "star.fill" : "star")
                         .foregroundColor(isFav ? .yellow : .none)
+                        .imageScale(.large)
                 }}
         }
-        
     }
     
     func makeFav(){
         favorites.append(id)
         isFav = true
         UserDefaults(suiteName: "group.ch.gfroerli")?.set(favorites, forKey: "favoritesIDs")
-        
     }
     
     func removeFav(){

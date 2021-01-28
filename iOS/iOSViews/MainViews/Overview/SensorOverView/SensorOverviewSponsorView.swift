@@ -15,16 +15,16 @@ struct SensorOverviewSponsorView: View {
     var body: some View {
         VStack(alignment: .leading){
             Text("Sponsored by:").font(.title).bold()
-        AsyncContentView(source: sponsorListVM) { sponsor in 
-            VStack{
-                HStack{
-                    Text(sponsor.name).font(.largeTitle).bold()
+            AsyncContentView(source: sponsorListVM) { sponsor in
+                VStack{
+                    HStack{
+                        Text(sponsor.name).font(.largeTitle).bold()
+                        Spacer()
+                    }.padding(.bottom)
+                    Text( sponsor.description)
                     Spacer()
-                }.padding(.bottom)
-                Text( sponsor.description)
-                Spacer()
+                }
             }
-        }
         }.padding()
         .onAppear(perform: {
                     sponsorListVM.id = sensor.id

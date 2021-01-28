@@ -141,7 +141,7 @@ struct WeeklyChartView: View{
     var daySpan : DaySpan
     let data: [DailyAggregation]
     var lineWidth: CGFloat = 2
-    var pointSize: CGFloat = 8
+    var pointSize: CGFloat = 4
     var frame: CGRect
     
     

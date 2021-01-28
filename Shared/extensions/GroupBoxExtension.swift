@@ -14,6 +14,5 @@ struct ColoredGroupBox: GroupBoxStyle {
             .frame(maxWidth: .infinity)
             .padding()
             .background(RoundedRectangle(cornerRadius: 8).fill(Color.secondarySystemGroupedBackground))
-            
     }
 }

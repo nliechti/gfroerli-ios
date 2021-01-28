@@ -128,7 +128,7 @@ struct HourlyChartView: View{
 
     let data: [HourlyAggregation]
     var lineWidth: CGFloat = 2
-    var pointSize: CGFloat = 8
+    var pointSize: CGFloat = 4
     var frame: CGRect
     var avgColor: Color = .green
     
