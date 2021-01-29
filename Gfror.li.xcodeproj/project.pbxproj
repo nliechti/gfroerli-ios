@@ -77,8 +77,8 @@
 		B4383A7725C3F93C000A6D4F /* SingleSensorGraphWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4383A6025C3F523000A6D4F /* SingleSensorGraphWidget.swift */; };
 		B4383A9A25C3FE79000A6D4F /* WidgetAPILoaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4383A9325C3FE53000A6D4F /* WidgetAPILoaders.swift */; };
 		B4383AA525C3FE7E000A6D4F /* WidgetAPILoaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4383A9325C3FE53000A6D4F /* WidgetAPILoaders.swift */; };
-		B4383AC125C40377000A6D4F /* GraphWidgetIntent.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B4383AC025C40377000A6D4F /* GraphWidgetIntent.intentdefinition */; };
-		B4383ACC25C403B1000A6D4F /* GraphWidgetIntent.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B4383AC025C40377000A6D4F /* GraphWidgetIntent.intentdefinition */; };
+		B4383B0925C466A0000A6D4F /* GraphWidgetIntent.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B4383B0C25C466A0000A6D4F /* GraphWidgetIntent.intentdefinition */; };
+		B4383B0A25C466A0000A6D4F /* GraphWidgetIntent.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B4383B0C25C466A0000A6D4F /* GraphWidgetIntent.intentdefinition */; };
 		B4B37A4925C2C1D500DA76A5 /* AsyncContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B37A4825C2C1D500DA76A5 /* AsyncContentView.swift */; };
 		B4B37A4A25C2C1D500DA76A5 /* AsyncContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B37A4825C2C1D500DA76A5 /* AsyncContentView.swift */; };
 		B4B37A5625C2C43400DA76A5 /* LoadableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B37A5525C2C43400DA76A5 /* LoadableObject.swift */; };
@@ -207,7 +207,13 @@
 		B4383A5425C3E891000A6D4F /* SingleSensorWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSensorWidget.swift; sourceTree = "<group>"; };
 		B4383A6025C3F523000A6D4F /* SingleSensorGraphWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSensorGraphWidget.swift; sourceTree = "<group>"; };
 		B4383A9325C3FE53000A6D4F /* WidgetAPILoaders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetAPILoaders.swift; sourceTree = "<group>"; };
-		B4383AC025C40377000A6D4F /* GraphWidgetIntent.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = GraphWidgetIntent.intentdefinition; sourceTree = "<group>"; };
+		B4383B1325C466A7000A6D4F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/GraphWidgetIntent.strings; sourceTree = "<group>"; };
+		B4383B1525C466B6000A6D4F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/GraphWidgetIntent.strings; sourceTree = "<group>"; };
+		B4383B1725C466B7000A6D4F /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/GraphWidgetIntent.strings; sourceTree = "<group>"; };
+		B4383B1925C466BA000A6D4F /* rm-CH */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "rm-CH"; path = "rm-CH.lproj/GraphWidgetIntent.strings"; sourceTree = "<group>"; };
+		B4383B1C25C466C3000A6D4F /* gsw */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = gsw; path = gsw.lproj/GraphWidgetIntent.strings; sourceTree = "<group>"; };
+		B4383B2C25C46C67000A6D4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; name = Base; path = Base.lproj/GraphWidgetIntent.intentdefinition; sourceTree = "<group>"; };
+		B4383B2E25C46C77000A6D4F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/GraphWidgetIntent.strings; sourceTree = "<group>"; };
 		B4B37A4825C2C1D500DA76A5 /* AsyncContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncContentView.swift; sourceTree = "<group>"; };
 		B4B37A5525C2C43400DA76A5 /* LoadableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableObject.swift; sourceTree = "<group>"; };
 		B4F95C0725C2EC46004C21E1 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
@@ -344,7 +350,7 @@
 				8D9B0FE324F3BEA4003502C8 /* WaveShape.swift */,
 				8D9B0FD524F3A2E8003502C8 /* Assets.xcassets */,
 				8D9B0FD724F3A2E8003502C8 /* Info.plist */,
-				B4383AC025C40377000A6D4F /* GraphWidgetIntent.intentdefinition */,
+				B4383B0C25C466A0000A6D4F /* GraphWidgetIntent.intentdefinition */,
 			);
 			path = GfroerliWidget;
 			sourceTree = "<group>";
@@ -774,7 +780,7 @@
 				B4F95C1825C30FBF004C21E1 /* HourlyAggregationViewModel.swift in Sources */,
 				8D9B0FE524F3BEA4003502C8 /* WaveShape.swift in Sources */,
 				8D908976259121850017BAB8 /* WeeklyChartView.swift in Sources */,
-				B4383ACC25C403B1000A6D4F /* GraphWidgetIntent.intentdefinition in Sources */,
+				B4383B0A25C466A0000A6D4F /* GraphWidgetIntent.intentdefinition in Sources */,
 				B4F95C3025C313EE004C21E1 /* WeeklyChartShape.swift in Sources */,
 				8D737738252BA8750075E04E /* SponsorsViewModel.swift in Sources */,
 				B4F95C1025C30F38004C21E1 /* HourlyChartShape.swift in Sources */,
@@ -811,7 +817,7 @@
 				8D4731B124F3F93200EE5536 /* WidgetSettingsView.swift in Sources */,
 				8DD06C3025A0EF290081250B /* UIDeviceExtension.swift in Sources */,
 				8DA7CF0F2516176300395465 /* TempAggregationsViewModel.swift in Sources */,
-				B4383AC125C40377000A6D4F /* GraphWidgetIntent.intentdefinition in Sources */,
+				B4383B0925C466A0000A6D4F /* GraphWidgetIntent.intentdefinition in Sources */,
 				8DF3BBCD250B748800DBCC37 /* SearchBar.swift in Sources */,
 				B4B37A5625C2C43400DA76A5 /* LoadableObject.swift in Sources */,
 				8D9B0FE424F3BEA4003502C8 /* WaveShape.swift in Sources */,
@@ -918,6 +924,20 @@
 			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
+		B4383B0C25C466A0000A6D4F /* GraphWidgetIntent.intentdefinition */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B4383B1325C466A7000A6D4F /* fr */,
+				B4383B1525C466B6000A6D4F /* de */,
+				B4383B1725C466B7000A6D4F /* it */,
+				B4383B1925C466BA000A6D4F /* rm-CH */,
+				B4383B1C25C466C3000A6D4F /* gsw */,
+				B4383B2C25C46C67000A6D4F /* Base */,
+				B4383B2E25C46C77000A6D4F /* en */,
+			);
+			name = GraphWidgetIntent.intentdefinition;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -936,7 +956,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.50;
+				MARKETING_VERSION = 0.51;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -961,7 +981,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.50;
+				MARKETING_VERSION = 0.51;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1106,7 +1126,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.50;
+				MARKETING_VERSION = 0.51;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli;
 				PRODUCT_NAME = Gfror.li;
 				SDKROOT = iphoneos;
@@ -1133,7 +1153,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.50;
+				MARKETING_VERSION = 0.51;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli;
 				PRODUCT_NAME = Gfror.li;
 				PROVISIONING_PROFILE_SPECIFIER = "";
