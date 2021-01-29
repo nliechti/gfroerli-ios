@@ -94,6 +94,8 @@
 "Tap to configure Sensor" = "Tippe um Sensor uszwähle";
 "Shows the latest temperature of a Sensor." = "Zeigt die letschte Wert vomene Sensor ah.";
 "Single Sensor"="Einzelne Sensor";
+"Single Sensor History" = "Verlauf";
+"Shows the temperature history of a Sensor." = "Zeigt de temperatuur verlauf ah.";
 
 //Email: DO NOT REMOVE </br> and add no space before and after it
 "email_text" = "Bitte schreibe deinen Text oberhalb 👆🏻</br>Falls du einen Fehler entdeckt hasst, notiere bitte die Schritte die zu ihm geführt haben!</br> Wir versuchen dir schnellstmöglich zu antworten!";

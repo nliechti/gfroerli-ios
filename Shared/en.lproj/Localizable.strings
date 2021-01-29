@@ -94,6 +94,10 @@
 "Last Month:" = "Last Month:";
 "Last 24h:" = "Last 24h:";
 "Tap to configure Sensor" = "Tap to configure Sensor";
+"Shows the latest temperature of a Sensor." = "Shows the current temperature of a Sensor.";
+"Single Sensor" = "Single Sensor";
+"Single Sensor History" = "Single Sensor History";
+"Shows the temperature history of a Sensor." = "Shows the temperature history of a Sensor.";
 
 //Email: DO NOT REMOVE </br> and add no space before and after it
 "email_text" = "Please provide your feedback above 👆🏻</br>If you encountered a bug, please tell us the interactions that lead to it!</br> We try to get back to you as soon as possible!";

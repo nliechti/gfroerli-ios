@@ -11,7 +11,7 @@ import Combine
 
 struct SingleSensorEntry: TimelineEntry{
     var date: Date = Date()
-    var name: String
+    var name: LocalizedStringKey
     var temp: Double
     var id: Int
 }
@@ -66,7 +66,7 @@ struct SingleSensorTimeline: TimelineProvider{
             } else {
                 sensor = Sensor(id: 0, device_name: "Error while fetching data", caption: nil, latitude: nil, longitude: nil, sponsor_id: nil, created_at: nil, latestTemp: 0.0, maxTemp: nil, minTemp: nil, avgTemp: nil)
             }
-            let entry = SingleSensorEntry(date: Date(), name: sensor.device_name, temp: sensor.latestTemp!, id: sensor.id)
+            let entry = SingleSensorEntry(date: Date(), name: LocalizedStringKey(sensor.device_name), temp: sensor.latestTemp!, id: sensor.id)
             completion(entry)
         }
     }
@@ -88,7 +88,7 @@ struct SingleSensorTimeline: TimelineProvider{
                 sensor = Sensor(id: 0, device_name: "Error while fetching data", caption: nil, latitude: nil, longitude: nil, sponsor_id: nil, created_at: nil, latestTemp: 0.0, maxTemp: nil, minTemp: nil, avgTemp: nil)
             }
             
-            let entry = SingleSensorEntry(date: Date(), name: sensor.device_name, temp: sensor.latestTemp!, id: sensor.id)
+            let entry = SingleSensorEntry(date: Date(), name: LocalizedStringKey(sensor.device_name), temp: sensor.latestTemp!, id: sensor.id)
             let timeline = Timeline(entries: [entry], policy: .after(refreshDate))
             completion(timeline)
         }

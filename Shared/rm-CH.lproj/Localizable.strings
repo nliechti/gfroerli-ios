@@ -92,7 +92,10 @@
 "Last 24h:" = "Davosas 24h:";
 "Last Month:" = "Mais vargad:";
 "Tap to configure Sensor" = "Tippa per eleger il sensur";
-"Shows the latest temperature of a Sensor." = "Shows the latest temperature of a Sensor.";
+"Shows the latest temperature of a Sensor." = "Zeigt die aktuelle Temperatur an.";
+"Single Sensor" =" Einzelner Sensor";
+"Single Sensor History" = "Temperaturverlauf";
+"Shows the temperature history of a Sensor." = "Zeigt den Verlauf der Temperatur an.";
 
 //Email: DO NOT REMOVE </br> and add no space before and after it
 "email_text" = "Fai aschi bien e scriva il text suren 👆🏻</br>Sche ti has anflau in sbagl, notescha fai aschi bien ils pass che han menau tier tal!</br> Nus empruein da rispunder aschi spert sco pusseivel!";

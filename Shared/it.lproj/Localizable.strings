@@ -94,7 +94,11 @@
 "Last 24h:" = "Le ultime 24 ore:";
 "Last Month:" = "Mese scorso:";
 "Tap to configure Sensor" = "Tocca per configurare il sensore ";
-"Shows the latest temperature of a Sensor." = "Shows the latest temperature of a Sensor.";
+"Shows the latest temperature of a Sensor." = "Mostra l'ultima temperatura di un sensore.";
+"Single Sensor"="Sensore singolo";
+"Single Sensor History" = "Storia";
+"Shows the temperature history of a Sensor." = "Mostra la storia della temperatura di un sensore.";
+
 //Email: DO NOT REMOVE </br> and add no space before and after it
 "email_text" = "Scrivi il tuo testo qui sopra 👆🏻</br>Se hai trovato dei sbagli, nota i passi che hai dovuto fare per vederlo.!</br> Proviamo a risponderti il più presto possibile.!";
 

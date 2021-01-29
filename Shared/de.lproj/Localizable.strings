@@ -93,11 +93,13 @@
 "Last 24h:" = "Letzte 24h:";
 "Last Month" = "Last Month";
 "Tap to configure Sensor" = "Tippen um Sensor auszuwählen";
-"Shows the latest temperature of a Sensor." = "Zeigt die letzten Werte eines Sensors an.";
-"Single Sensor"="Einzelner Sensor";
+"Shows the latest temperature of a Sensor." = "Zeigt die aktuelle Temperatur an.";
+"Single Sensor" =" Einzelner Sensor";
+"Single Sensor History" = "Temperaturverlauf";
+"Shows the temperature history of a Sensor." = "Zeigt den Verlauf der Temperatur an.";
 
 //Email: DO NOT REMOVE </br> and add no space before and after it
-"email_text" = "Bitte schreibe deinen Text oberhalb 👆🏻</br>Falls du einen Fehler entdeckt hasst, notiere bitte die Schritte die zu ihm geführt haben!</br> Wir versuchen dir schnellstmöglich zu antworten!";
+"email_text" = "Bitte schreibe deinen Text oberhalb 👆🏻</br>Falls du einen Fehler entdeckt hast, notiere bitte die Schritte die zu ihm geführt haben!</br> Wir versuchen dir schnellstmöglich zu antworten!";
 
 //About/Faq
 "Q1_String" = "Warum diese App?";
