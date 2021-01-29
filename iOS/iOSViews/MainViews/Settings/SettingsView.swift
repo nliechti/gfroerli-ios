@@ -20,7 +20,7 @@ struct SettingsView: View {
             VStack{
                 Form{
                     Section(header:Text("General")){
-                        NavigationLink(destination: WidgetSettingsView(sensors: sensorsVm, loadingState: $loadingState), tag: "widgetSettings", selection: $activePath ,label: {Text("Widget Settings")})
+                        NavigationLink(destination: WidgetSettingsView(sensorsVM: sensorsVm, loadingState: $loadingState), tag: "widgetSettings", selection: $activePath ,label: {Text("Widget Settings")})
                         Button(action: {
                             UIApplication.shared.open(URL.init(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
 

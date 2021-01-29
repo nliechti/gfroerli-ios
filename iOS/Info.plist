@@ -38,6 +38,8 @@
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>CheckTempIntent</string>
+		<string>ConfigurationIntent</string>
+		<string>GraphWidgetIntentIntent</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

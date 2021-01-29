@@ -9,14 +9,14 @@ import Foundation
 import SwiftUI
 import WidgetKit
 
-/*
+
 @main
 struct GfroerliWidgets: WidgetBundle {
     @WidgetBundleBuilder
     var body: some Widget {
     
-        //SingleFavWidget()
-        //MultiFavWidget()
+        SingleSensorWidget()
+        SingleSensorGraphWidget()
         
     }
-}*/
+}

@@ -88,10 +88,11 @@
 "Lake of Zurich" = "Lac de Zurich";
 
 //Widget
-"Last Week:" = "La semaine dernière:";
+"Last Week:" = "Semaine Dernière:";
 "Last 24h:" = "Dernières 24h:";
+"Last Month:" = "Mois Dernier";
 "Tap to configure Sensor" = "Taper pour choisir un Capteur";
-"Shows latest data of a single Sensor" = "Affiche les dernières valeurs d'un capteur.";
+"Shows the latest temperature of a Sensor." = "Affiche les dernières valeurs d'un capteur.";
 "Single Sensor"="Capteur unique";
 
 //Email: DO NOT REMOVE </br> and add no space before and after it

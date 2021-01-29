@@ -9,7 +9,7 @@ import SwiftUI
 import WidgetKit
 
 struct WidgetSettingsView: View {
-    @ObservedObject var sensors : SensorListViewModel
+    @ObservedObject var sensorsVM : SensorListViewModel
     @Binding var loadingState: loadingState
     @AppStorage("widgetSensorID", store: UserDefaults(suiteName: "group.ch.gfroerli")) var widgetSensorID: Int = -1
 
@@ -17,19 +17,15 @@ struct WidgetSettingsView: View {
         VStack{
             Form{
                 Section(header: Text("Choose Sensor to Display on Widget")) {
-                    switch loadingState{
-                    case .loading:
-                        LoadingView()
-                    case .loaded:
-                        ForEach(sensors.sensorArray) {sensor in
+                    AsyncContentView(source: sensorsVM) { sensors in
+                        ForEach(sensors) {sensor in
                             SingleSelectionRow(title: sensor.device_name, isSelected: widgetSensorID==sensor.id) {
                                 widgetSensorID=sensor.id
                                 WidgetCenter.shared.reloadAllTimelines()
                                 
                             }
                         }
-                    case .error:
-                        ErrorView()
+                    
                     }
                     
                     
@@ -49,7 +45,7 @@ struct WidgetSettingsView: View {
 
 struct WidgetSettingsView_Previews: PreviewProvider {
     static var previews: some View {
-            WidgetSettingsView(sensors: SensorListViewModel(), loadingState: .constant(.loaded)).makePreViewModifier()
+            WidgetSettingsView(sensorsVM: SensorListViewModel(), loadingState: .constant(.loaded)).makePreViewModifier()
     }
 }
 

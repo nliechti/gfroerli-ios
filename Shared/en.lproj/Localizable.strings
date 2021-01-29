@@ -90,7 +90,8 @@
 "Lake of Zurich" = "Lake of Zurich";
 
 //Widget
-"Last Week:" = "Letzte Woche:";
+"Last Week:" = "Last Week:";
+"Last Month:" = "Last Month:";
 "Last 24h:" = "Last 24h:";
 "Tap to configure Sensor" = "Tap to configure Sensor";
 

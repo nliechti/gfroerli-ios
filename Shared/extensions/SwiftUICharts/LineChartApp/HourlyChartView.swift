@@ -18,7 +18,7 @@ struct HourlyChartView: View{
     var lineWidth: CGFloat = 2
     var pointSize: CGFloat = 4
     var frame: CGRect
-    var avgColor: Color = .green
+    var avgColor: Color?
     
     var maxVal : Double {
         let arr = data.filter({$0 != nil})
@@ -43,7 +43,7 @@ struct HourlyChartView: View{
     }
     
     var body: some View {
-        
+        VStack{
         ZStack(alignment: .bottom) {
             Legend(frame: frame, xLabels: getXLabels(data: data), max: CGFloat(maxVal.rounded(.up)), min:CGFloat(minVal.rounded(.down)))
             HourlyLineChartShape(pointSize: pointSize, data: data, type: .minimum, max: maxVal, min: minVal, showCircles: showCircles)
@@ -51,10 +51,10 @@ struct HourlyChartView: View{
             HourlyLineChartShape(pointSize: pointSize, data: data, type: .maximum, max: maxVal, min: minVal, showCircles: showCircles)
                 .stroke(showMax ? Color.red : Color.clear, style: StrokeStyle(lineWidth: 2,lineCap: .round, lineJoin: .round)).frame(width: frame.width-40, height: frame.height).offset(x:+20)
             HourlyLineChartShape(pointSize: pointSize, data: data, type: .average,  max: maxVal, min: minVal, showCircles: showCircles)
-                .stroke(showAvg ? Color.green : Color.clear,style: StrokeStyle(lineWidth: 2,lineCap: .round, lineJoin: .round)).frame(width: frame.width-40, height: frame.height).offset(x:+20)
-            
+                .stroke(showAvg ? ((avgColor != nil) ? Color.white : Color.green) : Color.clear,style: StrokeStyle(lineWidth: 2,lineCap: .round, lineJoin: .round)).frame(width: frame.width-40, height: frame.height).offset(x:+20)
         }
         
+        Spacer()
         HStack{
             Text("0.00").foregroundColor(.clear)
                 .font(.caption)
@@ -66,6 +66,7 @@ struct HourlyChartView: View{
             Spacer()
             Text(xLabels[2]).foregroundColor(Color.secondary)
                 .font(.caption)
+        }
         }
     }
     

@@ -91,8 +91,9 @@
 //Widget
 "Last Week:" = "Letzte Woche:";
 "Last 24h:" = "Letzte 24h:";
+"Last Month" = "Last Month";
 "Tap to configure Sensor" = "Tippen um Sensor auszuwählen";
-"Shows latest data of a single Sensor" = "Zeigt die letzten Werte eines Sensors an.";
+"Shows the latest temperature of a Sensor." = "Zeigt die letzten Werte eines Sensors an.";
 "Single Sensor"="Einzelner Sensor";
 
 //Email: DO NOT REMOVE </br> and add no space before and after it
