@@ -6,6 +6,9 @@
 <p align="center">
     <img src="https://img.shields.io/badge/iOS-14.0+-brightgreen.svg" />
     <img src="https://img.shields.io/badge/Swift-5.0-brightgreen.svg" />
+    <a href="https://twitter.com/coredump_ch">
+        <img src="https://img.shields.io/badge/Contact-@coredump__ch-blue.svg?style=flat" alt="Twitter: @coredump_ch" />
+    </a>
     <a href="https://twitter.com/makram_95">
         <img src="https://img.shields.io/badge/Contact-@makram__95-blue.svg?style=flat" alt="Twitter: @makram_95" />
     </a>
@@ -66,7 +69,7 @@ The app is availble in these languages:
 - Italian
 - Rumantsch
 
-*If you find andy spelling or grammar mistakes, please contact me!*
+*If you find spelling or grammar mistakes, please contact us!*
 
 ## Privacy
 Generally there is no userdata collected, except for:
@@ -75,4 +78,4 @@ Generally there is no userdata collected, except for:
 
 
 ## Contact
-If you have some feedback and/or requests, including sponsoring or placing your own sensor, please contact us by [Email](appdev@coredump.ch) or via Twitter [@coredump_ch](https://twitter.com/coredump_ch) or [@makram_95](https://twitter.com/makram_95)! 
+If you have some feedback and/or requests, including sponsoring or placing your own sensor, please contact us by [Email](mailto:appdev@coredump.ch) or via Twitter [@coredump_ch](https://twitter.com/coredump_ch) or [@makram_95](https://twitter.com/makram_95)! 
