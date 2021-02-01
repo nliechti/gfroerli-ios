@@ -28,8 +28,7 @@ The Gför.li iOS app is currently available to test via [TestFlight](https://tes
 
 
 ## Architecture
-The app is 100% coded in Swift and only uses the frameworks provided by the standard SDK. The UI is made with SwiftUI 2 only, hence the lowest supported iOS version is 14.0.
-The fetching of data is implemented by normal REST calls to the backend.
+The app is 100% written in Swift and only uses the frameworks provided by the standard iOS SDK. The UI-Framework used is SwiftUI 2, hence the lowest supported iOS version is 14.0. The communication to the backend is implemented via simple REST calls that return the data as JSON.
 
 
 ## UI
@@ -75,5 +74,5 @@ Generally there is no userdata collected, except for:
 - If allowed by the user, the crash and usage reports collected by iOS itself
 
 
-# Contact
+## Contact
 If you have some feedback and/or requests, including sponsoring or placing your own sensor, please contact us by [Email](appdev@coredump.ch) or via Twitter [@coredump_ch](https://twitter.com/coredump_ch) or [@makram_95](https://twitter.com/makram_95)! 
