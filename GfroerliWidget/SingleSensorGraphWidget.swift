@@ -187,11 +187,11 @@ struct SingleSensorGraphWidgetView: View {
                         }
                         GeometryReader{ g in
                             if entry.graphSelection == .day{
-                                HourlyChartView(showMax: .constant(false), showMin: .constant(false), showAvg: .constant(true), showCircles: .constant(true), data: entry.hourlyAggs, lineWidth: 2, pointSize: 4, frame: g.frame(in: .local), avgColor: .white).colorScheme(.dark)
+                                HourlyChartView(showMax: .constant(false), showMin: .constant(false), showAvg: .constant(true), showCircles: .constant(true), data: entry.hourlyAggs, lineWidth: 2, pointSize: 2, frame: g.frame(in: .local), avgColor: .white).colorScheme(.dark)
                             }else if entry.graphSelection == .month{
-                                MonthlyChartView(showMax: .constant(false), showMin: .constant(false), showAvg: .constant(true), showCircles: .constant(true), avgColor: .white, daySpan: .month, data: entry.dailyAggs, lineWidth: 2, pointSize: 4, frame: g.frame(in: .local)).colorScheme(.dark)
+                                MonthlyChartView(showMax: .constant(false), showMin: .constant(false), showAvg: .constant(true), showCircles: .constant(true), avgColor: .white, daySpan: .month, data: entry.dailyAggs, lineWidth: 2, pointSize: 2, frame: g.frame(in: .local)).colorScheme(.dark)
                             }else{
-                                WeeklyChartView(showMax: .constant(false), showMin: .constant(false), showAvg: .constant(true), showCircles: .constant(true), avgColor: .white, daySpan: .month, data: entry.dailyAggs, lineWidth: 2, pointSize: 4, frame: g.frame(in: .local)).colorScheme(.dark)
+                                WeeklyChartView(showMax: .constant(false), showMin: .constant(false), showAvg: .constant(true), showCircles: .constant(true), avgColor: .white, daySpan: .month, data: entry.dailyAggs, lineWidth: 2, pointSize: 2, frame: g.frame(in: .local)).colorScheme(.dark)
                             }
                         }
                         Divider().hidden()

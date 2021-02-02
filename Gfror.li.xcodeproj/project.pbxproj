@@ -72,6 +72,8 @@
 		8DF3BBD5250BB62D00DBCC37 /* SensorOverviewLastMeasurementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBD4250BB62D00DBCC37 /* SensorOverviewLastMeasurementView.swift */; };
 		8DF3BBD8250BB6BB00DBCC37 /* OwnHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBD7250BB6BB00DBCC37 /* OwnHelpers.swift */; };
 		8DF3BBD9250BB6BB00DBCC37 /* OwnHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBD7250BB6BB00DBCC37 /* OwnHelpers.swift */; };
+		B41B166525C9740F00E8FD18 /* sensors.json in Resources */ = {isa = PBXBuildFile; fileRef = B41B166425C9740F00E8FD18 /* sensors.json */; };
+		B41B166625C9740F00E8FD18 /* sensors.json in Resources */ = {isa = PBXBuildFile; fileRef = B41B166425C9740F00E8FD18 /* sensors.json */; };
 		B4383A5A25C3EA61000A6D4F /* SingleSensorWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4383A5425C3E891000A6D4F /* SingleSensorWidget.swift */; };
 		B4383A7125C3F939000A6D4F /* SingleSensorGraphWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4383A6025C3F523000A6D4F /* SingleSensorGraphWidget.swift */; };
 		B4383A7725C3F93C000A6D4F /* SingleSensorGraphWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4383A6025C3F523000A6D4F /* SingleSensorGraphWidget.swift */; };
@@ -204,6 +206,7 @@
 		8DF3BBCC250B748800DBCC37 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		8DF3BBD4250BB62D00DBCC37 /* SensorOverviewLastMeasurementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorOverviewLastMeasurementView.swift; sourceTree = "<group>"; };
 		8DF3BBD7250BB6BB00DBCC37 /* OwnHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnHelpers.swift; sourceTree = "<group>"; };
+		B41B166425C9740F00E8FD18 /* sensors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sensors.json; sourceTree = "<group>"; };
 		B4383A5425C3E891000A6D4F /* SingleSensorWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSensorWidget.swift; sourceTree = "<group>"; };
 		B4383A6025C3F523000A6D4F /* SingleSensorGraphWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSensorGraphWidget.swift; sourceTree = "<group>"; };
 		B4383A9325C3FE53000A6D4F /* WidgetAPILoaders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetAPILoaders.swift; sourceTree = "<group>"; };
@@ -553,6 +556,7 @@
 		E4C24FE424EEB57500FB4F51 /* api */ = {
 			isa = PBXGroup;
 			children = (
+				B41B166425C9740F00E8FD18 /* sensors.json */,
 				8DA7CEF32516105900395465 /* ViewModels */,
 				E4C24FE524EEB57A00FB4F51 /* Models */,
 				8D3D376D250CBAAF00F11E48 /* Notes.rtf */,
@@ -738,6 +742,7 @@
 				8D3D376E250CBAAF00F11E48 /* Notes.rtf in Resources */,
 				8D5EACE9252CE407006EBCD6 /* Localizable.strings in Resources */,
 				E461459524A34831006233AE /* Assets.xcassets in Resources */,
+				B41B166525C9740F00E8FD18 /* sensors.json in Resources */,
 				8D815A2C25A641D80060AC85 /* AppStore_DE.rtf in Resources */,
 				8D8533FA25A788A800B8BD2E /* AppStore_ENG.rtf in Resources */,
 			);
@@ -747,6 +752,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B41B166625C9740F00E8FD18 /* sensors.json in Resources */,
 				8D3D376F250CBAAF00F11E48 /* Notes.rtf in Resources */,
 				E461459624A34831006233AE /* Assets.xcassets in Resources */,
 			);

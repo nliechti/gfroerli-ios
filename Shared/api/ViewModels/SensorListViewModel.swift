@@ -13,7 +13,7 @@ class SensorListViewModel: LoadableObject {
     
     @Published var sensorArray = [Sensor]() { didSet { didChange.send(())}}
     @Published private(set) var state = LoadingState<Output>.idle
-
+    
     let didChange = PassthroughSubject<Void, Never>()
         
     init() {
@@ -26,7 +26,10 @@ class SensorListViewModel: LoadableObject {
     
     
     func load() {
-        
+        /*let jsonDecoder = JSONDecoder()
+        let sensors = try! jsonDecoder.decode([Sensor].self, from: readLocalFile(forName: "sensors")!)
+        self.sensorArray = sensors
+        self.state = .loaded(sensors)*/
         var url = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/mobile_app/sensors")!)
         url.setValue("Bearer XTZA6H0Hg2f02bzVefmVlr8fIJMy2FGCJ0LlDlejj2Pi0i1JvZiL0Ycv1t6JoZzD", forHTTPHeaderField: "Authorization")
         url.httpMethod = "GET"
@@ -50,9 +53,26 @@ class SensorListViewModel: LoadableObject {
             }
         }.resume()
     }
+    
+    func readLocalFile(forName name: String) -> Data? {
+        do {
+            if let bundlePath = Bundle.main.path(forResource: name,
+                                                 ofType: "json"),
+                let jsonData = try String(contentsOfFile: bundlePath).data(using: .utf8) {
+                return jsonData
+            }
+        } catch {
+            print(error)
+        }
+        
+        return nil
+    }
 }
 
 
 
 
 let testSensorVM = SensorListViewModel(sensors: [testSensor])
+
+
+
