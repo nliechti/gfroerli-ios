@@ -11,12 +11,9 @@ import MapKit
 struct LakeOverView: View {
     var lake : Lake
     @ObservedObject var sensorsVM: SensorListViewModel
-    @Binding var loadingState: loadingState
     var body: some View {
-    
         VStack(alignment: .leading,spacing: 0) {
                     topMap(lake: lake, region: lake.region, sensors: sensorsVM)
-                             .navigationBarTitle(lake.name)
             AsyncContentView(source: sensorsVM) { sensors in
                         ScrollView(showsIndicators: true){
                             HStack{
@@ -25,15 +22,18 @@ struct LakeOverView: View {
                             }
                         ForEach(sensors){ sensor in
                             if(lake.sensors.contains(String(sensor.id))){
+                                NavigationLink(
+                                    destination: SensorOverView(id: sensor.id),
+                                    label: {
                                 SensorListItem(sensor: sensor).padding(.horizontal)
+                                    })
                             }
                         }
                         Spacer()
                         }.background(Color.systemGroupedBackground.ignoresSafeArea())
-                        
-                    
                     }
                 }.padding()
+                .navigationBarTitle(lake.name)
                 .background(Color.systemGroupedBackground.ignoresSafeArea())
             }
     
@@ -41,7 +41,7 @@ struct LakeOverView: View {
 
 struct LakeOverView_Previews: PreviewProvider {
     static var previews: some View {
-        LakeOverView(lake: lakeOfZurich, sensorsVM: testSensorVM, loadingState: .constant(.loaded)).makePreViewModifier()
+        LakeOverView(lake: lakeOfZurich, sensorsVM: testSensorVM).makePreViewModifier()
     }
 }
 

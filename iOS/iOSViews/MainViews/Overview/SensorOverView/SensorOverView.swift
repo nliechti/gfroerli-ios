@@ -16,28 +16,36 @@ struct SensorOverView: View {
     var id : Int
     
     var body: some View {
-            AsyncContentView(source: sensorVM) { sensor in
-                ScrollView{
-                    VStack{
-                        SensorOverviewLastMeasurementView(sensor: sensor)
-                            .boxStyle()
-                        
-                        SensorOverViewGraph(sensorID: id)
-                            .boxStyle()
-                        
-                        SensorOverviewMap(inSensor: sensor)
-                            .boxStyle()
-                        
-                        SensorOverviewSponsorView(sensor: sensor)
-                            .boxStyle()
-                        
-                    }
-                    .padding(.vertical)
+        AsyncContentView(source: sensorVM) { sensor in
+            ScrollView{
+                VStack{
+                    SensorOverviewLastMeasurementView(sensor: sensor)
+                        .boxStyle()
+                    
+                    SensorOverViewGraph(sensorID: id)
+                        .boxStyle()
+                    
+                    SensorOverviewMap(inSensor: sensor)
+                        .boxStyle()
+                    
+                    SensorOverviewSponsorView(sensor: sensor)
+                        .boxStyle()
                 }
-                .navigationBarTitle(sensor.device_name,displayMode: .inline)
+                .padding(.vertical)
             }
-            .background(Color.systemGroupedBackground.ignoresSafeArea())
-            .toolbar{favoriteToolBarItem}
+            .navigationBarTitle(sensor.device_name,displayMode: .inline)
+            
+        }
+        .background(Color.systemGroupedBackground.ignoresSafeArea())
+        .navigationBarItems(trailing:
+                                Button {
+                                    isFav ? removeFav() : makeFav()
+                                    UserDefaults(suiteName: "group.ch.gfroerli")?.set(favorites, forKey: "favoritesIDs")
+                                } label: {
+                                    Image(systemName: isFav ? "star.fill" : "star")
+                                        .foregroundColor(isFav ? .yellow : .none)
+                                        .imageScale(.large)
+                                })
         .background(Color.systemGroupedBackground.ignoresSafeArea()).onAppear(perform: {
             sensorVM.id = id
             sensorVM.load()
@@ -46,27 +54,7 @@ struct SensorOverView: View {
         })
     }
     
-    var favoriteToolBarItem: some ToolbarContent {
-        ToolbarItem(placement: .navigationBarTrailing) {
-            HStack{
-                Button {
-                    sensorVM.load()
-                } label: {
-                    Image(systemName:"arrow.clockwise")
-                        .imageScale(.large)
-                }
-                
-                Button {
-                    isFav ? removeFav() : makeFav()
-                    UserDefaults(suiteName: "group.ch.gfroerli")?.set(favorites, forKey: "favoritesIDs")
-                } label: {
-                    Image(systemName: isFav ? "star.fill" : "star")
-                        .foregroundColor(isFav ? .yellow : .none)
-                        .imageScale(.large)
-                }}
-        }
-    }
-    
+   
     func makeFav(){
         favorites.append(id)
         isFav = true
