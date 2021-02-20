@@ -24,7 +24,6 @@ struct OverView: View {
                         .bold()
                         .padding(.horizontal)
                     
-                    
                     AsyncContentView(source: sensorsVM) { sensors in
                         NavigationLink(
                             destination: SensorOverView(id: featuredSensorID),
@@ -32,6 +31,7 @@ struct OverView: View {
                                 SensorScrollItem(sensor: sensors.first(where: {$0.id == featuredSensorID})!)
                             }).buttonStyle(PlainButtonStyle())
                     }
+                    
                     Text("Water Bodies")
                         .font(.title)
                         .bold()

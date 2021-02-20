@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Foundation
 
 @main
 struct GfrorliApp: App {
@@ -14,7 +15,9 @@ struct GfrorliApp: App {
     var body: some Scene {
         WindowGroup {
             #if os(iOS)
-            iOSMainView()
+            iOSMainView().onAppear(perform: {
+                print(Bundle.main.preferredLocalizations.first)
+            })
             #endif
         }
     }

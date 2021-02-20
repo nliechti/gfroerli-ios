@@ -53,7 +53,8 @@ class HourlyAggregationsViewModel: LoadableObject{
                    
                     array.rotateLeft(positions: hour+1)
                     self.dataDay = array
-                   
+                   print(array)
+                    print("AAaaaa")
                     self.state = .loaded(array)
                 } else {
                     self.state = .failed
