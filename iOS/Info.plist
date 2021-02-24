@@ -58,6 +58,10 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>We like to send you a notification when you are near one of our sensors!</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We like to send you a notification when you are near one of our sensors!</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

@@ -8,6 +8,7 @@
 import SwiftUI
 import WidgetKit
 import StoreKit
+import CoreLocation
 
 struct SettingsView: View {
     @State var activePath: String?
@@ -15,6 +16,7 @@ struct SettingsView: View {
     @Binding var loadingState: loadingState
     @ObservedObject var sensorsVm : SensorListViewModel
     @Environment(\.openURL) var openURL
+    let locationManager = CLLocationManager()
     var body: some View {
         NavigationView{
             VStack{
@@ -26,6 +28,20 @@ struct SettingsView: View {
 
                         }, label: {
                             Text("Change Language")
+                        })
+                        Button(action: {
+                            print(sensorsVm.sensorArray.first!)
+                            LocationNotificationHandler.addLocationNotification(for: sensorsVm.sensorArray.first!)
+                           
+                        }, label: {
+                            Text("Location")
+                        })
+                        Button(action: {
+                            
+                            LocationNotificationHandler.testNotification()
+                           
+                        }, label: {
+                            Text("NOTIF")
                         })
                     }
                     Section(header:Text("Web")){

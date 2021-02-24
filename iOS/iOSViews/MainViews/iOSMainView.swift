@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MapKit
+import UserNotifications
 
 struct iOSMainView: View {
     @State var showSens = false
@@ -52,10 +53,13 @@ struct iOSMainView: View {
             }
             
         })
+        
         //fetching Sensors
         .onAppear(perform: sensorsVm.load)
     }
+    
 }
+
 
 
 struct iOSMainView_Previews: PreviewProvider {

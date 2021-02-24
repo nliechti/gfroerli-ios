@@ -74,6 +74,8 @@
 		8DF3BBD9250BB6BB00DBCC37 /* OwnHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBD7250BB6BB00DBCC37 /* OwnHelpers.swift */; };
 		B41B166525C9740F00E8FD18 /* sensors.json in Resources */ = {isa = PBXBuildFile; fileRef = B41B166425C9740F00E8FD18 /* sensors.json */; };
 		B41B166625C9740F00E8FD18 /* sensors.json in Resources */ = {isa = PBXBuildFile; fileRef = B41B166425C9740F00E8FD18 /* sensors.json */; };
+		B43568D225E3B31F00AA2B40 /* LocationNotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43568D125E3B31F00AA2B40 /* LocationNotificationHandler.swift */; };
+		B43568DA25E3C91500AA2B40 /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43568D925E3C91500AA2B40 /* LocationHandler.swift */; };
 		B4383A5A25C3EA61000A6D4F /* SingleSensorWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4383A5425C3E891000A6D4F /* SingleSensorWidget.swift */; };
 		B4383A7125C3F939000A6D4F /* SingleSensorGraphWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4383A6025C3F523000A6D4F /* SingleSensorGraphWidget.swift */; };
 		B4383A7725C3F93C000A6D4F /* SingleSensorGraphWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4383A6025C3F523000A6D4F /* SingleSensorGraphWidget.swift */; };
@@ -86,6 +88,7 @@
 		B4B37A4A25C2C1D500DA76A5 /* AsyncContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B37A4825C2C1D500DA76A5 /* AsyncContentView.swift */; };
 		B4B37A5625C2C43400DA76A5 /* LoadableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B37A5525C2C43400DA76A5 /* LoadableObject.swift */; };
 		B4B37A5725C2C43400DA76A5 /* LoadableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B37A5525C2C43400DA76A5 /* LoadableObject.swift */; };
+		B4BDEF3125E40EEB00A82E16 /* SensorNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BDEF3025E40EEB00A82E16 /* SensorNotificationView.swift */; };
 		B4F95C0825C2EC46004C21E1 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F95C0725C2EC46004C21E1 /* ViewExtensions.swift */; };
 		B4F95C0F25C30F38004C21E1 /* HourlyChartShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F95C0E25C30F38004C21E1 /* HourlyChartShape.swift */; };
 		B4F95C1025C30F38004C21E1 /* HourlyChartShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F95C0E25C30F38004C21E1 /* HourlyChartShape.swift */; };
@@ -208,6 +211,8 @@
 		8DF3BBD4250BB62D00DBCC37 /* SensorOverviewLastMeasurementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorOverviewLastMeasurementView.swift; sourceTree = "<group>"; };
 		8DF3BBD7250BB6BB00DBCC37 /* OwnHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnHelpers.swift; sourceTree = "<group>"; };
 		B41B166425C9740F00E8FD18 /* sensors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sensors.json; sourceTree = "<group>"; };
+		B43568D125E3B31F00AA2B40 /* LocationNotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNotificationHandler.swift; sourceTree = "<group>"; };
+		B43568D925E3C91500AA2B40 /* LocationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
 		B4383A5425C3E891000A6D4F /* SingleSensorWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSensorWidget.swift; sourceTree = "<group>"; };
 		B4383A6025C3F523000A6D4F /* SingleSensorGraphWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSensorGraphWidget.swift; sourceTree = "<group>"; };
 		B4383A9325C3FE53000A6D4F /* WidgetAPILoaders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetAPILoaders.swift; sourceTree = "<group>"; };
@@ -221,6 +226,7 @@
 		B4B19E2425C9F1FB0026E939 /* AppStore_IT.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = AppStore_IT.rtf; sourceTree = "<group>"; };
 		B4B37A4825C2C1D500DA76A5 /* AsyncContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncContentView.swift; sourceTree = "<group>"; };
 		B4B37A5525C2C43400DA76A5 /* LoadableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableObject.swift; sourceTree = "<group>"; };
+		B4BDEF3025E40EEB00A82E16 /* SensorNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorNotificationView.swift; sourceTree = "<group>"; };
 		B4F95C0725C2EC46004C21E1 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		B4F95C0E25C30F38004C21E1 /* HourlyChartShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyChartShape.swift; sourceTree = "<group>"; };
 		B4F95C1625C30FBF004C21E1 /* HourlyAggregationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyAggregationViewModel.swift; sourceTree = "<group>"; };
@@ -430,6 +436,7 @@
 				8DF3BBD4250BB62D00DBCC37 /* SensorOverviewLastMeasurementView.swift */,
 				8D3D36EF250BBC8500F11E48 /* SensorOverViewGraph.swift */,
 				8D3D36F1250BBEF000F11E48 /* SensorOverviewSponsorView.swift */,
+				B4BDEF3025E40EEB00A82E16 /* SensorNotificationView.swift */,
 			);
 			path = SensorOverView;
 			sourceTree = "<group>";
@@ -440,6 +447,22 @@
 				8DF3BBD7250BB6BB00DBCC37 /* OwnHelpers.swift */,
 			);
 			path = HelpersFolder;
+			sourceTree = "<group>";
+		};
+		B43568B125E3B10900AA2B40 /* notification */ = {
+			isa = PBXGroup;
+			children = (
+				B43568D125E3B31F00AA2B40 /* LocationNotificationHandler.swift */,
+			);
+			path = notification;
+			sourceTree = "<group>";
+		};
+		B43568D825E3C8F800AA2B40 /* location */ = {
+			isa = PBXGroup;
+			children = (
+				B43568D925E3C91500AA2B40 /* LocationHandler.swift */,
+			);
+			path = location;
 			sourceTree = "<group>";
 		};
 		B4B37A5D25C2C43900DA76A5 /* protocols */ = {
@@ -497,6 +520,8 @@
 				B4B37A5D25C2C43900DA76A5 /* protocols */,
 				8D815A2A25A63AE80060AC85 /* AppStoreData */,
 				8DF3BBD6250BB69700DBCC37 /* HelpersFolder */,
+				B43568D825E3C8F800AA2B40 /* location */,
+				B43568B125E3B10900AA2B40 /* notification */,
 				E4C24FE424EEB57500FB4F51 /* api */,
 				E44EA3AE24EEA88200380E27 /* extensions */,
 				E461456824A34823006233AE /* GfrorliApp.swift */,
@@ -842,6 +867,7 @@
 				8D996DE325A23A2B00724453 /* MonthlyChartView.swift in Sources */,
 				8D3D36F2250BBEF000F11E48 /* SensorOverviewSponsorView.swift in Sources */,
 				B4383A7725C3F93C000A6D4F /* SingleSensorGraphWidget.swift in Sources */,
+				B43568D225E3B31F00AA2B40 /* LocationNotificationHandler.swift in Sources */,
 				8D737737252BA8750075E04E /* SponsorsViewModel.swift in Sources */,
 				8D04196824F50258003D64D4 /* SensorScrollItem.swift in Sources */,
 				E44EA3AD24EEA7EA00380E27 /* MapExtension.swift in Sources */,
@@ -867,6 +893,8 @@
 				8D0D7FE224F107B60068176C /* OverView.swift in Sources */,
 				8DBCDB962576D55800CBDAA6 /* Legend.swift in Sources */,
 				8D2701C725153082007BB0E1 /* LoadingView.swift in Sources */,
+				B43568DA25E3C91500AA2B40 /* LocationHandler.swift in Sources */,
+				B4BDEF3125E40EEB00A82E16 /* SensorNotificationView.swift in Sources */,
 				B4F95C1725C30FBF004C21E1 /* HourlyAggregationViewModel.swift in Sources */,
 				8DCB9A58257972E30063C628 /* SensorOverviewMap.swift in Sources */,
 				E438B4CC24ACFB7D008A2E01 /* iOSMainView.swift in Sources */,
@@ -966,7 +994,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.00;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -991,7 +1019,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.00;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1136,7 +1164,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.00;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli;
 				PRODUCT_NAME = Gfror.li;
 				SDKROOT = iphoneos;
@@ -1163,7 +1191,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.00;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli;
 				PRODUCT_NAME = Gfror.li;
 				PROVISIONING_PROFILE_SPECIFIER = "";
