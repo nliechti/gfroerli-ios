@@ -37,7 +37,7 @@ struct SettingsView: View {
                         HStack{
                             NavigationLink(destination: WidgetSettingsView(sensorsVM: sensorsVm, loadingState: $loadingState), tag: "widgetSettings", selection: $activePath ,label: {
                                 Label(
-                                    title: { Text("Widget Settings") },
+                                    title: { Text("Widget Settings").foregroundColor(Color("textColor"))},
                                     icon: { Image(systemName: "gear").resizable().aspectRatio(contentMode: .fit).foregroundColor(.white).padding(3)
                                         .frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).background(Color.gray).cornerRadius(3) })
                                 
@@ -50,16 +50,16 @@ struct SettingsView: View {
                         }, label: {
                             HStack{
                                 Label(
-                                    title: { Text("Change Language") },
+                                    title: { Text("Change Language").foregroundColor(Color("textColor"))},
                                     icon: { Image(systemName: "globe").resizable().foregroundColor(.white).padding(5)
                                         .background(Color.blue).frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/) })
                                 Spacer()
                                 Image(systemName: "chevron.right").foregroundColor(.gray)
                             }
-                        }).buttonStyle(PlainButtonStyle())
+                        })
                         
                     }
-                    Section(header:Text("About")){
+                    Section(header:Text("About").foregroundColor(Color("textColor"))){
                         //Contact
                         Button(action: {
                             let email = "appdev@coredump.ch"
@@ -71,13 +71,13 @@ struct SettingsView: View {
                         }, label: {
                             HStack{
                                 Label(
-                                    title: { Text("Contact") },
+                                    title: { Text("Contact").foregroundColor(Color("textColor")) },
                                     icon: { Image(systemName: "envelope.fill").resizable().aspectRatio(contentMode: .fit).foregroundColor(.white).padding(4)
                                         .frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).background(Color.blue).cornerRadius(3)})
                                 Spacer()
                                 Image(systemName: "chevron.right").foregroundColor(.gray)
                             }
-                        }).buttonStyle(PlainButtonStyle())
+                        })
                         
                         //Rate
                         Button(action: {
@@ -94,68 +94,68 @@ struct SettingsView: View {
                         }, label: {
                             HStack{
                                 Label(
-                                    title: { Text("Rate") },
+                                    title: { Text("Rate").foregroundColor(Color("textColor")) },
                                     icon: { Image(systemName: "heart.fill").resizable().aspectRatio(contentMode: .fit).foregroundColor(.white).padding(5)
                                         .frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).background(Color.red).cornerRadius(3)})
                                 Spacer()
                                 Image(systemName: "chevron.right").foregroundColor(.gray)
                             }
-                        }).buttonStyle(PlainButtonStyle())
+                        })
                         Link(destination: URL(string: "https://xn--gfrr-7qa.li")!, label: {
                             HStack{
                                 Label(
-                                    title: { Text("gfrör.li") },
+                                    title: { Text("gfrör.li").foregroundColor(Color("textColor")) },
                                     icon: { Image(systemName: "safari").resizable().foregroundColor(.white).padding(4)
                                         .background(Color.blue).frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/) })
                                 Spacer()
                                 Image(systemName: "chevron.right").foregroundColor(.gray)
                             }
-                        }).buttonStyle(PlainButtonStyle())
+                        })
                         
                         Link(destination: URL(string: "https://www.coredump.ch/")!, label: {
                             HStack{
                                 Label(
-                                    title: { Text("coredump.ch") },
+                                    title: { Text("coredump.ch").foregroundColor(Color("textColor")) },
                                     icon: { Image(systemName: "safari").resizable().foregroundColor(.white).padding(4)
                                         .background(Color.blue).frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/) })
                                 Spacer()
                                 Image(systemName: "chevron.right").foregroundColor(.gray)
                             }
-                        }).buttonStyle(PlainButtonStyle())
+                        })
                         
                         Link(destination: URL(string: "https://twitter.com/coredump_ch")!, label: {
                             HStack{
                                 Label(
-                                    title: { Text("@coredump_ch") },
+                                    title: { Text("@coredump_ch").foregroundColor(Color("textColor")) },
                                     icon: { Image("twitterIcon").resizable().frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                         .cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/)
                                     })
                                 Spacer()
                                 Image(systemName: "chevron.right").foregroundColor(.gray)
                             }
-                        }).buttonStyle(PlainButtonStyle())
+                        })
                         
                         Link(destination: URL(string: "https://github.com/gfroerli")!, label: {
                             HStack{
                                 Label(
-                                    title: { Text("Github") },
+                                    title: { Text("Github").foregroundColor(Color("textColor")) },
                                     icon: { Image("githubIcon").resizable().frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                         .cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/) })
                                 Spacer()
                                 Image(systemName: "chevron.right").foregroundColor(.gray)
                             }
-                        }).buttonStyle(PlainButtonStyle())
+                        })
                         
                         Link(destination: URL(string: "https://xn--gfrr-7qa.li/about")!, label: {
                             HStack{
                                 Label(
-                                    title: { Text("Privacy Policy") },
+                                    title: { Text("Privacy Policy").foregroundColor(Color("textColor")) },
                                     icon: { Image(systemName: "hand.raised.fill").resizable().aspectRatio(contentMode: .fit).foregroundColor(.white).padding(4)
                                         .frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).background(Color.blue).cornerRadius(3) })
                                 Spacer()
                                 Image(systemName: "chevron.right").foregroundColor(.gray)
                             }
-                        }).buttonStyle(PlainButtonStyle())
+                        })
                         
                     }
                     
