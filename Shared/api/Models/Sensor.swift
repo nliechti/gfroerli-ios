@@ -14,7 +14,7 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 import Foundation
 
 struct Sensor: Codable, Identifiable {
-    init(id: Int, device_name: String, caption: String?, latitude: Double?, longitude: Double?, sponsor_id: Int?, created_at: String?, latestTemp: Double?, maxTemp: Double?, minTemp:Double?,avgTemp:Double?) {
+    init(id: Int, device_name: String, caption: String?, latitude: Double?, longitude: Double?, sponsor_id: Int?, created_at: Date?, latestTemp: Double?, maxTemp: Double?, minTemp:Double?,avgTemp:Double?) {
         self.id = id
         self.device_name = device_name
         self.caption = caption
@@ -34,7 +34,7 @@ struct Sensor: Codable, Identifiable {
     let latitude : Double?
     let longitude : Double?
     let sponsor_id : Int?
-    let created_at : String?
+    let created_at : Date?
     let latestTemp : Double?
     let maxTemp: Double?
     let minTemp: Double?
@@ -56,6 +56,7 @@ struct Sensor: Codable, Identifiable {
         
     }
 
+   
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
@@ -65,15 +66,16 @@ struct Sensor: Codable, Identifiable {
         latitude = try values.decodeIfPresent(Double.self, forKey: .latitude)
         longitude = try values.decodeIfPresent(Double.self, forKey: .longitude)
         sponsor_id = try values.decodeIfPresent(Int.self, forKey: .sponsor_id)
-        created_at = try values.decodeIfPresent(String.self, forKey: .created_at)
         latestTemp = try values.decodeIfPresent(Double.self, forKey: .latestTemp)
         minTemp = try values.decodeIfPresent(Double.self, forKey: .minTemp)
         maxTemp = try values.decodeIfPresent(Double.self, forKey: .maxTemp)
         avgTemp = try values.decodeIfPresent(Double.self, forKey: .avgTemp)
-
+        
+        let UNIXStamp = try values.decodeIfPresent(Double.self, forKey: .created_at)
+        created_at = Date(timeIntervalSince1970: UNIXStamp ?? 0.0)
     }
 }
 
 
-let testSensor = Sensor(id: 2, device_name: "testSensor", caption: "caption", latitude: 47.28073, longitude: 8.72869, sponsor_id: 0, created_at: "10-10-10", latestTemp: 20.0, maxTemp: 20.0, minTemp: 0.0, avgTemp: 10.0)
+let testSensor = Sensor(id: 2, device_name: "testSensor", caption: "caption", latitude: 47.28073, longitude: 8.72869, sponsor_id: 0, created_at: Date(), latestTemp: 20.0, maxTemp: 20.0, minTemp: 0.0, avgTemp: 10.0)
 

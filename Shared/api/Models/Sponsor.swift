@@ -13,13 +13,11 @@ struct Sponsor: Codable, Identifiable {
         self.id = id
         self.name = name
         self.description = description
-        self.created_at = created_at
     }
     
     let id : Int
     let name : String
     let description : String
-    let created_at : String
 
 
     enum CodingKeys: String, CodingKey {
@@ -27,7 +25,6 @@ struct Sponsor: Codable, Identifiable {
         case id = "id"
         case name = "name"
         case description = "description"
-        case created_at = "created_at"
     }
 
     
@@ -36,6 +33,5 @@ struct Sponsor: Codable, Identifiable {
         id = try values.decode(Int.self, forKey: .id)
         name = try values.decode(String.self, forKey: .name)
         description = try values.decode(String.self, forKey: .description)
-        created_at = try values.decode(String.self, forKey: .created_at)
     }
 }
