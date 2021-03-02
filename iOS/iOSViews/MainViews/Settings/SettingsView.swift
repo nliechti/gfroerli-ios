@@ -11,84 +11,178 @@ import StoreKit
 import CoreLocation
 
 struct SettingsView: View {
+    @State var alertShowing = false
     @State var activePath: String?
     @Binding var loadingState: loadingState
     @ObservedObject var sensorsVm : SensorListViewModel
     @Environment(\.openURL) var openURL
-    let locationManager = CLLocationManager()
+    
     var body: some View {
         NavigationView{
             VStack{
-                Form{
-                    Section(header:Text("General")){
-                        NavigationLink(destination: WidgetSettingsView(sensorsVM: sensorsVm, loadingState: $loadingState), tag: "widgetSettings", selection: $activePath ,label: {Text("Widget Settings")})
+                HStack{
+                    Image("AppIcon-1024").resizable().aspectRatio(contentMode: .fit).cornerRadius(15)
+                    Spacer(minLength: 25)
+                    VStack(alignment: .leading){
+                        Text("Gfrör.li").font(.title)
+                        Text("Version: \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "fail")")
+                }
+                    Spacer()
+                }.padding([.top,.leading])
+                .padding(.trailing,150)
+                .background(Color.systemGroupedBackground)
+                List{
+                    Section(header: Text("Settings")){
+                        HStack{
+                            NavigationLink(destination: WidgetSettingsView(sensorsVM: sensorsVm, loadingState: $loadingState), tag: "widgetSettings", selection: $activePath ,label: {
+                                Label(
+                                    title: { Text("Widget Settings") },
+                                    icon: { Image(systemName: "gear").resizable().aspectRatio(contentMode: .fit).foregroundColor(.white).padding(3)
+                                        .frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).background(Color.gray).cornerRadius(3) })
+                                
+                                
+                            })}
+                        
                         Button(action: {
                             UIApplication.shared.open(URL.init(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
-
-                        }, label: {
-                            Text("Change Language")
-                        })
-                        Button(action: {
-                            print(sensorsVm.sensorArray.first!)
-                            LocationNotificationHandler.addLocationNotification(for: sensorsVm.sensorArray.first!)
-                           
-                        }, label: {
-                            Text("Location")
-                        })
-                        Button(action: {
                             
-                            LocationNotificationHandler.testNotification()
-                           
                         }, label: {
-                            Text("NOTIF")
-                        })
-                        NavigationLink(
-                            destination: AboutView(),
-                            label: {
-                                /*@START_MENU_TOKEN@*/Text("Navigate")/*@END_MENU_TOKEN@*/
-                            })
+                            HStack{
+                                Label(
+                                    title: { Text("Change Language") },
+                                    icon: { Image(systemName: "globe").resizable().foregroundColor(.white).padding(5)
+                                        .background(Color.blue).frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/) })
+                                Spacer()
+                                Image(systemName: "chevron.right").foregroundColor(.gray)
+                            }
+                        }).buttonStyle(PlainButtonStyle())
+                        
                     }
-                    
-                    Section(header:Text("Feedback")){
-                    Button(action: {
-                        let email = "appdev@coredump.ch"
-                             let subject = "Feedback iOS Version: \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "fail")"
-                        
+                    Section(header:Text("About")){
+                        //Contact
+                        Button(action: {
+                            let email = "appdev@coredump.ch"
+                            let subject = "Feedback iOS Version: \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "fail")"
                             let body = getEmailBody()
-                           guard let url = URL(string: "mailto:\(email)?subject=\(subject.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? "")&body=\(body.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? "")") else { return }
-                        UIApplication.shared.open(url)
+                            guard let url = URL(string: "mailto:\(email)?subject=\(subject.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? "")&body=\(body.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? "")") else { return }
+                            UIApplication.shared.open(url)
+                            
+                        }, label: {
+                            HStack{
+                                Label(
+                                    title: { Text("Contact") },
+                                    icon: { Image(systemName: "envelope.fill").resizable().aspectRatio(contentMode: .fit).foregroundColor(.white).padding(5)
+                                        .frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).background(Color.blue).cornerRadius(3)})
+                                Spacer()
+                                Image(systemName: "chevron.right").foregroundColor(.gray)
+                            }
+                        }).buttonStyle(PlainButtonStyle())
                         
-                    }, label: {
-                            Text("Contact us")
-                        
-                    })
+                        //Rate
                         Button(action: {
                             var components = URLComponents(url: URL(string: "https://apps.apple.com/us/app/gfr%C3%B6r-li/id1451431723")!, resolvingAgainstBaseURL: false)
-                                                           
+                            
                             components?.queryItems = [
-                              URLQueryItem(name: "action", value: "write-review")
+                                URLQueryItem(name: "action", value: "write-review")
                             ]
                             guard let writeReviewURL = components?.url else {
-                              return
+                                return
                             }
                             openURL(writeReviewURL)
                             
                         }, label: {
-                                Text("Write a Review")
-                            
-                        })
-                    }
-                    Section(header: Text("Other"),footer:Text("Version:"+" \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "fail")").foregroundColor(.gray)){
+                            HStack{
+                                Label(
+                                    title: { Text("Rate") },
+                                    icon: { Image(systemName: "heart.fill").resizable().foregroundColor(.white).padding(5)
+                                        .background(Color.red).frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/) })
+                                Spacer()
+                                Image(systemName: "chevron.right").foregroundColor(.gray)
+                            }
+                        }).buttonStyle(PlainButtonStyle())
+                        Link(destination: URL(string: "https://xn--gfrr-7qa.li")!, label: {
+                            HStack{
+                                Label(
+                                    title: { Text("Website") },
+                                    icon: { Image(systemName: "safari").resizable().foregroundColor(.white).padding(5)
+                                        .background(Color.blue).frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/) })
+                                Spacer()
+                                Image(systemName: "chevron.right").foregroundColor(.gray)
+                            }
+                        }).buttonStyle(PlainButtonStyle())
                         
+                        Link(destination: URL(string: "https://www.coredump.ch/")!, label: {
+                            HStack{
+                                Label(
+                                    title: { Text("Coredump Web") },
+                                    icon: { Image(systemName: "safari").resizable().foregroundColor(.white).padding(4)
+                                        .background(Color.blue).frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/) })
+                                Spacer()
+                                Image(systemName: "chevron.right").foregroundColor(.gray)
+                            }
+                        }).buttonStyle(PlainButtonStyle())
+                        
+                        Link(destination: URL(string: "https://twitter.com/coredump_ch")!, label: {
+                            HStack{
+                                Label(
+                                    title: { Text("Coredump Twitter") },
+                                    icon: { Image("twitterIcon").resizable().frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                        .cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/)
+                                    })
+                                Spacer()
+                                Image(systemName: "chevron.right").foregroundColor(.gray)
+                            }
+                        }).buttonStyle(PlainButtonStyle())
+                        
+                        Link(destination: URL(string: "https://github.com/gfroerli")!, label: {
+                            HStack{
+                                Label(
+                                    title: { Text("Github") },
+                                    icon: { Image("githubIcon").resizable().frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                        .cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/) })
+                                Spacer()
+                                Image(systemName: "chevron.right").foregroundColor(.gray)
+                            }
+                        }).buttonStyle(PlainButtonStyle())
+                        
+                        Link(destination: URL(string: "https://xn--gfrr-7qa.li/about")!, label: {
+                            HStack{
+                                Label(
+                                    title: { Text("Privacy Policy") },
+                                    icon: { Image(systemName: "hand.raised.fill").resizable().aspectRatio(contentMode: .fit).foregroundColor(.white).padding(5)
+                                        .frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).background(Color.blue).cornerRadius(3) })
+                                Spacer()
+                                Image(systemName: "chevron.right").foregroundColor(.gray)
+                            }
+                        }).buttonStyle(PlainButtonStyle())
                         
                     }
-                }
-            }.navigationTitle("Settings")
-            .background(Color.gray.opacity(0.001))
+                    
+                }.listStyle(GroupedListStyle())
+                
+                
+                
+            }.background(Color.systemGroupedBackground)
+            .navigationBarTitle("About", displayMode: .inline)
+            .navigationBarItems(trailing:
+                                    Button(action: {alertShowing=true}, label: {
+                                        Text("Reset App").fontWeight(.regular)
+                                    }).alert(isPresented: $alertShowing, content: {
+                                        Alert(
+                                            title: Text("Are you sure?"),
+                                            message: Text("Do you want to reset the app?"),
+                                            primaryButton: .destructive(Text("Reset"), action: resetContent),
+                                            secondaryButton: .cancel(Text("Cancel"), action: {})
+                                        )
+                                    }) )
         }
     }
-    
-    
+    func resetContent(){
+        UserDefaults(suiteName: "group.ch.gfroerli")?.set([], forKey: "favoritesIDs")
+        UserDefaults(suiteName: "group.ch.gfroerli")?.set(0, forKey: "widgetSensorID")
+        WidgetCenter.shared.reloadAllTimelines()
+        
+    }
 }
 
 struct SettingsView_Previews: PreviewProvider {

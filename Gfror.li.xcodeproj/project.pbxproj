@@ -89,7 +89,6 @@
 		B4B37A5625C2C43400DA76A5 /* LoadableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B37A5525C2C43400DA76A5 /* LoadableObject.swift */; };
 		B4B37A5725C2C43400DA76A5 /* LoadableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B37A5525C2C43400DA76A5 /* LoadableObject.swift */; };
 		B4BDEF3125E40EEB00A82E16 /* SensorNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BDEF3025E40EEB00A82E16 /* SensorNotificationView.swift */; };
-		B4C3A9B825EECE530059FCF0 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C3A9B725EECE530059FCF0 /* AboutView.swift */; };
 		B4F95C0825C2EC46004C21E1 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F95C0725C2EC46004C21E1 /* ViewExtensions.swift */; };
 		B4F95C0F25C30F38004C21E1 /* HourlyChartShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F95C0E25C30F38004C21E1 /* HourlyChartShape.swift */; };
 		B4F95C1025C30F38004C21E1 /* HourlyChartShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F95C0E25C30F38004C21E1 /* HourlyChartShape.swift */; };
@@ -228,7 +227,6 @@
 		B4B37A4825C2C1D500DA76A5 /* AsyncContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncContentView.swift; sourceTree = "<group>"; };
 		B4B37A5525C2C43400DA76A5 /* LoadableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableObject.swift; sourceTree = "<group>"; };
 		B4BDEF3025E40EEB00A82E16 /* SensorNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorNotificationView.swift; sourceTree = "<group>"; };
-		B4C3A9B725EECE530059FCF0 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		B4F95C0725C2EC46004C21E1 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		B4F95C0E25C30F38004C21E1 /* HourlyChartShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyChartShape.swift; sourceTree = "<group>"; };
 		B4F95C1625C30FBF004C21E1 /* HourlyAggregationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyAggregationViewModel.swift; sourceTree = "<group>"; };
@@ -410,7 +408,6 @@
 			children = (
 				8D0D7FE524F107D30068176C /* SettingsView.swift */,
 				8D4731B024F3F93200EE5536 /* WidgetSettingsView.swift */,
-				B4C3A9B725EECE530059FCF0 /* AboutView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -862,7 +859,6 @@
 				E4C24FE724EEB58400FB4F51 /* Sensor.swift in Sources */,
 				B4F95C0825C2EC46004C21E1 /* ViewExtensions.swift in Sources */,
 				8D0D7FE624F107D30068176C /* SettingsView.swift in Sources */,
-				B4C3A9B825EECE530059FCF0 /* AboutView.swift in Sources */,
 				8D0D7FEA24F1109A0068176C /* ScrollItem.swift in Sources */,
 				8DA7CF02251611C800395465 /* SingleSensorViewModel.swift in Sources */,
 				8D0D7FE824F10F610068176C /* LakesData.swift in Sources */,
