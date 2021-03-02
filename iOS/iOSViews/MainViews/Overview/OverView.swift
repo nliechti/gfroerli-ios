@@ -62,7 +62,7 @@ struct OverView: View {
                     }
                 }
             }.sheet(isPresented: $showAbout, content: {
-                AboutView(showView: $showAbout)
+                FAQView(showView: $showAbout)
             })
         }.sheet(isPresented: $showDetail, content: {
             NavigationView{

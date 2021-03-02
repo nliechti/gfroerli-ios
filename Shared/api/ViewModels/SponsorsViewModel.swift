@@ -35,6 +35,7 @@ class SponsorListViewModel: LoadableObject {
                         self.state = .failed
                     }
                 }catch{
+                    
                     print(error.localizedDescription)
                     self.state = .failed
                 }
