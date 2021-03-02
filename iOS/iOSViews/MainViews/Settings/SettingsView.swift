@@ -22,17 +22,18 @@ struct SettingsView: View {
             VStack{
                 HStack{
                     Image("AppIcon-1024").resizable().aspectRatio(contentMode: .fit).cornerRadius(15)
-                    Spacer(minLength: 25)
                     VStack(alignment: .leading){
                         Text("Gfrör.li").font(.title)
-                        Text("Version: \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "fail")")
+                        Text("Version: \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "_")").foregroundColor(.gray)
+                        Text("by Coredump Rapperswil").foregroundColor(.gray)
                 }
                     Spacer()
-                }.padding([.top,.leading])
-                .padding(.trailing,150)
+                }.frame(maxHeight: 100)
+                .padding([.top,.leading])
+                
                 .background(Color.systemGroupedBackground)
                 List{
-                    Section(header: Text("Settings")){
+                    Section(header: Text("General")){
                         HStack{
                             NavigationLink(destination: WidgetSettingsView(sensorsVM: sensorsVm, loadingState: $loadingState), tag: "widgetSettings", selection: $activePath ,label: {
                                 Label(
@@ -71,7 +72,7 @@ struct SettingsView: View {
                             HStack{
                                 Label(
                                     title: { Text("Contact") },
-                                    icon: { Image(systemName: "envelope.fill").resizable().aspectRatio(contentMode: .fit).foregroundColor(.white).padding(5)
+                                    icon: { Image(systemName: "envelope.fill").resizable().aspectRatio(contentMode: .fit).foregroundColor(.white).padding(4)
                                         .frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).background(Color.blue).cornerRadius(3)})
                                 Spacer()
                                 Image(systemName: "chevron.right").foregroundColor(.gray)
@@ -94,8 +95,8 @@ struct SettingsView: View {
                             HStack{
                                 Label(
                                     title: { Text("Rate") },
-                                    icon: { Image(systemName: "heart.fill").resizable().foregroundColor(.white).padding(5)
-                                        .background(Color.red).frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/) })
+                                    icon: { Image(systemName: "heart.fill").resizable().aspectRatio(contentMode: .fit).foregroundColor(.white).padding(5)
+                                        .frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).background(Color.red).cornerRadius(3)})
                                 Spacer()
                                 Image(systemName: "chevron.right").foregroundColor(.gray)
                             }
@@ -103,8 +104,8 @@ struct SettingsView: View {
                         Link(destination: URL(string: "https://xn--gfrr-7qa.li")!, label: {
                             HStack{
                                 Label(
-                                    title: { Text("Website") },
-                                    icon: { Image(systemName: "safari").resizable().foregroundColor(.white).padding(5)
+                                    title: { Text("gfrör.li") },
+                                    icon: { Image(systemName: "safari").resizable().foregroundColor(.white).padding(4)
                                         .background(Color.blue).frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/) })
                                 Spacer()
                                 Image(systemName: "chevron.right").foregroundColor(.gray)
@@ -114,7 +115,7 @@ struct SettingsView: View {
                         Link(destination: URL(string: "https://www.coredump.ch/")!, label: {
                             HStack{
                                 Label(
-                                    title: { Text("Coredump Web") },
+                                    title: { Text("coredump.ch") },
                                     icon: { Image(systemName: "safari").resizable().foregroundColor(.white).padding(4)
                                         .background(Color.blue).frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/) })
                                 Spacer()
@@ -125,7 +126,7 @@ struct SettingsView: View {
                         Link(destination: URL(string: "https://twitter.com/coredump_ch")!, label: {
                             HStack{
                                 Label(
-                                    title: { Text("Coredump Twitter") },
+                                    title: { Text("@coredump_ch") },
                                     icon: { Image("twitterIcon").resizable().frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                         .cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/)
                                     })
@@ -149,7 +150,7 @@ struct SettingsView: View {
                             HStack{
                                 Label(
                                     title: { Text("Privacy Policy") },
-                                    icon: { Image(systemName: "hand.raised.fill").resizable().aspectRatio(contentMode: .fit).foregroundColor(.white).padding(5)
+                                    icon: { Image(systemName: "hand.raised.fill").resizable().aspectRatio(contentMode: .fit).foregroundColor(.white).padding(4)
                                         .frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).background(Color.blue).cornerRadius(3) })
                                 Spacer()
                                 Image(systemName: "chevron.right").foregroundColor(.gray)
@@ -160,10 +161,8 @@ struct SettingsView: View {
                     
                 }.listStyle(GroupedListStyle())
                 
-                
-                
-            }.background(Color.systemGroupedBackground)
-            .navigationBarTitle("About", displayMode: .inline)
+            }.background(Color.systemGroupedBackground.ignoresSafeArea())
+            .navigationBarTitle("Settings", displayMode: .inline)
             .navigationBarItems(trailing:
                                     Button(action: {alertShowing=true}, label: {
                                         Text("Reset App").fontWeight(.regular)
