@@ -77,9 +77,9 @@ struct HourlyChartView: View{
     func getXLabels(data: [HourlyAggregation?]) -> [String] {
         var labels = [String]()
         let hour = Calendar.current.component(.hour, from: Date())
-        labels.append(String(hour+1)+":00")
-        labels.append(String((hour+12)%24)+":00")
-        labels.append(String(hour)+":00")
+        labels.append("00:00")
+        labels.append("12:00")
+        labels.append("24:00")
         return labels
     }
 }

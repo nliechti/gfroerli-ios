@@ -48,22 +48,14 @@ struct WeeklyChartView: View{
         HStack{
             Text("0.00").foregroundColor(.clear)
                 .font(.caption)
-            Text(xLabels[0]).foregroundColor(Color.secondary)
-                .font(.caption)
-            Spacer()
-            Text(xLabels[1]).foregroundColor(Color.secondary)
-                .font(.caption)
-            Spacer()
-            Text(xLabels[2]).foregroundColor(Color.secondary)
-                .font(.caption)
+
         }
         }
     }
     func getXLabels(data: [DailyAggregation]) -> [String] {
         var labels = [String]()
         let mid: Int = data.count/2
-        labels.append(createLegendDateString(date: Calendar.current.date(byAdding: .day, value:-7, to:Date())!))
-        labels.append(createLegendDateString(date: Calendar.current.date(byAdding: .day, value:-4, to:Date())!))
+        
         labels.append(createLegendDateString(date: Date()))
         return labels
     }

@@ -49,14 +49,6 @@ struct MonthlyChartView: View{
         HStack{
             Text("0.00").foregroundColor(.clear)
                 .font(.caption)
-            Text(xLabels[0]).foregroundColor(Color.secondary)
-                .font(.caption)
-            Spacer()
-            Text(xLabels[1]).foregroundColor(Color.secondary)
-                .font(.caption)
-            Spacer()
-            Text(xLabels[2]).foregroundColor(Color.secondary)
-                .font(.caption)
         }
         }
     }

@@ -165,13 +165,14 @@ struct WeekChart: View {
     @Binding var showMax: Bool
     @Binding var showAvg: Bool
     @Binding var showCircles: Bool
-    @State var dateEnd = Date(){
+    @State var startDate = Calendar.current.dateComponents([.calendar, .yearForWeekOfYear, .weekOfYear], from: Date()).date! {
         didSet{
-            dateBegin = dateEnd.addingTimeInterval(TimeInterval(-604800))
+            endDate = Calendar.current.date(byAdding: .day, value: 6, to: startDate)!
         }
     }
-    @State var dateBegin = Date().addingTimeInterval(TimeInterval(-604800))
-    @State var openDate : Date = Date()
+    @State var endDate = Calendar.current.date(byAdding: .day, value: 6, to: Calendar.current.dateComponents([.calendar, .yearForWeekOfYear, .weekOfYear], from: Date()).date!)!
+    @State var currentDate = Date()
+    
     var body: some View {
         VStack{
             GeometryReader{ geo in
@@ -195,44 +196,48 @@ struct WeekChart: View {
             HStack{
                 Spacer(minLength: 0)
                 Button(action: {
-                    dateEnd = dateEnd.addingTimeInterval(TimeInterval(-604800))
-                    weekAggVM.date = dateEnd
+                    startDate = Calendar.current.date(byAdding: .day, value: -7, to: startDate)!
+                    weekAggVM.date = startDate
+
                 }, label: {
                     Image(systemName: "arrow.left.circle").imageScale(.large)
                 })
-                HStack{
-                    Text(dateBegin , style: .date)
-                    Text("-")
-                    Text(dateEnd, style: .date)
-                }
+                Text(formatDateText(start: startDate, end: endDate))
                     
                 Button(action: {
-                    dateEnd = dateEnd.addingTimeInterval(TimeInterval(604800))
-                    weekAggVM.date = dateEnd
+                    startDate = Calendar.current.date(byAdding: .day, value: 7, to: startDate)!
+                    weekAggVM.date = startDate
                 }, label: {
                     Image(systemName: "arrow.right.circle").imageScale(.large)
-                }).disabled(dateEnd==openDate)
+                }).disabled(currentDate<=endDate)
                 Spacer(minLength: 0)
             }.padding(.top,25)
         }.onAppear {
             weekAggVM.load()
-            openDate = dateEnd
         }
     }
+    func formatDateText(start:Date, end: Date)-> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yy"
+        let st = dateFormatter.string(from: start)
+        let en = dateFormatter.string(from: end)
+        return "\(st) - \(en)"
+    }
 }
+
 struct MonthChart: View {
     @ObservedObject var monthVM: MonthlyAggregationsViewModel
     @Binding var showMin: Bool
     @Binding var showMax: Bool
     @Binding var showAvg: Bool
     @Binding var showCircles: Bool
-    @State var dateEnd = Date(){
+    @State var startDate = Calendar.current.dateComponents([.calendar, .month, .year], from: Date()).date! {
         didSet{
-            dateBegin = dateEnd.addingTimeInterval(TimeInterval(-2592000))
+            endDate = Calendar.current.date(byAdding: DateComponents(month: 1, day: -1), to: startDate)!
         }
     }
-    @State var dateBegin = Date().addingTimeInterval(TimeInterval(-2592000))
-    @State var openDate : Date = Date()
+    @State var endDate = Calendar.current.date(byAdding: DateComponents(month: 1, day: -1), to: Calendar.current.dateComponents([.calendar, .month, .year], from: Date()).date!)!
+    @State var currentDate = Date()
     var body: some View {
         VStack{
             GeometryReader{ geo in
@@ -257,28 +262,31 @@ struct MonthChart: View {
             HStack{
                 Spacer(minLength: 0)
                 Button(action: {
-                    dateEnd = dateEnd.addingTimeInterval(TimeInterval(-2592000))
-                    monthVM.date = dateEnd
+                    startDate = Calendar.current.date(byAdding: DateComponents(month: -1), to: startDate)!
+                    monthVM.date = startDate
+
                 }, label: {
                     Image(systemName: "arrow.left.circle").imageScale(.large)
                 })
-                HStack{
-                    Text(dateBegin , style: .date)
-                    Text("-")
-                    Text(dateEnd, style: .date)
-                }
+                Text(formatDateText(start: startDate, end: endDate))
                     
                 Button(action: {
-                    dateEnd = dateEnd.addingTimeInterval(TimeInterval(2592000))
-                    monthVM.date = dateEnd
+                    startDate = Calendar.current.date(byAdding: DateComponents(month: 1), to: startDate)!
+                    monthVM.date = startDate
                 }, label: {
                     Image(systemName: "arrow.right.circle").imageScale(.large)
-                }).disabled(dateEnd==openDate)
+                }).disabled(currentDate<=endDate)
                 Spacer(minLength: 0)
             }.padding(.top,25)
         }.onAppear {
             monthVM.load()
-            openDate = dateEnd
         }
+    }
+    func formatDateText(start:Date, end: Date)-> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yy"
+        let st = dateFormatter.string(from: start)
+        let en = dateFormatter.string(from: end)
+        return "\(st) - \(en)"
     }
 }
