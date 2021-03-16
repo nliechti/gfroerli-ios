@@ -18,13 +18,17 @@ class WeeklyAggregationsViewModel: LoadableObject{
 
     let didChange = PassthroughSubject<Void, Never>()
     var id: Int = 0
-        
+    var date: Date = Calendar.current.date(from: Calendar.current.dateComponents([.year, .month, .day], from: Date()))!{
+        didSet {
+            load()
+        }
+    }
     
     public func load() {
         let df = DateFormatter()
         df.dateFormat = "yyyy-MM-dd"
-        let start = df.string(from: Calendar.current.date(byAdding: .day, value:-7, to:Date())!)
-        let end = df.string(from: Calendar.current.date(byAdding: .day, value:0, to:Date())!)
+        let start = df.string(from: date.addingTimeInterval(TimeInterval(-604800)))
+        let end = df.string(from: date)
         var url = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/mobile_app/sensors/\(id)/daily_temperatures?from=\(start)&to=\(end)&limit=8")!)
         
         url.setValue("Bearer XTZA6H0Hg2f02bzVefmVlr8fIJMy2FGCJ0LlDlejj2Pi0i1JvZiL0Ycv1t6JoZzD", forHTTPHeaderField: "Authorization")

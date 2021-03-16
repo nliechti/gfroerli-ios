@@ -56,8 +56,8 @@ struct MothlyLineChartShape: Shape {
         
         let xMultiplier = rect.width / CGFloat(31)
         let yMultiplier = rect.height / CGFloat(maxVal-minVal)
-        let start = Calendar.current.date(byAdding: .day, value:-31, to:Date())!
-        let end = Calendar.current.date(byAdding: .day, value:0, to:Date())!
+        let start = makeDateFromAggreg(string: data[0].date!)
+        let end = makeDateFromAggreg(string: data[data.count-1].date!)
         
         //First DataPoint
         var x = xMultiplier * CGFloat(0)
