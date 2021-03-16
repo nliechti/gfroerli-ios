@@ -24,7 +24,7 @@ struct AsyncContentView<Source: LoadableObject, Content: View>: View {
         case .loading:
             LoadingView()
         case .failed:
-            ErrorView()
+            ErrorView(source: source)
         case .loaded(let output):
             content(output)
         }

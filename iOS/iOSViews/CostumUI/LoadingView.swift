@@ -26,7 +26,8 @@ struct LoadingView: View {
     }
 }
 
-struct ErrorView: View {
+struct ErrorView<Source: LoadableObject>: View {
+    @ObservedObject var source: Source
     var body: some View {
         VStack{
             Spacer()
@@ -35,6 +36,11 @@ struct ErrorView: View {
                 Text("Error while fetching data.").foregroundColor(.gray)
                 Spacer()
             }
+            Button(action: {
+                source.load()
+            }, label: {
+                Text("Try again")
+            })
             Spacer()
         }
     }
