@@ -72,7 +72,6 @@ struct Sensor: Codable, Identifiable {
         avgTemp = try values.decodeIfPresent(Double.self, forKey: .avgTemp)
         var UNIXStamp = try values.decodeIfPresent(Double.self, forKey: .created_at)
         created_at = Date(timeIntervalSince1970: UNIXStamp ?? 0.0)
-        print(created_at)
     }
 }
 

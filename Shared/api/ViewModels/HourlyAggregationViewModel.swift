@@ -47,14 +47,11 @@ class HourlyAggregationsViewModel: LoadableObject{
                     }
                     var array = [HourlyAggregation?].init(repeating: nil, count: 24)
                     for agg in aggregs{
-                        print("Insert: \(agg.avgTemp!)  at \(agg.hour!)")
                         array[agg.hour!] = agg
                     }
                    
                     array.rotateLeft(positions: hour+1)
                     self.dataDay = array
-                   print(array)
-                    print("AAaaaa")
                     self.state = .loaded(array)
                 } else {
                     self.state = .failed

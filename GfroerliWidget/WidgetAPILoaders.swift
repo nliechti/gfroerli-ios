@@ -47,7 +47,6 @@ struct SingleSensorGraphLoader{
         
         url.setValue("Bearer XTZA6H0Hg2f02bzVefmVlr8fIJMy2FGCJ0LlDlejj2Pi0i1JvZiL0Ycv1t6JoZzD", forHTTPHeaderField: "Authorization")
         url.httpMethod = "GET"
-        print(url)
         URLSession.shared.dataTask(with: url) { data, response, error in
             DispatchQueue.main.async {
                 do {
@@ -66,7 +65,6 @@ struct SingleSensorGraphLoader{
                         }
                         var array = [HourlyAggregation?].init(repeating: nil, count: 24)
                         for agg in aggregs{
-                            print("Insert: \(agg.avgTemp!)  at \(agg.hour!)")
                             array[agg.hour!] = agg
                         }
                         
