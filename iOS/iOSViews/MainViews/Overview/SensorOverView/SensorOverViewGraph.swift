@@ -35,14 +35,14 @@ struct SensorOverViewGraph: View {
         VStack(alignment: .leading){
             HStack(alignment: .firstTextBaseline){
                 Text("History").font(.title).bold()
-                
-                Picker(selection: $pickerSelection, label: Text("")) {
-                    ForEach(0..<pickerOptions.count) { index in
-                        Text(self.pickerOptions[index]).tag(index)
-                    }
-                }.pickerStyle(SegmentedPickerStyle())
-                .padding(.bottom)
+                Spacer()
             }
+            Picker(selection: $pickerSelection, label: Text("")) {
+                ForEach(0..<pickerOptions.count) { index in
+                    Text(self.pickerOptions[index]).tag(index)
+                }
+            }.pickerStyle(SegmentedPickerStyle())
+            .padding(.bottom)
             switch pickerSelection{
             case 0: DayChart(hourlyAggVM: dayVM, showMin: $showMin, showMax: $showMax, showAvg: $showAvg, showCircles: $showCircles)
                 .onTapGesture {showCircles.toggle()}
@@ -56,7 +56,7 @@ struct SensorOverViewGraph: View {
                 showCircles.toggle()
             }.frame(minHeight: 300)
             }
-            Text("Tap to show:")
+            Text("Tap to show:").padding(.top)
             HStack{
                 Button {
                     showAvg.toggle()
@@ -137,7 +137,9 @@ struct DayChart: View {
                         }, label: {
                             Image(systemName: "arrow.left.circle").imageScale(.large)
                         })
-                        Text(date, style: .date)
+                        Spacer()
+                        Text(date, style: .date).font(.headline)
+                        Spacer()
                         Button(action: {
                             date = date.addingTimeInterval(TimeInterval(+86400))
                             hourlyAggVM.date = date
@@ -202,8 +204,9 @@ struct WeekChart: View {
                 }, label: {
                     Image(systemName: "arrow.left.circle").imageScale(.large)
                 })
-                Text(formatDateText(start: startDate, end: endDate))
-                    
+                Spacer(minLength: 0)
+                Text(formatDateText(start: startDate, end: endDate)).font(.headline)
+                Spacer(minLength: 0)
                 Button(action: {
                     startDate = Calendar.current.date(byAdding: .day, value: 7, to: startDate)!
                     weekAggVM.date = startDate
@@ -217,10 +220,12 @@ struct WeekChart: View {
         }
     }
     func formatDateText(start:Date, end: Date)-> String{
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yy"
-        let st = dateFormatter.string(from: start)
-        let en = dateFormatter.string(from: end)
+        let dateFormatter1 = DateFormatter()
+        dateFormatter1.dateFormat = "dd MMMM yyyy"
+        let dateFormatter2 = DateFormatter()
+        dateFormatter2.dateFormat = "dd"
+        let st = dateFormatter2.string(from: start)
+        let en = dateFormatter1.string(from: end)
         return "\(st) - \(en)"
     }
 }
@@ -268,8 +273,9 @@ struct MonthChart: View {
                 }, label: {
                     Image(systemName: "arrow.left.circle").imageScale(.large)
                 })
-                Text(formatDateText(start: startDate, end: endDate))
-                    
+                Spacer(minLength: 0)
+                Text(formatDateText(start: startDate, end: endDate)).font(.headline)
+                Spacer(minLength: 0)
                 Button(action: {
                     startDate = Calendar.current.date(byAdding: DateComponents(month: 1), to: startDate)!
                     monthVM.date = startDate
@@ -284,9 +290,9 @@ struct MonthChart: View {
     }
     func formatDateText(start:Date, end: Date)-> String{
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yy"
+        dateFormatter.dateFormat = "MMMM yyyy"
         let st = dateFormatter.string(from: start)
-        let en = dateFormatter.string(from: end)
-        return "\(st) - \(en)"
+        
+        return st
     }
 }

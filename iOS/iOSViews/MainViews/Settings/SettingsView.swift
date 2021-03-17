@@ -59,7 +59,7 @@ struct SettingsView: View {
                         })
                         
                     }
-                    Section(header:Text("About")){
+                    Section(header:Text("Other")){
                         //Contact
                         Button(action: {
                             let email = "appdev@coredump.ch"
