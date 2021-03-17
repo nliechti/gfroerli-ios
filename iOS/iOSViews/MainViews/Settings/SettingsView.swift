@@ -20,19 +20,19 @@ struct SettingsView: View {
     var body: some View {
         NavigationView{
             VStack{
-                HStack{
-                    Image("AppIcon-1024").resizable().aspectRatio(contentMode: .fit).cornerRadius(15)
-                    VStack(alignment: .leading){
-                        Text("Gfrör.li").font(.title)
-                        Text("Version: \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "_")").foregroundColor(.gray)
-                        Text("by Coredump Rapperswil").foregroundColor(.gray)
-                }
-                    Spacer()
-                }.frame(maxHeight: 100)
-                .padding([.top,.leading])
-                
-                .background(Color.systemGroupedBackground)
                 List{
+                    HStack{
+                        Image("AppIcon-1024").resizable().aspectRatio(contentMode: .fit).cornerRadius(15)
+                            .padding(.trailing)
+                        VStack(alignment: .leading){
+                            Text("Gfrör.li").font(.title).bold()
+                            Text("Version: \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "_")").foregroundColor(.gray)
+                            Text("by Marc Kramer \nfor Coredump Rapperswil").foregroundColor(.gray)
+                        }
+                        Spacer()
+                    }.frame(maxHeight: 100)
+                    .padding([.top,.bottom],5)
+                    
                     Section(header: Text("General")){
                         HStack{
                             NavigationLink(destination: WidgetSettingsView(sensorsVM: sensorsVm, loadingState: $loadingState), tag: "widgetSettings", selection: $activePath ,label: {
@@ -59,7 +59,7 @@ struct SettingsView: View {
                         })
                         
                     }
-                    Section(header:Text("About").foregroundColor(Color("textColor"))){
+                    Section(header:Text("About")){
                         //Contact
                         Button(action: {
                             let email = "appdev@coredump.ch"
@@ -156,11 +156,8 @@ struct SettingsView: View {
                                 Image(systemName: "chevron.right").foregroundColor(.gray)
                             }
                         })
-                        
                     }
-                    
                 }.listStyle(GroupedListStyle())
-                
             }.background(Color.systemGroupedBackground.ignoresSafeArea())
             .navigationBarTitle("Settings", displayMode: .inline)
             .navigationBarItems(trailing:
