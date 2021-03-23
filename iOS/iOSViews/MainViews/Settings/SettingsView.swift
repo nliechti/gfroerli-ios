@@ -13,6 +13,7 @@ import CoreLocation
 struct SettingsView: View {
     @State var alertShowing = false
     @State var activePath: String?
+    @State var lastVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "_"
     @Binding var loadingState: loadingState
     @ObservedObject var sensorsVm : SensorListViewModel
     @Environment(\.openURL) var openURL
@@ -26,7 +27,7 @@ struct SettingsView: View {
                             .padding(.trailing)
                         VStack(alignment: .leading){
                             Text("Gfrör.li").font(.title).bold()
-                            Text("Version: \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "_")").foregroundColor(.gray)
+                            Text("Version: \(lastVersion)").foregroundColor(.gray)
                             Text("by Marc Kramer \nfor Coredump Rapperswil").foregroundColor(.gray)
                         }
                         Spacer()
@@ -60,6 +61,16 @@ struct SettingsView: View {
                         
                     }
                     Section(header:Text("Other")){
+                        //Whats'New
+                        HStack{
+                            NavigationLink(destination: WhatsNewView(lastVersion: "0.0", showDismiss: false),label: {
+                                Label(
+                                    title: { Text("Changelog").foregroundColor(Color("textColor"))},
+                                    icon: { Image(systemName: "sparkles").resizable().aspectRatio(contentMode: .fit).foregroundColor(.white).padding(3)
+                                        .frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).background(Color.yellow).cornerRadius(3) })
+                                
+                                
+                            })}
                         //Contact
                         Button(action: {
                             let email = "appdev@coredump.ch"
@@ -176,6 +187,7 @@ struct SettingsView: View {
     func resetContent(){
         UserDefaults(suiteName: "group.ch.gfroerli")?.set([], forKey: "favoritesIDs")
         UserDefaults(suiteName: "group.ch.gfroerli")?.set(0, forKey: "widgetSensorID")
+        UserDefaults(suiteName: "group.ch.gfroerli")?.set("0.0", forKey: "lastVersion")
         WidgetCenter.shared.reloadAllTimelines()
         
     }

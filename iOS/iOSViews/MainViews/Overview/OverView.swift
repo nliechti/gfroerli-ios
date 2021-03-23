@@ -12,13 +12,11 @@ struct OverView: View {
     @Binding var showDetail: Bool
     @Binding var pathComp: String?
     @ObservedObject var sensorsVM : SensorListViewModel
-    @Binding var loadingState : loadingState
     var featuredSensorID = 1
     var body: some View {
         NavigationView{
             ScrollView(.vertical){
                 VStack(alignment: .leading, spacing: 0){
-                    
                     Text("Featured")
                         .font(.title)
                         .bold()
@@ -74,6 +72,6 @@ struct OverView: View {
 
 struct OverView_Previews: PreviewProvider {
     static var previews: some View {
-        OverView(showDetail: .constant(false), pathComp: .constant(nil), sensorsVM: testSensorVM, loadingState: .constant(.loading)).makePreViewModifier()
+        OverView(showDetail: .constant(false), pathComp: .constant(nil), sensorsVM: testSensorVM ).makePreViewModifier()
     }
 }

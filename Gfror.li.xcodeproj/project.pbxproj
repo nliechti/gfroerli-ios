@@ -72,6 +72,13 @@
 		8DF3BBD5250BB62D00DBCC37 /* SensorOverviewLastMeasurementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBD4250BB62D00DBCC37 /* SensorOverviewLastMeasurementView.swift */; };
 		8DF3BBD8250BB6BB00DBCC37 /* OwnHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBD7250BB6BB00DBCC37 /* OwnHelpers.swift */; };
 		8DF3BBD9250BB6BB00DBCC37 /* OwnHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBD7250BB6BB00DBCC37 /* OwnHelpers.swift */; };
+		B415711C260A41A400372278 /* ChangeNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = B415711B260A41A400372278 /* ChangeNote.swift */; };
+		B415711D260A41A400372278 /* ChangeNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = B415711B260A41A400372278 /* ChangeNote.swift */; };
+		B4157122260A42F200372278 /* Changes.json in Resources */ = {isa = PBXBuildFile; fileRef = B4157121260A42F200372278 /* Changes.json */; };
+		B4157123260A42F200372278 /* Changes.json in Resources */ = {isa = PBXBuildFile; fileRef = B4157121260A42F200372278 /* Changes.json */; };
+		B4157125260A43B400372278 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4157124260A43B400372278 /* Bundle-Decodable.swift */; };
+		B4157126260A43B400372278 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4157124260A43B400372278 /* Bundle-Decodable.swift */; };
+		B4157128260A444B00372278 /* WhatsNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4157127260A444B00372278 /* WhatsNewView.swift */; };
 		B41B166525C9740F00E8FD18 /* sensors.json in Resources */ = {isa = PBXBuildFile; fileRef = B41B166425C9740F00E8FD18 /* sensors.json */; };
 		B41B166625C9740F00E8FD18 /* sensors.json in Resources */ = {isa = PBXBuildFile; fileRef = B41B166425C9740F00E8FD18 /* sensors.json */; };
 		B43568D225E3B31F00AA2B40 /* LocationNotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43568D125E3B31F00AA2B40 /* LocationNotificationHandler.swift */; };
@@ -210,6 +217,10 @@
 		8DF3BBCC250B748800DBCC37 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		8DF3BBD4250BB62D00DBCC37 /* SensorOverviewLastMeasurementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorOverviewLastMeasurementView.swift; sourceTree = "<group>"; };
 		8DF3BBD7250BB6BB00DBCC37 /* OwnHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnHelpers.swift; sourceTree = "<group>"; };
+		B415711B260A41A400372278 /* ChangeNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNote.swift; sourceTree = "<group>"; };
+		B4157121260A42F200372278 /* Changes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Changes.json; sourceTree = "<group>"; };
+		B4157124260A43B400372278 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
+		B4157127260A444B00372278 /* WhatsNewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewView.swift; sourceTree = "<group>"; };
 		B41B166425C9740F00E8FD18 /* sensors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sensors.json; sourceTree = "<group>"; };
 		B43568D125E3B31F00AA2B40 /* LocationNotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNotificationHandler.swift; sourceTree = "<group>"; };
 		B43568D925E3C91500AA2B40 /* LocationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
@@ -406,6 +417,7 @@
 		8DF3BBD0250BB4C300DBCC37 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				B4157127260A444B00372278 /* WhatsNewView.swift */,
 				8D0D7FE524F107D30068176C /* SettingsView.swift */,
 				8D4731B024F3F93200EE5536 /* WidgetSettingsView.swift */,
 			);
@@ -584,6 +596,7 @@
 		E4C24FE424EEB57500FB4F51 /* api */ = {
 			isa = PBXGroup;
 			children = (
+				B4157124260A43B400372278 /* Bundle-Decodable.swift */,
 				B41B166425C9740F00E8FD18 /* sensors.json */,
 				8DA7CEF32516105900395465 /* ViewModels */,
 				E4C24FE524EEB57A00FB4F51 /* Models */,
@@ -601,6 +614,8 @@
 				E4C24FE824EEB5AA00FB4F51 /* TempAggregations.swift */,
 				8D0D7FE724F10F610068176C /* LakesData.swift */,
 				8D04196924F50349003D64D4 /* RiverData.swift */,
+				B415711B260A41A400372278 /* ChangeNote.swift */,
+				B4157121260A42F200372278 /* Changes.json */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -757,6 +772,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4157123260A42F200372278 /* Changes.json in Resources */,
 				8D9B1AEC24F463750047FAC2 /* Assets.xcassets in Resources */,
 				8D5EACEA252CE407006EBCD6 /* Localizable.strings in Resources */,
 			);
@@ -772,6 +788,7 @@
 				B4B19E2525C9F1FB0026E939 /* AppStore_IT.rtf in Resources */,
 				E461459524A34831006233AE /* Assets.xcassets in Resources */,
 				B41B166525C9740F00E8FD18 /* sensors.json in Resources */,
+				B4157122260A42F200372278 /* Changes.json in Resources */,
 				8D815A2C25A641D80060AC85 /* AppStore_DE.rtf in Resources */,
 				8D8533FA25A788A800B8BD2E /* AppStore_ENG.rtf in Resources */,
 			);
@@ -817,6 +834,7 @@
 				8D908976259121850017BAB8 /* WeeklyChartView.swift in Sources */,
 				B4383B0A25C466A0000A6D4F /* GraphWidgetIntent.intentdefinition in Sources */,
 				B4F95C3025C313EE004C21E1 /* WeeklyChartShape.swift in Sources */,
+				B4157126260A43B400372278 /* Bundle-Decodable.swift in Sources */,
 				8D737738252BA8750075E04E /* SponsorsViewModel.swift in Sources */,
 				B4F95C1025C30F38004C21E1 /* HourlyChartShape.swift in Sources */,
 				8DF3BBD9250BB6BB00DBCC37 /* OwnHelpers.swift in Sources */,
@@ -827,6 +845,7 @@
 				8DD06C3B25A0F0910081250B /* UIDeviceExtension.swift in Sources */,
 				8D90897C259121AF0017BAB8 /* Legend.swift in Sources */,
 				8D737730252BA7200075E04E /* Sponsor.swift in Sources */,
+				B415711D260A41A400372278 /* ChangeNote.swift in Sources */,
 				B4F95C3825C31604004C21E1 /* MonthlyChartShape.swift in Sources */,
 				B4F95C2025C31005004C21E1 /* RangeReplaceableCollectionExtension.swift in Sources */,
 				B4383A5A25C3EA61000A6D4F /* SingleSensorWidget.swift in Sources */,
@@ -845,6 +864,7 @@
 			files = (
 				E461459124A34831006233AE /* GfrorliApp.swift in Sources */,
 				8DF3BBD8250BB6BB00DBCC37 /* OwnHelpers.swift in Sources */,
+				B415711C260A41A400372278 /* ChangeNote.swift in Sources */,
 				8DF3BBCB250B709700DBCC37 /* AllSensorView.swift in Sources */,
 				8D6A7DC624F14115009A0026 /* LakeOverView.swift in Sources */,
 				8D580B59259FA33800202262 /* FAQView.swift in Sources */,
@@ -871,6 +891,8 @@
 				8D737737252BA8750075E04E /* SponsorsViewModel.swift in Sources */,
 				8D04196824F50258003D64D4 /* SensorScrollItem.swift in Sources */,
 				E44EA3AD24EEA7EA00380E27 /* MapExtension.swift in Sources */,
+				B4157128260A444B00372278 /* WhatsNewView.swift in Sources */,
+				B4157125260A43B400372278 /* Bundle-Decodable.swift in Sources */,
 				B4383AA525C3FE7E000A6D4F /* WidgetAPILoaders.swift in Sources */,
 				8D0D7FE424F107C10068176C /* FavoritesView.swift in Sources */,
 				B4F95C1F25C31005004C21E1 /* RangeReplaceableCollectionExtension.swift in Sources */,
