@@ -17,6 +17,7 @@ class SensorListViewModel: LoadableObject {
     let didChange = PassthroughSubject<Void, Never>()
         
     init() {
+        self.load()
     }
         
     init(sensors: [Sensor]) {

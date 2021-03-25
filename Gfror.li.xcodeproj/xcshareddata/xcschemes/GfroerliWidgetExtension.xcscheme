@@ -58,15 +58,9 @@
       allowLocationSimulation = "YES"
       launchAutomaticallySubstyle = "2">
       <RemoteRunnable
-         runnableDebuggingMode = "2"
-         BundleIdentifier = "com.apple.springboard">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8D9B0FCB24F3A2E7003502C8"
-            BuildableName = "Widgets.appex"
-            BlueprintName = "Widgets"
-            ReferencedContainer = "container:Gfror.li.xcodeproj">
-         </BuildableReference>
+         runnableDebuggingMode = "1"
+         BundleIdentifier = "ch.coredump.gfroerli"
+         RemotePath = "/var/containers/Bundle/Application/B97D4C57-A26F-47FC-9257-DF7563B90759/Gfror.li.app">
       </RemoteRunnable>
       <MacroExpansion>
          <BuildableReference

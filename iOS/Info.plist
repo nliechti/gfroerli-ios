@@ -44,6 +44,7 @@
 		<string>CheckTempIntent</string>
 		<string>ConfigurationIntent</string>
 		<string>GraphWidgetIntentIntent</string>
+		<string>SelectSensorIntent</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
