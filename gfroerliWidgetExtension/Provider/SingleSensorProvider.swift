@@ -13,11 +13,12 @@ struct SingleSensorProvider: IntentTimelineProvider {
     
     
     func placeholder(in context: Context) -> SingleSensorEntry {
-        SingleSensorEntry(date: Date(),device_name: "Placeholder", configuration: SingleSensorIntent())
+        SingleSensorEntry(date: Date(),device_name: "Placeholder", configuration: SingleSensorIntent(), timeSpan: .day)
     }
 
     func getSnapshot(for configuration: SingleSensorIntent, in context: Context, completion: @escaping (SingleSensorEntry) -> ()) {
-        let entry = SingleSensorEntry(date: Date(),device_name: "Placeholder", configuration: configuration)
+        
+        let entry = SingleSensorEntry(date: Date(),device_name: "Placeholder", configuration: configuration,timeSpan: configuration.timeSpan)
         completion(entry)
     }
 
@@ -25,8 +26,13 @@ struct SingleSensorProvider: IntentTimelineProvider {
         var entries: [SingleSensorEntry] = []
 
         let selectableSensor = configuration.sensor
-        
-        let entry = SingleSensorEntry(date: Date(), device_name: selectableSensor?.displayString ?? "",  configuration: configuration)
+        var name = ""
+        if configuration.timeSpan == .day {
+            name="day"
+        }else if configuration.timeSpan == .week {
+            name = "week"
+        }
+        let entry = SingleSensorEntry(date: Date(), device_name: name,  configuration: configuration, timeSpan: configuration.timeSpan)
         entries.append(entry)
         
         let timeline = Timeline(entries: entries, policy: .atEnd)
@@ -38,4 +44,5 @@ struct SingleSensorEntry: TimelineEntry {
     var date: Date
     let device_name: String
     let configuration: SingleSensorIntent
+    let timeSpan: TimeSpan
 }

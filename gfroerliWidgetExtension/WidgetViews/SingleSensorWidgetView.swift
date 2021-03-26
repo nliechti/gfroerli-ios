@@ -27,14 +27,14 @@ struct SingleSensorWidget: Widget {
             SingleSensorWidgetView(entry: entry)
         }
         .supportedFamilies([.systemSmall])
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("My small Widget")
+        .description("This is an example small widget.")
     }
 }
 
 struct SingleSensorWidgetView_Previews: PreviewProvider {
     static var previews: some View {
-        SingleSensorWidgetView(entry: SingleSensorEntry(date: Date(),device_name: "Placeholder", configuration: SingleSensorIntent()))
+        SingleSensorWidgetView(entry: SingleSensorEntry(date: Date(),device_name: "Placeholder", configuration: SingleSensorIntent(), timeSpan: .day))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }

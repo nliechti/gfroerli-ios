@@ -45,7 +45,6 @@
 		<string>ConfigurationIntent</string>
 		<string>GraphWidgetIntentIntent</string>
 		<string>SingleSensorIntent</string>
-		<string>SingleSensorWithGraphIntent</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

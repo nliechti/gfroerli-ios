@@ -10,12 +10,11 @@ import SwiftUI
 import Intents
 
 struct SingleSensorWithGraphView: View {
-    var entry: SingleSensorWithGraphProvider.Entry
+    var entry: SingleSensorProvider.Entry
     var body: some View {
         VStack{
-        Text(entry.date, style: .time)
+            Text(entry.date, style: .time)
             Text(entry.device_name)
-            Text(String(entry.temperature))
         }
     }
 }
@@ -24,18 +23,18 @@ struct SingleSensorWithGraphWidget: Widget {
     let kind: String = "gfroerliWidgetExtension"
 
     var body: some WidgetConfiguration {
-        IntentConfiguration(kind: kind, intent: SingleSensorWithGraphIntent.self, provider: SingleSensorWithGraphProvider()) { entry in
+        IntentConfiguration(kind: kind, intent: SingleSensorIntent.self, provider: SingleSensorProvider()) { entry in
             SingleSensorWithGraphView(entry: entry)
         }
         .supportedFamilies([.systemMedium,.systemLarge])
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("My big Widget")
+        .description("This is an example big widget.")
     }
 }
 
 struct SingleSensorWithGraphView_Previews: PreviewProvider {
     static var previews: some View {
-        SingleSensorWithGraphView(entry: SingleSensorWithGraphEntry(date: Date(),device_name: "Placeholder", temperature: 0.0, configuration: SingleSensorWithGraphIntent()))
+        SingleSensorWithGraphView(entry: SingleSensorEntry(date: Date(),device_name: "Placeholder", configuration: SingleSensorIntent(),timeSpan: .day))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }
