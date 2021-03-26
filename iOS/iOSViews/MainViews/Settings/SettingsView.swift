@@ -12,10 +12,7 @@ import CoreLocation
 
 struct SettingsView: View {
     @State var alertShowing = false
-    @State var activePath: String?
     @State var lastVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "_"
-    @Binding var loadingState: loadingState
-    @ObservedObject var sensorsVm : SensorListViewModel
     @Environment(\.openURL) var openURL
     
     var body: some View {
@@ -35,15 +32,6 @@ struct SettingsView: View {
                     .padding([.top,.bottom],5)
                     
                     Section(header: Text("General")){
-                        HStack{
-                            NavigationLink(destination: WidgetSettingsView(sensorsVM: sensorsVm, loadingState: $loadingState), tag: "widgetSettings", selection: $activePath ,label: {
-                                Label(
-                                    title: { Text("Widget Settings").foregroundColor(Color("textColor"))},
-                                    icon: { Image(systemName: "gear").resizable().aspectRatio(contentMode: .fit).foregroundColor(.white).padding(3)
-                                        .frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).background(Color.gray).cornerRadius(3) })
-                                
-                                
-                            })}
                         
                         Button(action: {
                             UIApplication.shared.open(URL.init(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
@@ -59,9 +47,7 @@ struct SettingsView: View {
                             }
                         })
                         
-                    }
-                    Section(header:Text("Other")){
-                        //Whats'New
+                    
                         HStack{
                             NavigationLink(destination: WhatsNewView(lastVersion: "0.0", showDismiss: false),label: {
                                 Label(
@@ -149,7 +135,7 @@ struct SettingsView: View {
                         Link(destination: URL(string: "https://github.com/gfroerli")!, label: {
                             HStack{
                                 Label(
-                                    title: { Text("Github").foregroundColor(Color("textColor")) },
+                                    title: { Text("Code on Github").foregroundColor(Color("textColor")) },
                                     icon: { Image("githubIcon").resizable().frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                         .cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/) })
                                 Spacer()
@@ -186,7 +172,6 @@ struct SettingsView: View {
     }
     func resetContent(){
         UserDefaults(suiteName: "group.ch.gfroerli")?.set([], forKey: "favoritesIDs")
-        UserDefaults(suiteName: "group.ch.gfroerli")?.set(0, forKey: "widgetSensorID")
         UserDefaults(suiteName: "group.ch.gfroerli")?.set("0.0", forKey: "lastVersion")
         WidgetCenter.shared.reloadAllTimelines()
         
@@ -195,6 +180,6 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView(activePath: nil, loadingState: .constant(.loaded), sensorsVm: SensorListViewModel()).makePreViewModifier()
+        SettingsView().makePreViewModifier()
     }
 }

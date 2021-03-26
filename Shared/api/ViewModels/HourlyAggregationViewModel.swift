@@ -39,7 +39,7 @@ class HourlyAggregationsViewModel: LoadableObject{
                 if let data = data {
                     // success: convert to  Measuring, and set according List
                     let jsonDecoder = JSONDecoder()
-                    var aggregs = try jsonDecoder.decode([HourlyAggregation].self, from: data)
+                    let aggregs = try jsonDecoder.decode([HourlyAggregation].self, from: data)
                     
                     var array = [HourlyAggregation?].init(repeating: nil, count: 24)
                     for agg in aggregs{

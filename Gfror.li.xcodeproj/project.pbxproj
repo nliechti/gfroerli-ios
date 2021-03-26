@@ -20,7 +20,6 @@
 		8D3D36F0250BBC8500F11E48 /* SensorOverViewGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3D36EF250BBC8500F11E48 /* SensorOverViewGraph.swift */; };
 		8D3D36F2250BBEF000F11E48 /* SensorOverviewSponsorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3D36F1250BBEF000F11E48 /* SensorOverviewSponsorView.swift */; };
 		8D3D376E250CBAAF00F11E48 /* Notes.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8D3D376D250CBAAF00F11E48 /* Notes.rtf */; };
-		8D4731B124F3F93200EE5536 /* WidgetSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4731B024F3F93200EE5536 /* WidgetSettingsView.swift */; };
 		8D50670324F7F33400E426DE /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5066E424F7F33400E426DE /* Helpers.swift */; };
 		8D580B59259FA33800202262 /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D580B58259FA33800202262 /* FAQView.swift */; };
 		8D5D25CB257A98D1002852F4 /* SensorListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5D25CA257A98D1002852F4 /* SensorListItem.swift */; };
@@ -174,7 +173,6 @@
 		8D3D3701250C190500F11E48 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = Library/Frameworks/IntentsUI.framework; sourceTree = DEVELOPER_DIR; };
 		8D3D3716250C1C3B00F11E48 /* SiriButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiriButton.swift; sourceTree = "<group>"; };
 		8D3D376D250CBAAF00F11E48 /* Notes.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Notes.rtf; sourceTree = "<group>"; };
-		8D4731B024F3F93200EE5536 /* WidgetSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSettingsView.swift; sourceTree = "<group>"; };
 		8D49A370250A3E6B000B26CD /* Gfror.liRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Gfror.liRelease.entitlements; sourceTree = "<group>"; };
 		8D49A371250A3F98000B26CD /* WidgetsRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetsRelease.entitlements; sourceTree = "<group>"; };
 		8D5066E424F7F33400E426DE /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
@@ -391,7 +389,6 @@
 			children = (
 				B4157127260A444B00372278 /* WhatsNewView.swift */,
 				8D0D7FE524F107D30068176C /* SettingsView.swift */,
-				8D4731B024F3F93200EE5536 /* WidgetSettingsView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -842,7 +839,6 @@
 				8D6A7DC624F14115009A0026 /* LakeOverView.swift in Sources */,
 				8D580B59259FA33800202262 /* FAQView.swift in Sources */,
 				B4B37A4925C2C1D500DA76A5 /* AsyncContentView.swift in Sources */,
-				8D4731B124F3F93200EE5536 /* WidgetSettingsView.swift in Sources */,
 				B4E124C0260CCFD500F45852 /* SelectSensor.intentdefinition in Sources */,
 				8DD06C3025A0EF290081250B /* UIDeviceExtension.swift in Sources */,
 				8DA7CF0F2516176300395465 /* TempAggregationsViewModel.swift in Sources */,
@@ -946,12 +942,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VDVQE324N6;
 				INFOPLIST_FILE = SelectSensorIntentExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli.SelectSensorIntentExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -968,12 +965,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VDVQE324N6;
 				INFOPLIST_FILE = SelectSensorIntentExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli.SelectSensorIntentExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -998,6 +996,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli.gfroerliWidgetExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1022,6 +1021,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli.gfroerliWidgetExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1166,7 +1166,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli;
 				PRODUCT_NAME = Gfror.li;
 				SDKROOT = iphoneos;
@@ -1193,7 +1193,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli;
 				PRODUCT_NAME = Gfror.li;
 				PROVISIONING_PROFILE_SPECIFIER = "";

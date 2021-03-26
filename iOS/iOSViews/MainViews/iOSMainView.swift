@@ -39,7 +39,7 @@ struct iOSMainView: View {
                     Text("Favorites") }
                 .tag("Favorites")
             
-            SettingsView(activePath: pathComp, loadingState: $loadingState, sensorsVm: sensorsVm)
+            SettingsView()
                 .tabItem { Image(systemName: "gear")
                     Text("Settings") }
                 .tag("Settings")
