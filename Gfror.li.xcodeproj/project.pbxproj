@@ -56,7 +56,14 @@
 		B43568DA25E3C91500AA2B40 /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43568D925E3C91500AA2B40 /* LocationHandler.swift */; };
 		B4795EC5260CCC1800D4BF19 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4795EC4260CCC1800D4BF19 /* Intents.framework */; };
 		B4795ECC260CCC1800D4BF19 /* SelectSensorIntentExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B4795EC3260CCC1800D4BF19 /* SelectSensorIntentExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		B4795ED3260CCC9E00D4BF19 /* SelectSensor.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B4795ED1260CCC5500D4BF19 /* SelectSensor.intentdefinition */; };
+		B49B013D260E120800D1AA37 /* SingleSensorWithGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B012F260E118500D1AA37 /* SingleSensorWithGraphView.swift */; };
+		B49B0155260E132800D1AA37 /* WidgetMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B0147260E129E00D1AA37 /* WidgetMain.swift */; };
+		B49B0172260E160A00D1AA37 /* SelectSensor.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B4795ED1260CCC5500D4BF19 /* SelectSensor.intentdefinition */; };
+		B49B0173260E160B00D1AA37 /* SelectSensor.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B4795ED1260CCC5500D4BF19 /* SelectSensor.intentdefinition */; };
+		B49B0184260E17ED00D1AA37 /* SingleSensorWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B017E260E178200D1AA37 /* SingleSensorWidgetView.swift */; };
+		B49B0189260E17EE00D1AA37 /* SingleSensorWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B017E260E178200D1AA37 /* SingleSensorWidgetView.swift */; };
+		B49B0192260E180100D1AA37 /* SingleSensorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B0178260E167900D1AA37 /* SingleSensorProvider.swift */; };
+		B49B0193260E180100D1AA37 /* SingleSensorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B0178260E167900D1AA37 /* SingleSensorProvider.swift */; };
 		B4B19E2525C9F1FB0026E939 /* AppStore_IT.rtf in Resources */ = {isa = PBXBuildFile; fileRef = B4B19E2425C9F1FB0026E939 /* AppStore_IT.rtf */; };
 		B4B37A4925C2C1D500DA76A5 /* AsyncContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B37A4825C2C1D500DA76A5 /* AsyncContentView.swift */; };
 		B4B37A5625C2C43400DA76A5 /* LoadableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B37A5525C2C43400DA76A5 /* LoadableObject.swift */; };
@@ -77,12 +84,11 @@
 		B4E124C4260CD18800F45852 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4157124260A43B400372278 /* Bundle-Decodable.swift */; };
 		B4E124D3260CD20700F45852 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D9B0FCE24F3A2E7003502C8 /* WidgetKit.framework */; };
 		B4E124D4260CD20700F45852 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D9B0FD024F3A2E7003502C8 /* SwiftUI.framework */; };
-		B4E124D7260CD20700F45852 /* gfroerliWidgetExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E124D6260CD20700F45852 /* gfroerliWidgetExtension.swift */; };
+		B4E124D7260CD20700F45852 /* SingleSensorWithGraphProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E124D6260CD20700F45852 /* SingleSensorWithGraphProvider.swift */; };
 		B4E124DA260CD20800F45852 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4E124D9260CD20800F45852 /* Assets.xcassets */; };
 		B4E124DC260CD20800F45852 /* gfroerliWidgetExtension.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B4E124D8260CD20700F45852 /* gfroerliWidgetExtension.intentdefinition */; };
 		B4E124DD260CD20800F45852 /* gfroerliWidgetExtension.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B4E124D8260CD20700F45852 /* gfroerliWidgetExtension.intentdefinition */; };
 		B4E124E0260CD20800F45852 /* gfroerliWidgetExtensionExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B4E124D2260CD20700F45852 /* gfroerliWidgetExtensionExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		B4E124EC260CD30B00F45852 /* SelectSensor.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B4795ED1260CCC5500D4BF19 /* SelectSensor.intentdefinition */; };
 		B4E124F1260CD31000F45852 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4795EC7260CCC1800D4BF19 /* IntentHandler.swift */; };
 		B4E12515260CD45500F45852 /* SensorListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA7CEF42516108000395465 /* SensorListViewModel.swift */; };
 		B4E1251A260CD45D00F45852 /* LakesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE724F10F610068176C /* LakesData.swift */; };
@@ -217,12 +223,16 @@
 		B4795EC7260CCC1800D4BF19 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
 		B4795EC9260CCC1800D4BF19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4795ED1260CCC5500D4BF19 /* SelectSensor.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = SelectSensor.intentdefinition; sourceTree = "<group>"; };
+		B49B012F260E118500D1AA37 /* SingleSensorWithGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSensorWithGraphView.swift; sourceTree = "<group>"; };
+		B49B0147260E129E00D1AA37 /* WidgetMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetMain.swift; sourceTree = "<group>"; };
+		B49B0178260E167900D1AA37 /* SingleSensorProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSensorProvider.swift; sourceTree = "<group>"; };
+		B49B017E260E178200D1AA37 /* SingleSensorWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSensorWidgetView.swift; sourceTree = "<group>"; };
 		B4B19E2425C9F1FB0026E939 /* AppStore_IT.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = AppStore_IT.rtf; sourceTree = "<group>"; };
 		B4B37A4825C2C1D500DA76A5 /* AsyncContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncContentView.swift; sourceTree = "<group>"; };
 		B4B37A5525C2C43400DA76A5 /* LoadableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableObject.swift; sourceTree = "<group>"; };
 		B4BDEF3025E40EEB00A82E16 /* SensorNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorNotificationView.swift; sourceTree = "<group>"; };
 		B4E124D2260CD20700F45852 /* gfroerliWidgetExtensionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = gfroerliWidgetExtensionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		B4E124D6260CD20700F45852 /* gfroerliWidgetExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gfroerliWidgetExtension.swift; sourceTree = "<group>"; };
+		B4E124D6260CD20700F45852 /* SingleSensorWithGraphProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSensorWithGraphProvider.swift; sourceTree = "<group>"; };
 		B4E124D8260CD20700F45852 /* gfroerliWidgetExtension.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = gfroerliWidgetExtension.intentdefinition; sourceTree = "<group>"; };
 		B4E124D9260CD20800F45852 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B4E124DB260CD20800F45852 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -448,6 +458,24 @@
 			path = SelectSensorIntentExtension;
 			sourceTree = "<group>";
 		};
+		B49B012E260E116200D1AA37 /* WidgetViews */ = {
+			isa = PBXGroup;
+			children = (
+				B49B012F260E118500D1AA37 /* SingleSensorWithGraphView.swift */,
+				B49B017E260E178200D1AA37 /* SingleSensorWidgetView.swift */,
+			);
+			path = WidgetViews;
+			sourceTree = "<group>";
+		};
+		B49B0146260E128600D1AA37 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				B4E124D6260CD20700F45852 /* SingleSensorWithGraphProvider.swift */,
+				B49B0178260E167900D1AA37 /* SingleSensorProvider.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
 		B4B37A5D25C2C43900DA76A5 /* protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -459,7 +487,9 @@
 		B4E124D5260CD20700F45852 /* gfroerliWidgetExtension */ = {
 			isa = PBXGroup;
 			children = (
-				B4E124D6260CD20700F45852 /* gfroerliWidgetExtension.swift */,
+				B49B0147260E129E00D1AA37 /* WidgetMain.swift */,
+				B49B0146260E128600D1AA37 /* Provider */,
+				B49B012E260E116200D1AA37 /* WidgetViews */,
 				B4795ED1260CCC5500D4BF19 /* SelectSensor.intentdefinition */,
 				B4E124D8260CD20700F45852 /* gfroerliWidgetExtension.intentdefinition */,
 				B4E124D9260CD20800F45852 /* Assets.xcassets */,
@@ -763,12 +793,14 @@
 				B4E12532260CD46500F45852 /* SingleSensorViewModel.swift in Sources */,
 				B4E124B6260CCF2400F45852 /* IntentHandler.swift in Sources */,
 				B4E124A7260CCEDD00F45852 /* Sensor.swift in Sources */,
-				B4795ED3260CCC9E00D4BF19 /* SelectSensor.intentdefinition in Sources */,
 				B4E124A5260CCEDD00F45852 /* TempAggregations.swift in Sources */,
+				B49B0173260E160B00D1AA37 /* SelectSensor.intentdefinition in Sources */,
 				B4E124A3260CCEDD00F45852 /* RiverData.swift in Sources */,
 				B4E1249E260CCED800F45852 /* HourlyAggregationViewModel.swift in Sources */,
 				B4E124A6260CCEDD00F45852 /* LakesData.swift in Sources */,
+				B49B0192260E180100D1AA37 /* SingleSensorProvider.swift in Sources */,
 				B4E12499260CCED800F45852 /* SponsorsViewModel.swift in Sources */,
+				B49B0184260E17ED00D1AA37 /* SingleSensorWidgetView.swift in Sources */,
 				B4E1249C260CCED800F45852 /* TempAggregationsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -779,19 +811,23 @@
 			files = (
 				B4E1251F260CD45D00F45852 /* TempAggregations.swift in Sources */,
 				B4E12520260CD45D00F45852 /* RiverData.swift in Sources */,
-				B4E124EC260CD30B00F45852 /* SelectSensor.intentdefinition in Sources */,
 				B4E124DC260CD20800F45852 /* gfroerliWidgetExtension.intentdefinition in Sources */,
 				B4E12526260CD46200F45852 /* SponsorsViewModel.swift in Sources */,
 				B4E12527260CD46200F45852 /* TempAggregationsViewModel.swift in Sources */,
+				B49B0193260E180100D1AA37 /* SingleSensorProvider.swift in Sources */,
 				B4E12525260CD46200F45852 /* HourlyAggregationViewModel.swift in Sources */,
 				B4E1251B260CD45D00F45852 /* Sponsor.swift in Sources */,
+				B49B0172260E160A00D1AA37 /* SelectSensor.intentdefinition in Sources */,
 				B4E1251A260CD45D00F45852 /* LakesData.swift in Sources */,
 				B4E1251E260CD45D00F45852 /* Sensor.swift in Sources */,
 				B4E124F1260CD31000F45852 /* IntentHandler.swift in Sources */,
 				B4E12515260CD45500F45852 /* SensorListViewModel.swift in Sources */,
-				B4E124D7260CD20700F45852 /* gfroerliWidgetExtension.swift in Sources */,
+				B4E124D7260CD20700F45852 /* SingleSensorWithGraphProvider.swift in Sources */,
 				B4E1252D260CD46400F45852 /* SingleSensorViewModel.swift in Sources */,
+				B49B0155260E132800D1AA37 /* WidgetMain.swift in Sources */,
 				B4E12528260CD46200F45852 /* WeeklyAggregationsViewModel.swift in Sources */,
+				B49B0189260E17EE00D1AA37 /* SingleSensorWidgetView.swift in Sources */,
+				B49B013D260E120800D1AA37 /* SingleSensorWithGraphView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

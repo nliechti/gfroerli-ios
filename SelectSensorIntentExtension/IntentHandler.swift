@@ -7,10 +7,11 @@
 
 import Intents
 
-class IntentHandler: INExtension, SelectSensorIntentHandling{
+class IntentHandler: INExtension,SingleSensorWithGraphIntentHandling,SingleSensorIntentHandling{
+    
     let sensorVM = SensorListViewModel()
 
-    func provideSensorOptionsCollection(for intent: SelectSensorIntent, with completion: @escaping (INObjectCollection<SelectableSensor>?, Error?) -> Void) {
+    func provideSensorOptionsCollection(for intent: SingleSensorIntent, with completion: @escaping (INObjectCollection<SelectableSensor>?, Error?) -> Void) {
         sensorVM.load()
         let seconds = 1.0
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
@@ -20,7 +21,27 @@ class IntentHandler: INExtension, SelectSensorIntentHandling{
                     identifier: String(sensor.id),
                     display: sensor.device_name
                 )
-                selectableSensor.temperature = NSNumber(value: sensor.latestTemp!)
+                return selectableSensor
+            }
+
+            // Create a collection with the array of characters.
+            let collection = INObjectCollection(items: selectableSensors)
+
+            // Call the completion handler, passing the collection.
+            completion(collection, nil)
+        }
+    }
+    
+    func provideSensorOptionsCollection(for intent: SingleSensorWithGraphIntent, with completion: @escaping (INObjectCollection<SelectableSensor>?, Error?) -> Void) {
+        sensorVM.load()
+        let seconds = 1.0
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+
+            let selectableSensors: [SelectableSensor] = self.sensorVM.sensorArray.map { sensor -> SelectableSensor in
+                let selectableSensor = SelectableSensor(
+                    identifier: String(sensor.id),
+                    display: sensor.device_name
+                )
                 return selectableSensor
             }
 
