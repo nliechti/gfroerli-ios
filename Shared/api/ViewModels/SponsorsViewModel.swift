@@ -19,7 +19,7 @@ class SponsorListViewModel: LoadableObject {
     
     func load() {
         
-        var url = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/mobile_app/sensors/\(id)/sponsor")!)
+        var url = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch//api/mobile_app/sensors/\(id)/sponsor")!)
         url.setValue("Bearer XTZA6H0Hg2f02bzVefmVlr8fIJMy2FGCJ0LlDlejj2Pi0i1JvZiL0Ycv1t6JoZzD", forHTTPHeaderField: "Authorization")
         url.httpMethod = "GET"
         

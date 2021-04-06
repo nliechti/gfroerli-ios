@@ -9,17 +9,17 @@ import Foundation
 
 struct Sponsor: Codable, Identifiable {
     
-    init(id: Int, name: String, description: String,  created_at: String) {
+    init(id: Int, name: String, description: String,  created_at: String, logoUrl: String) {
         self.id = id
         self.name = name
         self.description = description
-        self.created_at = created_at
+        self.logoUrl = logoUrl
     }
     
     let id : Int
     let name : String
     let description : String
-    let created_at : String
+    let logoUrl: String
 
 
     enum CodingKeys: String, CodingKey {
@@ -27,7 +27,7 @@ struct Sponsor: Codable, Identifiable {
         case id = "id"
         case name = "name"
         case description = "description"
-        case created_at = "created_at"
+        case logoUrl = "logo_url"
     }
 
     
@@ -36,6 +36,6 @@ struct Sponsor: Codable, Identifiable {
         id = try values.decode(Int.self, forKey: .id)
         name = try values.decode(String.self, forKey: .name)
         description = try values.decode(String.self, forKey: .description)
-        created_at = try values.decode(String.self, forKey: .created_at)
+        logoUrl = try values.decode(String.self, forKey: .logoUrl)
     }
 }
