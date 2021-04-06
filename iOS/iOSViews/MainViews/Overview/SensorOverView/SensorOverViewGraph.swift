@@ -112,48 +112,52 @@ struct DayChart: View {
     var body: some View {
         VStack{
             GeometryReader{ geo in
-                    AsyncContentView(source: hourlyAggVM) { data in
-                        VStack(alignment:.leading){
-                            if notNilCount(data: data)>1 {
-                                HourlyChartView(showMax: $showMax, showMin: $showMin, showAvg: $showAvg, showCircles: $showCircles, data: data, frame: geo.frame(in: .local)).padding(.bottom)
-                            }else{
+                AsyncContentView(source: hourlyAggVM) { data in
+                    VStack(alignment:.leading){
+                        if notNilCount(data: data)>1 {
+                            HourlyChartView(showMax: $showMax, showMin: $showMin, showAvg: $showAvg, showCircles: $showCircles, data: data, frame: geo.frame(in: .local)).padding(.bottom)
+                        }else{
+                            Spacer()
+                            HStack {
                                 Spacer()
-                                HStack {
-                                    Spacer()
-                                    Text("No data available").font(.callout).foregroundColor(.secondary)
-                                    Spacer()
-                                }
+                                Text("No data available").font(.callout).foregroundColor(.secondary)
                                 Spacer()
                             }
+                            Spacer()
                         }
                     }
+                }
             }
-                    Spacer()
-                    HStack{
-                        Spacer()
-                        Button(action: {
-                            date = date.addingTimeInterval(TimeInterval(-86400))
-                            hourlyAggVM.date = date
-                        }, label: {
-                            Image(systemName: "arrow.left.circle").imageScale(.large)
-                        })
-                        Spacer()
-                        Text(date, style: .date).font(.headline)
-                        Spacer()
-                        Button(action: {
-                            date = date.addingTimeInterval(TimeInterval(+86400))
-                            hourlyAggVM.date = date
-                            
-                        }, label: {
-                            Image(systemName: "arrow.right.circle").imageScale(.large)
-                        }).disabled(date==openDate)
-                        Spacer()
-                    }.padding(.top,25)
-                
+            Spacer()
+            HStack{
+                Spacer()
+                Button(action: {
+                    date = date.addingTimeInterval(TimeInterval(-86400))
+                    hourlyAggVM.date = date
+                }, label: {
+                    Image(systemName: "arrow.left.circle").imageScale(.large)
+                })
+                Spacer()
+                Text(date, style: .date).font(.headline)
+                Spacer()
+                Button(action: {
+                    date = date.addingTimeInterval(TimeInterval(+86400))
+                    hourlyAggVM.date = date
+                    
+                }, label: {
+                    Image(systemName: "arrow.right.circle").imageScale(.large)
+                }).disabled(date==openDate)
+                Spacer()
+            }.padding(.top,25)
+            
             
         }.onAppear {
             hourlyAggVM.load()
             openDate = date
+        }
+        .onDisappear{
+            openDate = Calendar.current.dateComponents([.calendar, .month, .year], from: Date()).date!
+            hourlyAggVM.date = openDate
         }
     }
     
@@ -200,7 +204,7 @@ struct WeekChart: View {
                 Button(action: {
                     startDate = Calendar.current.date(byAdding: .day, value: -7, to: startDate)!
                     weekAggVM.date = startDate
-
+                    
                 }, label: {
                     Image(systemName: "arrow.left.circle").imageScale(.large)
                 })
@@ -216,7 +220,12 @@ struct WeekChart: View {
                 Spacer(minLength: 0)
             }.padding(.top,25)
         }.onAppear {
+            startDate = Calendar.current.dateComponents([.calendar, .yearForWeekOfYear, .weekOfYear], from: Date()).date!
             weekAggVM.load()
+        }
+        .onDisappear{
+            startDate = Calendar.current.dateComponents([.calendar, .yearForWeekOfYear, .weekOfYear], from: Date()).date!
+            weekAggVM.date = startDate
         }
     }
     func formatDateText(start:Date, end: Date)-> String{
@@ -269,7 +278,7 @@ struct MonthChart: View {
                 Button(action: {
                     startDate = Calendar.current.date(byAdding: DateComponents(month: -1), to: startDate)!
                     monthVM.date = startDate
-
+                    
                 }, label: {
                     Image(systemName: "arrow.left.circle").imageScale(.large)
                 })
@@ -284,9 +293,18 @@ struct MonthChart: View {
                 }).disabled(currentDate<=endDate)
                 Spacer(minLength: 0)
             }.padding(.top,25)
+            
+            
         }.onAppear {
+            startDate = Calendar.current.dateComponents([.calendar, .month, .year], from: Date()).date!
+            
             monthVM.load()
         }
+        .onDisappear{
+            startDate = Calendar.current.dateComponents([.calendar, .month, .year], from: Date()).date!
+            monthVM.date = startDate
+        }
+        
     }
     func formatDateText(start:Date, end: Date)-> String{
         let dateFormatter = DateFormatter()
