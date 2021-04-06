@@ -43,10 +43,10 @@ struct SingleSensorWidgetView: View {
                     }
                     Spacer()
                 }.padding()
-            
-        }
-    }.background(Color("GfroerliDarkBlue"))
-}
+                
+            }
+        }.background(Color("GfroerliDarkBlue"))
+    }
 }
 
 struct SensorView: View {
@@ -58,40 +58,30 @@ struct SensorView: View {
             HStack{
                 Text(entry.sensor!.device_name)
                     .foregroundColor(.white)
+                    .minimumScaleFactor(0.1)
                 Spacer()
             }
-            
             HStack{
                 Spacer()
                 VStack(alignment:.trailing,spacing: 0){
-                    
+                    Text("")
                     Text(String(format: "%.1f", entry.sensor!.latestTemp!)+"°")
-                    .font(.title2)
-                    .foregroundColor(.white)
-                        .padding(.vertical,0.1)
-                    
-                    Text("at "+createStringFromDate(date: entry.sensor!.lastTempTime!, format: getDateFormat(date1: Date(), date2: entry.sensor!.lastTempTime!)))
-                        .font(.caption)
-                    .foregroundColor(.white)
-                        
-                    
+                        .font(.title)
+                        .foregroundColor(.white)
+                        .padding(.vertical)
+                    HStack(spacing: 0){
+                        Spacer()
+                        Text(entry.sensor!.lastTempTime!, style: .time).font(.caption)
+                            .foregroundColor(.white)
+                    }
+                    if !areSameDay(date1: Date(), date2: entry.sensor!.lastTempTime!){
+                        Text(createStringFromDate(date: entry.sensor!.lastTempTime!, format: "dd. MMM. YY")).font(.caption)
+                            .foregroundColor(.white)
+                    }
                 }
             }
-            Spacer()
         }.padding()
-        
-    }
-    
-    func getDateFormat(date1: Date,date2:Date) -> String{
-        let calendar = Calendar.current
-        let dayComp2 = calendar.dateComponents([.day], from: date1)
-        let dayComp1 = calendar.dateComponents([.day], from: date2)
-        
-        if dayComp1.day == dayComp2.day {
-            return "HH:MM"
-        }
-        return "HH:MM, dd.MM.yy"
-    }
+    }    
 }
 
 struct SingleSensorWidget: Widget {
