@@ -30,10 +30,10 @@ public func createDateStringfromStringDate(string: String)->String{
     
 }
 
-public func createStringFromDate(date: Date)->String{
+public func createStringFromDate(date: Date, format: String = "HH:mm, d. MMMM y")->String{
     
     let stringFormatter = DateFormatter()
-    stringFormatter.dateFormat = "HH:mm, d. MMMM y"
+    stringFormatter.dateFormat = format
     return stringFormatter.string(from: date)
     
 }

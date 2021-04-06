@@ -14,18 +14,19 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 import Foundation
 
 struct Sensor: Codable, Identifiable {
-    init(id: Int, device_name: String, caption: String?, latitude: Double?, longitude: Double?, sponsor_id: Int?, created_at: Date?, latestTemp: Double?, maxTemp: Double?, minTemp:Double?,avgTemp:Double?) {
+    init(id: Int, device_name: String, caption: String?, latitude: Double?, longitude: Double?, sponsor_id: Int?, createdAt: Date?, latestTemp: Double?, maxTemp: Double?, minTemp:Double?,avgTemp:Double?,lastTempTime: Date?) {
         self.id = id
         self.device_name = device_name
         self.caption = caption
         self.latitude = latitude
         self.longitude = longitude
         self.sponsor_id = sponsor_id
-        self.created_at = created_at
+        self.createdAt = createdAt
         self.latestTemp = latestTemp
         self.maxTemp = maxTemp
         self.minTemp = minTemp
         self.avgTemp = avgTemp
+        self.lastTempTime = lastTempTime
     }
     
     let id : Int
@@ -34,11 +35,12 @@ struct Sensor: Codable, Identifiable {
     let latitude : Double?
     let longitude : Double?
     let sponsor_id : Int?
-    let created_at : Date?
+    let createdAt : Date?
     let latestTemp : Double?
     let maxTemp: Double?
     let minTemp: Double?
     let avgTemp: Double?
+    let lastTempTime: Date?
 
     enum CodingKeys: String, CodingKey {
 
@@ -48,11 +50,12 @@ struct Sensor: Codable, Identifiable {
         case latitude = "latitude"
         case longitude = "longitude"
         case sponsor_id = "sponsor_id"
-        case created_at = "created_at"
+        case createdAt = "created_at"
         case latestTemp = "latest_temperature"
         case maxTemp = "maximum_temperature"
         case minTemp = "minimum_temperature"
         case avgTemp = "average_temperature"
+        case lastTempTime = "latest_measurement_at"
         
     }
 
@@ -70,11 +73,13 @@ struct Sensor: Codable, Identifiable {
         minTemp = try values.decodeIfPresent(Double.self, forKey: .minTemp)
         maxTemp = try values.decodeIfPresent(Double.self, forKey: .maxTemp)
         avgTemp = try values.decodeIfPresent(Double.self, forKey: .avgTemp)
-        var UNIXStamp = try values.decodeIfPresent(Double.self, forKey: .created_at)
-        created_at = Date(timeIntervalSince1970: UNIXStamp ?? 0.0)
+        var createdUNIXStamp = try values.decodeIfPresent(Double.self, forKey: .createdAt)
+        createdAt = Date(timeIntervalSince1970: createdUNIXStamp ?? 0.0)
+        var lastMeasurementUNIXStamp = try values.decodeIfPresent(Double.self, forKey: .lastTempTime)
+        lastTempTime = Date(timeIntervalSince1970: (lastMeasurementUNIXStamp ?? 0.0))
     }
 }
 
 
-let testSensor = Sensor(id: 2, device_name: "testSensor", caption: "caption", latitude: 47.28073, longitude: 8.72869, sponsor_id: 0, created_at: Date(), latestTemp: 20.0, maxTemp: 20.0, minTemp: 0.0, avgTemp: 10.0)
+let testSensor = Sensor(id: 2, device_name: "testSensor", caption: "caption", latitude: 47.28073, longitude: 8.72869, sponsor_id: 0, createdAt: Date(), latestTemp: 20.0, maxTemp: 20.0, minTemp: 0.0, avgTemp: 10.0,lastTempTime: Date())
 

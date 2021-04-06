@@ -60,16 +60,37 @@ struct SensorView: View {
                     .foregroundColor(.white)
                 Spacer()
             }
-            Spacer()
+            
             HStack{
                 Spacer()
-                Text(String(format: "%.1f", entry.sensor!.latestTemp!)+"°")
+                VStack(alignment:.trailing,spacing: 0){
+                    
+                    Text(String(format: "%.1f", entry.sensor!.latestTemp!)+"°")
                     .font(.title2)
                     .foregroundColor(.white)
+                        .padding(.vertical,0.1)
+                    
+                    Text("at "+createStringFromDate(date: entry.sensor!.lastTempTime!, format: getDateFormat(date1: Date(), date2: entry.sensor!.lastTempTime!)))
+                        .font(.caption)
+                    .foregroundColor(.white)
+                        
+                    
+                }
             }
             Spacer()
         }.padding()
         
+    }
+    
+    func getDateFormat(date1: Date,date2:Date) -> String{
+        let calendar = Calendar.current
+        let dayComp2 = calendar.dateComponents([.day], from: date1)
+        let dayComp1 = calendar.dateComponents([.day], from: date2)
+        
+        if dayComp1.day == dayComp2.day {
+            return "HH:MM"
+        }
+        return "HH:MM, dd.MM.yy"
     }
 }
 
