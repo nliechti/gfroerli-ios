@@ -12,40 +12,31 @@ struct OverView: View {
     @Binding var showDetail: Bool
     @Binding var pathComp: String?
     @ObservedObject var sensorsVM : SensorListViewModel
-    var featuredSensorID = 1
     var body: some View {
         NavigationView{
             ScrollView(.vertical){
                 VStack(alignment: .leading, spacing: 0){
-                    Text("Featured")
-                        .font(.title)
-                        .bold()
-                        .padding(.horizontal)
                     
-                    AsyncContentView(source: sensorsVM) { sensors in
-                        NavigationLink(
-                            destination: SensorOverView(id: featuredSensorID),
-                            label: {
-                                SensorScrollItem(sensor: sensors.first(where: {$0.id == featuredSensorID})!)
-                            }).buttonStyle(PlainButtonStyle())
-                    }
+                    TopTabView(sensorsVM: sensorsVM).frame(height:375)
                     
                     Text("Water Bodies")
                         .font(.title)
                         .bold()
                         .padding([.horizontal,.top])
-                    ScrollView(.horizontal, showsIndicators: false){
-                        HStack(spacing:0){
+                    
+                       
+                            
                             ForEach(lakes){ lake in
                                 NavigationLink(
                                     destination: LakeOverView(lake: lake, sensorsVM: sensorsVM),
                                     label: {
-                                        ScrollItem(lake:lake)
+                                        LakeListItem(lake: lake)
                                     }).buttonStyle(PlainButtonStyle())
                                     .padding()
+                            
                             }
-                        }
-                    }
+                        
+                    
                 }
                 Spacer()
             }
@@ -68,6 +59,51 @@ struct OverView: View {
             }
         })
     }
+}
+
+struct TopTabView: View{
+    @ObservedObject var sensorsVM : SensorListViewModel
+    @State var newest = 1
+    @State var random = 1
+    @State var latest = 1
+    var body: some View{
+        AsyncContentView(source: sensorsVM){ sensors in
+            
+        TabView{
+            NavigationLink(
+                destination: SensorOverView(id: 1),
+                label: {
+                    SensorScrollItem(title: "Newest", sensorID: $newest)
+                }).buttonStyle(PlainButtonStyle())
+            NavigationLink(
+                destination: SensorOverView(id: 1),
+                label: {
+                    SensorScrollItem(title: "Latest", sensorID: $latest)
+                }).buttonStyle(PlainButtonStyle())
+            NavigationLink(
+                destination: SensorOverView(id: 1),
+                label: {
+                    SensorScrollItem(title: "Random", sensorID: $random)
+                }).buttonStyle(PlainButtonStyle())
+        }.padding(.top)
+        .tabViewStyle(PageTabViewStyle())
+        .onAppear(perform: {
+            UIPageControl.appearance().currentPageIndicatorTintColor = .black
+            UIPageControl.appearance().pageIndicatorTintColor = UIColor.black.withAlphaComponent(0.2)
+            print(testSensorVM.sensorArray.sorted(by: {$0.id > $1.id}))
+            newest = sensorsVM.sensorArray.sorted(by: {$0.id > $1.id}).first!.id
+            latest = sensorsVM.sensorArray.sorted(by: {$0.lastTempTime! > $1.lastTempTime!}).first!.id
+            random = sensorsVM.sensorArray.randomElement()!.id
+        })
+    }
+        
+        
+        
+        
+    }
+    
+    
+    
 }
 
 struct OverView_Previews: PreviewProvider {

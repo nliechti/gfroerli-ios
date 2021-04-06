@@ -15,7 +15,6 @@
 		8D0D7FE424F107C10068176C /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE324F107C10068176C /* FavoritesView.swift */; };
 		8D0D7FE624F107D30068176C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE524F107D30068176C /* SettingsView.swift */; };
 		8D0D7FE824F10F610068176C /* LakesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE724F10F610068176C /* LakesData.swift */; };
-		8D0D7FEA24F1109A0068176C /* ScrollItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE924F1109A0068176C /* ScrollItem.swift */; };
 		8D2701C725153082007BB0E1 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2701C625153082007BB0E1 /* LoadingView.swift */; };
 		8D3D36F0250BBC8500F11E48 /* SensorOverViewGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3D36EF250BBC8500F11E48 /* SensorOverViewGraph.swift */; };
 		8D3D36F2250BBEF000F11E48 /* SensorOverviewSponsorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3D36F1250BBEF000F11E48 /* SensorOverviewSponsorView.swift */; };
@@ -167,7 +166,6 @@
 		8D0D7FE324F107C10068176C /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		8D0D7FE524F107D30068176C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		8D0D7FE724F10F610068176C /* LakesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LakesData.swift; sourceTree = "<group>"; };
-		8D0D7FE924F1109A0068176C /* ScrollItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollItem.swift; sourceTree = "<group>"; };
 		8D2701C625153082007BB0E1 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		8D3D36EF250BBC8500F11E48 /* SensorOverViewGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorOverViewGraph.swift; sourceTree = "<group>"; };
 		8D3D36F1250BBEF000F11E48 /* SensorOverviewSponsorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorOverviewSponsorView.swift; sourceTree = "<group>"; };
@@ -294,7 +292,6 @@
 		8D0D7FDE24F101E70068176C /* CostumUI */ = {
 			isa = PBXGroup;
 			children = (
-				8D0D7FE924F1109A0068176C /* ScrollItem.swift */,
 				8D04196724F50258003D64D4 /* SensorScrollItem.swift */,
 				8DF3BBCC250B748800DBCC37 /* SearchBar.swift */,
 				8D5D25CA257A98D1002852F4 /* SensorListItem.swift */,
@@ -857,7 +854,6 @@
 				E4C24FE724EEB58400FB4F51 /* Sensor.swift in Sources */,
 				B4F95C0825C2EC46004C21E1 /* ViewExtensions.swift in Sources */,
 				8D0D7FE624F107D30068176C /* SettingsView.swift in Sources */,
-				8D0D7FEA24F1109A0068176C /* ScrollItem.swift in Sources */,
 				8DA7CF02251611C800395465 /* SingleSensorViewModel.swift in Sources */,
 				8D0D7FE824F10F610068176C /* LakesData.swift in Sources */,
 				8DBC3C4B25756C080010D55B /* HourlyChartView.swift in Sources */,

@@ -81,5 +81,6 @@ struct Sensor: Codable, Identifiable {
 }
 
 
-let testSensor = Sensor(id: 2, device_name: "testSensor", caption: "caption", latitude: 47.28073, longitude: 8.72869, sponsor_id: 0, createdAt: Date(), latestTemp: 20.0, maxTemp: 20.0, minTemp: 0.0, avgTemp: 10.0,lastTempTime: Date())
+let testSensor2 = Sensor(id: 2, device_name: "testSensor2", caption: "caption2", latitude: 47.28073, longitude: 8.72869, sponsor_id: 0, createdAt: Date(), latestTemp: 20.0, maxTemp: 20.0, minTemp: 0.0, avgTemp: 10.0,lastTempTime: Date())
+let testSensor1 = Sensor(id: 1, device_name: "testSensor1", caption: "caption1", latitude: 47.28073, longitude: 8.72869, sponsor_id: 0, createdAt: Date(), latestTemp: 20.0, maxTemp: 20.0, minTemp: 0.0, avgTemp: 10.0,lastTempTime: Date().addingTimeInterval(2))
 

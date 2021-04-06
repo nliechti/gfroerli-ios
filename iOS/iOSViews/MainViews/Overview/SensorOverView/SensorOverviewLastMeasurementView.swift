@@ -47,6 +47,6 @@ struct SensorOverviewLastMeasurementView: View {
 
 struct SensorOverviewLastMeasurementView_Previews: PreviewProvider {
     static var previews: some View {
-        SensorOverviewLastMeasurementView(sensor:testSensor).makePreViewModifier()
+        SensorOverviewLastMeasurementView(sensor:testSensor1).makePreViewModifier()
     }
 }

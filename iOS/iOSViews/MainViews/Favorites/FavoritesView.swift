@@ -11,7 +11,6 @@ import MapKit
 struct FavoritesView: View {
     @State var favorites =  [Int]()
     @ObservedObject var sensorsVm : SensorListViewModel
-    @State var loadingState: loadingState = .loading
     
     var body: some View {
         NavigationView{
@@ -34,9 +33,9 @@ struct FavoritesView: View {
                                     NavigationLink(
                                         destination: SensorOverView(id: sensor.id),
                                         label: {
-                                            SensorScrollItem(sensor: sensor)
+                                            Item(sensor: sensor)
                                         }).buttonStyle(PlainButtonStyle())
-                                }
+                                    }
                             }
                             Spacer()
                         }
@@ -51,8 +50,36 @@ struct FavoritesView: View {
     }
 }
 
+private struct Item:View{
+    @State var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+    var sensor: Sensor
+    var body: some View{
+        VStack(alignment: .leading, spacing: 0){
+            
+            Map(coordinateRegion: $region, interactionModes: [])
+            VStack(alignment: .leading){
+                
+                HStack {
+                    Text(sensor.device_name)
+                        .font(.headline)
+                    Spacer()
+                }
+                Text(sensor.caption!)
+                    .font(.footnote)
+                
+                
+            }.padding()
+        }
+        .onAppear(perform: {
+            region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: sensor.latitude!, longitude: sensor.longitude!), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        })
+        
+        .background(Color.secondarySystemGroupedBackground)
+        .frame(width: UIScreen.main.bounds.width, height: 200)
+    }
+}
 struct FavoritesView_Previews: PreviewProvider {
     static var previews: some View {
-        FavoritesView(sensorsVm: SensorListViewModel(), loadingState: .loaded).makePreViewModifier()
+        FavoritesView(sensorsVm: SensorListViewModel()).makePreViewModifier()
     }
 }

@@ -70,7 +70,7 @@ class SensorListViewModel: LoadableObject {
 
 
 
-let testSensorVM = SensorListViewModel(sensors: [testSensor])
+let testSensorVM = SensorListViewModel(sensors: [testSensor1,testSensor2])
 
 
 

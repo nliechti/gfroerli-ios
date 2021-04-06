@@ -34,6 +34,6 @@ struct SensorOverviewSponsorView: View {
 
 struct SensorOverviewSponsorView_Previews: PreviewProvider {
     static var previews: some View {
-        SensorOverviewSponsorView(sensor: testSensor).makePreViewModifier()
+        SensorOverviewSponsorView(sensor: testSensor1).makePreViewModifier()
     }
 }
