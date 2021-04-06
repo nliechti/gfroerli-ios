@@ -50,7 +50,7 @@ struct OverView: View {
                 Spacer()
             }
             .background(Color.systemGroupedBackground.ignoresSafeArea())
-            .navigationTitle("Gfrör.li")
+            .navigationTitle("Overview")
             .toolbar{
                 ToolbarItem{
                     Button {

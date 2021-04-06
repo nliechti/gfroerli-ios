@@ -28,7 +28,7 @@ struct FavoritesView: View {
                     }
                 }else{
                     AsyncContentView(source: sensorsVm) { sensors in
-                        VStack(alignment: .center,spacing:0){
+                        ScrollView{
                             ForEach(sensors){ sensor in
                                 if favorites.contains(sensor.id){
                                     NavigationLink(
