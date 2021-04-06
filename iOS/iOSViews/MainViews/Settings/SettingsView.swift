@@ -153,6 +153,12 @@ struct SettingsView: View {
                                 Image(systemName: "chevron.right").foregroundColor(.gray)
                             }
                         })
+                        Button {
+                            WidgetCenter.shared.reloadTimelines(ofKind: "gfroerliWidgetExtension")
+                        } label: {
+                            Text("reload Widget")
+                        }
+
                     }
                 }.listStyle(GroupedListStyle())
             }.background(Color.systemGroupedBackground.ignoresSafeArea())

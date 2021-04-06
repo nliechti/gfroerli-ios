@@ -14,10 +14,12 @@ struct SingleSensorWithGraphView: View {
     var body: some View {
         VStack{
             Text(entry.date, style: .time)
-            Text(entry.device_name)
+            Text(entry.device_id)
         }
     }
 }
+
+
 
 struct SingleSensorWithGraphWidget: Widget {
     let kind: String = "gfroerliWidgetExtension"
@@ -34,7 +36,7 @@ struct SingleSensorWithGraphWidget: Widget {
 
 struct SingleSensorWithGraphView_Previews: PreviewProvider {
     static var previews: some View {
-        SingleSensorWithGraphView(entry: SingleSensorEntry(date: Date(),device_name: "Placeholder", configuration: SingleSensorIntent(),timeSpan: .day))
+        SingleSensorWithGraphView(entry: SingleSensorEntry(date: Date(),device_id: "Placeholder", configuration: SingleSensorIntent(),timeSpan: .day, sensor: nil))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }
