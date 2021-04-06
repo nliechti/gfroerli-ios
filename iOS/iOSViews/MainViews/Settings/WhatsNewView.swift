@@ -38,7 +38,7 @@ struct WhatsNewView: View {
                             }.padding([.horizontal])
                         }
                     }.padding()
-                    .background(Color(.systemGroupedBackground))
+                    .background(Color(.secondarySystemGroupedBackground))
                     .cornerRadius(15)
                     .padding()
                     .shadow(radius: 1)
@@ -64,6 +64,7 @@ struct WhatsNewView: View {
             }
         }
         .navigationBarTitle("What's new?", displayMode: .inline)
+        .background(Color.systemGroupedBackground)
         .onDisappear {
             UserDefaults(suiteName: "group.ch.gfroerli")?.set(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0.0", forKey: "lastVersion")
             
