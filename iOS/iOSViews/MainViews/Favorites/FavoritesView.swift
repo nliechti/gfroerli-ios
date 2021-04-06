@@ -35,7 +35,7 @@ struct FavoritesView: View {
                                         label: {
                                             Item(sensor: sensor)
                                         }).buttonStyle(PlainButtonStyle())
-                                    }
+                                }
                             }
                             Spacer()
                         }
@@ -66,8 +66,6 @@ private struct Item:View{
                 }
                 Text(sensor.caption!)
                     .font(.footnote)
-                
-                
             }.padding()
         }
         .onAppear(perform: {

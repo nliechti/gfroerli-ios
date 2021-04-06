@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct FAQView: View {
-    @Binding var showView: Bool
     @State var firstExpanded = false
     @State var secondExpanded = false
     var body: some View {
-        NavigationView{
+        
             VStack {
                 GroupBox{
                     DisclosureGroup(isExpanded: $firstExpanded,
@@ -47,13 +46,12 @@ struct FAQView: View {
             .background(Color.systemGroupedBackground.ignoresSafeArea())
             .navigationTitle("About")
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarItems(leading: Button(action: {showView=false}, label: {Text("Close")}))
-        }
+        
     }
 }
 
 struct FAQView_Previews: PreviewProvider {
     static var previews: some View {
-        FAQView(showView: .constant(true))
+        FAQView()
     }
 }

@@ -8,7 +8,6 @@
 import SwiftUI
 import MapKit
 struct OverView: View {
-    @State var showAbout: Bool = false
     @Binding var showDetail: Bool
     @Binding var pathComp: String?
     @ObservedObject var sensorsVM : SensorListViewModel
@@ -23,36 +22,19 @@ struct OverView: View {
                         .font(.title)
                         .bold()
                         .padding([.horizontal,.top])
-                    
-                       
-                            
-                            ForEach(lakes){ lake in
-                                NavigationLink(
-                                    destination: LakeOverView(lake: lake, sensorsVM: sensorsVM),
-                                    label: {
-                                        LakeListItem(lake: lake)
-                                    }).buttonStyle(PlainButtonStyle())
-                                    .padding()
-                            
-                            }
-                        
-                    
+                    ForEach(lakes){ lake in
+                        NavigationLink(
+                            destination: LakeOverView(lake: lake, sensorsVM: sensorsVM),
+                            label: {
+                                LakeListItem(lake: lake).shadow(radius: 1)
+                            }).buttonStyle(PlainButtonStyle())
+                            .padding()
+                    }
                 }
                 Spacer()
             }
             .background(Color.systemGroupedBackground.ignoresSafeArea())
             .navigationTitle("Overview")
-            .toolbar{
-                ToolbarItem{
-                    Button {
-                        showAbout=true
-                    } label: {
-                        Image(systemName: "info.circle")
-                    }
-                }
-            }.sheet(isPresented: $showAbout, content: {
-                FAQView(showView: $showAbout)
-            })
         }.sheet(isPresented: $showDetail, content: {
             NavigationView{
                 SensorOverView(id:Int(pathComp!)!).navigationBarItems(leading: Button(action: {showDetail=false}, label: {Text("Close")}))
@@ -69,41 +51,34 @@ struct TopTabView: View{
     var body: some View{
         AsyncContentView(source: sensorsVM){ sensors in
             
-        TabView{
-            NavigationLink(
-                destination: SensorOverView(id: 1),
-                label: {
-                    SensorScrollItem(title: "Newest", sensorID: $newest)
-                }).buttonStyle(PlainButtonStyle())
-            NavigationLink(
-                destination: SensorOverView(id: 1),
-                label: {
-                    SensorScrollItem(title: "Latest", sensorID: $latest)
-                }).buttonStyle(PlainButtonStyle())
-            NavigationLink(
-                destination: SensorOverView(id: 1),
-                label: {
-                    SensorScrollItem(title: "Random", sensorID: $random)
-                }).buttonStyle(PlainButtonStyle())
-        }.padding(.top)
-        .tabViewStyle(PageTabViewStyle())
-        .onAppear(perform: {
-            UIPageControl.appearance().currentPageIndicatorTintColor = .black
-            UIPageControl.appearance().pageIndicatorTintColor = UIColor.black.withAlphaComponent(0.2)
-            print(testSensorVM.sensorArray.sorted(by: {$0.id > $1.id}))
-            newest = sensorsVM.sensorArray.sorted(by: {$0.id > $1.id}).first!.id
-            latest = sensorsVM.sensorArray.sorted(by: {$0.lastTempTime! > $1.lastTempTime!}).first!.id
-            random = sensorsVM.sensorArray.randomElement()!.id
-        })
+            TabView{
+                NavigationLink(
+                    destination: SensorOverView(id: 1),
+                    label: {
+                        SensorScrollItem(title: "Newest", sensorID: $newest)
+                    }).buttonStyle(PlainButtonStyle())
+                NavigationLink(
+                    destination: SensorOverView(id: 1),
+                    label: {
+                        SensorScrollItem(title: "Latest", sensorID: $latest)
+                    }).buttonStyle(PlainButtonStyle())
+                NavigationLink(
+                    destination: SensorOverView(id: 1),
+                    label: {
+                        SensorScrollItem(title: "Random", sensorID: $random)
+                    }).buttonStyle(PlainButtonStyle())
+            }.padding(.top)
+            .tabViewStyle(PageTabViewStyle())
+            .onAppear(perform: {
+                UIPageControl.appearance().currentPageIndicatorTintColor = .black
+                UIPageControl.appearance().pageIndicatorTintColor = UIColor.black.withAlphaComponent(0.2)
+                print(testSensorVM.sensorArray.sorted(by: {$0.id > $1.id}))
+                newest = sensorsVM.sensorArray.sorted(by: {$0.id > $1.id}).first!.id
+                latest = sensorsVM.sensorArray.sorted(by: {$0.lastTempTime! > $1.lastTempTime!}).first!.id
+                random = sensorsVM.sensorArray.randomElement()!.id
+            })
+        }
     }
-        
-        
-        
-        
-    }
-    
-    
-    
 }
 
 struct OverView_Previews: PreviewProvider {

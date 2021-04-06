@@ -28,7 +28,6 @@ struct SensorScrollItem: View {
                 .padding([.horizontal,.top])
             AsyncContentView(source: sensorVM){ sensor in
                 VStack(alignment: .leading, spacing: 0){
-                    
                     Map(coordinateRegion: $region, interactionModes: [])
                     VStack(alignment: .leading){
                         
@@ -39,9 +38,8 @@ struct SensorScrollItem: View {
                         }
                         Text(sensor.caption!)
                             .font(.footnote)
-                        
-                        
                     }.padding()
+                    
                 }
                 .onAppear(perform: {
                     region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: sensor.latitude!, longitude: sensor.longitude!), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))

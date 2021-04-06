@@ -1,0 +1,20 @@
+[
+    {
+        "version": "1.2",
+        "changes": ["Added: This Change-log", "Added: Ability to change timespan of graph","Added: Timestamp of lates measurement", "Complete Settings-View Overhaul", "Added: More links to Settings-View", "Added:\"Try again\"-Button if loading fails", "Changed: Select Location directly from widget by holding & pressing it",],
+        "fixes": ["Favorites-View was not Scrollable", "Items in About-View were not tappable", "A ton of UI adjustments"]
+    
+    },
+    {
+        "version": "1.01",
+        "changes": [],
+        "fixes": ["Locations not being loaded."]
+    
+    },
+    {
+        "version": "1.0",
+        "changes": ["Initial release! 🎉"],
+        "fixes": []
+    
+    }
+]

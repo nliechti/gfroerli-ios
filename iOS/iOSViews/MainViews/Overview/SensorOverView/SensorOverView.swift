@@ -42,12 +42,12 @@ struct SensorOverView: View {
         .background(Color.systemGroupedBackground.ignoresSafeArea())
         .navigationBarItems(trailing:
                                 HStack{
-                                    Button {
+                                    /*Button {
                                         showNotificationSheet = true
                                     } label: {
                                         Image(systemName: "bell")
                                             .imageScale(.large)
-                                    }
+                                    }*/
                                     
                                     Button {
                                         isFav ? removeFav() : makeFav()

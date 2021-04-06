@@ -327,6 +327,7 @@
 		8D815A2A25A63AE80060AC85 /* AppStoreData */ = {
 			isa = PBXGroup;
 			children = (
+				B4157121260A42F200372278 /* Changes.json */,
 				8D815A2B25A641D80060AC85 /* AppStore_DE.rtf */,
 				8D8533F925A788A800B8BD2E /* AppStore_ENG.rtf */,
 				8D04E84625AB79F100B5902A /* AppStore_FR.rtf */,
@@ -611,7 +612,6 @@
 				8D0D7FE724F10F610068176C /* LakesData.swift */,
 				8D04196924F50349003D64D4 /* RiverData.swift */,
 				B415711B260A41A400372278 /* ChangeNote.swift */,
-				B4157121260A42F200372278 /* Changes.json */,
 			);
 			path = Models;
 			sourceTree = "<group>";

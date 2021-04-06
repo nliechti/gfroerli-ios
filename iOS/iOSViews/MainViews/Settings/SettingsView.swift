@@ -25,7 +25,7 @@ struct SettingsView: View {
                         VStack(alignment: .leading){
                             Text("Gfrör.li").font(.title).bold()
                             Text("Version: \(lastVersion)").foregroundColor(.gray)
-                            Text("by Marc Kramer \nfor Coredump Rapperswil").foregroundColor(.gray)
+                            Text("by Marc & Niklas\nfor Coredump Rapperswil").foregroundColor(.gray)
                         }
                         Spacer()
                     }.frame(maxHeight: 100)
@@ -33,48 +33,28 @@ struct SettingsView: View {
                     
                     Section(header: Text("General")){
                         
-                        Button(action: {
-                            UIApplication.shared.open(URL.init(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
-                            
-                        }, label: {
-                            HStack{
-                                Label(
-                                    title: { Text("Change Language").foregroundColor(Color("textColor"))},
-                                    icon: { Image(systemName: "globe").resizable().foregroundColor(.white).padding(5)
-                                        .background(Color.blue).frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/) })
-                                Spacer()
-                                Image(systemName: "chevron.right").foregroundColor(.gray)
-                            }
-                        })
                         
-                    
+                        // FAQ
+                        HStack{
+                            NavigationLink(destination: FAQView() ,label: {
+                                Label(
+                                    title: { Text("About").foregroundColor(Color("textColor"))},
+                                    icon: { Image(systemName: "info.circle").resizable().aspectRatio(contentMode: .fit).foregroundColor(.white).padding(3)
+                                        .frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).background(Color.blue).cornerRadius(3) })
+                                
+                                
+                            })}
+                        
+                        //Changelog
                         HStack{
                             NavigationLink(destination: WhatsNewView(lastVersion: "0.0", showDismiss: false),label: {
                                 Label(
                                     title: { Text("Changelog").foregroundColor(Color("textColor"))},
                                     icon: { Image(systemName: "sparkles").resizable().aspectRatio(contentMode: .fit).foregroundColor(.white).padding(3)
-                                        .frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).background(Color.yellow).cornerRadius(3) })
+                                        .frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).background(Color.green).cornerRadius(3) })
                                 
                                 
                             })}
-                        //Contact
-                        Button(action: {
-                            let email = "appdev@coredump.ch"
-                            let subject = "Feedback iOS Version: \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "fail")"
-                            let body = getEmailBody()
-                            guard let url = URL(string: "mailto:\(email)?subject=\(subject.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? "")&body=\(body.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? "")") else { return }
-                            UIApplication.shared.open(url)
-                            
-                        }, label: {
-                            HStack{
-                                Label(
-                                    title: { Text("Contact").foregroundColor(Color("textColor")) },
-                                    icon: { Image(systemName: "envelope.fill").resizable().aspectRatio(contentMode: .fit).foregroundColor(.white).padding(4)
-                                        .frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).background(Color.blue).cornerRadius(3)})
-                                Spacer()
-                                Image(systemName: "chevron.right").foregroundColor(.gray)
-                            }
-                        })
                         
                         //Rate
                         Button(action: {
@@ -98,12 +78,56 @@ struct SettingsView: View {
                                 Image(systemName: "chevron.right").foregroundColor(.gray)
                             }
                         })
+                        //Contact
+                        Button(action: {
+                            let email = "appdev@coredump.ch"
+                            let subject = "Feedback iOS Version: \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "fail")"
+                            let body = getEmailBody()
+                            guard let url = URL(string: "mailto:\(email)?subject=\(subject.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? "")&body=\(body.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? "")") else { return }
+                            UIApplication.shared.open(url)
+                            
+                        }, label: {
+                            HStack{
+                                Label(
+                                    title: { Text("Contact").foregroundColor(Color("textColor")) },
+                                    icon: { Image(systemName: "envelope.fill").resizable().aspectRatio(contentMode: .fit).foregroundColor(.white).padding(4)
+                                        .frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).background(Color.blue).cornerRadius(3)})
+                                Spacer()
+                                Image(systemName: "chevron.right").foregroundColor(.gray)
+                            }
+                        })
+                        
+                        Link(destination: URL(string: "https://xn--gfrr-7qa.li/about")!, label: {
+                            HStack{
+                                Label(
+                                    title: { Text("Privacy Policy").foregroundColor(Color("textColor")) },
+                                    icon: { Image(systemName: "hand.raised.fill").resizable().aspectRatio(contentMode: .fit).foregroundColor(.white).padding(4)
+                                        .frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).background(Color.blue).cornerRadius(3) })
+                                Spacer()
+                                Image(systemName: "chevron.right").foregroundColor(.gray)
+                            }
+                        })
+                        
+                        Button(action: {
+                            UIApplication.shared.open(URL.init(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
+                            
+                        }, label: {
+                            HStack{
+                                Label(
+                                    title: { Text("Change Language").foregroundColor(Color("textColor"))},
+                                    icon: { Image(systemName: "globe").resizable().foregroundColor(.white).padding(5)
+                                        .background(Color.gray).frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/) })
+                                Spacer()
+                                Image(systemName: "chevron.right").foregroundColor(.gray)
+                            }
+                        })
+                        
                         Link(destination: URL(string: "https://xn--gfrr-7qa.li")!, label: {
                             HStack{
                                 Label(
                                     title: { Text("gfrör.li").foregroundColor(Color("textColor")) },
-                                    icon: { Image(systemName: "safari").resizable().foregroundColor(.white).padding(4)
-                                        .background(Color.blue).frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/) })
+                                    icon: { Image(systemName: "safari").resizable().foregroundColor(.blue).padding(4)
+                                        .background(Color.white).frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/).shadow(radius: 1) })
                                 Spacer()
                                 Image(systemName: "chevron.right").foregroundColor(.gray)
                             }
@@ -113,8 +137,8 @@ struct SettingsView: View {
                             HStack{
                                 Label(
                                     title: { Text("coredump.ch").foregroundColor(Color("textColor")) },
-                                    icon: { Image(systemName: "safari").resizable().foregroundColor(.white).padding(4)
-                                        .background(Color.blue).frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/) })
+                                    icon: { Image(systemName: "safari").resizable().foregroundColor(.blue).padding(4)
+                                        .background(Color.white).frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/).shadow(radius: 1) })
                                 Spacer()
                                 Image(systemName: "chevron.right").foregroundColor(.gray)
                             }
@@ -142,23 +166,6 @@ struct SettingsView: View {
                                 Image(systemName: "chevron.right").foregroundColor(.gray)
                             }
                         })
-                        
-                        Link(destination: URL(string: "https://xn--gfrr-7qa.li/about")!, label: {
-                            HStack{
-                                Label(
-                                    title: { Text("Privacy Policy").foregroundColor(Color("textColor")) },
-                                    icon: { Image(systemName: "hand.raised.fill").resizable().aspectRatio(contentMode: .fit).foregroundColor(.white).padding(4)
-                                        .frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).background(Color.blue).cornerRadius(3) })
-                                Spacer()
-                                Image(systemName: "chevron.right").foregroundColor(.gray)
-                            }
-                        })
-                        Button {
-                            WidgetCenter.shared.reloadTimelines(ofKind: "gfroerliWidgetExtension")
-                        } label: {
-                            Text("reload Widget")
-                        }
-
                     }
                 }.listStyle(GroupedListStyle())
             }.background(Color.systemGroupedBackground.ignoresSafeArea())
