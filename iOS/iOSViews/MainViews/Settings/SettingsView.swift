@@ -32,8 +32,6 @@ struct SettingsView: View {
                     .padding([.top,.bottom],5)
                     
                     Section(header: Text("General")){
-                        
-                        
                         // FAQ
                         HStack{
                             NavigationLink(destination: FAQView() ,label: {
@@ -41,10 +39,7 @@ struct SettingsView: View {
                                     title: { Text("About").foregroundColor(Color("textColor"))},
                                     icon: { Image(systemName: "info.circle").resizable().aspectRatio(contentMode: .fit).foregroundColor(.white).padding(3)
                                         .frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).background(Color.blue).cornerRadius(3) })
-                                
-                                
                             })}
-                        
                         //Changelog
                         HStack{
                             NavigationLink(destination: WhatsNewView(lastVersion: "0.0", showDismiss: false),label: {
@@ -52,10 +47,7 @@ struct SettingsView: View {
                                     title: { Text("Changelog").foregroundColor(Color("textColor"))},
                                     icon: { Image(systemName: "sparkles").resizable().aspectRatio(contentMode: .fit).foregroundColor(.white).padding(3)
                                         .frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).background(Color.green).cornerRadius(3) })
-                                
-                                
                             })}
-                        
                     }
                     
                     Section(header:Text("Links")){

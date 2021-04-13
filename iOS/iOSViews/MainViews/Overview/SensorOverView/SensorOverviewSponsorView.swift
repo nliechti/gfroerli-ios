@@ -20,7 +20,7 @@ struct SensorOverviewSponsorView: View {
                         Text(sponsor.name).font(.largeTitle).bold()
                         Spacer()
                     }.padding(.bottom)
-                    SponsorImageView(sponsor: sponsor).padding(.vertical)
+                    SponsorImageView(sponsor: sponsor).padding()
                     Text( sponsor.description)
                     Spacer()
                 }
@@ -48,12 +48,14 @@ struct SponsorImageView:View{
     var body: some View{
         
         Image(uiImage: image)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width:100, height:100)
-                        .onReceive(imageLoader.didChange) { data in
-                        self.image = UIImage(data: data) ?? UIImage()
-                        }
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .padding()
+            .background(Color.white)
+            .cornerRadius(15)
+            .onReceive(imageLoader.didChange) { data in
+                self.image = UIImage(data: data) ?? UIImage()
+            }
     }
     
     
