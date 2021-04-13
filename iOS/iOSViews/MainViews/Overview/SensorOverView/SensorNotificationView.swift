@@ -24,11 +24,11 @@ struct SensorNotificationView: View {
                     Text("todo")
                 }
                 .onChange(of: locationToggle) { newValue in
-                    if newValue == true{
+                   /* if newValue == true{
                         LocationNotificationHandler.addLocationNotification(for: sensor)
                     }else{
                         LocationNotificationHandler.removePendingLocationNotification(for: sensor)
-                    }
+                    }*/
                 }
             }.navigationBarTitle("Notifications for \(sensor.device_name)", displayMode: .inline)
         }.onAppear(perform: hasPendingLocationNotification)

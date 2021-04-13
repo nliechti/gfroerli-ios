@@ -55,8 +55,6 @@
 		B4795ECC260CCC1800D4BF19 /* SelectSensorIntentExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B4795EC3260CCC1800D4BF19 /* SelectSensorIntentExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B49B013D260E120800D1AA37 /* SingleSensorWithGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B012F260E118500D1AA37 /* SingleSensorWithGraphView.swift */; };
 		B49B0155260E132800D1AA37 /* WidgetMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B0147260E129E00D1AA37 /* WidgetMain.swift */; };
-		B49B0172260E160A00D1AA37 /* SelectSensor.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B4795ED1260CCC5500D4BF19 /* SelectSensor.intentdefinition */; };
-		B49B0173260E160B00D1AA37 /* SelectSensor.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B4795ED1260CCC5500D4BF19 /* SelectSensor.intentdefinition */; };
 		B49B0192260E180100D1AA37 /* SingleSensorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B0178260E167900D1AA37 /* SingleSensorProvider.swift */; };
 		B49B0193260E180100D1AA37 /* SingleSensorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B0178260E167900D1AA37 /* SingleSensorProvider.swift */; };
 		B49B02B4260E572500D1AA37 /* SingleSensorWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B017E260E178200D1AA37 /* SingleSensorWidgetView.swift */; };
@@ -91,7 +89,6 @@
 		B4E124A8260CCEDD00F45852 /* Sponsor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73772E252BA7200075E04E /* Sponsor.swift */; };
 		B4E124AF260CCF2000F45852 /* SensorListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA7CEF42516108000395465 /* SensorListViewModel.swift */; };
 		B4E124B6260CCF2400F45852 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4795EC7260CCC1800D4BF19 /* IntentHandler.swift */; };
-		B4E124C0260CCFD500F45852 /* SelectSensor.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B4795ED1260CCC5500D4BF19 /* SelectSensor.intentdefinition */; };
 		B4E124C4260CD18800F45852 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4157124260A43B400372278 /* Bundle-Decodable.swift */; };
 		B4E124D3260CD20700F45852 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D9B0FCE24F3A2E7003502C8 /* WidgetKit.framework */; };
 		B4E124D4260CD20700F45852 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D9B0FD024F3A2E7003502C8 /* SwiftUI.framework */; };
@@ -113,6 +110,9 @@
 		B4E12528260CD46200F45852 /* WeeklyAggregationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F95C2625C312F0004C21E1 /* WeeklyAggregationsViewModel.swift */; };
 		B4E1252D260CD46400F45852 /* SingleSensorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA7CF01251611C700395465 /* SingleSensorViewModel.swift */; };
 		B4E12532260CD46500F45852 /* SingleSensorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA7CF01251611C700395465 /* SingleSensorViewModel.swift */; };
+		B4F19A3D26263F4A00CA4C8D /* SelectSensor.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B4F19A4126263F4A00CA4C8D /* SelectSensor.intentdefinition */; };
+		B4F19A3E26263F4A00CA4C8D /* SelectSensor.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B4F19A4126263F4A00CA4C8D /* SelectSensor.intentdefinition */; };
+		B4F19A3F26263F4A00CA4C8D /* SelectSensor.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B4F19A4126263F4A00CA4C8D /* SelectSensor.intentdefinition */; };
 		B4F95C0825C2EC46004C21E1 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F95C0725C2EC46004C21E1 /* ViewExtensions.swift */; };
 		B4F95C0F25C30F38004C21E1 /* HourlyChartShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F95C0E25C30F38004C21E1 /* HourlyChartShape.swift */; };
 		B4F95C1725C30FBF004C21E1 /* HourlyAggregationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F95C1625C30FBF004C21E1 /* HourlyAggregationViewModel.swift */; };
@@ -229,7 +229,6 @@
 		B4795EC4260CCC1800D4BF19 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		B4795EC7260CCC1800D4BF19 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
 		B4795EC9260CCC1800D4BF19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B4795ED1260CCC5500D4BF19 /* SelectSensor.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = SelectSensor.intentdefinition; sourceTree = "<group>"; };
 		B49B012F260E118500D1AA37 /* SingleSensorWithGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSensorWithGraphView.swift; sourceTree = "<group>"; };
 		B49B0147260E129E00D1AA37 /* WidgetMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetMain.swift; sourceTree = "<group>"; };
 		B49B0178260E167900D1AA37 /* SingleSensorProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSensorProvider.swift; sourceTree = "<group>"; };
@@ -246,6 +245,13 @@
 		B4E124D9260CD20800F45852 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B4E124DB260CD20800F45852 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4E481AD260F29CD00F6C8EA /* WaveShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveShape.swift; sourceTree = "<group>"; };
+		B4F19A4026263F4A00CA4C8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; name = Base; path = Base.lproj/SelectSensor.intentdefinition; sourceTree = "<group>"; };
+		B4F19A4326263F5000CA4C8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SelectSensor.strings; sourceTree = "<group>"; };
+		B4F19A4526263F5100CA4C8D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/SelectSensor.strings; sourceTree = "<group>"; };
+		B4F19A4726263F5200CA4C8D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/SelectSensor.strings; sourceTree = "<group>"; };
+		B4F19A4926263F5300CA4C8D /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/SelectSensor.strings; sourceTree = "<group>"; };
+		B4F19A4B26263F5300CA4C8D /* rm-CH */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "rm-CH"; path = "rm-CH.lproj/SelectSensor.strings"; sourceTree = "<group>"; };
+		B4F19A4D26263F5400CA4C8D /* gsw */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = gsw; path = gsw.lproj/SelectSensor.strings; sourceTree = "<group>"; };
 		B4F95C0725C2EC46004C21E1 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		B4F95C0E25C30F38004C21E1 /* HourlyChartShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyChartShape.swift; sourceTree = "<group>"; };
 		B4F95C1625C30FBF004C21E1 /* HourlyAggregationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyAggregationViewModel.swift; sourceTree = "<group>"; };
@@ -502,7 +508,7 @@
 				B49B0147260E129E00D1AA37 /* WidgetMain.swift */,
 				B49B0146260E128600D1AA37 /* Provider */,
 				B49B012E260E116200D1AA37 /* WidgetViews */,
-				B4795ED1260CCC5500D4BF19 /* SelectSensor.intentdefinition */,
+				B4F19A4126263F4A00CA4C8D /* SelectSensor.intentdefinition */,
 				B4E124D8260CD20700F45852 /* gfroerliWidgetExtension.intentdefinition */,
 				B4E124D9260CD20800F45852 /* Assets.xcassets */,
 				B4E124DB260CD20800F45852 /* Info.plist */,
@@ -811,7 +817,7 @@
 				B4E124B6260CCF2400F45852 /* IntentHandler.swift in Sources */,
 				B4E124A7260CCEDD00F45852 /* Sensor.swift in Sources */,
 				B4E124A5260CCEDD00F45852 /* TempAggregations.swift in Sources */,
-				B49B0173260E160B00D1AA37 /* SelectSensor.intentdefinition in Sources */,
+				B4F19A3E26263F4A00CA4C8D /* SelectSensor.intentdefinition in Sources */,
 				B4E124A3260CCEDD00F45852 /* RiverData.swift in Sources */,
 				B4E1249E260CCED800F45852 /* HourlyAggregationViewModel.swift in Sources */,
 				B4AA328B26262DED007E1627 /* SingleSensorWithGraphProvider.swift in Sources */,
@@ -838,7 +844,7 @@
 				B4E12525260CD46200F45852 /* HourlyAggregationViewModel.swift in Sources */,
 				B4AA328F262632B4007E1627 /* WeeklyChartShape.swift in Sources */,
 				B4E1251B260CD45D00F45852 /* Sponsor.swift in Sources */,
-				B49B0172260E160A00D1AA37 /* SelectSensor.intentdefinition in Sources */,
+				B4F19A3F26263F4A00CA4C8D /* SelectSensor.intentdefinition in Sources */,
 				B4AA329426263352007E1627 /* Helpers.swift in Sources */,
 				B4E1251A260CD45D00F45852 /* LakesData.swift in Sources */,
 				B4E1251E260CD45D00F45852 /* Sensor.swift in Sources */,
@@ -871,7 +877,7 @@
 				8D6A7DC624F14115009A0026 /* LakeOverView.swift in Sources */,
 				8D580B59259FA33800202262 /* FAQView.swift in Sources */,
 				B4B37A4925C2C1D500DA76A5 /* AsyncContentView.swift in Sources */,
-				B4E124C0260CCFD500F45852 /* SelectSensor.intentdefinition in Sources */,
+				B4F19A3D26263F4A00CA4C8D /* SelectSensor.intentdefinition in Sources */,
 				8DD06C3025A0EF290081250B /* UIDeviceExtension.swift in Sources */,
 				8DA7CF0F2516176300395465 /* TempAggregationsViewModel.swift in Sources */,
 				8DF3BBCD250B748800DBCC37 /* SearchBar.swift in Sources */,
@@ -963,6 +969,20 @@
 				B4F95C4625C31975004C21E1 /* it */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		B4F19A4126263F4A00CA4C8D /* SelectSensor.intentdefinition */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B4F19A4026263F4A00CA4C8D /* Base */,
+				B4F19A4326263F5000CA4C8D /* en */,
+				B4F19A4526263F5100CA4C8D /* fr */,
+				B4F19A4726263F5200CA4C8D /* de */,
+				B4F19A4926263F5300CA4C8D /* it */,
+				B4F19A4B26263F5300CA4C8D /* rm-CH */,
+				B4F19A4D26263F5400CA4C8D /* gsw */,
+			);
+			name = SelectSensor.intentdefinition;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
