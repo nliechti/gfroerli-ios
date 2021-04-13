@@ -41,6 +41,8 @@
 "Highest:" = "Highest:";
 "Lowest:" = "Lowest:";
 "Latest" = "Latest";
+"Measured at" = "Measured at"; //new
+
 //Graph Box
 "History" = "History";
 "Day" = "Day";
@@ -64,14 +66,12 @@
 "No Favorites" = "No Favorites";
 
 //Settings
+
 "Settings" = "Settings";
 "General" = "General";
-"Other" = "Other";
-"Visit gfrör.li" = "Visit gfrör.li";
-"Visit coredump.ch" = "Visit coredump.ch";
-"Contact us" = "Contact us";
-"Write a Review" = "Write a Review";
-"Widget Settings" = "Widget Settings";
+"Contact" = "Contact";
+"by Marc & Niklas\nfor Coredump Rapperswil" = "by Marc & Niklas\nfor Coredump Rapperswil";
+"Rate" = "Rate";
 "Change Language" = "Change Language";
 "Privacy Policy" = "Privacy Policy";
 "Do you want to reset the app?" = "Do you want to reset the app?.";
@@ -79,25 +79,22 @@
 "Reset App" = "Reset App";
 "Reset" = "Reset";
 "Cancel" = "Cancel";
-"Version" = "Version";
-
-//WidgetSettings
-"Widget" = "Widget";
-"Choose Sensor to Display on Widget" = "Choose Sensor to Display on Widget";
-"Reset selection" = "Reset selection";
+"Version:" = "Version:";
+"Changelog" = "Changelog";
+"Changes" = "Changes";
+"Fixes" = "Fixes";
+"What's new?" = "What's new?";
 
 //WaterBodies
 "Lake of Zurich" = "Lake of Zurich";
 
 //Widget
-"Last Week:" = "Last Week:";
-"Last Month:" = "Last Month:";
-"Last 24h:" = "Last 24h:";
-"Tap to configure Sensor" = "Tap to configure Sensor";
-"Shows the latest temperature of a Sensor." = "Shows the current temperature of a Sensor.";
-"Single Sensor" = "Single Sensor";
-"Single Sensor History" = "Single Sensor History";
-"Shows the temperature history of a Sensor." = "Shows the temperature history of a Sensor.";
+"Press and hold to select location" = "Press and hold to select location";
+"No internet connection" = "No internet connection";
+"Single Location" = "Single Location";
+"Displays the latest temperature." = "Displays the latest temperature.";
+"Single Location with Graph" = "Single Location with Graph";
+"Displays the temperature history of a location." = "Displays the temperature history of a location.";
 
 //Email: DO NOT REMOVE </br> and add no space before and after it
 "email_text" = "Please provide your feedback above 👆🏻</br>If you encountered a bug, please tell us the interactions that lead to it!</br> We try to get back to you as soon as possible!";
