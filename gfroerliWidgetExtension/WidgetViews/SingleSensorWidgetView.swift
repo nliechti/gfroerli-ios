@@ -71,6 +71,8 @@ struct SensorView: View {
                         .padding(.vertical)
                     HStack(spacing: 0){
                         Spacer()
+                        Text("Measured at: ").font(.caption)
+                            .foregroundColor(.white)
                         Text(entry.sensor!.lastTempTime!, style: .time).font(.caption)
                             .foregroundColor(.white)
                     }
@@ -92,8 +94,8 @@ struct SingleSensorWidget: Widget {
             SingleSensorWidgetView(entry: entry, config: SingleSensorIntent())
         }
         .supportedFamilies([.systemSmall])
-        .configurationDisplayName("My small Widget")
-        .description("This is an example small widget.")
+        .configurationDisplayName("Single Location")
+        .description("Displays the latest temperature.")
     }
 }
 

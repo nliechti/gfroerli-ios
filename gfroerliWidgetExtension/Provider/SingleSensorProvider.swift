@@ -25,14 +25,13 @@ struct SingleSensorProvider: IntentTimelineProvider {
     func getTimeline(for configuration: SingleSensorIntent, in context: Context, completion: @escaping (Timeline<SingleSensorEntry>) -> ()) {
         var entries: [SingleSensorEntry] = []
         let singleSensorVM = SingleSensorViewModel()
-
+    
         let selectableSensor = configuration.sensor
         
-        singleSensorVM.id = Int(configuration.sensor?.identifier ?? "0")!
         singleSensorVM.load()
-        
+
         //Wait for async/await
-        let seconds = 1.0
+        let seconds = 2.0
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
             let entry = SingleSensorEntry(date: Date(), device_id: selectableSensor?.identifier ?? "",  configuration: configuration, timeSpan: configuration.timeSpan, sensor: singleSensorVM.sensor)
             entries.append(entry)

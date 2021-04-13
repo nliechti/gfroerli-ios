@@ -5,7 +5,7 @@
 //  Created by Marc on 22.02.21.
 //
 
-import Foundation
+/*import Foundation
 import CoreLocation
 import UserNotifications
 
@@ -99,4 +99,4 @@ class LocationNotificationHandler {
         }
     }
 }
-
+*/

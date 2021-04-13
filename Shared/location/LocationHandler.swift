@@ -4,7 +4,7 @@
 //
 //  Created by Marc on 22.02.21.
 //
-
+/*
 import Foundation
 import CoreLocation
 
@@ -44,3 +44,4 @@ class LocationHandler{
         return false
     }
 }
+*/
