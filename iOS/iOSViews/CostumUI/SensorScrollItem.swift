@@ -10,27 +10,18 @@ import MapKit
 
 struct SensorScrollItem: View {
     
-    @State var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-    @StateObject var sensorVM = SingleSensorViewModel()
+    @Binding var region : MKCoordinateRegion
+    @Binding var sensor: Sensor
     @State var title: String
-    @Binding var sensorID: Int {
-        didSet{
-            sensorVM.id = sensorID
-            sensorVM.load()
-        }
-    }
-    
+   
     var body: some View {
         VStack(alignment: .leading){
             Text(title)
                 .font(.title)
                 .bold()
-                .padding([.horizontal,.top])
-            AsyncContentView(source: sensorVM){ sensor in
                 VStack(alignment: .leading, spacing: 0){
                     Map(coordinateRegion: $region, interactionModes: [])
                     VStack(alignment: .leading){
-                        
                         HStack {
                             Text(sensor.device_name)
                                 .font(.headline)
@@ -39,22 +30,16 @@ struct SensorScrollItem: View {
                         Text(sensor.caption!)
                             .font(.footnote)
                     }.padding()
-                    
                 }
                 .onAppear(perform: {
                     region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: sensor.latitude!, longitude: sensor.longitude!), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
                 })
-                
+                .frame(maxWidth: UIScreen.main.bounds.width-35,minHeight: 250)
                 .background(Color.secondarySystemGroupedBackground)
-                .frame(width: UIScreen.main.bounds.width, height: 250)
-                .padding(.bottom, 50)
-            }
-            Spacer()
+                .cornerRadius(15)
+                .shadow(radius:1)
+                .padding(1)
         }
-        .onAppear(perform: {
-            sensorVM.id = sensorID
-            sensorVM.load()
-        })
     }
 }
 

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LoadingView: View {
+    init(){}
     var body: some View {
         VStack{
             Spacer()
@@ -22,7 +23,8 @@ struct LoadingView: View {
                 Spacer()
             }
             Spacer()
-        }.background(Color.systemGroupedBackground)
+        }
+        .background(Color.systemGroupedBackground)
     }
 }
 
