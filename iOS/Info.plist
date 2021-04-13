@@ -35,10 +35,6 @@
 	<string>NO</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>We like to send you a notification when you are near one of our sensors!</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We like to send you a notification when you are near one of our sensors!</string>
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>CheckTempIntent</string>
