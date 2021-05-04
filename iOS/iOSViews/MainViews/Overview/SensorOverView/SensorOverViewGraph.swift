@@ -152,12 +152,9 @@ struct DayChart: View {
             
             
         }.onAppear {
-            hourlyAggVM.load()
-            openDate = date
-        }
-        .onDisappear{
-            openDate = Calendar.current.dateComponents([.calendar, .month, .year], from: Date()).date!
             hourlyAggVM.date = openDate
+            openDate = date
+            hourlyAggVM.load()
         }
     }
     
