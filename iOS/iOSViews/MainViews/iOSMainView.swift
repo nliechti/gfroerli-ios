@@ -19,7 +19,7 @@ struct iOSMainView: View {
     @StateObject var sensorsVm = SensorListViewModel()
     @State var currentVersion = "0.0"
     @State var showUpdateView = false
-    
+    @ObservedObject var observer = Observer()
     var body: some View {
         
         //TabsView and Tabs
@@ -75,6 +75,9 @@ struct iOSMainView: View {
             print(currentVersion)
             
         })
+        .onReceive(self.observer.$enteredForeground) { _ in
+            sensorsVm.load()
+        }
     }
     
 }

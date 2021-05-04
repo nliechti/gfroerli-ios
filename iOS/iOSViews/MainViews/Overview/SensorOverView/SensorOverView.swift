@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SensorOverView: View {
     
+    @ObservedObject var observer = Observer()
     @StateObject var sensorVM = SingleSensorViewModel()
     @State var isFav = false
     @State var favorites  = UserDefaults(suiteName: "group.ch.gfroerli")?.array(forKey: "favoritesIDs") as? [Int] ?? [Int]()
@@ -50,6 +51,13 @@ struct SensorOverView: View {
                                     }*/
                                     
                                     Button {
+                                        sensorVM.load()
+                                    } label: {
+                                        Image(systemName: "arrow.clockwise")
+                                            .imageScale(.large)
+                                    }
+                                    
+                                    Button {
                                         isFav ? removeFav() : makeFav()
                                         UserDefaults(suiteName: "group.ch.gfroerli")?.set(favorites, forKey: "favoritesIDs")
                                     } label: {
@@ -66,9 +74,17 @@ struct SensorOverView: View {
             favorites  = UserDefaults(suiteName: "group.ch.gfroerli")?.array(forKey: "favoritesIDs") as? [Int] ?? [Int]()
             isFav = favorites.contains(id)
         })
+        .onReceive(self.observer.$enteredForeground) { _ in
+            sensorVM.load()
+        }
         
     }
     
+    func reloadTimer(){
+        
+        
+        
+    }
    
     func makeFav(){
         favorites.append(id)

@@ -11,6 +11,7 @@ struct OverView: View {
     @Binding var showDetail: Bool
     @Binding var pathComp: String?
     @ObservedObject var sensorsVM : SensorListViewModel
+
     var body: some View {
         NavigationView{
             ScrollView(.vertical){
@@ -43,6 +44,7 @@ struct OverView: View {
                 SensorOverView(id:Int(pathComp!)!).navigationBarItems(leading: Button(action: {showDetail=false}, label: {Text("Close")}))
             }
         })
+        
     }
 }
 

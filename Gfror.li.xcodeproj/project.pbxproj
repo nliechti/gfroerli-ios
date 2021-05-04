@@ -51,6 +51,7 @@
 		B41B166525C9740F00E8FD18 /* sensors.json in Resources */ = {isa = PBXBuildFile; fileRef = B41B166425C9740F00E8FD18 /* sensors.json */; };
 		B43568D225E3B31F00AA2B40 /* LocationNotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43568D125E3B31F00AA2B40 /* LocationNotificationHandler.swift */; };
 		B43568DA25E3C91500AA2B40 /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43568D925E3C91500AA2B40 /* LocationHandler.swift */; };
+		B467085C2641BD8D003E28E5 /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B467085B2641BD8D003E28E5 /* Observer.swift */; };
 		B4795EC5260CCC1800D4BF19 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4795EC4260CCC1800D4BF19 /* Intents.framework */; };
 		B4795ECC260CCC1800D4BF19 /* SelectSensorIntentExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B4795EC3260CCC1800D4BF19 /* SelectSensorIntentExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B49B013D260E120800D1AA37 /* SingleSensorWithGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B012F260E118500D1AA37 /* SingleSensorWithGraphView.swift */; };
@@ -225,6 +226,7 @@
 		B41B166425C9740F00E8FD18 /* sensors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sensors.json; sourceTree = "<group>"; };
 		B43568D125E3B31F00AA2B40 /* LocationNotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNotificationHandler.swift; sourceTree = "<group>"; };
 		B43568D925E3C91500AA2B40 /* LocationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
+		B467085B2641BD8D003E28E5 /* Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
 		B4795EC3260CCC1800D4BF19 /* SelectSensorIntentExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SelectSensorIntentExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4795EC4260CCC1800D4BF19 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		B4795EC7260CCC1800D4BF19 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
@@ -541,6 +543,7 @@
 				8DD06C2825A0E7340081250B /* GroupBoxExtension.swift */,
 				8DF3BBC8250B4F2700DBCC37 /* URLExtension.swift */,
 				8D05A2DA253F645300E7C1BD /* PreViewExtension.swift */,
+				B467085B2641BD8D003E28E5 /* Observer.swift */,
 				8D7E98BC257025EC00BC32EB /* ColorExtension.swift */,
 				8DD06C2F25A0EF290081250B /* UIDeviceExtension.swift */,
 				B4F95C0725C2EC46004C21E1 /* ViewExtensions.swift */,
@@ -890,6 +893,7 @@
 				8DBC3C4B25756C080010D55B /* HourlyChartView.swift in Sources */,
 				8D04196A24F50349003D64D4 /* RiverData.swift in Sources */,
 				8D996DE325A23A2B00724453 /* MonthlyChartView.swift in Sources */,
+				B467085C2641BD8D003E28E5 /* Observer.swift in Sources */,
 				8D3D36F2250BBEF000F11E48 /* SensorOverviewSponsorView.swift in Sources */,
 				B43568D225E3B31F00AA2B40 /* LocationNotificationHandler.swift in Sources */,
 				8D737737252BA8750075E04E /* SponsorsViewModel.swift in Sources */,
