@@ -34,7 +34,7 @@ struct SensorScrollItem: View {
                 .onAppear(perform: {
                     region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: sensor.latitude!, longitude: sensor.longitude!), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
                 })
-                .frame(maxWidth: UIScreen.main.bounds.width-35,minHeight: 250)
+                .frame(minWidth: UIScreen.main.bounds.width-40,minHeight: 250)
                 .background(Color.secondarySystemGroupedBackground)
                 .cornerRadius(15)
                 .shadow(radius:1)

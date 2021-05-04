@@ -90,7 +90,6 @@ struct TopTabView: View{
 
 struct OverView_Previews: PreviewProvider {
     static var previews: some View {
-       /* OverView(showDetail: .constant(false), pathComp: .constant(nil), sensorsVM: testSensorVM ).makePreViewModifier()*/
-        EmptyView()
+       OverView(showDetail: .constant(false), pathComp: .constant(nil), sensorsVM: testSensorVM ).makePreViewModifier()
     }
 }
