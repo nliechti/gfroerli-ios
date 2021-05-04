@@ -40,6 +40,8 @@ struct SingleSensorWithGraphView: View {
                 
             }
         }.background(Color("GfroerliDarkBlue"))
+        .widgetURL(entry.sensor != nil ? URL(string: "ch.coredump.gfroerli://home/\(entry.sensor!.id)") : URL(string: "ch.coredump.gfroerli"))
+
     }
 }
 

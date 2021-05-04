@@ -46,6 +46,7 @@ struct SingleSensorWidgetView: View {
                 
             }
         }.background(Color("GfroerliDarkBlue"))
+        .widgetURL(entry.sensor != nil ? URL(string: "ch.coredump.gfroerli://home/\(entry.sensor!.id)") : URL(string: "ch.coredump.gfroerli"))
     }
 }
 
@@ -61,23 +62,23 @@ struct SensorView: View {
                     .minimumScaleFactor(0.1)
                 Spacer()
             }
+            Spacer()
             HStack{
                 Spacer()
                 VStack(alignment:.trailing,spacing: 0){
-                    Text("")
+
                     Text(String(format: "%.1f", entry.sensor!.latestTemp!)+"°")
                         .font(.title)
                         .foregroundColor(.white)
-                        .padding(.vertical)
-                    HStack(spacing: 0){
-                        Spacer()
-                        Text("Measured at: ").font(.caption)
-                            .foregroundColor(.white)
-                        Text(entry.sensor!.lastTempTime!, style: .time).font(.caption)
-                            .foregroundColor(.white)
-                    }
+                    
+                    Text("Measured at:").font(.caption)
+                        .foregroundColor(.white)
+                    
+                    Text(entry.sensor!.lastTempTime!, style: .time).font(.caption)
+                        .foregroundColor(.white)
+                    
                     if !areSameDay(date1: Date(), date2: entry.sensor!.lastTempTime!){
-                        Text(createStringFromDate(date: entry.sensor!.lastTempTime!, format: "dd. MMM. YY")).font(.caption)
+                        Text(createStringFromDate(date: entry.sensor!.lastTempTime!, format: "dd. MMM, YY")).font(.caption)
                             .foregroundColor(.white)
                     }
                 }
