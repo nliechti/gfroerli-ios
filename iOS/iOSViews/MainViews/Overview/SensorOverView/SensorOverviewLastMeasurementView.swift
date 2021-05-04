@@ -32,7 +32,7 @@ struct SensorOverviewLastMeasurementView: View {
                 }
             }
             HStack(spacing: 0){
-                Text("Measured at ").font(.headline)
+                Text("Measured at"+" ").font(.headline)
                 Text(sensor.lastTempTime!, style: .time).font(.headline)
                 if !areSameDay(date1: Date(), date2: sensor.lastTempTime!){
                     Text(createStringFromDate(date: sensor.lastTempTime!, format: ", dd. MMM. YYYY")).font(.headline)

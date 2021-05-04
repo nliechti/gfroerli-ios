@@ -107,14 +107,15 @@ struct WeeklyLineChartShape: Shape {
         }
         
         // last points
-        if (end<Date()){
-        step += daysBetween(start: makeDateFromAggreg(string:data[data.count-1].date!), end: end)-1
+        if ( makeDateFromAggreg(string: data[data.count-1].date!).advanced(by: 604800) < end){
+        
+        step = 6
         x = xMultiplier * CGFloat(step)
         y = yMultiplier * CGFloat(getTemp(dataPoint: data[data.count-1])-minVal)
         y = rect.height - y
         x += rect.minX
         y += rect.minY
-        path.addLine(to: CGPoint(x: x,y: y))
+        path.addLine(to: CGPoint(x: x, y: y))
         }
         return path
         
