@@ -23,7 +23,7 @@ struct LoadingView: View {
                 Spacer()
             }
             Spacer()
-        }
+        }.frame(maxWidth: .infinity)
         .background(Color.systemGroupedBackground)
     }
 }

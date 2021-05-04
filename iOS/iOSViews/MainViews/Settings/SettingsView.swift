@@ -68,7 +68,6 @@ struct SettingsView: View {
                                 title: { Text("Rate").foregroundColor(Color("textColor")) },
                                 icon: { Image(systemName: "heart.fill").resizable().aspectRatio(contentMode: .fit).foregroundColor(.white).padding(5)
                                     .frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).background(Color.red).cornerRadius(3)})
-                            Spacer()
                         })
                         //Contact
                         Button(action: {

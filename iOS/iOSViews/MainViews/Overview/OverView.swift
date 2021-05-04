@@ -14,14 +14,17 @@ struct OverView: View {
     var body: some View {
         NavigationView{
             ScrollView(.vertical){
-                VStack(alignment: .leading, spacing: 0){
+                VStack(spacing: 0){
                     AsyncContentView(source: sensorsVM) { sensors in
                         TopTabView(sensors: sensors)
                     }
+                    HStack{
                     Text("Water Bodies")
                         .font(.title)
                         .bold()
                         .padding([.horizontal,.top])
+                    Spacer()
+                    }
                     ForEach(lakes){ lake in
                         NavigationLink(
                             destination: LakeOverView(lake: lake, sensorsVM: sensorsVM),
