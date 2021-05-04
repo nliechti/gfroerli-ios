@@ -105,14 +105,22 @@ struct SettingsView: View {
                             Label(
                                 title: { Text("gfrör.li").foregroundColor(Color("textColor")) },
                                 icon: { Image(systemName: "safari").resizable().foregroundColor(.blue).padding(4)
-                                    .background(Color.white).frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/).shadow(radius: 1) })
+                                    .background(Color.white).frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 3)
+                                            .stroke(Color.gray, lineWidth: 0.2)
+                                    ) })
                         })
                         
                         Link(destination: URL(string: "https://www.coredump.ch/")!, label: {
                             Label(
                                 title: { Text("coredump.ch").foregroundColor(Color("textColor")) },
                                 icon: { Image(systemName: "safari").resizable().foregroundColor(.blue).padding(4)
-                                    .background(Color.white).frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/).shadow(radius: 1) })
+                                    .background(Color.white).frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 3)
+                                            .stroke(Color.gray, lineWidth: 0.2)
+                                    ) })
                         })
                         
                         Link(destination: URL(string: "https://twitter.com/coredump_ch")!, label: {                                Label(
