@@ -45,13 +45,15 @@
 		8DF3BBD5250BB62D00DBCC37 /* SensorOverviewLastMeasurementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBD4250BB62D00DBCC37 /* SensorOverviewLastMeasurementView.swift */; };
 		8DF3BBD8250BB6BB00DBCC37 /* OwnHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBD7250BB6BB00DBCC37 /* OwnHelpers.swift */; };
 		B415711C260A41A400372278 /* ChangeNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = B415711B260A41A400372278 /* ChangeNote.swift */; };
-		B4157122260A42F200372278 /* Changes.json in Resources */ = {isa = PBXBuildFile; fileRef = B4157121260A42F200372278 /* Changes.json */; };
 		B4157125260A43B400372278 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4157124260A43B400372278 /* Bundle-Decodable.swift */; };
 		B4157128260A444B00372278 /* WhatsNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4157127260A444B00372278 /* WhatsNewView.swift */; };
 		B41B166525C9740F00E8FD18 /* sensors.json in Resources */ = {isa = PBXBuildFile; fileRef = B41B166425C9740F00E8FD18 /* sensors.json */; };
 		B43568D225E3B31F00AA2B40 /* LocationNotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43568D125E3B31F00AA2B40 /* LocationNotificationHandler.swift */; };
 		B43568DA25E3C91500AA2B40 /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43568D925E3C91500AA2B40 /* LocationHandler.swift */; };
 		B467085C2641BD8D003E28E5 /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B467085B2641BD8D003E28E5 /* Observer.swift */; };
+		B467085D2641C42B003E28E5 /* Changes.json in Resources */ = {isa = PBXBuildFile; fileRef = B46708612641C42B003E28E5 /* Changes.json */; };
+		B467085E2641C42B003E28E5 /* Changes.json in Resources */ = {isa = PBXBuildFile; fileRef = B46708612641C42B003E28E5 /* Changes.json */; };
+		B467085F2641C42B003E28E5 /* Changes.json in Resources */ = {isa = PBXBuildFile; fileRef = B46708612641C42B003E28E5 /* Changes.json */; };
 		B4795EC5260CCC1800D4BF19 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4795EC4260CCC1800D4BF19 /* Intents.framework */; };
 		B4795ECC260CCC1800D4BF19 /* SelectSensorIntentExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B4795EC3260CCC1800D4BF19 /* SelectSensorIntentExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B49B013D260E120800D1AA37 /* SingleSensorWithGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B012F260E118500D1AA37 /* SingleSensorWithGraphView.swift */; };
@@ -82,7 +84,6 @@
 		B4E1249A260CCED800F45852 /* WeeklyAggregationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F95C2625C312F0004C21E1 /* WeeklyAggregationsViewModel.swift */; };
 		B4E1249C260CCED800F45852 /* TempAggregationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA7CF0E2516176300395465 /* TempAggregationsViewModel.swift */; };
 		B4E1249E260CCED800F45852 /* HourlyAggregationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F95C1625C30FBF004C21E1 /* HourlyAggregationViewModel.swift */; };
-		B4E124A2260CCEDD00F45852 /* Changes.json in Resources */ = {isa = PBXBuildFile; fileRef = B4157121260A42F200372278 /* Changes.json */; };
 		B4E124A3260CCEDD00F45852 /* RiverData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D04196924F50349003D64D4 /* RiverData.swift */; };
 		B4E124A5260CCEDD00F45852 /* TempAggregations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C24FE824EEB5AA00FB4F51 /* TempAggregations.swift */; };
 		B4E124A6260CCEDD00F45852 /* LakesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE724F10F610068176C /* LakesData.swift */; };
@@ -101,7 +102,6 @@
 		B4E12515260CD45500F45852 /* SensorListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA7CEF42516108000395465 /* SensorListViewModel.swift */; };
 		B4E1251A260CD45D00F45852 /* LakesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D7FE724F10F610068176C /* LakesData.swift */; };
 		B4E1251B260CD45D00F45852 /* Sponsor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73772E252BA7200075E04E /* Sponsor.swift */; };
-		B4E1251C260CD45D00F45852 /* Changes.json in Resources */ = {isa = PBXBuildFile; fileRef = B4157121260A42F200372278 /* Changes.json */; };
 		B4E1251E260CD45D00F45852 /* Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C24FE624EEB58400FB4F51 /* Sensor.swift */; };
 		B4E1251F260CD45D00F45852 /* TempAggregations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C24FE824EEB5AA00FB4F51 /* TempAggregations.swift */; };
 		B4E12520260CD45D00F45852 /* RiverData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D04196924F50349003D64D4 /* RiverData.swift */; };
@@ -220,13 +220,19 @@
 		8DF3BBD4250BB62D00DBCC37 /* SensorOverviewLastMeasurementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorOverviewLastMeasurementView.swift; sourceTree = "<group>"; };
 		8DF3BBD7250BB6BB00DBCC37 /* OwnHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnHelpers.swift; sourceTree = "<group>"; };
 		B415711B260A41A400372278 /* ChangeNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNote.swift; sourceTree = "<group>"; };
-		B4157121260A42F200372278 /* Changes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Changes.json; sourceTree = "<group>"; };
 		B4157124260A43B400372278 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
 		B4157127260A444B00372278 /* WhatsNewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewView.swift; sourceTree = "<group>"; };
 		B41B166425C9740F00E8FD18 /* sensors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sensors.json; sourceTree = "<group>"; };
 		B43568D125E3B31F00AA2B40 /* LocationNotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNotificationHandler.swift; sourceTree = "<group>"; };
 		B43568D925E3C91500AA2B40 /* LocationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
 		B467085B2641BD8D003E28E5 /* Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
+		B46708602641C42B003E28E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = Base.lproj/Changes.json; sourceTree = "<group>"; };
+		B46708622641C432003E28E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = en; path = en.lproj/Changes.json; sourceTree = "<group>"; };
+		B46708632641C433003E28E5 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = fr; path = fr.lproj/Changes.json; sourceTree = "<group>"; };
+		B46708642641C435003E28E5 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = de; path = de.lproj/Changes.json; sourceTree = "<group>"; };
+		B46708652641C436003E28E5 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = it; path = it.lproj/Changes.json; sourceTree = "<group>"; };
+		B46708662641C596003E28E5 /* rm-CH */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "rm-CH"; path = "rm-CH.lproj/Changes.json"; sourceTree = "<group>"; };
+		B46708672641C596003E28E5 /* gsw */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = gsw; path = gsw.lproj/Changes.json; sourceTree = "<group>"; };
 		B4795EC3260CCC1800D4BF19 /* SelectSensorIntentExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SelectSensorIntentExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4795EC4260CCC1800D4BF19 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		B4795EC7260CCC1800D4BF19 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
@@ -348,7 +354,7 @@
 		8D815A2A25A63AE80060AC85 /* AppStoreData */ = {
 			isa = PBXGroup;
 			children = (
-				B4157121260A42F200372278 /* Changes.json */,
+				B46708612641C42B003E28E5 /* Changes.json */,
 				8D815A2B25A641D80060AC85 /* AppStore_DE.rtf */,
 				8D8533F925A788A800B8BD2E /* AppStore_ENG.rtf */,
 				8D04E84625AB79F100B5902A /* AppStore_FR.rtf */,
@@ -770,7 +776,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4E124A2260CCEDD00F45852 /* Changes.json in Resources */,
+				B467085E2641C42B003E28E5 /* Changes.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -779,7 +785,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4E124DA260CD20800F45852 /* Assets.xcassets in Resources */,
-				B4E1251C260CD45D00F45852 /* Changes.json in Resources */,
+				B467085F2641C42B003E28E5 /* Changes.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -792,7 +798,7 @@
 				B4B19E2525C9F1FB0026E939 /* AppStore_IT.rtf in Resources */,
 				E461459524A34831006233AE /* Assets.xcassets in Resources */,
 				B41B166525C9740F00E8FD18 /* sensors.json in Resources */,
-				B4157122260A42F200372278 /* Changes.json in Resources */,
+				B467085D2641C42B003E28E5 /* Changes.json in Resources */,
 				8D815A2C25A641D80060AC85 /* AppStore_DE.rtf in Resources */,
 				8D8533FA25A788A800B8BD2E /* AppStore_ENG.rtf in Resources */,
 			);
@@ -973,6 +979,20 @@
 				B4F95C4625C31975004C21E1 /* it */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		B46708612641C42B003E28E5 /* Changes.json */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B46708602641C42B003E28E5 /* Base */,
+				B46708622641C432003E28E5 /* en */,
+				B46708632641C433003E28E5 /* fr */,
+				B46708642641C435003E28E5 /* de */,
+				B46708652641C436003E28E5 /* it */,
+				B46708662641C596003E28E5 /* rm-CH */,
+				B46708672641C596003E28E5 /* gsw */,
+			);
+			name = Changes.json;
 			sourceTree = "<group>";
 		};
 		B4F19A4126263F4A00CA4C8D /* SelectSensor.intentdefinition */ = {

@@ -181,7 +181,7 @@ struct WeekChart: View {
             GeometryReader{ geo in
                 AsyncContentView(source: weekAggVM) { data in
                     VStack(alignment:.leading){
-                        if data.count>1 {
+                        if data.count>0 {
                             WeeklyChartView(showMax: $showMax, showMin: $showMin, showAvg: $showAvg, showCircles: $showCircles, daySpan:.week, data: data , frame: geo.frame(in: .local))
                         }else{
                             Spacer()
@@ -254,7 +254,7 @@ struct MonthChart: View {
             GeometryReader{ geo in
                 AsyncContentView(source: monthVM) { data in
                     VStack(alignment:.leading){
-                        if data.count>1 {
+                        if data.count>0 {
                             MonthlyChartView(showMax: $showMax, showMin: $showMin, showAvg: $showAvg, showCircles: $showCircles, daySpan: .month, data: data, frame: geo.frame(in: .local))
                             
                         }else{

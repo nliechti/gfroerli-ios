@@ -26,13 +26,13 @@ struct WhatsNewView: View {
                             Spacer()
                         }
                         if !changeNote.changes.isEmpty{
-                            Text("Changes"+":").font(.title2).padding(.vertical,1)
+                            Text("Changes").font(.title2).padding(.vertical,1)
                             ForEach(changeNote.changes, id: \.self ){change in
                                 Text("- "+change)
                             }.padding([.horizontal])
                         }
                         if !changeNote.fixes.isEmpty{
-                            Text("Fixes"+":").font(.title2).padding(.vertical,2)
+                            Text("Fixes").font(.title2).padding(.vertical,2)
                             ForEach(changeNote.fixes, id: \.self ){fix in
                                 Text("- "+fix)
                             }.padding([.horizontal])

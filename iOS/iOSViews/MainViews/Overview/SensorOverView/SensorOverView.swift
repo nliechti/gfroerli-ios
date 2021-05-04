@@ -50,12 +50,12 @@ struct SensorOverView: View {
                                             .imageScale(.large)
                                     }*/
                                     
-                                    Button {
+                                    /*Button {
                                         sensorVM.load()
                                     } label: {
                                         Image(systemName: "arrow.clockwise")
                                             .imageScale(.large)
-                                    }
+                                    }*/
                                     
                                     Button {
                                         isFav ? removeFav() : makeFav()
