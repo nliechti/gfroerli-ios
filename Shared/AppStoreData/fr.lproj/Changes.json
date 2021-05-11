@@ -1,7 +1,7 @@
 [
     {
         "version": "1.1",
-        "changes": ["Ajouté : Ce Changelog", "Ajouté : Horodatage de la dernière mesure", "Ajouté : Possibilité de changer la durée du graphique","Ajouté : Image du sponsor dans l'Info-Box","Refonte complète Réglages-Tab", "Ajouté : Plus de liens au Réglages-Tab", "Ajouté : bouton \"Réessayer\" en cas d'échec du chargement", "Modifié : Sélectionnez l'emplacement directement à partir du widget en appuyant dessus",],
+        "changes": ["Ce Changelog", "Horodatage de la dernière mesure", "Possibilité de changer la durée du graphique","Image du sponsor dans l'Info-Box","Refonte complète Réglages-Tab", "Plus de liens au Réglages-Tab", "bouton \"Réessayer\" en cas d'échec du chargement", "Modifié : Sélectionnez l'emplacement directement à partir du widget en appuyant dessus",],
         "fixes": ["La vue des favoris ne peut pas défiler","Les sponsors ne se chargent pas", "Les éléments de la vue \"À propos\" ne peuvent pas être touchés", "Une tonne d'ajustements de l'interface "]
     
     },

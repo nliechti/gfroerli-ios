@@ -1,7 +1,7 @@
 [
     {
         "version": "1.1",
-        "changes": ["Neu: Dieser Changelog", "Neu: Zeitpunkt der letzten Messung wird angezeigt", "Neu: Option die Zeitspanne der Graphen zu ändern","Neu: Sponsoren-Logo","Neu: Look des Einstellungen-Tabs", "Neu: Neue Links im Einstellungen-Tab", "Neu:\"Laden wiederholen\"-Button", "Verbessert: Drücke und halte die Widgets um Einstellungen vorzunehmen",],
+        "changes": ["Dieser Changelog", "Zeitpunkt der letzten Messung wird angezeigt", "Option die Zeitspanne der Graphen zu ändern","Sponsoren-Logo","Look des Einstellungen-Tabs", "Neue Links im Einstellungen-Tab", "Neu:\"Laden wiederholen\"-Button", "Verbessert: Drücke und halte die Widgets um Einstellungen vorzunehmen",],
         "fixes": ["Favoriten-Ansicht war nicht scrollable","Sponsoren wurden nicht korrekt Angezeigt", "Einträge im Über-View waren nicht auswählbar", "Viele weitere kleine Anpassungen!"]
     
     },

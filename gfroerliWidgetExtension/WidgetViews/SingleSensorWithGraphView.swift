@@ -34,6 +34,9 @@ struct SingleSensorWithGraphView: View {
                                 .foregroundColor(.white)
                         }
                         Spacer()
+                        Image(systemName: "thermometer")
+                            .foregroundColor(.red)
+                            .imageScale(.large)
                     }
                     Spacer()
                 }.padding()

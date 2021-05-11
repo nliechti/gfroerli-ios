@@ -52,12 +52,9 @@ struct HourlyAggregation : Codable, Identifiable,Aggregation{
         avgTemp = try values.decodeIfPresent(Double.self, forKey: .avgTemp)
     }
     
-    static var example = [
+    static var hourlyExampleData = [
         
-        HourlyAggregation(id: "0", date: "00", hour: 21, maxTemp: 22.9, minTemp: 22.6, avgTemp: 22.8),
-        HourlyAggregation(id: "0", date: "00", hour: 22, maxTemp: 22.9, minTemp: 22.6, avgTemp: 22.7),
-        HourlyAggregation(id: "0", date: "00", hour: 23, maxTemp: 22.5, minTemp: 22.3, avgTemp: 22.4),
-        HourlyAggregation(id: "0", date: "00", hour: 24, maxTemp: 22.2, minTemp: 22.0, avgTemp: 22.1),
+    
         HourlyAggregation(id: "0", date: "00", hour: 0, maxTemp: 22.5, minTemp: 22.3, avgTemp: 22.2),
         HourlyAggregation(id: "0", date: "00", hour: 1, maxTemp: 22.8, minTemp: 22.5, avgTemp: 22.7),
         HourlyAggregation(id: "0", date: "00", hour: 2, maxTemp: 22.9, minTemp: 22.8, avgTemp: 22.8),
@@ -69,15 +66,19 @@ struct HourlyAggregation : Codable, Identifiable,Aggregation{
         HourlyAggregation(id: "0", date: "00", hour: 8, maxTemp: 22.8, minTemp: 22.3, avgTemp: 22.6),
         HourlyAggregation(id: "0", date: "00", hour: 9, maxTemp: 23.4, minTemp: 23.0, avgTemp: 23.2),
         HourlyAggregation(id: "0", date: "00", hour: 10, maxTemp: 23.6, minTemp: 23.3, avgTemp: 23.5),
-        HourlyAggregation(id: "0", date: "00", hour: 11, maxTemp: 23.6, minTemp: 23.2, avgTemp: 23.3),
-        HourlyAggregation(id: "0", date: "00", hour: 12, maxTemp: 23.5, minTemp: 23.3, avgTemp: 23.4),
-        HourlyAggregation(id: "0", date: "00", hour: 13, maxTemp: 23.4, minTemp: 23.3, avgTemp: 23.3),
-        HourlyAggregation(id: "0", date: "00", hour: 14, maxTemp: 23.6, minTemp: 23.2, avgTemp: 23.4),
-        HourlyAggregation(id: "0", date: "00", hour: 15, maxTemp: 23.5, minTemp: 23.2, avgTemp: 23.3),
-        HourlyAggregation(id: "0", date: "00", hour: 16, maxTemp: 23.6, minTemp: 23.3, avgTemp: 23.5),
-        HourlyAggregation(id: "0", date: "00", hour: 17, maxTemp: 23.8, minTemp: 23.5, avgTemp: 23.7),
-        HourlyAggregation(id: "0", date: "00", hour: 18, maxTemp: 23.6, minTemp: 23.4, avgTemp: 23.5),
-        HourlyAggregation(id: "0", date: "00", hour: 19, maxTemp: 23.5, minTemp: 23.2, avgTemp: 23.3),
+        HourlyAggregation(id: "0", date: "00", hour: 11, maxTemp: 23.8, minTemp: 23.2, avgTemp: 23.8),
+        HourlyAggregation(id: "0", date: "00", hour: 12, maxTemp: 24.0, minTemp: 23.3, avgTemp: 24.0),
+        HourlyAggregation(id: "0", date: "00", hour: 13, maxTemp: 24.4, minTemp: 23.3, avgTemp: 24.1),
+        HourlyAggregation(id: "0", date: "00", hour: 14, maxTemp: 24.0, minTemp: 23.2, avgTemp: 24.0),
+        HourlyAggregation(id: "0", date: "00", hour: 15, maxTemp: 23.8, minTemp: 23.2, avgTemp: 23.8),
+        HourlyAggregation(id: "0", date: "00", hour: 16, maxTemp: 23.7, minTemp: 23.3, avgTemp: 23.6),
+        HourlyAggregation(id: "0", date: "00", hour: 17, maxTemp: 23.5, minTemp: 23.5, avgTemp: 23.4),
+        HourlyAggregation(id: "0", date: "00", hour: 18, maxTemp: 23.4, minTemp: 23.4, avgTemp: 23.3),
+        HourlyAggregation(id: "0", date: "00", hour: 19, maxTemp: 23.1, minTemp: 23.2, avgTemp: 22.8),
+        HourlyAggregation(id: "0", date: "00", hour: 21, maxTemp: 22.9, minTemp: 22.6, avgTemp: 22.6),
+        HourlyAggregation(id: "0", date: "00", hour: 22, maxTemp: 22.9, minTemp: 22.6, avgTemp: 22.5),
+        HourlyAggregation(id: "0", date: "00", hour: 23, maxTemp: 22.5, minTemp: 22.3, avgTemp: 22.4),
+        HourlyAggregation(id: "0", date: "00", hour: 24, maxTemp: 22.2, minTemp: 22.0, avgTemp: 22.1),
     ]
 
 }

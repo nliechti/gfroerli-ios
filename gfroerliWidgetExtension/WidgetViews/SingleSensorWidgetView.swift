@@ -70,9 +70,7 @@ struct SensorView: View {
                     Text(String(format: "%.1f", entry.sensor!.latestTemp!)+"°")
                         .font(.title)
                         .foregroundColor(.white)
-                    
-                    Text("Measured at:").font(.caption)
-                        .foregroundColor(.white)
+                    Spacer()
                     
                     Text(entry.sensor!.lastTempTime!, style: .time).font(.caption)
                         .foregroundColor(.white)

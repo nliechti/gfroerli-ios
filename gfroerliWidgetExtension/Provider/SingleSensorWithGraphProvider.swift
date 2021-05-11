@@ -19,7 +19,7 @@ struct SingleSensorWithGraphProvider: IntentTimelineProvider {
 
     func getSnapshot(for configuration: SingleSensorIntent, in context: Context, completion: @escaping (SingleSensorWithGraphEntry) -> ()) {
         
-        let entry = SingleSensorWithGraphEntry(date: Date(),device_id: "Placeholder", configuration: configuration,timeSpan: configuration.timeSpan,sensor: nil,dataDay: [], dataWeek:[], dataMonth:[])
+        let entry = SingleSensorWithGraphEntry(date: Date(),device_id: "1", configuration: configuration,timeSpan: configuration.timeSpan,sensor: testSensor1,dataDay: HourlyAggregation.hourlyExampleData, dataWeek:[], dataMonth:[])
         completion(entry)
     }
 

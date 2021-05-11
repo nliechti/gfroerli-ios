@@ -13,12 +13,12 @@ struct SingleSensorProvider: IntentTimelineProvider {
     
     
     func placeholder(in context: Context) -> SingleSensorEntry {
-        SingleSensorEntry(date: Date(),device_id: "Placeholder", configuration: SingleSensorIntent(), timeSpan: .day, sensor: nil)
+        SingleSensorEntry(date: Date(),device_id: "Placeholder", configuration: SingleSensorIntent(), timeSpan: .day, sensor: testSensor1)
     }
 
     func getSnapshot(for configuration: SingleSensorIntent, in context: Context, completion: @escaping (SingleSensorEntry) -> ()) {
         
-        let entry = SingleSensorEntry(date: Date(),device_id: "Placeholder", configuration: configuration,timeSpan: configuration.timeSpan,sensor: nil)
+        let entry = SingleSensorEntry(date: Date(),device_id: "Placeholder", configuration: configuration,timeSpan: configuration.timeSpan,sensor: testSensor1)
         completion(entry)
     }
 
