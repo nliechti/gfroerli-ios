@@ -44,7 +44,7 @@
 "Highest:" = "Le plus haut:";
 "Lowest:" = "Le plus bas:";
 "Latest" = "Actuel";
-"Measured at" = "Mesuré à"; //new
+"Measured at " = "Mesuré à "; //new
 
 //Graph Box
 "History" = "Historique";
@@ -86,6 +86,7 @@
 "Changes" = "Nouveau"; //neu
 "Fixes" = "Corrections"; //neu
 "What's new?" = "Quoi de neuf ?"; //neu
+"Continue" = "Continuer";
 
 //WaterBodies
 "Lake of Zurich" = "Lac de Zurich";

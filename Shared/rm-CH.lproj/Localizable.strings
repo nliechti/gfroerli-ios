@@ -44,7 +44,7 @@
 "Highest:" = "Il pli ault:";
 "Lowest:" = "Il pli bass:";
 "Latest" = "Actual";
-"Measured at" = "Gemessen um"; //new
+"Measured at " = "Gemessen um "; //new
 
 //Graph Box
 "History" = "Decuors";
@@ -74,7 +74,6 @@
 "Contact" = "Contact";
 "by Marc & Niklas\nfor Coredump Rapperswil" = "da Marc & Niklas\nper Coredump Rapperswil";
 "Rate" = "valetar";
-"Widget Settings" = "Configuraziuns da Widget";
 "Change Language" = "Midar lingua";
 "Privacy Policy" = "Declaraziun davart la protecziun da datas";
 "Do you want to reset the app?" = "Remetter tut las configuraziuns dall'App?";
@@ -87,6 +86,7 @@
 "Changes" = "Midadas";
 "Fixes" = "Rugalau";
 "What's new?" = "Tgei ei niev?";
+"Continue" = "Avanzar";
 
 //WaterBodies
 "Lake of Zurich" = "Lag da Turitg";
