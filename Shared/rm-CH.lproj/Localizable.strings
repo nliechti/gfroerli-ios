@@ -22,6 +22,9 @@
 "Water Bodies" = "Auas";
 "Sensors" = "Sensurs";
 "Featured" = "Scuvierer";
+"Recently Added" = "Lieu Nov";
+"Last Updated" = "Mesiraziun Recent";
+"Random" = "Casualmain";
 
 //About View
 "About" = "Davart";
@@ -68,9 +71,10 @@
 //Settings
 "Settings" = "Configuraziuns";
 "General" = "General";
-"Contact" = "Contactescha nus"; //neu
-"by Marc & Niklas\nfor Coredump Rapperswil" = "von Marc & Niklas\nfür Coredump Rapperswil"; //neu
-"Rate" = "Bewerten"; //neu"Widget Settings" = "Configuraziuns da Widget";
+"Contact" = "Contact";
+"by Marc & Niklas\nfor Coredump Rapperswil" = "da Marc & Niklas\nper Coredump Rapperswil";
+"Rate" = "valetar";
+"Widget Settings" = "Configuraziuns da Widget";
 "Change Language" = "Midar lingua";
 "Privacy Policy" = "Declaraziun davart la protecziun da datas";
 "Do you want to reset the app?" = "Remetter tut las configuraziuns dall'App?";
@@ -79,21 +83,21 @@
 "Reset" = "Remetter";
 "Cancel" = "Interrumper";
 "Version:" = "Versiun:";
-"Changelog" = "Changelog"; //neu
-"Changes" = "Neu"; //neu
-"Fixes" = "Behoben"; //neu
-"What's new?" = "Was ist neu?"; //neu
+"Changelog" = "Protocol da modificaziun";
+"Changes" = "Midadas";
+"Fixes" = "Rugalau";
+"What's new?" = "Tgei ei niev?";
 
 //WaterBodies
 "Lake of Zurich" = "Lag da Turitg";
 
 //Widget
-"Press and hold to select location" = "Drücken und halten um Standort auszuwählen"; //neu
-"No internet connection" = "Keine Internetverbindung"; //neu
-"Single Location" = "Einzelner Standort";
-"Displays the latest temperature." = "Zeigt die letzte Temperatur an."; //neu
-"Single Location with Graph" = "Einzelner Standort mit Graph";//neu
-"Displays the temperature history of a location." = "Zeigt den Temperaturverlauf eines Standortes an.";//neu
+"Press and hold to select location" = "Smaccar e tener per eleger il liug";
+"No internet connection" = "Negina colligiaziun d’internet";
+"Single Location" = "Singul liug";
+"Displays the latest temperature." = "Muossa l’ultima temperatura";
+"Single Location with Graph" = "Singul liug cun graf";
+"Displays the temperature history of a location." = "Muossa la cronologia da temperatura dad in liug.";
 
 //Email: DO NOT REMOVE </br> and add no space before and after it
 "email_text" = "Fai aschi bien e scriva il text suren 👆🏻</br>Sche ti has anflau in sbagl, notescha fai aschi bien ils pass che han menau tier tal!</br> Nus empruein da rispunder aschi spert sco pusseivel!";

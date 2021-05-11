@@ -12,7 +12,7 @@ struct SensorScrollItem: View {
     
     @Binding var region : MKCoordinateRegion
     @Binding var sensor: Sensor
-    @State var title: String
+    @State var title: LocalizedStringKey
    
     var body: some View {
         VStack(alignment: .leading){

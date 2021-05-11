@@ -62,12 +62,12 @@ struct TopTabView: View{
                 NavigationLink(
                     destination: SensorOverView(id: newestSensor.id),
                     label: {
-                        SensorScrollItem(region: $newestRegion, sensor: $newestSensor, title: "Newest")
+                        SensorScrollItem(region: $newestRegion, sensor: $newestSensor, title: "Recently Added")
                     }).buttonStyle(PlainButtonStyle())
                 NavigationLink(
                     destination: SensorOverView(id: latestSensor.id),
                     label: {
-                        SensorScrollItem(region: $latesRegion, sensor: $latestSensor, title: "Latest")
+                        SensorScrollItem(region: $latesRegion, sensor: $latestSensor, title: "Last Updated")
                     }).buttonStyle(PlainButtonStyle())
                 NavigationLink(
                     destination: SensorOverView(id: randomSensor.id),

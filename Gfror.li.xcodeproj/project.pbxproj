@@ -257,9 +257,10 @@
 		B4F19A4326263F5000CA4C8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SelectSensor.strings; sourceTree = "<group>"; };
 		B4F19A4526263F5100CA4C8D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/SelectSensor.strings; sourceTree = "<group>"; };
 		B4F19A4726263F5200CA4C8D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/SelectSensor.strings; sourceTree = "<group>"; };
-		B4F19A4926263F5300CA4C8D /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/SelectSensor.strings; sourceTree = "<group>"; };
-		B4F19A4B26263F5300CA4C8D /* rm-CH */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "rm-CH"; path = "rm-CH.lproj/SelectSensor.strings"; sourceTree = "<group>"; };
-		B4F19A4D26263F5400CA4C8D /* gsw */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = gsw; path = gsw.lproj/SelectSensor.strings; sourceTree = "<group>"; };
+		B4F44CF8264AEF7F00ACD190 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = ../../../.Trash/SelectSensor.strings; sourceTree = "<group>"; };
+		B4F44CFA264AEF8200ACD190 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/SelectSensor.strings; sourceTree = "<group>"; };
+		B4F44CFB264AEF9300ACD190 /* rm-CH */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "rm-CH"; path = "rm-CH.lproj/SelectSensor.strings"; sourceTree = "<group>"; };
+		B4F44CFC264AEF9500ACD190 /* gsw */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = gsw; path = gsw.lproj/SelectSensor.strings; sourceTree = "<group>"; };
 		B4F95C0725C2EC46004C21E1 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		B4F95C0E25C30F38004C21E1 /* HourlyChartShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyChartShape.swift; sourceTree = "<group>"; };
 		B4F95C1625C30FBF004C21E1 /* HourlyAggregationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyAggregationViewModel.swift; sourceTree = "<group>"; };
@@ -1002,9 +1003,10 @@
 				B4F19A4326263F5000CA4C8D /* en */,
 				B4F19A4526263F5100CA4C8D /* fr */,
 				B4F19A4726263F5200CA4C8D /* de */,
-				B4F19A4926263F5300CA4C8D /* it */,
-				B4F19A4B26263F5300CA4C8D /* rm-CH */,
-				B4F19A4D26263F5400CA4C8D /* gsw */,
+				B4F44CF8264AEF7F00ACD190 /* it */,
+				B4F44CFA264AEF8200ACD190 /* it */,
+				B4F44CFB264AEF9300ACD190 /* rm-CH */,
+				B4F44CFC264AEF9500ACD190 /* gsw */,
 			);
 			name = SelectSensor.intentdefinition;
 			sourceTree = "<group>";
