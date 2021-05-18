@@ -10,6 +10,7 @@
 "Loading" = "Chargement";
 "Error while fetching data" = "Erreur lors de l'extraction des données";
 "Close" = "Fermer";
+
 //MainView
 "Overview" = "Vue d'ensemble";
 "All" = "Tous les Capteurs";
@@ -21,6 +22,9 @@
 "Water Bodies" = "Plans d'eau";
 "Sensors" = "Capteurs";
 "Featured" = "Parcourir";
+"Recently Added" = "Récemment Ajouté";
+"Last Updated" = "Dernière mesure";
+"Random" = "Par Hasard";
 
 //About View
 "About" = "À Propos";
@@ -40,6 +44,7 @@
 "Highest:" = "Le plus haut:";
 "Lowest:" = "Le plus bas:";
 "Latest" = "Actuel";
+"Measured at " = "Mesuré à "; //new
 
 //Graph Box
 "History" = "Historique";
@@ -66,37 +71,33 @@
 //Settings
 "Settings" = "Réglages";
 "General" = "Général";
-"Other" = "Autres";
-"Visit gfrör.li" = "Visiter gfrör.li";
-"Visit coredump.ch" = "Visiter coredump.ch";
-"Contact us" = "Contactez-nous";
-"Write a Review" = "Ecris une évaluation";
-"Widget Settings" = "Règlages Widget";
-"Privacy Policy" = "Politique de Confidentialité";
+"Contact" = "Contact"; //neu
+"by Marc & Niklas\nfor Coredump Rapperswil" = "par Marc & Niklas\npour Coredump Rapperswil"; //neu
+"Rate" = "Taux"; //neu
 "Change Language" = "Changer de langue";
+"Privacy Policy" = "Politique de Confidentialité";
 "Do you want to reset the app?" = "Tous les favoris et réglages locaux vont étre effacés.";
 "Are you sure?" = "Es-tu sûr(e)?";
 "Reset App" = "Réinitialiser l'App";
 "Reset" = "Réinistialiser";
 "Cancel" = "Annuler";
-"Version" = "Version";
-
-//WidgetSettings
-"Choose Sensor to Display on Widget" = "Choissisez un Capteur pour le Widget";
-"Reset selection" = "Réinitialiser la sélection";
+"Version:" = "Version:"; //neu
+"Changelog" = "Changelog"; //neu
+"Changes" = "Nouveau"; //neu
+"Fixes" = "Corrections"; //neu
+"What's new?" = "Quoi de neuf ?"; //neu
+"Continue" = "Continuer";
 
 //WaterBodies
 "Lake of Zurich" = "Lac de Zurich";
 
 //Widget
-"Last Week:" = "Semaine Dernière:";
-"Last 24h:" = "Dernières 24h:";
-"Last Month:" = "Mois Dernier";
-"Tap to configure Sensor" = "Taper pour choisir un Capteur";
-"Shows the latest temperature of a Sensor." = "Affiche les dernières valeurs d'un capteur.";
-"Single Sensor" = "Capteur unique";
-"Single Sensor History" = "Historique";
-"Shows the temperature history of a Sensor." = "Montre l'historique de la température d'un capteur.";
+"Press and hold to select location" = "Appuyez et maintenez pour sélectionner l'emplacement"; //neu
+"No internet connection" = "Pas de connexion internet"; //neu
+"Single Location" = "Site unique";
+"Displays the latest temperature." = "Affiche la dernière température."; //neu
+"Single Location with Graph" = "Site unique avec graphique";//neu
+"Displays the temperature history of a location." = "Affiche l'historique des températures d'une site.";//neu
 
 //Email: DO NOT REMOVE </br> and add no space before and after it
 "email_text" = "Fais-nous part de ton évaluation ci-dessus 👆🏻</br>Si tu as rencontré un bug, dis-nous s'il-te plaît les étapes qui t'y ont conduit!</br> Nous essayerons de te répondre dans les plus brefs délais!";

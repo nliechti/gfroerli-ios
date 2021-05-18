@@ -7,19 +7,24 @@
 
 import SwiftUI
 import MapKit
+import UserNotifications
 
 struct iOSMainView: View {
+    @AppStorage("lastVersion", store: UserDefaults(suiteName: "group.ch.gfroerli")) var lastVersion: String = "0.0"
+    
     @State var showSens = false
     @State var selectedTab = "Overview"
     @State var pathComp: String?
     @State var loadingState: loadingState = .loading
     @StateObject var sensorsVm = SensorListViewModel()
-    
+    @State var currentVersion = "0.0"
+    @State var showUpdateView = false
+    @ObservedObject var observer = Observer()
     var body: some View {
+        
         //TabsView and Tabs
         TabView(selection: $selectedTab){
-            
-            OverView(showDetail: $showSens, pathComp: $pathComp,sensorsVM: sensorsVm, loadingState: $loadingState)
+            OverView(showDetail: $showSens, pathComp: $pathComp,sensorsVM: sensorsVm)
                 .tabItem { Image(systemName: "thermometer.sun.fill")
                     Text("Overview") }
                 .tag("Overview")
@@ -34,10 +39,17 @@ struct iOSMainView: View {
                     Text("Favorites") }
                 .tag("Favorites")
             
-            SettingsView(activePath: pathComp, loadingState: $loadingState, sensorsVm: sensorsVm)
+            SettingsView()
                 .tabItem { Image(systemName: "gear")
                     Text("Settings") }
                 .tag("Settings")
+            
+                
+        }
+        .sheet(isPresented: $showUpdateView) {
+            NavigationView{
+                WhatsNewView(lastVersion: lastVersion ,showDismiss: true)
+            }
         }
         //DeepLink handling
         .onOpenURL(perform: { url in
@@ -52,10 +64,24 @@ struct iOSMainView: View {
             }
             
         })
+        
         //fetching Sensors
-        .onAppear(perform: sensorsVm.load)
+        .onAppear(perform: {
+            sensorsVm.load()
+            currentVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0.0"
+            if currentVersion > lastVersion{
+                showUpdateView=true
+            }
+            print(currentVersion)
+            
+        })
+        .onReceive(self.observer.$enteredForeground) { _ in
+            sensorsVm.load()
+        }
     }
+    
 }
+
 
 
 struct iOSMainView_Previews: PreviewProvider {

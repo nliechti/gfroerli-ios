@@ -7,14 +7,16 @@
 
 import SwiftUI
 
-struct AsyncContentView<Source: LoadableObject, Content: View>: View {
+struct AsyncContentView<Source: LoadableObject, LoadingView: View,Content: View>: View {
     
     @ObservedObject var source: Source
+    var loadingView: LoadingView
     var content: (Source.Output) -> Content
-    init(source: Source,
+    init(source: Source,loadingView: LoadingView ,
          @ViewBuilder content: @escaping (Source.Output) -> Content) {
         self.source = source
         self.content = content
+        self.loadingView = loadingView
     }
     
     var body: some View {
@@ -22,9 +24,9 @@ struct AsyncContentView<Source: LoadableObject, Content: View>: View {
         case .idle:
             Color.clear.onAppear(perform: source.load)
         case .loading:
-            LoadingView()
+            loadingView
         case .failed:
-            ErrorView()
+            ErrorView(source: source)
         case .loaded(let output):
             content(output)
         }
@@ -38,4 +40,17 @@ struct AsyncContentView_Previews: PreviewProvider {
     }
 }
 
+typealias DefaultProgressView = ProgressView<EmptyView, EmptyView>
 
+extension AsyncContentView where LoadingView == DefaultProgressView {
+    init(
+        source: Source,
+        @ViewBuilder content: @escaping (Source.Output) -> Content
+    ) {
+        self.init(
+            source: source,
+            loadingView: ProgressView(),
+            content: content
+        )
+    }
+}

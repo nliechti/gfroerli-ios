@@ -10,6 +10,7 @@
 "Loading" = "Cargar";
 "Error while fetching data" = "Sbagl da cargar las datas";
 "Close" = "Serrar";
+
 //MainView
 "Overview" = "Survesta";
 "All" = "Tut";
@@ -21,6 +22,9 @@
 "Water Bodies" = "Auas";
 "Sensors" = "Sensurs";
 "Featured" = "Scuvierer";
+"Recently Added" = "Lieu Nov";
+"Last Updated" = "Mesiraziun Recent";
+"Random" = "Casualmain";
 
 //About View
 "About" = "Davart";
@@ -32,6 +36,7 @@
 //WaterBodyOverview
 "Locations" = "Loghens";
 "Sensors:" = "Sensurs:";
+
 //SensorsOverview
 //Top Box
 "All time:" = "Tut:";
@@ -39,6 +44,8 @@
 "Highest:" = "Il pli ault:";
 "Lowest:" = "Il pli bass:";
 "Latest" = "Actual";
+"Measured at " = "Gemessen um "; //new
+
 //Graph Box
 "History" = "Decuors";
 "Day" = "Gi";
@@ -64,12 +71,9 @@
 //Settings
 "Settings" = "Configuraziuns";
 "General" = "General";
-"Other" = "Auter";
-"Visit gfrör.li" = "Viseta gfrör.li";
-"Visit coredump.ch" = "Viseta coredump.ch";
-"Contact us" = "Contactescha nus";
-"Write a Review" = "Scriva ina recensiun";
-"Widget Settings" = "Configuraziuns da Widget";
+"Contact" = "Contact";
+"by Marc & Niklas\nfor Coredump Rapperswil" = "da Marc & Niklas\nper Coredump Rapperswil";
+"Rate" = "valetar";
 "Change Language" = "Midar lingua";
 "Privacy Policy" = "Declaraziun davart la protecziun da datas";
 "Do you want to reset the app?" = "Remetter tut las configuraziuns dall'App?";
@@ -77,25 +81,23 @@
 "Reset App" = "Remetter l'App";
 "Reset" = "Remetter";
 "Cancel" = "Interrumper";
-"Version" = "Versiun";
-
-//WidgetSettings
-"Widget" = "Widget";
-"Choose Sensor to Display on Widget" = "Electar il sensur per mussar sil Widget";
-"Reset selection" = "Remetter l'elecziun";
+"Version:" = "Versiun:";
+"Changelog" = "Protocol da modificaziun";
+"Changes" = "Midadas";
+"Fixes" = "Rugalau";
+"What's new?" = "Tgei ei niev?";
+"Continue" = "Avanzar";
 
 //WaterBodies
 "Lake of Zurich" = "Lag da Turitg";
 
 //Widget
-"Last Week:" = "L'jamna vargada:";
-"Last 24h:" = "Davosas 24h:";
-"Last Month:" = "Mais vargad:";
-"Tap to configure Sensor" = "Tippa per eleger il sensur";
-"Shows the latest temperature of a Sensor." = "Zeigt die aktuelle Temperatur an.";
-"Single Sensor" =" Einzelner Sensor";
-"Single Sensor History" = "Temperaturverlauf";
-"Shows the temperature history of a Sensor." = "Zeigt den Verlauf der Temperatur an.";
+"Press and hold to select location" = "Smaccar e tener per eleger il liug";
+"No internet connection" = "Negina colligiaziun d’internet";
+"Single Location" = "Singul liug";
+"Displays the latest temperature." = "Muossa l’ultima temperatura";
+"Single Location with Graph" = "Singul liug cun graf";
+"Displays the temperature history of a location." = "Muossa la cronologia da temperatura dad in liug.";
 
 //Email: DO NOT REMOVE </br> and add no space before and after it
 "email_text" = "Fai aschi bien e scriva il text suren 👆🏻</br>Sche ti has anflau in sbagl, notescha fai aschi bien ils pass che han menau tier tal!</br> Nus empruein da rispunder aschi spert sco pusseivel!";

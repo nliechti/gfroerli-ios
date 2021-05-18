@@ -10,6 +10,7 @@
 "Loading" = "Lade";
 "Error while fetching data" = "Lade fehlgeschlage";
 "Close" = "Schlüsse";
+
 //MainView
 "Overview" = "Übersicht";
 "All" = "Alli";
@@ -21,6 +22,9 @@
 "Water Bodies" = "Gwässer";
 "Sensors" = "Sensore";
 "Featured" = "Entdecke";
+"Recently Added" = "Z'letscht hinzuegfüegt";
+"Last Updated" = "Neusti Mässig";
+"Random" = "Zuefall";
 
 //About View
 "About" = "Über";
@@ -32,6 +36,7 @@
 //WaterBodyOverview
 "Locations" = "Standort";
 "Sensors:" = "Sensore:";
+
 //SensorsOverview
 //Top Box
 "All time:" = "Insgesamt:";
@@ -39,6 +44,8 @@
 "Highest:" = "Höchsti:";
 "Lowest:" = "Tüfsti:";
 "Latest" = "Aktuell";
+"Measured at " = "G'mässe um "; //new
+
 //Graph Box
 "History" = "Verlauf";
 "Day" = "Tag";
@@ -64,12 +71,9 @@
 //Settings
 "Settings" = "Istellige";
 "General" = "Allgemein";
-"Other" = "Anderi";
-"Visit gfrör.li" = "Bsuech gfrör.li";
-"Visit coredump.ch" = "Bsuech coredump.ch";
-"Contact us" = "Kontaktier eus";
-"Write a Review" = "Rezension schribe";
-"Widget Settings" = "Widget-Istellige";
+"Contact" = "Kontaktier eus"; //neu
+"by Marc & Niklas\nfor Coredump Rapperswil" = "vom Marc & Niklas\nfür Coredump Rapperswil"; //neu
+"Rate" = "Bewertä"; //neu
 "Change Language" = "Sprach wächsle";
 "Privacy Policy" = "Datenschutzerchlärig";
 "Do you want to reset the app?" = "Alli Favorite und andere lokale Istellige werded zrugggsetzt.";
@@ -77,25 +81,23 @@
 "Reset App" = "App zruggsetze";
 "Reset" = "Zruggsetze";
 "Cancel" = "Abbreche";
-"Version" = "Version";
-
-//WidgetSettings
-"Widget" = "Widget";
-"Choose Sensor to Display on Widget" = "Sensor fürs Widget uswähle";
-"Reset selection" = "Uswahl entferne";
+"Version:" = "Version:"; //neu
+"Changelog" = "Changelog"; //neu
+"Changes" = "Neu"; //neu
+"Fixes" = "Behobe"; //neu
+"What's new?" = "Was isch neu?"; //neu
+"Continue" = "Wiiter";
 
 //WaterBodies
 "Lake of Zurich" = "Zürisee";
 
 //Widget
-"Last Week:" = "Letsti Wuche:";
-"Last 24h:" = "Letsti 24h:";
-"Last Month:" = "Letste Monat:";
-"Tap to configure Sensor" = "Tippe um Sensor uszwähle";
-"Shows the latest temperature of a Sensor." = "Zeigt die letschte Wert vomene Sensor ah.";
-"Single Sensor"="Einzelne Sensor";
-"Single Sensor History" = "Verlauf";
-"Shows the temperature history of a Sensor." = "Zeigt de temperatuur verlauf ah.";
+"Press and hold to select location" = "Lang tippe um en Standort uuszwähle"; //neu
+"No internet connection" = "Kei Internetverbindig"; //neu
+"Single Location" = "Einzelne Standort";
+"Displays the latest temperature." = "Zeigt die letsti Temperatur ah."; //neu
+"Single Location with Graph" = "Einzelner Standort mit Graph";//neu
+"Displays the temperature history of a location." = "Zeigt de Temperaturverlauf vomene Standorte ah.";//neu
 
 //Email: DO NOT REMOVE </br> and add no space before and after it
 "email_text" = "Bitte schreibe deinen Text oberhalb 👆🏻</br>Falls du einen Fehler entdeckt hasst, notiere bitte die Schritte die zu ihm geführt haben!</br> Wir versuchen dir schnellstmöglich zu antworten!";

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LoadingView: View {
+    init(){}
     var body: some View {
         VStack{
             Spacer()
@@ -22,11 +23,13 @@ struct LoadingView: View {
                 Spacer()
             }
             Spacer()
-        }.background(Color.systemGroupedBackground)
+        }.frame(maxWidth: .infinity)
+        .background(Color.systemGroupedBackground)
     }
 }
 
-struct ErrorView: View {
+struct ErrorView<Source: LoadableObject>: View {
+    @ObservedObject var source: Source
     var body: some View {
         VStack{
             Spacer()
@@ -35,6 +38,11 @@ struct ErrorView: View {
                 Text("Error while fetching data.").foregroundColor(.gray)
                 Spacer()
             }
+            Button(action: {
+                source.load()
+            }, label: {
+                Text("Try again")
+            })
             Spacer()
         }
     }

@@ -52,6 +52,10 @@ struct HourlyChartView: View{
                 .stroke(showMax ? Color.red : Color.clear, style: StrokeStyle(lineWidth: 2,lineCap: .round, lineJoin: .round)).frame(width: frame.width-40, height: frame.height).offset(x:+20)
             HourlyLineChartShape(pointSize: pointSize, data: data, type: .average,  max: maxVal, min: minVal, showCircles: showCircles)
                 .stroke(showAvg ? ((avgColor != nil) ? Color.white : Color.green) : Color.clear,style: StrokeStyle(lineWidth: 2,lineCap: .round, lineJoin: .round)).frame(width: frame.width-40, height: frame.height).offset(x:+20)
+                
+                
+        }.onAppear{
+            withAnimation{}
         }
         
         Spacer()
@@ -73,9 +77,9 @@ struct HourlyChartView: View{
     func getXLabels(data: [HourlyAggregation?]) -> [String] {
         var labels = [String]()
         let hour = Calendar.current.component(.hour, from: Date())
-        labels.append(String(hour+1)+":00")
-        labels.append(String((hour+12)%24)+":00")
-        labels.append(String(hour)+":00")
+        labels.append("00:00")
+        labels.append("12:00")
+        labels.append("24:00")
         return labels
     }
 }

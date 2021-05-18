@@ -17,6 +17,7 @@ class SensorListViewModel: LoadableObject {
     let didChange = PassthroughSubject<Void, Never>()
         
     init() {
+        self.load()
     }
         
     init(sensors: [Sensor]) {
@@ -24,12 +25,8 @@ class SensorListViewModel: LoadableObject {
     }
     
     
-    
     func load() {
-        /*let jsonDecoder = JSONDecoder()
-        let sensors = try! jsonDecoder.decode([Sensor].self, from: readLocalFile(forName: "sensors")!)
-        self.sensorArray = sensors
-        self.state = .loaded(sensors)*/
+        self.state = .loading
         var url = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/mobile_app/sensors")!)
         url.setValue("Bearer XTZA6H0Hg2f02bzVefmVlr8fIJMy2FGCJ0LlDlejj2Pi0i1JvZiL0Ycv1t6JoZzD", forHTTPHeaderField: "Authorization")
         url.httpMethod = "GET"
@@ -37,17 +34,18 @@ class SensorListViewModel: LoadableObject {
         URLSession.shared.dataTask(with: url) { data, response, error in
             DispatchQueue.main.async {
                 do {
-                if let data = data {
-                    // success: convert to  Sensors
-                    let jsonDecoder = JSONDecoder()
-                    let sensors = try jsonDecoder.decode([Sensor].self, from: data)
-                    self.sensorArray = sensors
-                    self.state = .loaded(sensors)
-                    
-                }else {
-                    self.state = .failed
-                }
+                    if let data = data {
+                        // success: convert to  Sensors
+                        let jsonDecoder = JSONDecoder()
+                        let sensors = try jsonDecoder.decode([Sensor].self, from: data)
+                        self.sensorArray = sensors
+                        self.state = .loaded(sensors)
+                        
+                    }else{
+                        self.state = .failed
+                    }
                 }catch{
+                    print(error.localizedDescription)
                     self.state = .failed
                 }
             }
@@ -72,7 +70,7 @@ class SensorListViewModel: LoadableObject {
 
 
 
-let testSensorVM = SensorListViewModel(sensors: [testSensor])
+let testSensorVM = SensorListViewModel(sensors: [testSensor1,testSensor2])
 
 
 

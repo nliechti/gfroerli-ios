@@ -65,15 +65,7 @@ struct HourlyLineChartShape: Shape {
         }
         
         //end last path part if last entry is nil
-        if data[data.count-1]==nil{
-            var x = xMultiplier * CGFloat(data.count-1)
-            var y = yMultiplier * CGFloat(getTemp(dataPoint: data.last(where: { $0 != nil})!!)-minVal)
-            
-            y = rect.height - y
-            x += rect.minX
-            y += rect.minY
-            path.addLine(to:CGPoint(x: x, y: y))
-        }
+        
         return path
     }
     

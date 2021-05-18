@@ -50,19 +50,29 @@ struct MothlyLineChartShape: Shape {
         return date
         
     }
+    public  func makeIntFromAggreg(string: String)->Int{
+        var newDate = string
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let date = dateFormatter.date(from:newDate)!
+        let range = Calendar.current.range(of: .day, in: .month, for: Calendar.current.date(byAdding: DateComponents(day: 1), to: date)!)!
+        
+        return range.count
+        
+    }
     
     func path(in rect: CGRect) -> Path {
         var path = Path()
         
-        let xMultiplier = rect.width / CGFloat(31)
+        let xMultiplier = rect.width / CGFloat(makeIntFromAggreg(string: data[0].date!)-1)
         let yMultiplier = rect.height / CGFloat(maxVal-minVal)
-        let start = Calendar.current.date(byAdding: .day, value:-31, to:Date())!
-        let end = Calendar.current.date(byAdding: .day, value:0, to:Date())!
+        let start = Calendar.current.date(byAdding: DateComponents(day: 1), to: Calendar.current.dateComponents([.calendar, .month, .year], from: makeDateFromAggreg(string: data[0].date!)).date!)!
+        let end = Calendar.current.date(byAdding: DateComponents(month: 1), to: Calendar.current.dateComponents([.calendar, .month, .year], from: makeDateFromAggreg(string: data[0].date!)).date!)!
         
         //First DataPoint
         var x = xMultiplier * CGFloat(0)
         var y = yMultiplier * CGFloat(getTemp(dataPoint: data[0])-minVal)
-        var step = daysBetween(start: start, end: makeDateFromAggreg(string: data[0].date!))
+        var step = daysBetween(start: start, end: makeDateFromAggreg(string: data[0].date!))+1
         
         y = rect.height - y
         x += rect.minX
@@ -107,13 +117,15 @@ struct MothlyLineChartShape: Shape {
         }
         
         // last points
-        step += daysBetween(start: makeDateFromAggreg(string:data[data.count-1].date!), end: end)
-        x = xMultiplier * CGFloat(step)
-        y = yMultiplier * CGFloat(getTemp(dataPoint: data[data.count-1])-minVal)
-        y = rect.height - y
-        x += rect.minX
-        y += rect.minY
-        path.addLine(to: CGPoint(x: x,y: y))
+        if(end<Date()){
+            step += daysBetween(start: makeDateFromAggreg(string:data[data.count-1].date!), end: end)-1
+            x = xMultiplier * CGFloat(step)
+            y = yMultiplier * CGFloat(getTemp(dataPoint: data[data.count-1])-minVal)
+            y = rect.height - y
+            x += rect.minX
+            y += rect.minY
+            path.addLine(to: CGPoint(x: x,y: y))
+        }
         return path
         
     }

@@ -62,6 +62,6 @@ struct SensorOverviewMap: View {
 
 struct SensorOverviewMap_Previews: PreviewProvider {
     static var previews: some View {
-        SensorOverviewMap(inSensor: testSensor).makePreViewModifier()
+        SensorOverviewMap(inSensor: testSensor1).makePreViewModifier()
     }
 }

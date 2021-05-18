@@ -30,12 +30,23 @@ public func createDateStringfromStringDate(string: String)->String{
     
 }
 
-public func createStringFromDate(date: Date)->String{
+public func createStringFromDate(date: Date, format: String = "HH:mm, d. MMMM y")->String{
     
     let stringFormatter = DateFormatter()
-    stringFormatter.dateFormat = "HH:mm, d. MMMM y"
+    stringFormatter.dateFormat = format
     return stringFormatter.string(from: date)
     
+}
+
+public func areSameDay(date1: Date,date2:Date) -> Bool{
+    let calendar = Calendar.current
+    let dayComp2 = calendar.dateComponents([.day], from: date1)
+    let dayComp1 = calendar.dateComponents([.day], from: date2)
+    
+    if dayComp1.day == dayComp2.day {
+        return true
+    }
+    return false
 }
 
 enum NetworkError: Error {

@@ -15,9 +15,7 @@ struct GfrorliApp: App {
     var body: some Scene {
         WindowGroup {
             #if os(iOS)
-            iOSMainView().onAppear(perform: {
-                print(Bundle.main.preferredLocalizations.first)
-            })
+            iOSMainView()
             #endif
         }
     }

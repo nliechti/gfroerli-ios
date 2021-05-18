@@ -54,10 +54,11 @@ struct WeeklyLineChartShape: Shape {
     func path(in rect: CGRect) -> Path {
         var path = Path()
         
-        let xMultiplier = rect.width / CGFloat(7)
+        let xMultiplier = rect.width / CGFloat(6)
         let yMultiplier = rect.height / CGFloat(maxVal-minVal)
-        let start = Calendar.current.date(byAdding: .day, value:-8, to:Date())!
-        let end = Calendar.current.date(byAdding: .day, value:0, to:Date())!
+        let start = Calendar.current.dateComponents([.calendar, .yearForWeekOfYear, .weekOfYear], from:  makeDateFromAggreg(string: data[0].date!)).date!
+           
+        let end = Calendar.current.date(byAdding: .day, value: 6, to: Calendar.current.dateComponents([.calendar, .yearForWeekOfYear, .weekOfYear], from: Date()).date!)!
         
         //First DataPoint
         var x = xMultiplier * CGFloat(0)
@@ -106,13 +107,16 @@ struct WeeklyLineChartShape: Shape {
         }
         
         // last points
-        step += daysBetween(start: makeDateFromAggreg(string:data[data.count-1].date!), end: end)
+        if ( makeDateFromAggreg(string: data[data.count-1].date!).advanced(by: 604800) < end){
+        
+        step = 6
         x = xMultiplier * CGFloat(step)
         y = yMultiplier * CGFloat(getTemp(dataPoint: data[data.count-1])-minVal)
         y = rect.height - y
         x += rect.minX
         y += rect.minY
-        path.addLine(to: CGPoint(x: x,y: y))
+        path.addLine(to: CGPoint(x: x, y: y))
+        }
         return path
         
     }

@@ -22,6 +22,9 @@
 "Water Bodies" = "Gewässer";
 "Sensors" = "Sensoren";
 "Featured" = "Entdecken";
+"Recently Added" = "Zuletzt Hinzugefügt";
+"Last Updated" = "Neuste Messung";
+"Random" = "Zufällig";
 
 //About View
 "About" = "Über";
@@ -33,6 +36,7 @@
 //WaterBodyOverview
 "Locations" = "Standorte";
 "Sensors:" = "Sensoren:";
+
 //SensorsOverview
 //Top Box
 "All time:" = "Insgesamt:";
@@ -40,6 +44,8 @@
 "Highest:" = "Höchste:";
 "Lowest:" = "Niedrigste:";
 "Latest" = "Aktuell";
+"Measured at " = "Gemessen um "; //new
+
 //Graph Box
 "History" = "Verlauf";
 "Day" = "Tag";
@@ -65,38 +71,33 @@
 //Settings
 "Settings" = "Einstellungen";
 "General" = "Allgemein";
-"Other" = "Andere";
-"Visit gfrör.li" = "Besuche gfrör.li";
-"Visit coredump.ch" = "Besuche coredump.ch";
-"Contact us" = "Kontaktiere uns";
-"Write a Review" = "Rezension schreiben";
-"Widget Settings" = "Widget-Einstellungen";
-"Privacy Policy" = "Datenschutzerklärung";
+"Contact" = "Kontaktiere uns"; //neu
+"by Marc & Niklas\nfor Coredump Rapperswil" = "von Marc & Niklas\nfür Coredump Rapperswil"; //neu
+"Rate" = "Bewerten"; //neu
 "Change Language" = "Sprache ändern";
+"Privacy Policy" = "Datenschutzerklärung";
 "Do you want to reset the app?" = "Alle Favoriten und andere lokale Einstellungen werden zurückgesetzt.";
 "Are you sure?" = "Bist du dir sicher?";
 "Reset App" = "App zurücksetzen";
 "Reset" = "Zurücksetzen";
 "Cancel" = "Abbrechen";
-"Version" = "Version";
-
-//WidgetSettings
-"Widget" = "Widget";
-"Choose Sensor to Display on Widget" = "Sensor für Widget wählen";
-"Reset selection" = "Auswahl entfernen";
+"Version:" = "Version:"; //neu
+"Changelog" = "Changelog"; //neu
+"Changes" = "Neu"; //neu
+"Fixes" = "Behoben"; //neu
+"What's new?" = "Was ist neu?"; //neu
+"Continue" = "Weiter";
 
 //WaterBodies
 "Lake of Zurich" = "Zürichsee";
 
 //Widget
-"Last Week:" = "Letzte Woche:";
-"Last 24h:" = "Letzte 24h:";
-"Last Month" = "Last Month";
-"Tap to configure Sensor" = "Tippen um Sensor auszuwählen";
-"Shows the latest temperature of a Sensor." = "Zeigt die aktuelle Temperatur an.";
-"Single Sensor" =" Einzelner Sensor";
-"Single Sensor History" = "Temperaturverlauf";
-"Shows the temperature history of a Sensor." = "Zeigt den Verlauf der Temperatur an.";
+"Press and hold to select location" = "Drücken und halten um Standort auszuwählen"; //neu
+"No internet connection" = "Keine Internetverbindung"; //neu
+"Single Location" = "Einzelner Standort";
+"Displays the latest temperature." = "Zeigt die letzte Temperatur an."; //neu
+"Single Location with Graph" = "Einzelner Standort mit Graph";//neu
+"Displays the temperature history of a location." = "Zeigt den Temperaturverlauf eines Standortes an.";//neu
 
 //Email: DO NOT REMOVE </br> and add no space before and after it
 "email_text" = "Bitte schreibe deinen Text oberhalb 👆🏻</br>Falls du einen Fehler entdeckt hast, notiere bitte die Schritte die zu ihm geführt haben!</br> Wir versuchen dir schnellstmöglich zu antworten!";
