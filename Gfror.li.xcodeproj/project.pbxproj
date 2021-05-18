@@ -85,6 +85,11 @@
 		B4B37A4925C2C1D500DA76A5 /* AsyncContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B37A4825C2C1D500DA76A5 /* AsyncContentView.swift */; };
 		B4B37A5625C2C43400DA76A5 /* LoadableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B37A5525C2C43400DA76A5 /* LoadableObject.swift */; };
 		B4BDEF3125E40EEB00A82E16 /* SensorNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BDEF3025E40EEB00A82E16 /* SensorNotificationView.swift */; };
+		B4DEC7E3265424A700206EAA /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DEC7E2265424A700206EAA /* GraphView.swift */; };
+		B4DEC7E5265424B900206EAA /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DEC7E4265424B900206EAA /* ChartView.swift */; };
+		B4DEC7E7265424C300206EAA /* X-LabelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DEC7E6265424C300206EAA /* X-LabelsView.swift */; };
+		B4DEC7E9265424CC00206EAA /* Y-LabelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DEC7E8265424CC00206EAA /* Y-LabelsView.swift */; };
+		B4DEC7EB2654276400206EAA /* LineShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DEC7EA2654276400206EAA /* LineShape.swift */; };
 		B4E12499260CCED800F45852 /* SponsorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D737736252BA8750075E04E /* SponsorsViewModel.swift */; };
 		B4E1249A260CCED800F45852 /* WeeklyAggregationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F95C2625C312F0004C21E1 /* WeeklyAggregationsViewModel.swift */; };
 		B4E1249C260CCED800F45852 /* TempAggregationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA7CF0E2516176300395465 /* TempAggregationsViewModel.swift */; };
@@ -253,6 +258,11 @@
 		B4B37A4825C2C1D500DA76A5 /* AsyncContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncContentView.swift; sourceTree = "<group>"; };
 		B4B37A5525C2C43400DA76A5 /* LoadableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableObject.swift; sourceTree = "<group>"; };
 		B4BDEF3025E40EEB00A82E16 /* SensorNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorNotificationView.swift; sourceTree = "<group>"; };
+		B4DEC7E2265424A700206EAA /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		B4DEC7E4265424B900206EAA /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		B4DEC7E6265424C300206EAA /* X-LabelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "X-LabelsView.swift"; sourceTree = "<group>"; };
+		B4DEC7E8265424CC00206EAA /* Y-LabelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Y-LabelsView.swift"; sourceTree = "<group>"; };
+		B4DEC7EA2654276400206EAA /* LineShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineShape.swift; sourceTree = "<group>"; };
 		B4E124D2260CD20700F45852 /* gfroerliWidgetExtensionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = gfroerliWidgetExtensionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4E124D8260CD20700F45852 /* gfroerliWidgetExtension.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = gfroerliWidgetExtension.intentdefinition; sourceTree = "<group>"; };
 		B4E124D9260CD20800F45852 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -516,6 +526,26 @@
 			path = protocols;
 			sourceTree = "<group>";
 		};
+		B4DEC7E12654248100206EAA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B4DEC7EC265440E000206EAA /* Chart */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B4DEC7EC265440E000206EAA /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				B4DEC7E2265424A700206EAA /* GraphView.swift */,
+				B4DEC7E4265424B900206EAA /* ChartView.swift */,
+				B4DEC7E6265424C300206EAA /* X-LabelsView.swift */,
+				B4DEC7E8265424CC00206EAA /* Y-LabelsView.swift */,
+				B4DEC7EA2654276400206EAA /* LineShape.swift */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
 		B4E124D5260CD20700F45852 /* gfroerliWidgetExtension */ = {
 			isa = PBXGroup;
 			children = (
@@ -583,6 +613,7 @@
 		E461456724A34823006233AE /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				B4DEC7E12654248100206EAA /* Views */,
 				B4B37A5D25C2C43900DA76A5 /* protocols */,
 				8D815A2A25A63AE80060AC85 /* AppStoreData */,
 				8DF3BBD6250BB69700DBCC37 /* HelpersFolder */,
@@ -889,6 +920,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4DEC7E5265424B900206EAA /* ChartView.swift in Sources */,
 				E461459124A34831006233AE /* GfrorliApp.swift in Sources */,
 				8DF3BBD8250BB6BB00DBCC37 /* OwnHelpers.swift in Sources */,
 				B49BE2D0261CB4880004B0D6 /* Reachability.swift in Sources */,
@@ -902,6 +934,7 @@
 				8DD06C3025A0EF290081250B /* UIDeviceExtension.swift in Sources */,
 				8DA7CF0F2516176300395465 /* TempAggregationsViewModel.swift in Sources */,
 				8DF3BBCD250B748800DBCC37 /* SearchBar.swift in Sources */,
+				B4DEC7EB2654276400206EAA /* LineShape.swift in Sources */,
 				B4B37A5625C2C43400DA76A5 /* LoadableObject.swift in Sources */,
 				E4C24FE724EEB58400FB4F51 /* Sensor.swift in Sources */,
 				B4F95C0825C2EC46004C21E1 /* ViewExtensions.swift in Sources */,
@@ -924,6 +957,7 @@
 				8DD06C2925A0E7340081250B /* GroupBoxExtension.swift in Sources */,
 				8D3D36F0250BBC8500F11E48 /* SensorOverViewGraph.swift in Sources */,
 				8DA7CEF52516108000395465 /* SensorListViewModel.swift in Sources */,
+				B4DEC7E3265424A700206EAA /* GraphView.swift in Sources */,
 				8D05A2DB253F645300E7C1BD /* PreViewExtension.swift in Sources */,
 				B4F95C3725C31604004C21E1 /* MonthlyChartShape.swift in Sources */,
 				8DBCDB8F2576C4C400CBDAA6 /* WeeklyChartView.swift in Sources */,
@@ -935,6 +969,7 @@
 				8DF3BBC9250B4F2700DBCC37 /* URLExtension.swift in Sources */,
 				B4F95C2725C312F0004C21E1 /* WeeklyAggregationsViewModel.swift in Sources */,
 				8D5D25CB257A98D1002852F4 /* SensorListItem.swift in Sources */,
+				B4DEC7E7265424C300206EAA /* X-LabelsView.swift in Sources */,
 				8DF3BBD5250BB62D00DBCC37 /* SensorOverviewLastMeasurementView.swift in Sources */,
 				8D73772F252BA7200075E04E /* Sponsor.swift in Sources */,
 				E4C24FE924EEB5AA00FB4F51 /* TempAggregations.swift in Sources */,
@@ -947,6 +982,7 @@
 				B4F95C1725C30FBF004C21E1 /* HourlyAggregationViewModel.swift in Sources */,
 				8DCB9A58257972E30063C628 /* SensorOverviewMap.swift in Sources */,
 				E438B4CC24ACFB7D008A2E01 /* iOSMainView.swift in Sources */,
+				B4DEC7E9265424CC00206EAA /* Y-LabelsView.swift in Sources */,
 				8D7E98BD257025EC00BC32EB /* ColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
