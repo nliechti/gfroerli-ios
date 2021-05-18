@@ -73,9 +73,9 @@ struct Sensor: Codable, Identifiable {
         minTemp = try values.decodeIfPresent(Double.self, forKey: .minTemp)
         maxTemp = try values.decodeIfPresent(Double.self, forKey: .maxTemp)
         avgTemp = try values.decodeIfPresent(Double.self, forKey: .avgTemp)
-        var createdUNIXStamp = try values.decodeIfPresent(Double.self, forKey: .createdAt)
+        let createdUNIXStamp = try values.decodeIfPresent(Double.self, forKey: .createdAt)
         createdAt = Date(timeIntervalSince1970: createdUNIXStamp ?? 0.0)
-        var lastMeasurementUNIXStamp = try values.decodeIfPresent(Double.self, forKey: .lastTempTime)
+        let lastMeasurementUNIXStamp = try values.decodeIfPresent(Double.self, forKey: .lastTempTime)
         lastTempTime = Date(timeIntervalSince1970: (lastMeasurementUNIXStamp ?? 0.0))
     }
 }

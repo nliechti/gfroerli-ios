@@ -54,8 +54,6 @@ struct WeeklyChartView: View{
     }
     func getXLabels(data: [DailyAggregation]) -> [String] {
         var labels = [String]()
-        let mid: Int = data.count/2
-        
         labels.append(createLegendDateString(date: Date()))
         return labels
     }

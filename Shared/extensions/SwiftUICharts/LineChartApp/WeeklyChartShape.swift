@@ -43,7 +43,7 @@ struct WeeklyLineChartShape: Shape {
     }
     
     public  func makeDateFromAggreg(string: String)->Date{
-        var newDate = string
+        let newDate = string
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let date = dateFormatter.date(from:newDate)!
