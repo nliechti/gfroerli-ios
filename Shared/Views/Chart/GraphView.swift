@@ -11,20 +11,23 @@ struct GraphView: View {
     
     @State var nrOfLines: Int = 5
     
-    let data = [10.0,2.5,0.0,7.5,5.0]
+    @State var data = [10.0,2.5,1.0,7.5,5.0,4.0]
     
     var body: some View {
         
         VStack{
             HStack{
-                Y_LabelsView(data: data,nrOfLines: nrOfLines)
-                ChartView(data: data, nrOfLines: nrOfLines)
+                Y_LabelsView(data: $data,nrOfLines: nrOfLines)
+                ChartView(data: $data, nrOfLines: nrOfLines)
             }
             HStack{
                 Text("00").hidden().padding(.leading)
                 X_LabelsView(timeFrame: .week, day: 1, month: 12, year: 2000)
             }
         }.padding()
+        .onTapGesture {
+            data = data.reversed()
+        }
     }
 }
 

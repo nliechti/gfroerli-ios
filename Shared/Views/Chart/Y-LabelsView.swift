@@ -9,19 +9,23 @@ import SwiftUI
 
 
 struct Y_LabelsView: View {
-    var data: [Double]
+    @Binding var data: [Double]
     
     var nrOfLines: Int
     var yLabels: [String]{
         
-        let max = data.max()!
-        let min = data.min()!
+        var max: Double{
+            data.max()!
+        }
+        var min: Double{
+            data.min()!
+        }
         
         let stepSize = (max-min)/(Double(nrOfLines-1))
         var yLabels = [String]()
         
         for i in 0..<nrOfLines{
-            yLabels.append(String(Double(i) * stepSize))
+            yLabels.append(String(min + Double(i) * stepSize))
         }
         return yLabels.reversed()
     }
@@ -40,6 +44,6 @@ struct Y_LabelsView: View {
 
 struct Y_LabelsView_Previews: PreviewProvider {
     static var previews: some View {
-        Y_LabelsView(data: [10.0,1.0,3.0,6.0,00.0], nrOfLines: 5)
+        Y_LabelsView(data: .constant([20.0,0.0]), nrOfLines: 5)
     }
 }

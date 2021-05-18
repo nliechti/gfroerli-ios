@@ -90,6 +90,7 @@
 		B4DEC7E7265424C300206EAA /* X-LabelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DEC7E6265424C300206EAA /* X-LabelsView.swift */; };
 		B4DEC7E9265424CC00206EAA /* Y-LabelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DEC7E8265424CC00206EAA /* Y-LabelsView.swift */; };
 		B4DEC7EB2654276400206EAA /* LineShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DEC7EA2654276400206EAA /* LineShape.swift */; };
+		B4DEC7EE26544D6600206EAA /* VectorAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DEC7ED26544D6600206EAA /* VectorAnimations.swift */; };
 		B4E12499260CCED800F45852 /* SponsorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D737736252BA8750075E04E /* SponsorsViewModel.swift */; };
 		B4E1249A260CCED800F45852 /* WeeklyAggregationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F95C2625C312F0004C21E1 /* WeeklyAggregationsViewModel.swift */; };
 		B4E1249C260CCED800F45852 /* TempAggregationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA7CF0E2516176300395465 /* TempAggregationsViewModel.swift */; };
@@ -263,6 +264,7 @@
 		B4DEC7E6265424C300206EAA /* X-LabelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "X-LabelsView.swift"; sourceTree = "<group>"; };
 		B4DEC7E8265424CC00206EAA /* Y-LabelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Y-LabelsView.swift"; sourceTree = "<group>"; };
 		B4DEC7EA2654276400206EAA /* LineShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineShape.swift; sourceTree = "<group>"; };
+		B4DEC7ED26544D6600206EAA /* VectorAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectorAnimations.swift; sourceTree = "<group>"; };
 		B4E124D2260CD20700F45852 /* gfroerliWidgetExtensionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = gfroerliWidgetExtensionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4E124D8260CD20700F45852 /* gfroerliWidgetExtension.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = gfroerliWidgetExtension.intentdefinition; sourceTree = "<group>"; };
 		B4E124D9260CD20800F45852 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -542,6 +544,7 @@
 				B4DEC7E6265424C300206EAA /* X-LabelsView.swift */,
 				B4DEC7E8265424CC00206EAA /* Y-LabelsView.swift */,
 				B4DEC7EA2654276400206EAA /* LineShape.swift */,
+				B4DEC7ED26544D6600206EAA /* VectorAnimations.swift */,
 			);
 			path = Chart;
 			sourceTree = "<group>";
@@ -972,6 +975,7 @@
 				B4DEC7E7265424C300206EAA /* X-LabelsView.swift in Sources */,
 				8DF3BBD5250BB62D00DBCC37 /* SensorOverviewLastMeasurementView.swift in Sources */,
 				8D73772F252BA7200075E04E /* Sponsor.swift in Sources */,
+				B4DEC7EE26544D6600206EAA /* VectorAnimations.swift in Sources */,
 				E4C24FE924EEB5AA00FB4F51 /* TempAggregations.swift in Sources */,
 				B49BE2D4261CF3830004B0D6 /* ImageLoader.swift in Sources */,
 				8D0D7FE224F107B60068176C /* OverView.swift in Sources */,

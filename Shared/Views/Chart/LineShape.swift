@@ -9,7 +9,15 @@ import Foundation
 import SwiftUI
 
 struct LineShape: Shape {
+    
+    var vector: AnimatableVector
     var data: [Double]
+    
+    var animatableData: AnimatableVector {
+            get { vector }
+            set { vector = newValue }
+        }
+    
     var minValue: Double {
         data.min()!
     }
@@ -25,7 +33,7 @@ struct LineShape: Shape {
         
         //First DataPoint
         var x = xMultiplier * CGFloat(0)
-        var y = yMultiplier * CGFloat(data[0]-minValue)
+        var y = yMultiplier * CGFloat(vector.values[0]-minValue)
         
         y = rect.height - y
         x += rect.minX
@@ -35,9 +43,9 @@ struct LineShape: Shape {
         
         path.addLine(to: CGPoint(x: x,y: y))
         
-        for index in 1..<data.count {
+        for index in 1..<vector.values.count {
             var x = xMultiplier * CGFloat(index)
-            var y = yMultiplier * CGFloat(data[index]-minValue)
+            var y = yMultiplier * CGFloat(vector.values[index]-minValue)
             
             y = rect.height - y
             x += rect.minX
@@ -47,4 +55,8 @@ struct LineShape: Shape {
         }
         return path
     }
+    
+    
 }
+
+

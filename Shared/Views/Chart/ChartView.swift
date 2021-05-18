@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ChartView: View {
-    var data: [Double]
+    @Binding var data: [Double]
     var nrOfLines: Int
     
     @State private var touchLocation:CGPoint = .zero
@@ -19,14 +19,14 @@ struct ChartView: View {
             if (oldValue != self.currentValue) {
                 HapticFeedback.playSelection()
             }
-            
         }
     }
     
     var body: some View {
         GeometryReader{ geo in
             ZStack{
-                LineShape(data: data).stroke(Color.blue,style: StrokeStyle(lineWidth: 2,lineCap: .round, lineJoin: .round))
+                LineShape(vector: AnimatableVector(values: data), data: data).stroke(Color.blue,style: StrokeStyle(lineWidth: 2,lineCap: .round, lineJoin: .round))
+                    .animation(.easeInOut)
                 VStack(alignment:.center,spacing: 0){
                     ForEach((0..<nrOfLines)){ index in
                         if index != 0 {Spacer()}
@@ -96,6 +96,6 @@ struct ChartView: View {
 
 struct ChartView_Previews: PreviewProvider {
     static var previews: some View {
-        ChartView(data: [0.0,1.0,2.0,3.0,4.0], nrOfLines: 5)
+        ChartView(data: .constant([0.0,1.0,2.0,3.0,4.0]), nrOfLines: 5)
     }
 }
