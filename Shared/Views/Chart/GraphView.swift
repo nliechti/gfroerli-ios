@@ -22,7 +22,7 @@ struct GraphView: View {
             }
             HStack{
                 Text("00").hidden().padding(.leading)
-                X_LabelsView()
+                X_LabelsView(timeFrame: .week, day: 1, month: 12, year: 2000)
             }
         }.padding()
     }
