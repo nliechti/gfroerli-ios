@@ -134,6 +134,6 @@ struct ChartView: View {
 
 struct ChartView_Previews: PreviewProvider {
     static var previews: some View {
-        EmptyView()
+        ChartView(temperatureAggregationsVM: TemperatureAggregationsViewModel(), nrOfLines: 5, timeFrame: .constant(.day), minValue: .constant(0.0), maxValue: .constant(30.0), totalSteps: .constant(1), steps: .constant([0,1]), minimums: .constant([0.0,20.0]), averages: .constant([10.0,25.0]), maximums: .constant([20.0,30.0]), selectedIndex: .constant(0), showIndicator: .constant(false))
     }
 }

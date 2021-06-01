@@ -41,9 +41,9 @@ struct SensorOverViewGraph: View {
                     Button(action: {
                         zoomed.toggle()
                     }, label: {
-                        if zoomed{
+                        if zoomed {
                             Text(Image(systemName: "arrow.down.right.and.arrow.up.left")).font(.title2)
-                        }else{
+                        } else {
                             Text(Image(systemName: "arrow.up.left.and.arrow.down.right")).font(.title2)
                         }
                     })
@@ -64,7 +64,7 @@ struct SensorOverViewGraph: View {
                 }
             }
             
-            GraphView(timeFrame: $timeFrame, selectedIndex: $selectedIndex, zoomed: $zoomed, showIndicator: $showIndicator, temperatureAggregationsVM: temperatureAggregationsVM)
+            GraphView(nrOfLines: 5, timeFrame: $timeFrame, selectedIndex: $selectedIndex, zoomed: $zoomed, showIndicator: $showIndicator, temperatureAggregationsVM: temperatureAggregationsVM)
             
             HStack{
                 Spacer()
@@ -134,7 +134,7 @@ struct SensorOverViewGraph: View {
     
     func getLabel() -> String{
         let df = DateFormatter()
-    
+        
         switch pickerSelection{
         case 0:
             df.setLocalizedDateFormatFromTemplate("dd MMM")
@@ -192,13 +192,13 @@ struct SensorOverViewGraph: View {
     }
 }
 
-/*struct SensorOverViewGraph_Previews: PreviewProvider {
- static var previews: some View {
- SensorOverViewGraph(sensorID: 1)
- .makePreViewModifier()
- 
- }
- }*/
+struct SensorOverViewGraph_Previews: PreviewProvider {
+    static var previews: some View {
+        SensorOverViewGraph(sensorID: 1)
+            .makePreViewModifier()
+        
+    }
+}
 
 
 struct TemperaturesDetailView: View{
@@ -238,6 +238,7 @@ struct TemperaturesDetailView: View{
             return temperatureAggregationsVM.minimumsMonth[index]
         }
     }
+    
     func getAvg()->Double{
         if pickerSelection == 0{
             return temperatureAggregationsVM.averagesDay[index]
@@ -247,6 +248,7 @@ struct TemperaturesDetailView: View{
             return temperatureAggregationsVM.averagesMonth[index]
         }
     }
+    
     func getMax()->Double{
         if pickerSelection == 0{
             return temperatureAggregationsVM.maximumsDay[index]
@@ -256,6 +258,4 @@ struct TemperaturesDetailView: View{
             return temperatureAggregationsVM.maximumsMonth[index]
         }
     }
-    
 }
-

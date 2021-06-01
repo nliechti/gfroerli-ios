@@ -9,7 +9,7 @@ import SwiftUI
 
 struct GraphView: View {
     
-    @State var nrOfLines: Int = 5
+    var nrOfLines: Int
     @Binding var timeFrame: TimeFrame
     @State var minValue = 0.0
     @State var maxValue = 30.0
@@ -101,6 +101,7 @@ struct GraphView: View {
 
 struct GraphView_Previews: PreviewProvider {
     static var previews: some View {
-        GraphView(timeFrame: .constant(.week), selectedIndex: .constant(1), zoomed: .constant(false), showIndicator: .constant(false), temperatureAggregationsVM: TemperatureAggregationsViewModel())
+        GraphView(nrOfLines: 5, timeFrame: .constant(.week), selectedIndex: .constant(1), zoomed: .constant(false), showIndicator: .constant(false), temperatureAggregationsVM: TemperatureAggregationsViewModel())
+            .makePreViewModifier()
     }
 }
