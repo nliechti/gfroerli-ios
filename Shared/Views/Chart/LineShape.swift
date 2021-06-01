@@ -40,8 +40,6 @@ struct LineShape: Shape {
             y += rect.minY
             
             path.move(to: CGPoint(x: x, y: y))
-            
-            path.addLine(to: CGPoint(x: x,y: y))
         }
         
         //First DataPoint
@@ -52,13 +50,13 @@ struct LineShape: Shape {
         x += rect.minX
         y += rect.minY
         
+        //Connect Line to first datapoint if not at begging of period
         if steps[0] != 1{
-            path.addLine(to: CGPoint(x: x,y: y))
+            path.addLine(to: CGPoint(x: x, y: y))
         }
         
         path.move(to: CGPoint(x: x, y: y))
-        
-        path.addLine(to: CGPoint(x: x,y: y))
+        path.addLine(to: CGPoint(x: x, y: y))
         
         for index in 1..<vector.values.count {
             var x = xMultiplier * CGFloat(steps[index])
@@ -68,10 +66,10 @@ struct LineShape: Shape {
             x += rect.minX
             y += rect.minY
             
-            path.addLine(to: CGPoint(x: x,y: y))
+            path.addLine(to: CGPoint(x: x, y: y))
         }
         
-        if steps[vector.values.count-1] != totalSteps && !checkTimeFrame(){
+        if steps[vector.values.count-1] != totalSteps && !checkTimeFrame() {
 
             var x = xMultiplier * CGFloat(totalSteps)
             var y = yMultiplier * CGFloat(vector.values[vector.values.count-1]-minValue)
@@ -79,7 +77,7 @@ struct LineShape: Shape {
             y = rect.height - y
             x += rect.minX
             y += rect.minY
-            path.addLine(to: CGPoint(x: x,y: y))
+            path.addLine(to: CGPoint(x: x, y: y))
         }
         return path
     }
@@ -92,9 +90,6 @@ struct LineShape: Shape {
             return temperatureAggregationsVM.isInSameWeek
         default:
             return temperatureAggregationsVM.isInSameMonth
-
         }
     }
 }
-
-

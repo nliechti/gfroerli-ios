@@ -11,7 +11,6 @@ struct ChartView: View {
     
     @ObservedObject var temperatureAggregationsVM: TemperatureAggregationsViewModel
 
-    
     var nrOfLines: Int
     
     @Binding var timeFrame: TimeFrame
@@ -29,23 +28,11 @@ struct ChartView: View {
     @State private var touchLocation:CGPoint = .zero
     @State private var PositionOfClosestPoint:CGPoint = .zero
     @Binding var showIndicator: Bool
-    @State private var currentValue: Double = 2 {
-        didSet{
-            if (oldValue != self.currentValue) {
-                HapticFeedback.playSelection()
-            }
-        }
-    }
-    @State private var currentTime: Int = 2 {
-        didSet{
-            if (oldValue != self.currentTime) {
-                HapticFeedback.playSelection()
-            }
-        }
-    }
-    
+        
     var body: some View {
+        
         GeometryReader{ geo in
+            
             ZStack{
                 VStack(alignment:.center,spacing: 0){
                     ForEach((0..<nrOfLines)){ index in
@@ -66,30 +53,30 @@ struct ChartView: View {
                     .animation(.easeInOut)
                     LineShape(temperatureAggregationsVM: temperatureAggregationsVM, totalSteps: $totalSteps, vector: AnimatableVector(values: maximums), steps: steps, minValue: $minValue, maxValue: $maxValue, timeFrame: $timeFrame).stroke(Color.red,style: StrokeStyle(lineWidth: 2,lineCap: .round, lineJoin: .round))
                     .animation(.easeInOut)
+                } else {
+                    Text("No data available")
+                        .foregroundColor(.secondary)
+                        .padding()
+                        .background(Color.systemGroupedBackground)
+                        .cornerRadius(5)
                 }
                 
-                if showIndicator{
+                if showIndicator {
                     VStack{
-                        Text(String(currentValue))
-                            .position(x:PositionOfClosestPoint.x)
-                        Text(String(currentTime))
-                            .position(x:PositionOfClosestPoint.x)
                         self.verticalLine(height: geo.size.height, width: PositionOfClosestPoint.x)
                             .stroke((Color.secondary), style: StrokeStyle(lineWidth: 2, lineCap: .round))
                             .rotationEffect(.degrees(180), anchor: .center)
                             .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
-                            
-                            
-                    }
+                        }
                 }
                 
-            }.gesture(DragGesture()
+            }
+            .contentShape(Rectangle())
+            .gesture(DragGesture()
                         .onChanged({ value in
                             self.touchLocation = value.location
                             self.showIndicator = true
-                            
                             self.PositionOfClosestPoint = self.getClosestDataPoint(toPoint: value.location, width:geo.size.width, height: geo.size.height)
-                            
                         })
                         .onEnded({ value in
                             self.showIndicator = false
@@ -97,6 +84,7 @@ struct ChartView: View {
             )
         }
     }
+    
     func horizontalLine(width: CGFloat) -> Path {
         var hLine = Path()
         hLine.move(to: CGPoint(x:0, y: 0.0))
@@ -116,18 +104,15 @@ struct ChartView: View {
         let steps = self.steps
         let stepWidth: CGFloat = width / CGFloat(totalSteps)
         let stepHeight: CGFloat = height / CGFloat(points.max()! + points.min()!)
-        
         let index:Int = Int(round((toPoint.x)/stepWidth))
         
-        if (index >= 0 && index < totalSteps+1){
-            self.currentValue = points[getIndexOfStep(step: index)]
-            self.currentTime = steps[getIndexOfStep(step: index)]
+        if(index >= 0 && index < totalSteps+1){
             self.selectedIndex = getIndexOfStep(step: index)
             return CGPoint(x: CGFloat(steps[getIndexOfStep(step: index)])*stepWidth, y: CGFloat(1)*stepHeight)
         }
         if index < 0 {
         return .zero
-        }else{
+        } else {
             return CGPoint(x: CGFloat(steps[getIndexOfStep(step: totalSteps)])*stepWidth, y: CGFloat(1)*stepHeight)
         }
     }
@@ -137,8 +122,6 @@ struct ChartView: View {
         return closest.offset
     }
     
-    
-    
     func setMinMax(){
         var allValues = [Double]()
         allValues += maximums
@@ -147,7 +130,6 @@ struct ChartView: View {
         minValue = allValues.min()!
         maxValue = allValues.max()!
     }
-    
 }
 
 struct ChartView_Previews: PreviewProvider {

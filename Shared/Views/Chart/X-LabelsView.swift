@@ -13,18 +13,15 @@ struct X_LabelsView: View {
     @Binding var timeFrame: TimeFrame
     @Binding var totalSteps: Int
     
-    
-    
     var startDate:Date{
-        if timeFrame == .day {
+        switch timeFrame {
+        case .day:
             return Date()
-        } else if timeFrame == .week{
+        case .week:
             return temperatureAggregationsVM.startDateWeek
-        } else {
+        default:
             return temperatureAggregationsVM.startDateMonth
-
         }
-        
     }
     
     var midDate:Date{
@@ -36,30 +33,45 @@ struct X_LabelsView: View {
         
     }
     
-
     var body: some View {
         HStack{
-            if timeFrame == .day{
+            if timeFrame == .day {
+                
                 Text("00:00")
                 Spacer()
                 Text("12:00")
                 Spacer()
                 Text("24:00")
-            }else{
-                Text(formatDateText(date: startDate))
+                
+            } else if timeFrame == .week {
+                
+                Text(formatDateTextWeek(date: startDate))
                 Spacer()
-                Text(formatDateText(date: midDate))
+                Text(formatDateTextWeek(date: midDate))
                 Spacer()
-                Text(formatDateText(date: endDate))
+                Text(formatDateTextWeek(date: endDate))
+                
+            } else {
+                
+                Text(formatDateTextMonth(date: startDate))
+                Spacer()
+                Text(formatDateTextMonth(date: midDate))
+                Spacer()
+                Text(formatDateTextMonth(date: endDate))
             }
         }
     }
-    func formatDateText(date:Date)-> String{
+    
+    func formatDateTextWeek(date:Date)-> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.setLocalizedDateFormatFromTemplate("eee")
+        return dateFormatter.string(from: date)
+    }
+    
+    func formatDateTextMonth(date:Date)-> String{
         let dateFormatter = DateFormatter()
         dateFormatter.setLocalizedDateFormatFromTemplate("dd MMM")
-        let st = dateFormatter.string(from: date)
-        
-        return st
+        return dateFormatter.string(from: date)
     }
 }
 
