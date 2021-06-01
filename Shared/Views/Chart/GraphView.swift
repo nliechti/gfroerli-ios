@@ -31,7 +31,7 @@ struct GraphView: View {
         VStack{
             HStack{
                 Y_LabelsView(nrOfLines: nrOfLines, max: $maxValue, min: $minValue)
-                ChartView(nrOfLines: nrOfLines, timeFrame: $timeFrame, minValue: $minValue, maxValue: $maxValue, totalSteps: $totalSteps, steps: $steps, minimums: $minimums, averages: $averages, maximums: $maximums, selectedIndex: $selectedIndex, showIndicator: $showIndicator)
+                ChartView(temperatureAggregationsVM: temperatureAggregationsVM, nrOfLines: nrOfLines, timeFrame: $timeFrame, minValue: $minValue, maxValue: $maxValue, totalSteps: $totalSteps, steps: $steps, minimums: $minimums, averages: $averages, maximums: $maximums, selectedIndex: $selectedIndex, showIndicator: $showIndicator)
             }.padding(1).clipped()
             HStack{
                 Text("00.0").hidden().padding(.leading)

@@ -10,6 +10,7 @@ import SwiftUI
 
 struct LineShape: Shape {
     
+    @ObservedObject var temperatureAggregationsVM: TemperatureAggregationsViewModel
     @Binding var totalSteps: Int
     
     var vector: AnimatableVector
@@ -22,10 +23,10 @@ struct LineShape: Shape {
     
     @Binding var minValue: Double
     @Binding var maxValue: Double
+    @Binding var timeFrame: TimeFrame
     
     func path(in rect: CGRect) -> Path {
         var path = Path()
-        print(steps)
 
         let xMultiplier = rect.width / CGFloat(totalSteps)
         let yMultiplier = rect.height / CGFloat(maxValue-minValue)
@@ -51,6 +52,10 @@ struct LineShape: Shape {
         x += rect.minX
         y += rect.minY
         
+        if steps[0] != 1{
+            path.addLine(to: CGPoint(x: x,y: y))
+        }
+        
         path.move(to: CGPoint(x: x, y: y))
         
         path.addLine(to: CGPoint(x: x,y: y))
@@ -65,10 +70,31 @@ struct LineShape: Shape {
             
             path.addLine(to: CGPoint(x: x,y: y))
         }
+        
+        if steps[vector.values.count-1] != totalSteps && !checkTimeFrame(){
+
+            var x = xMultiplier * CGFloat(totalSteps)
+            var y = yMultiplier * CGFloat(vector.values[vector.values.count-1]-minValue)
+            
+            y = rect.height - y
+            x += rect.minX
+            y += rect.minY
+            path.addLine(to: CGPoint(x: x,y: y))
+        }
         return path
     }
     
-    
+    private func checkTimeFrame()->Bool{
+        switch timeFrame {
+        case .day:
+            return temperatureAggregationsVM.isInSameDay
+        case .week:
+            return temperatureAggregationsVM.isInSameWeek
+        default:
+            return temperatureAggregationsVM.isInSameMonth
+
+        }
+    }
 }
 
 

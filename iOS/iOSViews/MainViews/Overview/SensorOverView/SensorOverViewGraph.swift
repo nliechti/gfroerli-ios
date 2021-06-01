@@ -84,7 +84,7 @@ struct SensorOverViewGraph: View {
                     
                 }, label: {
                     Image(systemName: "arrow.right.circle").imageScale(.large)
-                })
+                }).disabled(checkTimeFrame())
                 Spacer()
             }
         }.padding()
@@ -182,6 +182,18 @@ struct SensorOverViewGraph: View {
             df.setLocalizedDateFormatFromTemplate("dd MMMM Y")
             topString =  df.string(from: calendar.date(from: components)!)
             
+        }
+    }
+    
+    private func checkTimeFrame()->Bool{
+        switch timeFrame {
+        case .day:
+            return temperatureAggregationsVM.isInSameDay
+        case .week:
+            return temperatureAggregationsVM.isInSameWeek
+        default:
+            return temperatureAggregationsVM.isInSameMonth
+
         }
     }
 }

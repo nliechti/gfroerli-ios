@@ -9,6 +9,9 @@ import SwiftUI
 
 struct ChartView: View {
     
+    @ObservedObject var temperatureAggregationsVM: TemperatureAggregationsViewModel
+
+    
     var nrOfLines: Int
     
     @Binding var timeFrame: TimeFrame
@@ -57,11 +60,11 @@ struct ChartView: View {
                 }
                 
                 if steps.count != 0 {
-                    LineShape(totalSteps: $totalSteps, vector: AnimatableVector(values: minimums), steps: steps, minValue: $minValue, maxValue: $maxValue).stroke(Color.blue,style: StrokeStyle(lineWidth: 2,lineCap: .round, lineJoin: .round))
+                    LineShape(temperatureAggregationsVM: temperatureAggregationsVM, totalSteps: $totalSteps, vector: AnimatableVector(values: minimums), steps: steps, minValue: $minValue, maxValue: $maxValue, timeFrame: $timeFrame).stroke(Color.blue,style: StrokeStyle(lineWidth: 2,lineCap: .round, lineJoin: .round))
                     .animation(.easeInOut)
-                    LineShape(totalSteps: $totalSteps, vector: AnimatableVector(values: averages), steps: steps, minValue: $minValue, maxValue: $maxValue).stroke(Color.green,style: StrokeStyle(lineWidth: 2,lineCap: .round, lineJoin: .round))
+                    LineShape(temperatureAggregationsVM: temperatureAggregationsVM, totalSteps: $totalSteps, vector: AnimatableVector(values: averages), steps: steps, minValue: $minValue, maxValue: $maxValue, timeFrame: $timeFrame).stroke(Color.green,style: StrokeStyle(lineWidth: 2,lineCap: .round, lineJoin: .round))
                     .animation(.easeInOut)
-                    LineShape(totalSteps: $totalSteps, vector: AnimatableVector(values: maximums), steps: steps, minValue: $minValue, maxValue: $maxValue).stroke(Color.red,style: StrokeStyle(lineWidth: 2,lineCap: .round, lineJoin: .round))
+                    LineShape(temperatureAggregationsVM: temperatureAggregationsVM, totalSteps: $totalSteps, vector: AnimatableVector(values: maximums), steps: steps, minValue: $minValue, maxValue: $maxValue, timeFrame: $timeFrame).stroke(Color.red,style: StrokeStyle(lineWidth: 2,lineCap: .round, lineJoin: .round))
                     .animation(.easeInOut)
                 }
                 

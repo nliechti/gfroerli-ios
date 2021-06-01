@@ -25,25 +25,33 @@ class TemperatureAggregationsViewModel: ObservableObject{
     @Published var maximumsMonth = [Double]()
     @Published var stepsMonth = [Int]()
     
+    @Published var isInSameDay = true
+    @Published var isInSameWeek = true
+    @Published var isInSameMonth = true
     var dateDay: Date = Calendar.current.date(from: Calendar.current.dateComponents([.year, .month, .day], from: Date()))!{
         didSet {
             loadDays()
+            checkSameDay()
         }
     }
     var startDateWeek: Date = Calendar.current.dateComponents([.calendar, .yearForWeekOfYear, .weekOfYear], from: Date()).date!{
         didSet {
             loadWeek()
+            checkSameWeek()
+
         }
     }
     var startDateMonth: Date = Calendar.current.dateComponents([.calendar, .month, .year], from: Date()).date!{
         didSet {
             loadMonth()
+            checkSameMonth()
+
         }
     }
-     
+    
     var id: Int = 1
     
-     func loadDays() {
+    func loadDays() {
         
         let df = DateFormatter()
         df.dateFormat = "yyyy-MM-dd"
@@ -57,27 +65,27 @@ class TemperatureAggregationsViewModel: ObservableObject{
         URLSession.shared.dataTask(with: url) { data, response, error in
             DispatchQueue.main.async {
                 do {
-                if let data = data {
-                    // success: convert to  Measuring, and set according List
-                    let jsonDecoder = JSONDecoder()
-                    var aggregs = try jsonDecoder.decode([HourlyAggregation].self, from: data)
-                    self.minimumsDay.removeAll()
-                    self.maximumsDay.removeAll()
-                    self.averagesDay.removeAll()
-                    self.stepsDay.removeAll()
-                    aggregs = aggregs.reversed()
-                    for data in aggregs{
-                        self.minimumsDay.append(data.minTemp!.roundToDecimal(1))
-                        self.maximumsDay.append(data.maxTemp!.roundToDecimal(1))
-                        self.averagesDay.append(data.avgTemp!.roundToDecimal(1))
-                        self.stepsDay.append(data.hour!)
+                    if let data = data {
+                        // success: convert to  Measuring, and set according List
+                        let jsonDecoder = JSONDecoder()
+                        var aggregs = try jsonDecoder.decode([HourlyAggregation].self, from: data)
+                        self.minimumsDay.removeAll()
+                        self.maximumsDay.removeAll()
+                        self.averagesDay.removeAll()
+                        self.stepsDay.removeAll()
+                        aggregs = aggregs.reversed()
+                        for data in aggregs{
+                            self.minimumsDay.append(data.minTemp!.roundToDecimal(1))
+                            self.maximumsDay.append(data.maxTemp!.roundToDecimal(1))
+                            self.averagesDay.append(data.avgTemp!.roundToDecimal(1))
+                            self.stepsDay.append(data.hour!)
+                        }
+                    } else {
+                        print("")
                     }
-                } else {
-                    print("")
-                }
                 }catch{
                     print("")
-
+                    
                 }
             }
         }.resume()
@@ -92,34 +100,34 @@ class TemperatureAggregationsViewModel: ObservableObject{
         var url = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/mobile_app/sensors/\(id)/daily_temperatures?from=\(start)&to=\(end)&limit=7")!)
         print(url)
         url.setValue("Bearer XTZA6H0Hg2f02bzVefmVlr8fIJMy2FGCJ0LlDlejj2Pi0i1JvZiL0Ycv1t6JoZzD", forHTTPHeaderField: "Authorization")
-
+        
         url.httpMethod = "GET"
         URLSession.shared.dataTask(with: url) { data, response, error in
             DispatchQueue.main.async {
                 do {
-                if let data = data {
-                    // success: convert to  Measuring, and set according List
-                    let jsonDecoder = JSONDecoder()
-                    var aggregs = try jsonDecoder.decode([DailyAggregation].self, from: data)
-                    aggregs = aggregs.reversed()
-                    
-                    self.minimumsWeek.removeAll()
-                    self.maximumsWeek.removeAll()
-                    self.averagesWeek.removeAll()
-                    self.stepsWeek.removeAll()
-                    
-                    for data in aggregs{
-                        self.minimumsWeek.append(data.minTemp!.roundToDecimal(1))
-                        self.maximumsWeek.append(data.maxTemp!.roundToDecimal(1))
-                        self.averagesWeek.append(data.avgTemp!.roundToDecimal(1))
-                        let weekday = Calendar.current.component(.weekday, from: self.makeDateFromString(string: data.date!))
-                        self.stepsWeek.append((abs(weekday+5))%7)
-                        print(self.stepsWeek)
+                    if let data = data {
+                        // success: convert to  Measuring, and set according List
+                        let jsonDecoder = JSONDecoder()
+                        var aggregs = try jsonDecoder.decode([DailyAggregation].self, from: data)
+                        aggregs = aggregs.reversed()
                         
+                        self.minimumsWeek.removeAll()
+                        self.maximumsWeek.removeAll()
+                        self.averagesWeek.removeAll()
+                        self.stepsWeek.removeAll()
+                        
+                        for data in aggregs{
+                            self.minimumsWeek.append(data.minTemp!.roundToDecimal(1))
+                            self.maximumsWeek.append(data.maxTemp!.roundToDecimal(1))
+                            self.averagesWeek.append(data.avgTemp!.roundToDecimal(1))
+                            let weekday = Calendar.current.component(.weekday, from: self.makeDateFromString(string: data.date!))
+                            self.stepsWeek.append((abs(weekday+5))%7)
+                            print(self.stepsWeek)
+                            
+                        }
+                    }else {
+                        print("")
                     }
-                }else {
-                    print("")
-                }
                 }catch{
                     print("")
                 }
@@ -135,37 +143,37 @@ class TemperatureAggregationsViewModel: ObservableObject{
         let end = df.string(from:Calendar.current.date(byAdding: DateComponents(month: 1, day: -1), to: startDateMonth)!)
         
         var url = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/mobile_app/sensors/\(id)/daily_temperatures?from=\(start)&to=\(end)&limit=32")!)
-    
+        
         url.setValue("Bearer XTZA6H0Hg2f02bzVefmVlr8fIJMy2FGCJ0LlDlejj2Pi0i1JvZiL0Ycv1t6JoZzD", forHTTPHeaderField: "Authorization")
         url.httpMethod = "GET"
-    
+        
         URLSession.shared.dataTask(with: url) { data, response, error in
             DispatchQueue.main.async {
                 do {
-                if let data = data {
-                    // success: convert to  Measuring, and set according List
-                    let jsonDecoder = JSONDecoder()
-                    var aggregs = try jsonDecoder.decode([DailyAggregation].self, from: data)
-                    aggregs = aggregs.reversed()
-                    self.minimumsMonth.removeAll()
-                    self.maximumsMonth.removeAll()
-                    self.averagesMonth.removeAll()
-                    self.stepsMonth.removeAll()
-
-                    for data in aggregs{
+                    if let data = data {
+                        // success: convert to  Measuring, and set according List
+                        let jsonDecoder = JSONDecoder()
+                        var aggregs = try jsonDecoder.decode([DailyAggregation].self, from: data)
+                        aggregs = aggregs.reversed()
+                        self.minimumsMonth.removeAll()
+                        self.maximumsMonth.removeAll()
+                        self.averagesMonth.removeAll()
+                        self.stepsMonth.removeAll()
                         
-                        self.minimumsMonth.append(data.minTemp!.roundToDecimal(1))
-                        self.maximumsMonth.append(data.maxTemp!.roundToDecimal(1))
-                        self.averagesMonth.append(data.avgTemp!.roundToDecimal(1))
-                        let monthday = Calendar.current.component(.day, from: self.makeDateFromString(string: data.date!))
-                        self.stepsMonth.append(monthday-1)
+                        for data in aggregs{
+                            
+                            self.minimumsMonth.append(data.minTemp!.roundToDecimal(1))
+                            self.maximumsMonth.append(data.maxTemp!.roundToDecimal(1))
+                            self.averagesMonth.append(data.avgTemp!.roundToDecimal(1))
+                            let monthday = Calendar.current.component(.day, from: self.makeDateFromString(string: data.date!))
+                            self.stepsMonth.append(monthday-1)
+                            
+                        }
                         
+                        
+                    } else {
+                        print("")
                     }
-                    
-                    
-                } else {
-                    print("")
-                }
                 }catch{
                     print("")
                 }
@@ -181,7 +189,7 @@ class TemperatureAggregationsViewModel: ObservableObject{
     }
     func addWeek(){
         startDateWeek=Calendar.current.date(byAdding: DateComponents( day: 7), to:startDateWeek)!
-        
+        print(startDateWeek)
     }
     func subtractWeek(){
         startDateWeek=Calendar.current.date(byAdding: DateComponents( day: -7), to:startDateWeek)!
@@ -198,12 +206,42 @@ class TemperatureAggregationsViewModel: ObservableObject{
     
     func addMonth(){
         startDateMonth = Calendar.current.date(byAdding: DateComponents(month: 1), to: startDateMonth)!
-
+        
+        
     }
     func subtractMonth(){
         startDateMonth = Calendar.current.date(byAdding: DateComponents(month: -1), to: startDateMonth)!
-
+        
     }
+    
+    
+    func checkSameDay(){
+        let diffMonth = Calendar.current.dateComponents([.day], from: Date(), to: dateDay)
+        if diffMonth.day == 0{
+            isInSameDay = true
+        }else{
+            isInSameDay = false
+        }
+    }
+    
+    func checkSameWeek(){
+        let diffMonth = Calendar.current.dateComponents([.weekOfYear], from: Date(), to: startDateWeek)
+        if diffMonth.weekOfYear == 0{
+            isInSameWeek = true
+        }else{
+            isInSameWeek = false
+        }
+    }
+    
+    func checkSameMonth(){
+        let diffMonth = Calendar.current.dateComponents([.month], from: Date(), to: startDateMonth)
+        if diffMonth.month == 0{
+            isInSameMonth = true
+        }else{
+            isInSameMonth = false
+        }
+    }
+    
     
 }
 
