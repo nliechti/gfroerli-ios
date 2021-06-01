@@ -101,6 +101,6 @@ struct SensorOverView: View {
 
 struct SensorOverView_Previews: PreviewProvider {
     static var previews: some View {
-        SensorOverView(id: 1).makePreViewModifier()
+        SensorOverView(id: 1).environment(\.sizeCategory, .extraExtraExtraLarge).makePreViewModifier()
     }
 }

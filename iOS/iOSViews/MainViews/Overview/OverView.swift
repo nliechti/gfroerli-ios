@@ -76,15 +76,17 @@ struct TopTabView: View{
                     }).buttonStyle(PlainButtonStyle())
             }.padding(.horizontal)
         }
-        .onAppear(perform: {
-            newestSensor = sensors.sorted(by: {$0.id > $1.id}).first!
-            latestSensor = sensors.sorted(by: {$0.lastTempTime! > $1.lastTempTime!}).first!
-            randomSensor = sensors.randomElement()!
-            newestRegion =  MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: newestSensor.latitude!, longitude: newestSensor.longitude!), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-            latesRegion =  MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: latestSensor.latitude!, longitude: latestSensor.longitude!), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-            randomRegion =  MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: randomSensor.latitude!, longitude: randomSensor.longitude!), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-            })
+        .onAppear(perform: setUpView)
         
+    }
+    
+    func setUpView(){
+        newestSensor = sensors.sorted(by: {$0.id > $1.id}).first!
+        latestSensor = sensors.sorted(by: {$0.lastTempTime! > $1.lastTempTime!}).first!
+        randomSensor = sensors.randomElement()!
+        newestRegion =  MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: newestSensor.latitude!, longitude: newestSensor.longitude!), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        latesRegion =  MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: latestSensor.latitude!, longitude: latestSensor.longitude!), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        randomRegion =  MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: randomSensor.latitude!, longitude: randomSensor.longitude!), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
     }
 }
 

@@ -44,6 +44,7 @@
 		8DF3BBCD250B748800DBCC37 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBCC250B748800DBCC37 /* SearchBar.swift */; };
 		8DF3BBD5250BB62D00DBCC37 /* SensorOverviewLastMeasurementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBD4250BB62D00DBCC37 /* SensorOverviewLastMeasurementView.swift */; };
 		8DF3BBD8250BB6BB00DBCC37 /* OwnHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBD7250BB6BB00DBCC37 /* OwnHelpers.swift */; };
+		B40B20AB2666BFB900FCF872 /* OwnHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBD7250BB6BB00DBCC37 /* OwnHelpers.swift */; };
 		B40F9010264D694500CD7D95 /* SelectSensor.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B4F44CF8264AEF7F00ACD190 /* SelectSensor.intentdefinition */; };
 		B40F9011264D694500CD7D95 /* SelectSensor.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B4F44CF8264AEF7F00ACD190 /* SelectSensor.intentdefinition */; };
 		B40F9012264D694500CD7D95 /* SelectSensor.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B4F44CF8264AEF7F00ACD190 /* SelectSensor.intentdefinition */; };
@@ -75,7 +76,6 @@
 		B49BE2CE261CA7080004B0D6 /* WaveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E481AD260F29CD00F6C8EA /* WaveShape.swift */; };
 		B49BE2D0261CB4880004B0D6 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49BE2CF261CB4880004B0D6 /* Reachability.swift */; };
 		B49BE2D1261CB4990004B0D6 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49BE2CF261CB4880004B0D6 /* Reachability.swift */; };
-		B49BE2D2261CB8950004B0D6 /* OwnHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBD7250BB6BB00DBCC37 /* OwnHelpers.swift */; };
 		B49BE2D4261CF3830004B0D6 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49BE2D3261CF3830004B0D6 /* ImageLoader.swift */; };
 		B4AA328B26262DED007E1627 /* SingleSensorWithGraphProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AA328A26262DED007E1627 /* SingleSensorWithGraphProvider.swift */; };
 		B4AA328C26262DED007E1627 /* SingleSensorWithGraphProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AA328A26262DED007E1627 /* SingleSensorWithGraphProvider.swift */; };
@@ -910,6 +910,7 @@
 				B4E12525260CD46200F45852 /* HourlyAggregationViewModel.swift in Sources */,
 				B4AA328F262632B4007E1627 /* WeeklyChartShape.swift in Sources */,
 				B4E1251B260CD45D00F45852 /* Sponsor.swift in Sources */,
+				B40B20AB2666BFB900FCF872 /* OwnHelpers.swift in Sources */,
 				B40F9012264D694500CD7D95 /* SelectSensor.intentdefinition in Sources */,
 				B494D71C265D474D00327BAF /* TemperatureAggregationsViewModel.swift in Sources */,
 				B4F19A3F26263F4A00CA4C8D /* SelectSensor.intentdefinition in Sources */,
@@ -923,7 +924,6 @@
 				B4AA3290262632B4007E1627 /* Legend.swift in Sources */,
 				B49B0155260E132800D1AA37 /* WidgetMain.swift in Sources */,
 				B49BE2CE261CA7080004B0D6 /* WaveShape.swift in Sources */,
-				B49BE2D2261CB8950004B0D6 /* OwnHelpers.swift in Sources */,
 				B4AA328D262632B4007E1627 /* WeeklyChartView.swift in Sources */,
 				B4E12528260CD46200F45852 /* WeeklyAggregationsViewModel.swift in Sources */,
 				B49B02B4260E572500D1AA37 /* SingleSensorWidgetView.swift in Sources */,

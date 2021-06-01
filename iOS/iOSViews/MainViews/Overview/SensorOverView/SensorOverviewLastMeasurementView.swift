@@ -11,26 +11,46 @@ struct SensorOverviewLastMeasurementView: View {
     var sensor : Sensor
     var body: some View {
         VStack{
-            HStack{
+            HStack(alignment: .firstTextBaseline){
                 VStack(alignment: .leading){
-                    Text("Latest").font(.largeTitle).bold()
-                    Text(String(format: "%.1f", sensor.latestTemp!)+"°" ).font(.system(size: 50))
+                    Text("Latest").font(.title)
+                        .bold()
+                    Text(String(format: "%.1f", sensor.latestTemp!)+"°" )
+                        .font(.system(size: 50))
+                    Spacer()
+                }.fixedSize()
+                .layoutPriority(1)
+                .minimumScaleFactor(0.1)
+                .lineLimit(1)
+                Spacer(minLength: 25)
+                    .layoutPriority(1)
+                VStack(alignment: .leading) {
+                    Text("All time:").font(.title2)
+                        .bold()
+                    HStack {
+                        Text("Average:")
+                        Spacer()
+                        Text(String(format: "%.1f", sensor.avgTemp!)+"°")
+                    }
+                    HStack {
+                        Text("Highest:")
+                        Spacer()
+                        Text(String(format: "%.1f", sensor.maxTemp!)+"°")
+                    }
+                    HStack {
+                        Text("Lowest:")
+                        Spacer()
+                        Text(String(format: "%.1f", sensor.minTemp!)+"°")
+                    }
                     Spacer()
                 }
-                Spacer()
-                VStack(alignment: .leading) {
-                    Text("All time:").bold()
-                    Text("Average:")
-                    Text("Highest:")
-                    Text("Lowest:")
+                .fixedSize()
+                .layoutPriority(1)
+                .lineLimit(1)
+                .minimumScaleFactor(0.1)
                 }
-                VStack(alignment: .trailing) {
-                    Text("").font(.largeTitle).bold()
-                    Text(String(format: "%.1f", sensor.avgTemp!)+"°")
-                    Text(String(format: "%.1f", sensor.maxTemp!)+"°")
-                    Text(String(format: "%.1f", sensor.minTemp!)+"°")
-                }
-            }
+                
+            
             HStack(spacing: 0){
                 Text("Measured at ").font(.headline)
                 Text(sensor.lastTempTime!, style: .time).font(.headline)
@@ -38,7 +58,9 @@ struct SensorOverviewLastMeasurementView: View {
                     Text(createStringFromDate(date: sensor.lastTempTime!, format: ", dd. MMM. YYYY")).font(.headline)
                 }
                 Spacer()
-            }
+            }.layoutPriority(1)
+            .lineLimit(1)
+            .minimumScaleFactor(0.1)
         }.padding()
         .frame(maxWidth:.infinity,alignment: .topLeading)
     }
@@ -47,6 +69,11 @@ struct SensorOverviewLastMeasurementView: View {
 
 struct SensorOverviewLastMeasurementView_Previews: PreviewProvider {
     static var previews: some View {
-        SensorOverviewLastMeasurementView(sensor:testSensor1).makePreViewModifier()
+        SensorOverviewLastMeasurementView(sensor:testSensor1)
+            .environment(\.sizeCategory, .large)
+            .boxStyle()
+            .padding(.top)
+            .background(Color.green)
+            .makePreViewModifier()
     }
 }

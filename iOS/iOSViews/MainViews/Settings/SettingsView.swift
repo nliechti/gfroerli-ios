@@ -26,7 +26,8 @@ struct SettingsView: View {
                             Text("Gfrör.li").font(.title).bold()
                             Text("Version: \(lastVersion)").foregroundColor(.gray)
                             Text("by Marc & Niklas\nfor Coredump Rapperswil").foregroundColor(.gray)
-                        }
+                        }.lineLimit(2)
+                        .minimumScaleFactor(0.1)
                         Spacer()
                     }.frame(maxHeight: 100)
                     .padding([.top,.bottom],5)
