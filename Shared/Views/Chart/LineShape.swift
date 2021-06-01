@@ -10,29 +10,41 @@ import SwiftUI
 
 struct LineShape: Shape {
     
+    @Binding var totalSteps: Int
+    
     var vector: AnimatableVector
-    var data: [Double]
+    var steps: [Int]
     
     var animatableData: AnimatableVector {
             get { vector }
             set { vector = newValue }
         }
     
-    var minValue: Double {
-        data.min()!
-    }
-    var maxValue: Double {
-        data.max()!
-    }
+    @Binding var minValue: Double
+    @Binding var maxValue: Double
     
     func path(in rect: CGRect) -> Path {
         var path = Path()
-        
-        let xMultiplier = rect.width / CGFloat(data.count-1)
+        print(steps)
+
+        let xMultiplier = rect.width / CGFloat(totalSteps)
         let yMultiplier = rect.height / CGFloat(maxValue-minValue)
         
+        //Line to first DataPoint
+       if steps[0] != 1{
+            var x = xMultiplier * CGFloat(0)
+            var y = yMultiplier * CGFloat(vector.values[0]-minValue)
+            y = rect.height - y
+            x += rect.minX
+            y += rect.minY
+            
+            path.move(to: CGPoint(x: x, y: y))
+            
+            path.addLine(to: CGPoint(x: x,y: y))
+        }
+        
         //First DataPoint
-        var x = xMultiplier * CGFloat(0)
+        var x = xMultiplier * CGFloat(steps[0])
         var y = yMultiplier * CGFloat(vector.values[0]-minValue)
         
         y = rect.height - y
@@ -44,7 +56,7 @@ struct LineShape: Shape {
         path.addLine(to: CGPoint(x: x,y: y))
         
         for index in 1..<vector.values.count {
-            var x = xMultiplier * CGFloat(index)
+            var x = xMultiplier * CGFloat(steps[index])
             var y = yMultiplier * CGFloat(vector.values[index]-minValue)
             
             y = rect.height - y

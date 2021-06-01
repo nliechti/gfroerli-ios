@@ -9,42 +9,31 @@ import SwiftUI
 
 
 struct X_LabelsView: View {
-    var timeFrame: TimeFrame
-    @State var day: Int
-    var month: Int
-    var year: Int
+    @ObservedObject var temperatureAggregationsVM: TemperatureAggregationsViewModel
+    @Binding var timeFrame: TimeFrame
+    @Binding var totalSteps: Int
     
-    var nrOfDaysInFrame: Int {
-        if timeFrame == .week {return 6}
-        let dateComponents = DateComponents(year: year, month: month)
-        let calendar = Calendar.current
-        let date = calendar.date(from: dateComponents)!
-
-        let range = calendar.range(of: .day, in: .month, for: date)!
-        let numDays = range.count
-        return numDays-1
-    }
+    
     
     var startDate:Date{
-        if timeFrame == .month {day = 1}
-        let dateComponents = DateComponents(year: year, month: month,day:day)
-        let calendar = Calendar.current
-        let date = calendar.date(from: dateComponents)!
-        return date
+        if timeFrame == .day {
+            return Date()
+        } else if timeFrame == .week{
+            return temperatureAggregationsVM.startDateWeek
+        } else {
+            return temperatureAggregationsVM.startDateMonth
+
+        }
+        
     }
     
     var midDate:Date{
-        let dateComponents = DateComponents(year: year, month: month, day: day+nrOfDaysInFrame/2)
-        let calendar = Calendar.current
-        let date = calendar.date(from: dateComponents)!
-        return date
+        return Calendar.current.date(byAdding: .day,value: totalSteps/2, to: startDate)!
     }
     
     var endDate:Date{
-        let dateComponents = DateComponents(year: year, month: month, day: day+nrOfDaysInFrame)
-        let calendar = Calendar.current
-        let date = calendar.date(from: dateComponents)!
-        return date
+        return Calendar.current.date(byAdding: .day,value: totalSteps, to: startDate)!
+        
     }
     
 
@@ -67,7 +56,7 @@ struct X_LabelsView: View {
     }
     func formatDateText(date:Date)-> String{
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd. MMM."
+        dateFormatter.setLocalizedDateFormatFromTemplate("dd MMM")
         let st = dateFormatter.string(from: date)
         
         return st
@@ -76,6 +65,6 @@ struct X_LabelsView: View {
 
 struct X_LabelsView_Previews: PreviewProvider {
     static var previews: some View {
-        X_LabelsView(timeFrame: .month, day: 1, month: 2, year: 2020)
+        EmptyView()
     }
 }

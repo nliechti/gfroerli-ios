@@ -10,9 +10,14 @@ import SwiftUI
 struct SensorOverViewGraph: View {
     
     var id: Int
+    @StateObject var temperatureAggregationsVM: TemperatureAggregationsViewModel = TemperatureAggregationsViewModel()
     @StateObject var monthVM = MonthlyAggregationsViewModel()
     @StateObject var weekVM = WeeklyAggregationsViewModel()
     @StateObject var dayVM = HourlyAggregationsViewModel()
+    
+    @State var showIndicator = false
+    @State var selectedIndex = 0
+    @State var zoomed = true
     
     @State var pickerSelection = 0
     @State var pickerOptions = [NSLocalizedString("Day", comment: ""), NSLocalizedString("Week", comment: ""), NSLocalizedString("Month", comment: "")]
@@ -21,68 +26,67 @@ struct SensorOverViewGraph: View {
     @State var weekLoading: loadingState = .loading
     @State var monthLoading: loadingState = .loading
     
-    @State var showMin = false
-    @State var showMax = false
-    @State var showAvg = true
-    @State var showCircles = true
-    
+    @State var timeFrame: TimeFrame = .day
+    @State var topString = ""
     
     init(sensorID: Int) {
         self.id = sensorID
-        
     }
+    
     var body: some View {
         VStack(alignment: .leading){
             HStack(alignment: .firstTextBaseline){
                 Text("History").font(.title).bold()
                 Spacer()
-            }
-            Picker(selection: $pickerSelection, label: Text("")) {
-                ForEach(0..<pickerOptions.count) { index in
-                    Text(self.pickerOptions[index]).tag(index)
-                }
-            }.pickerStyle(SegmentedPickerStyle())
-            .padding(.bottom)
-            switch pickerSelection{
-            case 0: DayChart(hourlyAggVM: dayVM, showMin: $showMin, showMax: $showMax, showAvg: $showAvg, showCircles: $showCircles)
-                .onTapGesture {showCircles.toggle()}
-                .frame(minHeight: 300)
                 
-            case 1: WeekChart(weekAggVM: weekVM, showMin: $showMin, showMax: $showMax, showAvg: $showAvg, showCircles: $showCircles)
-                .onTapGesture {showCircles.toggle()}
-                .frame(minHeight: 300)
-                
-            default : MonthChart(monthVM: monthVM, showMin: $showMin, showMax: $showMax, showAvg: $showAvg, showCircles: $showCircles).onTapGesture {
-                showCircles.toggle()
-            }.frame(minHeight: 300)
+                if showIndicator{
+                    Text(topString).bold()
+                }else{
+                    Button(action: {
+                        zoomed.toggle()
+                    }, label: {
+                        if zoomed{
+                            Text(Image(systemName: "arrow.up.left.and.arrow.down.right.circle.fill")).font(.title2)
+                        }else{
+                            Text(Image(systemName: "arrow.up.left.and.arrow.down.right.circle")).font(.title2)
+                        }
+                    })
+                }
             }
-            Text("Tap to show:").padding(.top)
-            HStack{
-                Button {
-                    showAvg.toggle()
-                } label: {
-                    Image(systemName: showAvg ? "checkmark.circle.fill": "circle").foregroundColor(.green)
-                    Text("Average").lineLimit(1)
-                        .minimumScaleFactor(0.1)
+            HStack(alignment:.center){
+                if !showIndicator{
+                    Picker(selection: $pickerSelection, label: Text("")) {
+                        ForEach(0..<pickerOptions.count) { index in
+                            Text(self.pickerOptions[index]).tag(index)
+                        }
+                    }.pickerStyle(SegmentedPickerStyle())
+                    
+                } else {
+                    Spacer()
+                    TemperaturesDetailView(temperatureAggregationsVM: temperatureAggregationsVM, index: $selectedIndex, pickerSelection: $pickerSelection).padding(.top)
+                    Spacer()
                 }
-                Spacer()
-                Button {
-                    showMin.toggle()
-                } label: {
-                    Image(systemName: showMin ? "checkmark.circle.fill": "circle").foregroundColor(.blue)
-                    Text("Minimum").lineLimit(1)
-                        .minimumScaleFactor(0.1)
-                }
-                Spacer()
-                Button {
-                    showMax.toggle()
-                } label: {
-                    Image(systemName: showMax ? "checkmark.circle.fill": "circle").foregroundColor(.red)
-                    Text("Maximum").lineLimit(1)
-                        .minimumScaleFactor(0.1)
-                }
-            }.padding(.top,3)
+            }
             
+            GraphView(timeFrame: $timeFrame, selectedIndex: $selectedIndex, zoomed: $zoomed, showIndicator: $showIndicator, temperatureAggregationsVM: temperatureAggregationsVM)
+            HStack{
+                Spacer()
+                Button(action: {
+                    stepBack()
+                }, label: {
+                    Image(systemName: "arrow.left.circle").imageScale(.large)
+                })
+                Spacer()
+                Text(getLabel())
+                Spacer()
+                Button(action: {
+                    stepForward()
+                    
+                }, label: {
+                    Image(systemName: "arrow.right.circle").imageScale(.large)
+                })
+                Spacer()
+            }
         }.padding()
         .onAppear(perform: {
             dayVM.id = id
@@ -90,224 +94,162 @@ struct SensorOverViewGraph: View {
             monthVM.id = id
             
         })
+        .onChange(of: pickerSelection, perform: { value in
+            setTimeFrame()
+        })
+        .onChange(of: selectedIndex, perform: { value in
+            setTopDateString()
+        })
+        
+    }
+    func setTimeFrame(){
+        if pickerSelection == 0{
+            timeFrame = .day
+        }else if pickerSelection == 1{
+            timeFrame = .week
+        }else{
+            timeFrame = .month
+        }
+    }
+    
+    func stepBack(){
+        if pickerSelection == 0{
+            temperatureAggregationsVM.subtractDay()
+        }else if pickerSelection == 1{
+            temperatureAggregationsVM.subtractWeek()
+        }else{
+            temperatureAggregationsVM.subtractMonth()
+        }
+    }
+    
+    func stepForward(){
+        if pickerSelection == 0{
+            temperatureAggregationsVM.addDay()
+            
+        }else if pickerSelection == 1{
+            temperatureAggregationsVM.addWeek()
+            
+        }else{
+            temperatureAggregationsVM.addMonth()
+            
+        }
+    }
+    
+    func getLabel()-> String{
+        let df = DateFormatter()
+        
+        switch pickerSelection{
+        case 0:
+            df.setLocalizedDateFormatFromTemplate("dd MMM")
+            return df.string(from: temperatureAggregationsVM.dateDay)
+            
+        case 1:
+            df.setLocalizedDateFormatFromTemplate("dd MMM")
+            return df.string(from: temperatureAggregationsVM.startDateWeek) + "-" + df.string(from: Calendar.current.date(byAdding: .day, value: 6, to: temperatureAggregationsVM.startDateWeek)!)
+            
+        default:
+            df.setLocalizedDateFormatFromTemplate("MMMM YYYY")
+            return df.string(from: temperatureAggregationsVM.startDateMonth)
+            
+        }
+    }
+    
+    func setTopDateString(){
+        let df = DateFormatter()
+        let calendar = Calendar.current
+
+        switch pickerSelection{
+        case 0:
+            let date = temperatureAggregationsVM.dateDay
+            var components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: date)
+            components.minute = 0
+            components.hour = temperatureAggregationsVM.stepsDay[selectedIndex]
+            let createdDate = calendar.date(from: components)!
+            df.setLocalizedDateFormatFromTemplate("mmHddMMMMY")
+            topString =  df.string(from: createdDate)
+            
+        case 1:
+            let date = temperatureAggregationsVM.startDateWeek
+            var components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: date)
+            components.day! += temperatureAggregationsVM.stepsWeek[selectedIndex]
+            df.setLocalizedDateFormatFromTemplate("dd MMMM Y")
+            topString =  df.string(from: calendar.date(from: components)!)
+            
+        default:
+            let date = temperatureAggregationsVM.startDateMonth
+            var components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: date)
+            components.day! += temperatureAggregationsVM.stepsMonth[selectedIndex]
+            df.setLocalizedDateFormatFromTemplate("dd MMMM Y")
+            topString =  df.string(from: calendar.date(from: components)!)
+            
+        }
     }
 }
 
-struct SensorOverViewGraph_Previews: PreviewProvider {
+/*struct SensorOverViewGraph_Previews: PreviewProvider {
     static var previews: some View {
         SensorOverViewGraph(sensorID: 1)
             .makePreViewModifier()
         
     }
-}
-struct DayChart: View {
-    @StateObject var hourlyAggVM: HourlyAggregationsViewModel
-    @Binding var showMin: Bool
-    @Binding var showMax: Bool
-    @Binding var showAvg: Bool
-    @Binding var showCircles: Bool
-    @State var date = Date()
-    @State var openDate : Date = Date()
+}*/
+
+
+struct TemperaturesDetailView: View{
     
-    var body: some View {
-        VStack{
-            GeometryReader{ geo in
-                AsyncContentView(source: hourlyAggVM) { data in
-                    VStack(alignment:.leading){
-                        if notNilCount(data: data)>1 {
-                            HourlyChartView(showMax: $showMax, showMin: $showMin, showAvg: $showAvg, showCircles: $showCircles, data: data, frame: geo.frame(in: .local)).padding(.bottom)
-                        }else{
-                            Spacer()
-                            HStack {
-                                Spacer()
-                                Text("No data available").font(.callout).foregroundColor(.secondary)
-                                Spacer()
-                            }
-                            Spacer()
-                        }
-                    }
-                }
+    @ObservedObject var temperatureAggregationsVM: TemperatureAggregationsViewModel
+    @Binding var index: Int
+    @Binding var pickerSelection: Int
+
+    var body: some View{
+        
+        HStack{
+            Spacer()
+            VStack(alignment: .center){
+                Text("Min:").bold()
+                Text(String(getMin()))
             }
             Spacer()
-            HStack{
-                Spacer()
-                Button(action: {
-                    date = date.addingTimeInterval(TimeInterval(-86400))
-                    hourlyAggVM.date = date
-                }, label: {
-                    Image(systemName: "arrow.left.circle").imageScale(.large)
-                })
-                Spacer()
-                Text(date, style: .date).font(.headline)
-                Spacer()
-                Button(action: {
-                    date = date.addingTimeInterval(TimeInterval(+86400))
-                    hourlyAggVM.date = date
-                    
-                }, label: {
-                    Image(systemName: "arrow.right.circle").imageScale(.large)
-                }).disabled(date==openDate)
-                Spacer()
-            }.padding(.top,25)
-            
-            
-        }.onAppear {
-            hourlyAggVM.date = openDate
-            openDate = date
-            hourlyAggVM.load()
-        }
-    }
-    
-    func notNilCount(data: [HourlyAggregation?])->Int{
-        return data.filter({$0 != nil}).count
-    }
-}
-struct WeekChart: View {
-    @StateObject var weekAggVM: WeeklyAggregationsViewModel
-    @Binding var showMin: Bool
-    @Binding var showMax: Bool
-    @Binding var showAvg: Bool
-    @Binding var showCircles: Bool
-    @State var startDate = Calendar.current.dateComponents([.calendar, .yearForWeekOfYear, .weekOfYear], from: Date()).date! {
-        didSet{
-            endDate = Calendar.current.date(byAdding: .day, value: 6, to: startDate)!
-        }
-    }
-    @State var endDate = Calendar.current.date(byAdding: .day, value: 6, to: Calendar.current.dateComponents([.calendar, .yearForWeekOfYear, .weekOfYear], from: Date()).date!)!
-    @State var currentDate = Date()
-    
-    var body: some View {
-        VStack{
-            GeometryReader{ geo in
-                AsyncContentView(source: weekAggVM) { data in
-                    VStack(alignment:.leading){
-                        if data.count>0 {
-                            WeeklyChartView(showMax: $showMax, showMin: $showMin, showAvg: $showAvg, showCircles: $showCircles, daySpan:.week, data: data , frame: geo.frame(in: .local))
-                        }else{
-                            Spacer()
-                            HStack {
-                                Spacer()
-                                Text("No data available").font(.callout).foregroundColor(.secondary)
-                                Spacer()
-                            }
-                            Spacer()
-                        }
-                    }
-                }
+            VStack(alignment: .center){
+                Text("Avg:").bold()
+                Text(String(getAvg()))
             }
             Spacer()
-            HStack{
-                Spacer(minLength: 0)
-                Button(action: {
-                    startDate = Calendar.current.date(byAdding: .day, value: -7, to: startDate)!
-                    weekAggVM.date = startDate
-                    
-                }, label: {
-                    Image(systemName: "arrow.left.circle").imageScale(.large)
-                })
-                Spacer(minLength: 0)
-                Text(formatDateText(start: startDate, end: endDate)).font(.headline)
-                Spacer(minLength: 0)
-                Button(action: {
-                    startDate = Calendar.current.date(byAdding: .day, value: 7, to: startDate)!
-                    weekAggVM.date = startDate
-                }, label: {
-                    Image(systemName: "arrow.right.circle").imageScale(.large)
-                }).disabled(currentDate<=endDate)
-                Spacer(minLength: 0)
-            }.padding(.top,25)
-        }.onAppear {
-            startDate = Calendar.current.dateComponents([.calendar, .yearForWeekOfYear, .weekOfYear], from: Date()).date!
-            weekAggVM.load()
-        }
-        .onDisappear{
-            startDate = Calendar.current.dateComponents([.calendar, .yearForWeekOfYear, .weekOfYear], from: Date()).date!
-            weekAggVM.date = startDate
+            VStack(alignment: .center){
+                Text("Max:").bold()
+                Text(String(getMax()))
+            }
+            Spacer()
         }
     }
-    func formatDateText(start:Date, end: Date)-> String{
-        let dateFormatter1 = DateFormatter()
-        dateFormatter1.dateFormat = "dd MMMM yyyy"
-        let dateFormatter2 = DateFormatter()
-        dateFormatter2.dateFormat = "dd"
-        let st = dateFormatter2.string(from: start)
-        let en = dateFormatter1.string(from: end)
-        return "\(st) - \(en)"
+    
+    func getMin()->Double{
+        if pickerSelection == 0{
+            return temperatureAggregationsVM.minimumsDay[index]
+        }else if pickerSelection == 1{
+            return temperatureAggregationsVM.minimumsWeek[index]
+        }else{
+            return temperatureAggregationsVM.minimumsMonth[index]
+        }
     }
+    func getAvg()->Double{
+        if pickerSelection == 0{
+            return temperatureAggregationsVM.averagesDay[index]
+        }else if pickerSelection == 1{
+            return temperatureAggregationsVM.averagesWeek[index]
+        }else{
+            return temperatureAggregationsVM.averagesMonth[index]
+        }
+    }
+    func getMax()->Double{
+        if pickerSelection == 0{
+            return temperatureAggregationsVM.maximumsDay[index]
+        }else if pickerSelection == 1{
+            return temperatureAggregationsVM.maximumsWeek[index]
+        }else{
+            return temperatureAggregationsVM.maximumsMonth[index]
+        }
+    }
+    
 }
 
-struct MonthChart: View {
-    @ObservedObject var monthVM: MonthlyAggregationsViewModel
-    @Binding var showMin: Bool
-    @Binding var showMax: Bool
-    @Binding var showAvg: Bool
-    @Binding var showCircles: Bool
-    @State var startDate = Calendar.current.dateComponents([.calendar, .month, .year], from: Date()).date! {
-        didSet{
-            endDate = Calendar.current.date(byAdding: DateComponents(month: 1, day: -1), to: startDate)!
-        }
-    }
-    @State var endDate = Calendar.current.date(byAdding: DateComponents(month: 1, day: -1), to: Calendar.current.dateComponents([.calendar, .month, .year], from: Date()).date!)!
-    @State var currentDate = Date()
-    var body: some View {
-        VStack{
-            GeometryReader{ geo in
-                AsyncContentView(source: monthVM) { data in
-                    VStack(alignment:.leading){
-                        if data.count>0 {
-                            MonthlyChartView(showMax: $showMax, showMin: $showMin, showAvg: $showAvg, showCircles: $showCircles, daySpan: .month, data: data, frame: geo.frame(in: .local))
-                            
-                        }else{
-                            Spacer()
-                            HStack {
-                                Spacer()
-                                Text("No data available").font(.callout).foregroundColor(.secondary)
-                                Spacer()
-                            }
-                            Spacer()
-                        }
-                    }
-                }
-            }
-            Spacer()
-            HStack{
-                Spacer(minLength: 0)
-                Button(action: {
-                    startDate = Calendar.current.date(byAdding: DateComponents(month: -1), to: startDate)!
-                    monthVM.date = startDate
-                    
-                }, label: {
-                    Image(systemName: "arrow.left.circle").imageScale(.large)
-                })
-                Spacer(minLength: 0)
-                Text(formatDateText(start: startDate, end: endDate)).font(.headline)
-                Spacer(minLength: 0)
-                Button(action: {
-                    startDate = Calendar.current.date(byAdding: DateComponents(month: 1), to: startDate)!
-                    monthVM.date = startDate
-                }, label: {
-                    Image(systemName: "arrow.right.circle").imageScale(.large)
-                }).disabled(currentDate<=endDate)
-                Spacer(minLength: 0)
-            }.padding(.top,25)
-            
-            
-        }.onAppear {
-            startDate = Calendar.current.dateComponents([.calendar, .month, .year], from: Date()).date!
-            
-            monthVM.load()
-        }
-        .onDisappear{
-            startDate = Calendar.current.dateComponents([.calendar, .month, .year], from: Date()).date!
-            monthVM.date = startDate
-        }
-        
-    }
-    func formatDateText(start:Date, end: Date)-> String{
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMMM yyyy"
-        let st = dateFormatter.string(from: start)
-        
-        return st
-    }
-}

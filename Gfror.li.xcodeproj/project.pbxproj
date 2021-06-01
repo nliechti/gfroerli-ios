@@ -61,6 +61,12 @@
 		B467085F2641C42B003E28E5 /* Changes.json in Resources */ = {isa = PBXBuildFile; fileRef = B46708612641C42B003E28E5 /* Changes.json */; };
 		B4795EC5260CCC1800D4BF19 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4795EC4260CCC1800D4BF19 /* Intents.framework */; };
 		B4795ECC260CCC1800D4BF19 /* SelectSensorIntentExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B4795EC3260CCC1800D4BF19 /* SelectSensorIntentExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B494D716265D452F00327BAF /* TemperatureAggregations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B494D715265D452F00327BAF /* TemperatureAggregations.swift */; };
+		B494D717265D452F00327BAF /* TemperatureAggregations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B494D715265D452F00327BAF /* TemperatureAggregations.swift */; };
+		B494D718265D452F00327BAF /* TemperatureAggregations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B494D715265D452F00327BAF /* TemperatureAggregations.swift */; };
+		B494D71A265D474D00327BAF /* TemperatureAggregationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B494D719265D474D00327BAF /* TemperatureAggregationsViewModel.swift */; };
+		B494D71B265D474D00327BAF /* TemperatureAggregationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B494D719265D474D00327BAF /* TemperatureAggregationsViewModel.swift */; };
+		B494D71C265D474D00327BAF /* TemperatureAggregationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B494D719265D474D00327BAF /* TemperatureAggregationsViewModel.swift */; };
 		B49B013D260E120800D1AA37 /* SingleSensorWithGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B012F260E118500D1AA37 /* SingleSensorWithGraphView.swift */; };
 		B49B0155260E132800D1AA37 /* WidgetMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B0147260E129E00D1AA37 /* WidgetMain.swift */; };
 		B49B0192260E180100D1AA37 /* SingleSensorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B0178260E167900D1AA37 /* SingleSensorProvider.swift */; };
@@ -248,6 +254,8 @@
 		B4795EC4260CCC1800D4BF19 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		B4795EC7260CCC1800D4BF19 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
 		B4795EC9260CCC1800D4BF19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B494D715265D452F00327BAF /* TemperatureAggregations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureAggregations.swift; sourceTree = "<group>"; };
+		B494D719265D474D00327BAF /* TemperatureAggregationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureAggregationsViewModel.swift; sourceTree = "<group>"; };
 		B49B012F260E118500D1AA37 /* SingleSensorWithGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSensorWithGraphView.swift; sourceTree = "<group>"; };
 		B49B0147260E129E00D1AA37 /* WidgetMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetMain.swift; sourceTree = "<group>"; };
 		B49B0178260E167900D1AA37 /* SingleSensorProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSensorProvider.swift; sourceTree = "<group>"; };
@@ -402,6 +410,7 @@
 				B4F95C2625C312F0004C21E1 /* WeeklyAggregationsViewModel.swift */,
 				B4F95C1625C30FBF004C21E1 /* HourlyAggregationViewModel.swift */,
 				8D737736252BA8750075E04E /* SponsorsViewModel.swift */,
+				B494D719265D474D00327BAF /* TemperatureAggregationsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -677,6 +686,7 @@
 		E4C24FE524EEB57A00FB4F51 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B494D715265D452F00327BAF /* TemperatureAggregations.swift */,
 				E4C24FE624EEB58400FB4F51 /* Sensor.swift */,
 				8D73772E252BA7200075E04E /* Sponsor.swift */,
 				E4C24FE824EEB5AA00FB4F51 /* TempAggregations.swift */,
@@ -861,11 +871,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B494D71B265D474D00327BAF /* TemperatureAggregationsViewModel.swift in Sources */,
 				B4E1249A260CCED800F45852 /* WeeklyAggregationsViewModel.swift in Sources */,
 				B4E124C4260CD18800F45852 /* Bundle-Decodable.swift in Sources */,
 				B4E124AF260CCF2000F45852 /* SensorListViewModel.swift in Sources */,
 				B4E124A8260CCEDD00F45852 /* Sponsor.swift in Sources */,
 				B4E12532260CD46500F45852 /* SingleSensorViewModel.swift in Sources */,
+				B494D717265D452F00327BAF /* TemperatureAggregations.swift in Sources */,
 				B4E124B6260CCF2400F45852 /* IntentHandler.swift in Sources */,
 				B4E124A7260CCEDD00F45852 /* Sensor.swift in Sources */,
 				B4E124A5260CCEDD00F45852 /* TempAggregations.swift in Sources */,
@@ -886,6 +898,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4AA328E262632B4007E1627 /* HourlyChartView.swift in Sources */,
+				B494D718265D452F00327BAF /* TemperatureAggregations.swift in Sources */,
 				B4E1251F260CD45D00F45852 /* TempAggregations.swift in Sources */,
 				B4AA3291262632B4007E1627 /* MonthlyChartView.swift in Sources */,
 				B4AA3293262632B4007E1627 /* MonthlyChartShape.swift in Sources */,
@@ -898,6 +911,7 @@
 				B4AA328F262632B4007E1627 /* WeeklyChartShape.swift in Sources */,
 				B4E1251B260CD45D00F45852 /* Sponsor.swift in Sources */,
 				B40F9012264D694500CD7D95 /* SelectSensor.intentdefinition in Sources */,
+				B494D71C265D474D00327BAF /* TemperatureAggregationsViewModel.swift in Sources */,
 				B4F19A3F26263F4A00CA4C8D /* SelectSensor.intentdefinition in Sources */,
 				B4AA329426263352007E1627 /* Helpers.swift in Sources */,
 				B4E1251A260CD45D00F45852 /* LakesData.swift in Sources */,
@@ -967,6 +981,7 @@
 				B4F95C0F25C30F38004C21E1 /* HourlyChartShape.swift in Sources */,
 				B4F95C2F25C313EE004C21E1 /* WeeklyChartShape.swift in Sources */,
 				8D50670324F7F33400E426DE /* Helpers.swift in Sources */,
+				B494D71A265D474D00327BAF /* TemperatureAggregationsViewModel.swift in Sources */,
 				8D6A7DC824F15187009A0026 /* SensorOverView.swift in Sources */,
 				B4E124DD260CD20800F45852 /* gfroerliWidgetExtension.intentdefinition in Sources */,
 				8DF3BBC9250B4F2700DBCC37 /* URLExtension.swift in Sources */,
@@ -988,6 +1003,7 @@
 				E438B4CC24ACFB7D008A2E01 /* iOSMainView.swift in Sources */,
 				B4DEC7E9265424CC00206EAA /* Y-LabelsView.swift in Sources */,
 				8D7E98BD257025EC00BC32EB /* ColorExtension.swift in Sources */,
+				B494D716265D452F00327BAF /* TemperatureAggregations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

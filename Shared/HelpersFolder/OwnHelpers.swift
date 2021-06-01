@@ -56,7 +56,7 @@ enum NetworkError: Error {
 enum loadingState: Equatable{
     case loading, loaded, error
 }
-enum TimeFrame{
+enum TimeFrame: Equatable{
     case day, week, month
 }
 
@@ -87,3 +87,5 @@ func machineName() -> String {
     return identifier + String(UnicodeScalar(UInt8(value)))
   }
 }
+
+
