@@ -8,8 +8,8 @@
 import SwiftUI
 import MapKit
 struct OverView: View {
+    @State var showSens = false
     @Binding var showDetail: Bool
-    @Binding var pathComp: String?
     @ObservedObject var sensorsVM : SensorListViewModel
 
     var body: some View {
@@ -39,12 +39,7 @@ struct OverView: View {
             }
             .background(Color.systemGroupedBackground.ignoresSafeArea())
             .navigationTitle("Overview")
-        }.sheet(isPresented: $showDetail, content: {
-            NavigationView{
-                SensorOverView(id:Int(pathComp!)!).navigationBarItems(leading: Button(action: {showDetail=false}, label: {Text("Close")}))
-            }
-        })
-        
+        }
     }
 }
 
@@ -78,6 +73,7 @@ struct TopTabView: View{
         }
         .onAppear(perform: setUpView)
         
+        
     }
     
     func setUpView(){
@@ -92,6 +88,6 @@ struct TopTabView: View{
 
 struct OverView_Previews: PreviewProvider {
     static var previews: some View {
-       OverView(showDetail: .constant(false), pathComp: .constant(nil), sensorsVM: testSensorVM ).makePreViewModifier()
+       OverView(showDetail: .constant(false), sensorsVM: testSensorVM ).makePreViewModifier()
     }
 }

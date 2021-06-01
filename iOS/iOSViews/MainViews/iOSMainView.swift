@@ -24,7 +24,7 @@ struct iOSMainView: View {
         
         //TabsView and Tabs
         TabView(selection: $selectedTab){
-            OverView(showDetail: $showSens, pathComp: $pathComp,sensorsVM: sensorsVm)
+            OverView(showDetail: $showSens,sensorsVM: sensorsVm)
                 .tabItem { Image(systemName: "thermometer.sun.fill")
                     Text("Overview") }
                 .tag("Overview")
@@ -51,19 +51,13 @@ struct iOSMainView: View {
                 WhatsNewView(lastVersion: lastVersion ,showDismiss: true)
             }
         }
-        //DeepLink handling
-        .onOpenURL(perform: { url in
-            guard let tabIdentifier = url.tabIdentifier else {
-                return
+       .sheet(isPresented: $showSens) {
+           
+            NavigationView{
+                SensorOverView(id:Int(pathComp!)!).navigationBarItems(leading: Button(action: {showSens=false}, label: {Text("Close")}))
             }
-            
-            pathComp = url.pathComponents[1]
-            selectedTab=tabIdentifier
-            if selectedTab == "Overview"{
-                showSens=true
-            }
-            
-        })
+        }
+        
         
         //fetching Sensors
         .onAppear(perform: {
@@ -72,12 +66,27 @@ struct iOSMainView: View {
             if currentVersion > lastVersion{
                 showUpdateView=true
             }
-            print(currentVersion)
-            
         })
         .onReceive(self.observer.$enteredForeground) { _ in
             sensorsVm.load()
         }
+        //DeepLink handling
+        .onOpenURL(perform: { url in
+            guard let tabIdentifier = url.tabIdentifier else {
+                return
+            }
+            print("owo")
+            print(url.pathComponents[1])
+            pathComp = url.pathComponents[1]
+            selectedTab=tabIdentifier
+            if selectedTab == "Overview"{
+                //Workaround for SwiftUI bug
+                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                    showSens = true
+                })
+                
+            }
+        })
     }
     
 }
