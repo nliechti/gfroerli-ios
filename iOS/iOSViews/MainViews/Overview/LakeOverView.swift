@@ -58,7 +58,7 @@ struct topMap: View{
                 NavigationLink(
                     destination: /*@START_MENU_TOKEN@*/Text("Destination")/*@END_MENU_TOKEN@*/,
                     label: {
-                        Text(String(format: "%.1f", pin.latestTemp!)+"°")
+                        Text(makeTemperatureStringFromDouble(double: pin.latestTemp!))
                             .minimumScaleFactor(0.3)
                             .foregroundColor(.white)
                             .lineLimit(1)

@@ -45,9 +45,6 @@
 		8DF3BBD5250BB62D00DBCC37 /* SensorOverviewLastMeasurementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBD4250BB62D00DBCC37 /* SensorOverviewLastMeasurementView.swift */; };
 		8DF3BBD8250BB6BB00DBCC37 /* OwnHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBD7250BB6BB00DBCC37 /* OwnHelpers.swift */; };
 		B40B20AB2666BFB900FCF872 /* OwnHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBD7250BB6BB00DBCC37 /* OwnHelpers.swift */; };
-		B40F9010264D694500CD7D95 /* SelectSensor.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B4F44CF8264AEF7F00ACD190 /* SelectSensor.intentdefinition */; };
-		B40F9011264D694500CD7D95 /* SelectSensor.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B4F44CF8264AEF7F00ACD190 /* SelectSensor.intentdefinition */; };
-		B40F9012264D694500CD7D95 /* SelectSensor.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B4F44CF8264AEF7F00ACD190 /* SelectSensor.intentdefinition */; };
 		B40F9013264D696E00CD7D95 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D5EACEC252CE407006EBCD6 /* Localizable.strings */; };
 		B40F9014264D696E00CD7D95 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D5EACEC252CE407006EBCD6 /* Localizable.strings */; };
 		B415711C260A41A400372278 /* ChangeNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = B415711B260A41A400372278 /* ChangeNote.swift */; };
@@ -282,7 +279,6 @@
 		B4F19A4326263F5000CA4C8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SelectSensor.strings; sourceTree = "<group>"; };
 		B4F19A4526263F5100CA4C8D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/SelectSensor.strings; sourceTree = "<group>"; };
 		B4F19A4726263F5200CA4C8D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/SelectSensor.strings; sourceTree = "<group>"; };
-		B4F44CF8264AEF7F00ACD190 /* SelectSensor.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = SelectSensor.intentdefinition; path = ../../../.Trash/SelectSensor.strings; sourceTree = "<group>"; };
 		B4F44CFA264AEF8200ACD190 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/SelectSensor.strings; sourceTree = "<group>"; };
 		B4F44CFB264AEF9300ACD190 /* rm-CH */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "rm-CH"; path = "rm-CH.lproj/SelectSensor.strings"; sourceTree = "<group>"; };
 		B4F44CFC264AEF9500ACD190 /* gsw */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = gsw; path = gsw.lproj/SelectSensor.strings; sourceTree = "<group>"; };
@@ -564,7 +560,6 @@
 				B49B0147260E129E00D1AA37 /* WidgetMain.swift */,
 				B49B0146260E128600D1AA37 /* Provider */,
 				B49B012E260E116200D1AA37 /* WidgetViews */,
-				B4F44CF8264AEF7F00ACD190 /* SelectSensor.intentdefinition */,
 				B4F19A4126263F4A00CA4C8D /* SelectSensor.intentdefinition */,
 				B4E124D8260CD20700F45852 /* gfroerliWidgetExtension.intentdefinition */,
 				B4E124D9260CD20800F45852 /* Assets.xcassets */,
@@ -881,7 +876,6 @@
 				B4E124B6260CCF2400F45852 /* IntentHandler.swift in Sources */,
 				B4E124A7260CCEDD00F45852 /* Sensor.swift in Sources */,
 				B4E124A5260CCEDD00F45852 /* TempAggregations.swift in Sources */,
-				B40F9011264D694500CD7D95 /* SelectSensor.intentdefinition in Sources */,
 				B4F19A3E26263F4A00CA4C8D /* SelectSensor.intentdefinition in Sources */,
 				B4E124A3260CCEDD00F45852 /* RiverData.swift in Sources */,
 				B4E1249E260CCED800F45852 /* HourlyAggregationViewModel.swift in Sources */,
@@ -911,7 +905,6 @@
 				B4AA328F262632B4007E1627 /* WeeklyChartShape.swift in Sources */,
 				B4E1251B260CD45D00F45852 /* Sponsor.swift in Sources */,
 				B40B20AB2666BFB900FCF872 /* OwnHelpers.swift in Sources */,
-				B40F9012264D694500CD7D95 /* SelectSensor.intentdefinition in Sources */,
 				B494D71C265D474D00327BAF /* TemperatureAggregationsViewModel.swift in Sources */,
 				B4F19A3F26263F4A00CA4C8D /* SelectSensor.intentdefinition in Sources */,
 				B4AA329426263352007E1627 /* Helpers.swift in Sources */,
@@ -946,7 +939,6 @@
 				8D6A7DC624F14115009A0026 /* LakeOverView.swift in Sources */,
 				8D580B59259FA33800202262 /* FAQView.swift in Sources */,
 				B4B37A4925C2C1D500DA76A5 /* AsyncContentView.swift in Sources */,
-				B40F9010264D694500CD7D95 /* SelectSensor.intentdefinition in Sources */,
 				B4F19A3D26263F4A00CA4C8D /* SelectSensor.intentdefinition in Sources */,
 				8DD06C3025A0EF290081250B /* UIDeviceExtension.swift in Sources */,
 				8DA7CF0F2516176300395465 /* TempAggregationsViewModel.swift in Sources */,
@@ -1084,7 +1076,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20210513;
+				CURRENT_PROJECT_VERSION = 20210601;
 				DEVELOPMENT_TEAM = VDVQE324N6;
 				INFOPLIST_FILE = SelectSensorIntentExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1093,7 +1085,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.12;
+				MARKETING_VERSION = 1.19;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli.SelectSensorIntentExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1108,7 +1100,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20210513;
+				CURRENT_PROJECT_VERSION = 20210601;
 				DEVELOPMENT_TEAM = VDVQE324N6;
 				INFOPLIST_FILE = SelectSensorIntentExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1117,7 +1109,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.12;
+				MARKETING_VERSION = 1.19;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli.SelectSensorIntentExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1134,7 +1126,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20210513;
+				CURRENT_PROJECT_VERSION = 20210601;
 				DEVELOPMENT_TEAM = VDVQE324N6;
 				INFOPLIST_FILE = gfroerliWidgetExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1143,7 +1135,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.12;
+				MARKETING_VERSION = 1.19;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli.gfroerliWidgetExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1160,7 +1152,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20210513;
+				CURRENT_PROJECT_VERSION = 20210601;
 				DEVELOPMENT_TEAM = VDVQE324N6;
 				INFOPLIST_FILE = gfroerliWidgetExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1169,7 +1161,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.12;
+				MARKETING_VERSION = 1.19;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli.gfroerliWidgetExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1305,7 +1297,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = iOS/Gfror.li.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20210513;
+				CURRENT_PROJECT_VERSION = 20210601;
 				DEVELOPMENT_TEAM = VDVQE324N6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
@@ -1314,7 +1306,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.12;
+				MARKETING_VERSION = 1.19;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli;
 				PRODUCT_NAME = Gfror.li;
 				SDKROOT = iphoneos;
@@ -1332,7 +1324,7 @@
 				CODE_SIGN_ENTITLEMENTS = iOS/Gfror.liRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20210513;
+				CURRENT_PROJECT_VERSION = 20210601;
 				DEVELOPMENT_TEAM = VDVQE324N6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
@@ -1341,7 +1333,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.12;
+				MARKETING_VERSION = 1.19;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli;
 				PRODUCT_NAME = Gfror.li;
 				PROVISIONING_PROFILE_SPECIFIER = "";

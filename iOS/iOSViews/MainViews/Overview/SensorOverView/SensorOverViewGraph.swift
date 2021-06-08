@@ -66,6 +66,14 @@ struct SensorOverViewGraph: View {
             
             GraphView(nrOfLines: 5, timeFrame: $timeFrame, selectedIndex: $selectedIndex, zoomed: $zoomed, showIndicator: $showIndicator, temperatureAggregationsVM: temperatureAggregationsVM)
             
+            HStack(alignment: .center){
+                Label("Min", systemImage: "circle.fill").foregroundColor(.blue)
+                Spacer()
+                Label("Avg", systemImage: "circle.fill").foregroundColor(.green)
+                Spacer()
+                Label("Max", systemImage: "circle.fill").foregroundColor(.red)
+            }.padding([.horizontal,.bottom])
+            
             HStack{
                 Spacer()
                 Button(action: {
@@ -213,17 +221,17 @@ struct TemperaturesDetailView: View{
             Spacer()
             VStack(alignment: .center){
                 Text("Min:").bold()
-                Text(String(getMin()))
+                Text(makeTemperatureStringFromDouble(double: getMin()))
             }
             Spacer()
             VStack(alignment: .center){
                 Text("Avg:").bold()
-                Text(String(getAvg()))
+                Text(makeTemperatureStringFromDouble(double: getAvg()))
             }
             Spacer()
             VStack(alignment: .center){
                 Text("Max:").bold()
-                Text(String(getMax()))
+                Text(makeTemperatureStringFromDouble(double: getMax()))
             }
             Spacer()
         }

@@ -20,7 +20,7 @@ struct Y_LabelsView: View {
         var yLabels = [String]()
         
         for i in 0..<nrOfLines {
-            yLabels.append(String(format: "%.1f", min + Double(i) * stepSize))
+            yLabels.append(makeTemperatureStringFromDouble(double: min + Double(i) * stepSize))
         }
         
         return yLabels.reversed()

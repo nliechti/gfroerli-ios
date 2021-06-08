@@ -15,7 +15,7 @@ struct SensorOverviewLastMeasurementView: View {
                 VStack(alignment: .leading){
                     Text("Latest").font(.title)
                         .bold()
-                    Text(String(format: "%.1f", sensor.latestTemp!)+"°" )
+                    Text(makeTemperatureStringFromDouble(double: sensor.latestTemp!) )
                         .font(.system(size: 50))
                     Spacer()
                 }.fixedSize()
@@ -30,17 +30,17 @@ struct SensorOverviewLastMeasurementView: View {
                     HStack {
                         Text("Average:")
                         Spacer()
-                        Text(String(format: "%.1f", sensor.avgTemp!)+"°")
+                        Text(makeTemperatureStringFromDouble(double: sensor.avgTemp!))
                     }
                     HStack {
                         Text("Highest:")
                         Spacer()
-                        Text(String(format: "%.1f", sensor.maxTemp!)+"°")
+                        Text(makeTemperatureStringFromDouble(double: sensor.maxTemp!))
                     }
                     HStack {
                         Text("Lowest:")
                         Spacer()
-                        Text(String(format: "%.1f", sensor.minTemp!)+"°")
+                        Text(makeTemperatureStringFromDouble(double: sensor.maxTemp!))
                     }
                     Spacer()
                 }
@@ -70,10 +70,12 @@ struct SensorOverviewLastMeasurementView: View {
 struct SensorOverviewLastMeasurementView_Previews: PreviewProvider {
     static var previews: some View {
         SensorOverviewLastMeasurementView(sensor:testSensor1)
-            .environment(\.sizeCategory, .large)
+            .environment(\.sizeCategory, .accessibilityExtraExtraExtraLarge)
             .boxStyle()
             .padding(.top)
             .background(Color.green)
             .makePreViewModifier()
     }
 }
+
+

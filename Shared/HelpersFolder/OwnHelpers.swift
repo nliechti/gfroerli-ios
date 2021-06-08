@@ -89,3 +89,12 @@ func machineName() -> String {
 }
 
 
+
+func makeTemperatureStringFromDouble(double: Double, precision: Int = 1) -> String{
+    let formatter = MeasurementFormatter()
+    formatter.numberFormatter.maximumFractionDigits = 1
+    let unit = Measurement<UnitTemperature>(value: double, unit: .celsius)
+    return formatter.string(from: unit)
+    
+}
+
