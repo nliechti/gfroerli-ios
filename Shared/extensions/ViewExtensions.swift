@@ -13,6 +13,7 @@ extension View{
     func boxStyle()-> some View{
         self
             .fixedSize(horizontal: false, vertical: true)
+            .frame(maxWidth: .infinity)
             .background(Color.secondarySystemGroupedBackground)
             .cornerRadius(15)
             .shadow(radius: 1)

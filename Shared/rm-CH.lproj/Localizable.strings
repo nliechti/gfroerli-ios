@@ -10,6 +10,8 @@
 "Loading" = "Cargar";
 "Error while fetching data" = "Sbagl da cargar las datas";
 "Close" = "Serrar";
+"Info:" = "Info:";
+"More locations will follow very soon, stay tuned!" = "Weiter Orte werden demnächst hinzugefügt!";
 
 //MainView
 "Overview" = "Survesta";

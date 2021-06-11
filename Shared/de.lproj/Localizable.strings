@@ -10,6 +10,8 @@
 "Loading" = "Laden";
 "Error while fetching data" = "Laden fehlgeschlagen";
 "Close"="Schliessen";
+"Info:" = "Info:";
+"More locations will follow very soon, stay tuned!" = "Weiter Orte werden demnächst hinzugefügt!";
 
 //MainView
 "Overview" = "Übersicht";

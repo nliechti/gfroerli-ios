@@ -10,6 +10,8 @@
 "Loading" = "Loading";
 "Error while fetching data" = "Error while fetching data";
 "Close" = "Close";
+"Info:" = "Info:";
+"More locations will follow very soon, stay tuned!" = "More locations will follow very soon, stay tuned!";
 
 //MainView
 "Overview" = "Overview";

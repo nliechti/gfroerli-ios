@@ -67,12 +67,14 @@ struct SensorOverViewGraph: View {
             GraphView(nrOfLines: 5, timeFrame: $timeFrame, selectedIndex: $selectedIndex, zoomed: $zoomed, showIndicator: $showIndicator, temperatureAggregationsVM: temperatureAggregationsVM)
             
             HStack(alignment: .center){
-                Label("Min", systemImage: "circle.fill").foregroundColor(.blue)
+                Label("Minimum", systemImage: "circle.fill").foregroundColor(.blue)
                 Spacer()
-                Label("Avg", systemImage: "circle.fill").foregroundColor(.green)
+                Label("Average", systemImage: "circle.fill").foregroundColor(.green)
                 Spacer()
-                Label("Max", systemImage: "circle.fill").foregroundColor(.red)
+                Label("Maximum", systemImage: "circle.fill").foregroundColor(.red)
             }.padding([.horizontal,.bottom])
+            .lineLimit(1)
+            .minimumScaleFactor(0.1)
             
             HStack{
                 Spacer()

@@ -16,8 +16,8 @@ struct OverView: View {
         NavigationView{
             ScrollView(.vertical){
                 VStack(alignment:.leading){
-                    Text("Important:").font(.title3).bold()
-                    Text("More locations will follow very soon, please be patient. If you have any suggestions for upcoming locations, reach out to us via email in the settings-tab!", comment:"Test comment")}.padding().boxStyle()
+                    Text("Info:").font(.title3).bold()
+                    Text("More locations will follow very soon, stay tuned!", comment:"Test comment")}.padding().boxStyle()
                 
                 VStack(spacing: 0){
                     AsyncContentView(source: sensorsVM) { sensors in

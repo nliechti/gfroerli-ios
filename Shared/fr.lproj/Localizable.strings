@@ -10,6 +10,8 @@
 "Loading" = "Chargement";
 "Error while fetching data" = "Erreur lors de l'extraction des données";
 "Close" = "Fermer";
+"Info:" = "Information:";
+"More locations will follow very soon, stay tuned!" = "D'autres lieux suivront très bientôt, restez à l'écoute!";
 
 //MainView
 "Overview" = "Vue d'ensemble";
