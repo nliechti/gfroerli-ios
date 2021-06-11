@@ -40,7 +40,7 @@ struct SensorOverviewLastMeasurementView: View {
                     HStack {
                         Text("Lowest:")
                         Spacer()
-                        Text(makeTemperatureStringFromDouble(double: sensor.maxTemp!))
+                        Text(makeTemperatureStringFromDouble(double: sensor.minTemp!))
                     }
                     Spacer()
                 }

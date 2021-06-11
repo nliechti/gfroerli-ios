@@ -14,7 +14,7 @@ class HourlyAggregationsViewModel: LoadableObject{
 
     @Published var dataDay = [HourlyAggregation?]() { didSet { didChange.send(())}}
     @Published private(set) var state = LoadingState<Output>.idle
-    var date: Date = Calendar.current.date(from: Calendar.current.dateComponents([.year, .month, .day], from: Date()))!{
+    var date: Date = Calendar.current.date(from: Calendar.current.dateComponents([.year, .month, .day], from: Date().advanced(by: -86400)))!{
         didSet {
             load()
         }

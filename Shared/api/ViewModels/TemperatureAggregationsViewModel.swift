@@ -53,17 +53,22 @@ class TemperatureAggregationsViewModel: ObservableObject{
     
     func loadDays() {
         
+        let date = Date()
+        let timeZoneOffsetInHours = Int(TimeZone.current.secondsFromGMT())/3600
+        
+        
         let df = DateFormatter()
         df.dateFormat = "yyyy-MM-dd"
-        let start = df.string(from: dateDay)
-        let end = df.string(from: dateDay)
-        var url = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/mobile_app/sensors/\(id)/hourly_temperatures?from=\(start)&to=\(end)&limit=25")!)
+        let start = df.string(from: dateDay.advanced(by: -86400))
+        let mid = df.string(from: dateDay)
+        let end = df.string(from: dateDay.advanced(by: +86400))
+        var url = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/mobile_app/sensors/\(id)/hourly_temperatures?from=\(start)&to=\(end)&limit=48")!)
         
         url.setValue("Bearer XTZA6H0Hg2f02bzVefmVlr8fIJMy2FGCJ0LlDlejj2Pi0i1JvZiL0Ycv1t6JoZzD", forHTTPHeaderField: "Authorization")
         url.httpMethod = "GET"
         print(url)
         URLSession.shared.dataTask(with: url) { data, response, error in
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [self] in
                 do {
                     if let data = data {
                         // success: convert to  Measuring, and set according List
@@ -74,12 +79,27 @@ class TemperatureAggregationsViewModel: ObservableObject{
                         self.averagesDay.removeAll()
                         self.stepsDay.removeAll()
                         aggregs = aggregs.reversed()
+                        
                         for data in aggregs{
-                            self.minimumsDay.append(data.minTemp!.roundToDecimal(1))
-                            self.maximumsDay.append(data.maxTemp!.roundToDecimal(1))
-                            self.averagesDay.append(data.avgTemp!.roundToDecimal(1))
-                            self.stepsDay.append(data.hour!)
+                            if timeZoneOffsetInHours >= 0{
+                                if ((data.date == start && (data.hour! + timeZoneOffsetInHours <= 23)) || (data.hour!+timeZoneOffsetInHours >= 24 && data.date == mid) || (data.date == end)){
+                                    continue
+                                }
+                                    self.minimumsDay.append(data.minTemp!.roundToDecimal(1))
+                                    self.maximumsDay.append(data.maxTemp!.roundToDecimal(1))
+                                    self.averagesDay.append(data.avgTemp!.roundToDecimal(1))
+                                    self.stepsDay.append((data.hour! + timeZoneOffsetInHours) % 24)
+                                }else{
+                                    if((data.date == mid && (data.hour! + timeZoneOffsetInHours < 0)) || (data.date! == end && (data.hour! + timeZoneOffsetInHours > 0)) || (data.date == start)){
+                                        continue
+                                    }
+                                        self.minimumsDay.append(data.minTemp!.roundToDecimal(1))
+                                        self.maximumsDay.append(data.maxTemp!.roundToDecimal(1))
+                                        self.averagesDay.append(data.avgTemp!.roundToDecimal(1))
+                                        self.stepsDay.append(handle(num: data.hour!+timeZoneOffsetInHours))
+                                }
                         }
+                        print(self.stepsDay)
                     } else {
                         print("")
                     }
@@ -89,6 +109,13 @@ class TemperatureAggregationsViewModel: ObservableObject{
                 }
             }
         }.resume()
+    }
+    
+    func handle(num: Int)->Int{
+        if num < 0{
+            return num + 24
+        }
+        return num
     }
     
     public func loadWeek() {
