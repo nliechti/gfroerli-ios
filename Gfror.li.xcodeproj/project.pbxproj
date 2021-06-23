@@ -1076,7 +1076,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20210611;
+				CURRENT_PROJECT_VERSION = 20210623;
 				DEVELOPMENT_TEAM = T7M5358433;
 				INFOPLIST_FILE = SelectSensorIntentExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1085,7 +1085,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.19;
+				MARKETING_VERSION = 1.20;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli.SelectSensorIntentExtension2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1100,7 +1100,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20210611;
+				CURRENT_PROJECT_VERSION = 20210623;
 				DEVELOPMENT_TEAM = T7M5358433;
 				INFOPLIST_FILE = SelectSensorIntentExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1109,7 +1109,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.19;
+				MARKETING_VERSION = 1.20;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli.SelectSensorIntentExtension2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1126,7 +1126,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20210611;
+				CURRENT_PROJECT_VERSION = 20210623;
 				DEVELOPMENT_TEAM = T7M5358433;
 				INFOPLIST_FILE = gfroerliWidgetExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1135,7 +1135,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.19;
+				MARKETING_VERSION = 1.20;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli.gfroerliWidgetExtension2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1152,7 +1152,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20210611;
+				CURRENT_PROJECT_VERSION = 20210623;
 				DEVELOPMENT_TEAM = T7M5358433;
 				INFOPLIST_FILE = gfroerliWidgetExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1161,7 +1161,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.19;
+				MARKETING_VERSION = 1.20;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli.gfroerliWidgetExtension2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1299,7 +1299,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = iOS/Gfror.li.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20210611;
+				CURRENT_PROJECT_VERSION = 20210623;
 				DEVELOPMENT_TEAM = T7M5358433;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
@@ -1308,7 +1308,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.19;
+				MARKETING_VERSION = 1.20;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli;
 				PRODUCT_NAME = Gfror.li;
 				SDKROOT = iphoneos;
@@ -1326,7 +1326,7 @@
 				CODE_SIGN_ENTITLEMENTS = iOS/Gfror.liRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20210611;
+				CURRENT_PROJECT_VERSION = 20210623;
 				DEVELOPMENT_TEAM = T7M5358433;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
@@ -1335,7 +1335,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.19;
+				MARKETING_VERSION = 1.20;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli;
 				PRODUCT_NAME = Gfror.li;
 				PROVISIONING_PROFILE_SPECIFIER = "";

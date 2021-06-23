@@ -60,7 +60,7 @@ struct WhatsNewView: View {
                             .cornerRadius(15)
                         Spacer()
                     }
-                }
+                }.padding(.bottom)
             }
         }
         .navigationBarTitle("What's new?", displayMode: .inline)

@@ -1,4 +1,11 @@
 [
+
+    {
+        "version": "1.2",
+        "changes": ["Der Graph ist jetzt interaktiv", "Unterstützung für Fahrenheit und andere Zeitzonen"],
+        "fixes": ["Tap auf Widget linkte nicht in die App", "Zeitzonen Fehler", "Fehlende Übersetzungen", "Text-Elemente verhalten sich besser bei grossen Schriftarten"]
+    
+    },
     {
         "version": "1.1",
         "changes": ["Dieser Changelog", "Zeitpunkt der letzten Messung wird angezeigt", "Option die Zeitspanne der Graphen zu ändern","Sponsoren-Logo","Look des Einstellungen-Tabs", "Neue Links im Einstellungen-Tab", "Neu:\"Laden wiederholen\"-Button", "Verbessert: Drücke und halte die Widgets um Einstellungen vorzunehmen",],

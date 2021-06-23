@@ -53,7 +53,7 @@ struct SensorOverviewMap: View {
     }
     
     func openMaps(){
-        let coordinate = region.center
+        let coordinate = CLLocationCoordinate2D(latitude: sensor.latitude!, longitude: sensor.longitude!)
         let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate, addressDictionary:nil))
         mapItem.name = sensor.device_name
         mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving])
