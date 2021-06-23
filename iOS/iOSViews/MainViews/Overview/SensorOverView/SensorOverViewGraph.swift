@@ -15,6 +15,8 @@ struct SensorOverViewGraph: View {
     @StateObject var weekVM = WeeklyAggregationsViewModel()
     @StateObject var dayVM = HourlyAggregationsViewModel()
     
+    @State var animation = false
+    @State var animationEnded = false
     @State var showIndicator = false
     @State var selectedIndex = 0
     @State var zoomed = true
@@ -64,7 +66,30 @@ struct SensorOverViewGraph: View {
                 }
             }
             
-            GraphView(nrOfLines: 5, timeFrame: $timeFrame, selectedIndex: $selectedIndex, zoomed: $zoomed, showIndicator: $showIndicator, temperatureAggregationsVM: temperatureAggregationsVM)
+            ZStack {
+                if !animationEnded {
+                Image(systemName: "hand.draw.fill")
+                    .resizable()
+                    .font(.largeTitle)
+                    .foregroundColor(.secondary)
+                    .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .offset(x: self.animation ? 60 : -20)
+                    .onAppear(perform: {
+                        self.animation = true
+                        withAnimation(handAnimation){
+                            self.animation = false
+                        }
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                            animationEnded = true
+                        }
+                    })
+                    
+                }
+                
+                GraphView(nrOfLines: 5, timeFrame: $timeFrame, selectedIndex: $selectedIndex, zoomed: $zoomed, showIndicator: $showIndicator, temperatureAggregationsVM: temperatureAggregationsVM)
+                
+            }
             
             HStack(alignment: .center){
                 Label("Minimum", systemImage: "circle.fill").foregroundColor(.blue)
@@ -200,6 +225,11 @@ struct SensorOverViewGraph: View {
             return temperatureAggregationsVM.isInSameMonth
         }
     }
+    
+    var handAnimation: Animation{
+        Animation.easeInOut(duration: 1)
+            .repeatCount(3, autoreverses: true)
+    }
 }
 
 struct SensorOverViewGraph_Previews: PreviewProvider {
@@ -222,17 +252,17 @@ struct TemperaturesDetailView: View{
         HStack{
             Spacer()
             VStack(alignment: .center){
-                Text("Min:").bold()
+                Text("Minimum").bold()
                 Text(makeTemperatureStringFromDouble(double: getMin()))
             }
             Spacer()
             VStack(alignment: .center){
-                Text("Avg:").bold()
+                Text("Average").bold()
                 Text(makeTemperatureStringFromDouble(double: getAvg()))
             }
             Spacer()
             VStack(alignment: .center){
-                Text("Max:").bold()
+                Text("Maximum").bold()
                 Text(makeTemperatureStringFromDouble(double: getMax()))
             }
             Spacer()

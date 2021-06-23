@@ -15,9 +15,12 @@ struct OverView: View {
     var body: some View {
         NavigationView{
             ScrollView(.vertical){
-                VStack(alignment:.leading){
-                    Text("Info:").font(.title3).bold()
-                    Text("More locations will follow very soon, stay tuned!", comment:"Test comment")}.padding().boxStyle()
+                HStack {
+                    VStack(alignment:.leading){
+                        Text("Info:").font(.title3).bold()
+                        Text("More locations will follow very soon, stay tuned!", comment:"Test comment")}
+                    Spacer()
+                }.padding().boxStyle()
                 
                 VStack(spacing: 0){
                     AsyncContentView(source: sensorsVM) { sensors in
@@ -63,6 +66,7 @@ struct TopTabView: View{
                     label: {
                         SensorScrollItem(region: $newestRegion, sensor: $newestSensor, title: "Recently Added")
                     }).buttonStyle(PlainButtonStyle())
+                if sensors.count > 2{
                 NavigationLink(
                     destination: SensorOverView(id: latestSensor.id),
                     label: {
@@ -73,6 +77,7 @@ struct TopTabView: View{
                     label: {
                         SensorScrollItem(region: $randomRegion, sensor: $randomSensor, title: "Random")
                     }).buttonStyle(PlainButtonStyle())
+                }
             }.padding(.horizontal)
         }
         .onAppear(perform: setUpView)
