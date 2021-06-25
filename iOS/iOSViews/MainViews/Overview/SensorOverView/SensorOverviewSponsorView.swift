@@ -10,13 +10,13 @@ import SwiftUI
 struct SensorOverviewSponsorView: View {
     @StateObject var sponsorListVM = SponsorListViewModel()
     var sensor: Sensor
-    
+
     var body: some View {
-        VStack(alignment: .leading){
+        VStack(alignment: .leading) {
             Text("Sponsored by:").font(.title).bold()
             AsyncContentView(source: sponsorListVM) { sponsor in
-                VStack{
-                    HStack{
+                VStack {
+                    HStack {
                         Text(sponsor.name).font(.largeTitle).bold()
                         Spacer()
                     }.padding(.bottom)
@@ -38,15 +38,15 @@ struct SensorOverviewSponsorView_Previews: PreviewProvider {
     }
 }
 
-struct SponsorImageView:View{
-    @ObservedObject var imageLoader:ImageLoader
-    @State var image:UIImage = UIImage()
-    
+struct SponsorImageView: View {
+    @ObservedObject var imageLoader: ImageLoader
+    @State var image: UIImage = UIImage()
+
     init(sponsor: Sponsor) {
-        imageLoader = ImageLoader(urlString:sponsor.logoUrl)
+        imageLoader = ImageLoader(urlString: sponsor.logoUrl)
     }
-    var body: some View{
-        
+    var body: some View {
+
         Image(uiImage: image)
             .resizable()
             .aspectRatio(contentMode: .fit)
@@ -57,7 +57,5 @@ struct SponsorImageView:View{
                 self.image = UIImage(data: data) ?? UIImage()
             }
     }
-    
-    
-    
+
 }

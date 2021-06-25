@@ -8,9 +8,9 @@
 import Foundation
 import SwiftUI
 
-extension View{
-    
-    func boxStyle()-> some View{
+extension View {
+
+    func boxStyle()-> some View {
         self
             .fixedSize(horizontal: false, vertical: true)
             .frame(maxWidth: .infinity)
@@ -20,5 +20,5 @@ extension View{
             .padding(.bottom)
             .padding(.horizontal)
     }
-    
+
 }

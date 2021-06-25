@@ -10,33 +10,33 @@ import IntentsUI
 
 struct SiriButton: UIViewControllerRepresentable {
     public let shortcut: INShortcut
-    
+
     func makeUIViewController(context: Context) -> SiriUIViewController {
         return SiriUIViewController(shortcut: shortcut)
     }
-    
+
     func updateUIViewController(_ uiViewController: SiriUIViewController, context: Context) {
     }
 }
 
 class SiriUIViewController: UIViewController {
     let shortcut: INShortcut
-    
+
     init(shortcut: INShortcut) {
         self.shortcut = shortcut
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         let button = INUIAddVoiceShortcutButton(style: .blackOutline)
         button.shortcut = shortcut
-        
+
         self.view.addSubview(button)
         view.centerXAnchor.constraint(equalTo: button.centerXAnchor).isActive = true
         view.centerYAnchor.constraint(equalTo: button.centerYAnchor).isActive = true
@@ -52,7 +52,7 @@ extension SiriUIViewController: INUIAddVoiceShortcutButtonDelegate {
         addVoiceShortcutViewController.modalPresentationStyle = .formSheet
         present(addVoiceShortcutViewController, animated: true)
     }
-    
+
     func present(_ editVoiceShortcutViewController: INUIEditVoiceShortcutViewController, for addVoiceShortcutButton: INUIAddVoiceShortcutButton) {
         editVoiceShortcutViewController.delegate = self
         editVoiceShortcutViewController.modalPresentationStyle = .formSheet

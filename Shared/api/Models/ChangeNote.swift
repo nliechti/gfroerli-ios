@@ -8,11 +8,11 @@
 import Foundation
 
 struct ChangeNote: Decodable, Identifiable {
-        
-    var id : String {UUID().uuidString}
-    let version : String
-    let changes : [String]
-    let fixes : [String]
+
+    var id: String {UUID().uuidString}
+    let version: String
+    let changes: [String]
+    let fixes: [String]
 
     static let allChangeNotes = Bundle.main.decode([ChangeNote].self, from: "Changes.json")
 }

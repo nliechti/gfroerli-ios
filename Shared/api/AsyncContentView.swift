@@ -7,18 +7,18 @@
 
 import SwiftUI
 
-struct AsyncContentView<Source: LoadableObject, LoadingView: View,Content: View>: View {
-    
+struct AsyncContentView<Source: LoadableObject, LoadingView: View, Content: View>: View {
+
     @ObservedObject var source: Source
     var loadingView: LoadingView
     var content: (Source.Output) -> Content
-    init(source: Source,loadingView: LoadingView ,
+    init(source: Source, loadingView: LoadingView ,
          @ViewBuilder content: @escaping (Source.Output) -> Content) {
         self.source = source
         self.content = content
         self.loadingView = loadingView
     }
-    
+
     var body: some View {
         switch source.state {
         case .idle:
@@ -31,7 +31,7 @@ struct AsyncContentView<Source: LoadableObject, LoadingView: View,Content: View>
             content(output)
         }
     }
-    
+
 }
 
 struct AsyncContentView_Previews: PreviewProvider {

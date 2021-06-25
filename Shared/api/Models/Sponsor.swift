@@ -4,23 +4,24 @@
 //
 //  Created by Marc Kramer on 05.10.20.
 //
+// swiftlint:disable identifier_name
+
 
 import Foundation
 
 struct Sponsor: Codable, Identifiable {
-    
-    init(id: Int, name: String, description: String,  created_at: String, logoUrl: String) {
+
+    init(id: Int, name: String, description: String, created_at: String, logoUrl: String) {
         self.id = id
         self.name = name
         self.description = description
         self.logoUrl = logoUrl
     }
-    
-    let id : Int
-    let name : String
-    let description : String
-    let logoUrl: String
 
+    let id: Int
+    let name: String
+    let description: String
+    let logoUrl: String
 
     enum CodingKeys: String, CodingKey {
 
@@ -30,7 +31,6 @@ struct Sponsor: Codable, Identifiable {
         case logoUrl = "logo_url"
     }
 
-    
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         id = try values.decode(Int.self, forKey: .id)

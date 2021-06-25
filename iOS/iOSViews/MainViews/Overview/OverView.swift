@@ -10,30 +10,30 @@ import MapKit
 struct OverView: View {
     @State var showSens = false
     @Binding var showDetail: Bool
-    @ObservedObject var sensorsVM : SensorListViewModel
+    @ObservedObject var sensorsVM: SensorListViewModel
 
     var body: some View {
-        NavigationView{
-            ScrollView(.vertical){
+        NavigationView {
+            ScrollView(.vertical) {
                 HStack {
-                    VStack(alignment:.leading){
+                    VStack(alignment: .leading) {
                         Text("Info:").font(.title3).bold()
-                        Text("More locations will follow very soon, stay tuned!", comment:"Test comment")}
+                        Text("More locations will follow very soon, stay tuned!", comment: "Test comment")}
                     Spacer()
                 }.padding().boxStyle()
-                
-                VStack(spacing: 0){
+
+                VStack(spacing: 0) {
                     AsyncContentView(source: sensorsVM) { sensors in
                         TopTabView(sensors: sensors)
                     }
-                    HStack{
+                    HStack {
                     Text("Water Bodies")
                         .font(.title)
                         .bold()
-                        .padding([.horizontal,.top])
+                        .padding([.horizontal, .top])
                     Spacer()
                     }
-                    ForEach(lakes){ lake in
+                    ForEach(lakes) { lake in
                         NavigationLink(
                             destination: LakeOverView(lake: lake, sensorsVM: sensorsVM),
                             label: {
@@ -50,23 +50,32 @@ struct OverView: View {
     }
 }
 
-struct TopTabView: View{
-    @State var sensors : [Sensor]
+struct TopTabView: View {
+    @State var sensors: [Sensor]
     @State var newestSensor = testSensor1
     @State var randomSensor = testSensor1
     @State var latestSensor = testSensor1
-    @State var newestRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: testSensor1.latitude!, longitude: testSensor1.longitude!), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-    @State var latesRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: testSensor1.latitude!, longitude: testSensor1.longitude!), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-    @State var randomRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: testSensor1.latitude!, longitude: testSensor1.longitude!), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-    var body: some View{
-        ScrollView(.horizontal,showsIndicators: false){
-            HStack{
+    @State var newestRegion = MKCoordinateRegion(
+        center: CLLocationCoordinate2D(latitude: testSensor1.latitude!, longitude: testSensor1.longitude!),
+        span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+    )
+    @State var latesRegion = MKCoordinateRegion(
+        center: CLLocationCoordinate2D(latitude: testSensor1.latitude!, longitude: testSensor1.longitude!),
+        span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+    )
+    @State var randomRegion = MKCoordinateRegion(
+        center: CLLocationCoordinate2D(latitude: testSensor1.latitude!, longitude: testSensor1.longitude!),
+        span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+    )
+    var body: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack {
                 NavigationLink(
                     destination: SensorOverView(id: newestSensor.id),
                     label: {
                         SensorScrollItem(region: $newestRegion, sensor: $newestSensor, title: "Recently Added")
                     }).buttonStyle(PlainButtonStyle())
-                if sensors.count > 2{
+                if sensors.count > 2 {
                 NavigationLink(
                     destination: SensorOverView(id: latestSensor.id),
                     label: {
@@ -81,17 +90,25 @@ struct TopTabView: View{
             }.padding(.horizontal)
         }
         .onAppear(perform: setUpView)
-        
-        
+
     }
-    
-    func setUpView(){
+
+    func setUpView() {
         newestSensor = sensors.sorted(by: {$0.id > $1.id}).first!
         latestSensor = sensors.sorted(by: {$0.lastTempTime! > $1.lastTempTime!}).first!
         randomSensor = sensors.randomElement()!
-        newestRegion =  MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: newestSensor.latitude!, longitude: newestSensor.longitude!), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-        latesRegion =  MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: latestSensor.latitude!, longitude: latestSensor.longitude!), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-        randomRegion =  MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: randomSensor.latitude!, longitude: randomSensor.longitude!), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        newestRegion =  MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: newestSensor.latitude!, longitude: newestSensor.longitude!),
+            span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        )
+        latesRegion =  MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: latestSensor.latitude!, longitude: latestSensor.longitude!),
+            span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        )
+        randomRegion =  MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: randomSensor.latitude!, longitude: randomSensor.longitude!),
+            span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        )
     }
 }
 

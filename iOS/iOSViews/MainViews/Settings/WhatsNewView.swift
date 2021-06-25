@@ -8,32 +8,32 @@
 import SwiftUI
 
 struct WhatsNewView: View {
-    
+
     @Environment(\.presentationMode) private var presentationMode
     var lastVersion: String
     var showDismiss: Bool
-    
+
     var body: some View {
-        
-        ScrollView(){
-            
-            ForEach(ChangeNote.allChangeNotes){ changeNote in
-                
-                if changeNote.version > lastVersion{
-                    VStack(alignment:.leading){
-                        HStack{
+
+        ScrollView {
+
+            ForEach(ChangeNote.allChangeNotes) { changeNote in
+
+                if changeNote.version > lastVersion {
+                    VStack(alignment: .leading) {
+                        HStack {
                             Text("Version: "+changeNote.version+":").font(.title).bold()
                             Spacer()
                         }
-                        if !changeNote.changes.isEmpty{
-                            Text("Changes").font(.title2).padding(.vertical,1)
-                            ForEach(changeNote.changes, id: \.self ){change in
+                        if !changeNote.changes.isEmpty {
+                            Text("Changes").font(.title2).padding(.vertical, 1)
+                            ForEach(changeNote.changes, id: \.self ) {change in
                                 Text("- "+change)
                             }.padding([.horizontal])
                         }
-                        if !changeNote.fixes.isEmpty{
-                            Text("Fixes").font(.title2).padding(.vertical,2)
-                            ForEach(changeNote.fixes, id: \.self ){fix in
+                        if !changeNote.fixes.isEmpty {
+                            Text("Fixes").font(.title2).padding(.vertical, 2)
+                            ForEach(changeNote.fixes, id: \.self ) {fix in
                                 Text("- "+fix)
                             }.padding([.horizontal])
                         }
@@ -43,15 +43,15 @@ struct WhatsNewView: View {
                     .padding()
                     .shadow(radius: 1)
                 }
-                
+
             }
-            
-            //Dismiss Button
-            if showDismiss{
+
+            // Dismiss Button
+            if showDismiss {
                 Button {
                     self.presentationMode.wrappedValue.dismiss()
                 } label: {
-                    HStack{
+                    HStack {
                         Spacer()
                         Text("Continue")
                             .foregroundColor(.white)
@@ -67,13 +67,13 @@ struct WhatsNewView: View {
         .background(Color.systemGroupedBackground)
         .onDisappear {
             UserDefaults(suiteName: "group.ch.gfroerli")?.set(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0.0", forKey: "lastVersion")
-            
+
         }
     }
 }
 
 struct WhatsNewView_Previews: PreviewProvider {
     static var previews: some View {
-        WhatsNewView(lastVersion: "1.0",showDismiss: true)
+        WhatsNewView(lastVersion: "1.0", showDismiss: true)
     }
 }

@@ -7,13 +7,12 @@
 
 import SwiftUI
 
-
-struct X_LabelsView: View {
+struct XLabelsView: View {
     @ObservedObject var temperatureAggregationsVM: TemperatureAggregationsViewModel
     @Binding var timeFrame: TimeFrame
     @Binding var totalSteps: Int
-    
-    var startDate:Date{
+
+    var startDate: Date {
         switch timeFrame {
         case .day:
             return Date()
@@ -23,36 +22,36 @@ struct X_LabelsView: View {
             return temperatureAggregationsVM.startDateMonth
         }
     }
-    
-    var midDate:Date{
-        return Calendar.current.date(byAdding: .day,value: totalSteps/2, to: startDate)!
+
+    var midDate: Date {
+        return Calendar.current.date(byAdding: .day, value: totalSteps/2, to: startDate)!
     }
-    
-    var endDate:Date{
-        return Calendar.current.date(byAdding: .day,value: totalSteps, to: startDate)!
-        
+
+    var endDate: Date {
+        return Calendar.current.date(byAdding: .day, value: totalSteps, to: startDate)!
+
     }
-    
+
     var body: some View {
-        HStack{
+        HStack {
             if timeFrame == .day {
-                
+
                 Text("00:00")
                 Spacer()
                 Text("12:00")
                 Spacer()
                 Text("24:00")
-                
+
             } else if timeFrame == .week {
-                
+
                 Text(formatDateTextWeek(date: startDate))
                 Spacer()
                 Text(formatDateTextWeek(date: midDate))
                 Spacer()
                 Text(formatDateTextWeek(date: endDate))
-                
+
             } else {
-                
+
                 Text(formatDateTextMonth(date: startDate))
                 Spacer()
                 Text(formatDateTextMonth(date: midDate))
@@ -61,21 +60,21 @@ struct X_LabelsView: View {
             }
         }
     }
-    
-    func formatDateTextWeek(date:Date)-> String{
+
+    func formatDateTextWeek(date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.setLocalizedDateFormatFromTemplate("eee")
         return dateFormatter.string(from: date)
     }
-    
-    func formatDateTextMonth(date:Date)-> String{
+
+    func formatDateTextMonth(date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.setLocalizedDateFormatFromTemplate("dd MMM")
         return dateFormatter.string(from: date)
     }
 }
 
-struct X_LabelsView_Previews: PreviewProvider {
+struct XLabelsView_Previews: PreviewProvider {
     static var previews: some View {
         EmptyView()
     }

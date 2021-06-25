@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Legend: View {
-    
+
     var frame: CGRect
     var stepHeight: CGFloat {
         frame.size.height/(max-min)
@@ -16,12 +16,12 @@ struct Legend: View {
     var xLabels: [String]
     var max: CGFloat
     var min: CGFloat
-    
+
     var body: some View {
-        
-            ZStack(alignment: .topLeading){
+
+            ZStack(alignment: .topLeading) {
                         ForEach((0...4), id: \.self) { height in
-                            HStack(alignment: .center){
+                            HStack(alignment: .center) {
                                 Text("\(self.getYLegendSafeText(height: height), specifier: "%.2f")°").offset(x: 0, y: self.getYposition(height: height) )
                                     .foregroundColor(Color.secondary)
                                     .font(.caption)
@@ -31,36 +31,36 @@ struct Legend: View {
                                     .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
                                     .clipped()
                             }
-                           
+
                         }
-                        
+
             }
-       
+
     }
-func getYLegendSafe(height:Int)->CGFloat{
+func getYLegendSafe(height: Int) -> CGFloat {
     if let legend = getYLegend() {
         return CGFloat(legend[height])
     }
     return 0
 }
 
-    func getYLegendSafeText(height:Int)->CGFloat{
+    func getYLegendSafeText(height: Int) -> CGFloat {
         if let legend = getYLegendText() {
             return CGFloat(legend[height])
         }
         return 0
     }
-func getYposition(height: Int)-> CGFloat {
+func getYposition(height: Int) -> CGFloat {
     if let legend = getYLegend() {
         return (self.frame.height-((CGFloat(legend[height]) - min)*self.stepHeight))-(self.frame.height/2)
     }
     return 0
-    
+
 }
 
 func line(atHeight: CGFloat, width: CGFloat) -> Path {
     var hLine = Path()
-    hLine.move(to: CGPoint(x:5, y: (atHeight-min)*stepHeight))
+    hLine.move(to: CGPoint(x: 5, y: (atHeight-min)*stepHeight))
     hLine.addLine(to: CGPoint(x: width, y: (atHeight-min)*stepHeight))
     return hLine
 }

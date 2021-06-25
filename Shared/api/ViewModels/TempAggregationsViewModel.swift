@@ -8,8 +8,8 @@
 import Foundation
 import Combine
 
-class MonthlyAggregationsViewModel: LoadableObject{
-    
+class MonthlyAggregationsViewModel: LoadableObject {
+
     typealias Output = [DailyAggregation]
 
     @Published var dataMonth = [DailyAggregation]() { didSet { didChange.send(())}}
@@ -17,7 +17,7 @@ class MonthlyAggregationsViewModel: LoadableObject{
 
     let didChange = PassthroughSubject<Void, Never>()
     var id: Int = 0
-    var date: Date = Calendar.current.dateComponents([.calendar, .month, .year], from: Date()).date!{
+    var date: Date = Calendar.current.dateComponents([.calendar, .month, .year], from: Date()).date! {
         didSet {
             load()
         }
@@ -26,13 +26,13 @@ class MonthlyAggregationsViewModel: LoadableObject{
         let df = DateFormatter()
         df.dateFormat = "yyyy-MM-dd"
         let start = df.string(from: date)
-        let end = df.string(from:Calendar.current.date(byAdding: DateComponents(month: 1, day: -1), to: date)!)
-        
+        let end = df.string(from: Calendar.current.date(byAdding: DateComponents(month: 1, day: -1), to: date)!)
+
         var url = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/mobile_app/sensors/\(id)/daily_temperatures?from=\(start)&to=\(end)&limit=32")!)
         url.setValue("Bearer XTZA6H0Hg2f02bzVefmVlr8fIJMy2FGCJ0LlDlejj2Pi0i1JvZiL0Ycv1t6JoZzD", forHTTPHeaderField: "Authorization")
         url.httpMethod = "GET"
-    
-        URLSession.shared.dataTask(with: url) { data, response, error in
+
+        URLSession.shared.dataTask(with: url) { data, _, _ in
             DispatchQueue.main.async {
                 do {
                 if let data = data {
@@ -41,25 +41,24 @@ class MonthlyAggregationsViewModel: LoadableObject{
                     let aggregs = try jsonDecoder.decode([DailyAggregation].self, from: data)
                     self.dataMonth=aggregs.reversed()
                     self.state = .loaded(aggregs.reversed())
-                    
+
                 } else {
                     self.state = .failed
                 }
-                }catch{
+                } catch {
                     self.state = .failed
                 }
             }
         }.resume()
     }
-    
-    func createGoodDate(string: String)->Date{
+
+    func createGoodDate(string: String) -> Date {
         var newDate = string
         newDate.removeLast(5)
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-        let date = dateFormatter.date(from:newDate)!
+        let date = dateFormatter.date(from: newDate)!
         return date
     }
 }
-

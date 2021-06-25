@@ -11,9 +11,9 @@ struct FAQView: View {
     @State var firstExpanded = false
     @State var secondExpanded = false
     var body: some View {
-        
+
             VStack {
-                GroupBox{
+                GroupBox {
                     DisclosureGroup(isExpanded: $firstExpanded,
                         content: {
                             Text("A1_String")
@@ -22,13 +22,13 @@ struct FAQView: View {
                             Text("Q1_String").font(.headline)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .contentShape(Rectangle())
-                                .onTapGesture{withAnimation{firstExpanded.toggle()}}
+                                .onTapGesture {withAnimation {firstExpanded.toggle()}}
                         })
-                        
+
                     DisclosureGroup(isExpanded: $secondExpanded,
                         content: {
                             Text("A2_String")
-                            HStack{
+                            HStack {
                                 Link("www.gfrör.li", destination: URL(string: "https://xn--gfrr-7qa.li/")!)
                                 Spacer()
                             }
@@ -37,16 +37,16 @@ struct FAQView: View {
                             Text("Q2_String").font(.headline)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .contentShape(Rectangle())
-                                .onTapGesture{withAnimation{secondExpanded.toggle()}}
+                                .onTapGesture {withAnimation {secondExpanded.toggle()}}
                         })
-                    
+
                 }.groupBoxStyle(ColoredGroupBox())
                 Spacer()
             }.padding()
             .background(Color.systemGroupedBackground.ignoresSafeArea())
             .navigationTitle("About")
             .navigationBarTitleDisplayMode(.inline)
-        
+
     }
 }
 

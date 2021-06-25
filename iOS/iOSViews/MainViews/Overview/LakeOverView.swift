@@ -9,19 +9,19 @@ import SwiftUI
 import MapKit
 
 struct LakeOverView: View {
-    var lake : Lake
+    var lake: Lake
     @ObservedObject var sensorsVM: SensorListViewModel
     var body: some View {
-        VStack(alignment: .leading,spacing: 0) {
-                    topMap(lake: lake, region: lake.region, sensors: sensorsVM)
+        VStack(alignment: .leading, spacing: 0) {
+                    TopMap(lake: lake, region: lake.region, sensors: sensorsVM)
             AsyncContentView(source: sensorsVM) { sensors in
-                        ScrollView(showsIndicators: true){
-                            HStack{
-                                Text("Locations").font(.title).bold().padding([.top,.horizontal])
+                        ScrollView(showsIndicators: true) {
+                            HStack {
+                                Text("Locations").font(.title).bold().padding([.top, .horizontal])
                                 Spacer()
                             }
-                        ForEach(sensors){ sensor in
-                            if(lake.sensors.contains(String(sensor.id))){
+                        ForEach(sensors) { sensor in
+                            if lake.sensors.contains(String(sensor.id)) {
                                 NavigationLink(
                                     destination: SensorOverView(id: sensor.id),
                                     label: {
@@ -36,7 +36,7 @@ struct LakeOverView: View {
                 .navigationBarTitle(lake.name)
                 .background(Color.systemGroupedBackground.ignoresSafeArea())
             }
-    
+
 }
 
 struct LakeOverView_Previews: PreviewProvider {
@@ -45,18 +45,18 @@ struct LakeOverView_Previews: PreviewProvider {
     }
 }
 
-struct topMap: View{
+struct TopMap: View {
     var lake: Lake
     @State var region: MKCoordinateRegion
     @ObservedObject var sensors: SensorListViewModel
-    var body: some View{
-        
-        Map (coordinateRegion: $region,
+    var body: some View {
+
+        Map(coordinateRegion: $region,
              annotationItems: sensors.sensorArray, annotationContent: { pin in
             MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: pin.latitude!, longitude: pin.longitude!), content: {
-                
+
                 NavigationLink(
-                    destination: /*@START_MENU_TOKEN@*/Text("Destination")/*@END_MENU_TOKEN@*/,
+                    destination: Text("Destination")/*@END_MENU_TOKEN@*/,
                     label: {
                         Text(makeTemperatureStringFromDouble(double: pin.latestTemp!))
                             .minimumScaleFactor(0.3)
@@ -67,16 +67,15 @@ struct topMap: View{
                             .cornerRadius(90)
                     })
             })
-            
+
              }).disabled(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
-            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/3.5, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-        
+            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/3.5, alignment: .center/*@END_MENU_TOKEN@*/)
+
         .onAppear(perform: {
-            region = MKCoordinateRegion(center: lake.region.center, span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta:0.2))
-            
+            region = MKCoordinateRegion(center: lake.region.center, span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
+
         })
-        
-        
+
     }
-    
+
 }

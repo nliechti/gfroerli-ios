@@ -10,28 +10,27 @@ import Combine
 
 class SensorListViewModel: LoadableObject {
     typealias Output = [Sensor]
-    
+
     @Published var sensorArray = [Sensor]() { didSet { didChange.send(())}}
     @Published private(set) var state = LoadingState<Output>.idle
-    
+
     let didChange = PassthroughSubject<Void, Never>()
-        
+
     init() {
         self.load()
     }
-        
+
     init(sensors: [Sensor]) {
         sensorArray = sensors
     }
-    
-    
+
     func load() {
         self.state = .loading
         var url = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/mobile_app/sensors")!)
         url.setValue("Bearer XTZA6H0Hg2f02bzVefmVlr8fIJMy2FGCJ0LlDlejj2Pi0i1JvZiL0Ycv1t6JoZzD", forHTTPHeaderField: "Authorization")
         url.httpMethod = "GET"
 
-        URLSession.shared.dataTask(with: url) { data, response, error in
+        URLSession.shared.dataTask(with: url) { data, _, error in
             DispatchQueue.main.async {
                 do {
                     if let data = data {
@@ -40,18 +39,18 @@ class SensorListViewModel: LoadableObject {
                         let sensors = try jsonDecoder.decode([Sensor].self, from: data)
                         self.sensorArray = sensors
                         self.state = .loaded(sensors)
-                        
-                    }else{
+
+                    } else {
                         self.state = .failed
                     }
-                }catch{
+                } catch {
                     print(error.localizedDescription)
                     self.state = .failed
                 }
             }
         }.resume()
     }
-    
+
     func readLocalFile(forName name: String) -> Data? {
         do {
             if let bundlePath = Bundle.main.path(forResource: name,
@@ -62,15 +61,9 @@ class SensorListViewModel: LoadableObject {
         } catch {
             print(error)
         }
-        
+
         return nil
     }
 }
 
-
-
-
-let testSensorVM = SensorListViewModel(sensors: [testSensor1,testSensor2])
-
-
-
+let testSensorVM = SensorListViewModel(sensors: [testSensor1, testSensor2])

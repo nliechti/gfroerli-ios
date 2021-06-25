@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct SensorOverviewLastMeasurementView: View {
-    var sensor : Sensor
+    var sensor: Sensor
     var body: some View {
-        VStack{
-            HStack(alignment: .firstTextBaseline){
-                VStack(alignment: .leading){
+        VStack {
+            HStack(alignment: .firstTextBaseline) {
+                VStack(alignment: .leading) {
                     Text("Latest").font(.title)
                         .bold()
                     Text(makeTemperatureStringFromDouble(double: sensor.latestTemp!) )
@@ -49,12 +49,11 @@ struct SensorOverviewLastMeasurementView: View {
                 .lineLimit(1)
                 .minimumScaleFactor(0.1)
                 }
-                
-            
-            HStack(spacing: 0){
+
+            HStack(spacing: 0) {
                 Text("Measured at ").font(.headline)
                 Text(sensor.lastTempTime!, style: .time).font(.headline)
-                if !areSameDay(date1: Date(), date2: sensor.lastTempTime!){
+                if !areSameDay(date1: Date(), date2: sensor.lastTempTime!) {
                     Text(createStringFromDate(date: sensor.lastTempTime!, format: ", dd. MMM. YYYY")).font(.headline)
                 }
                 Spacer()
@@ -62,14 +61,14 @@ struct SensorOverviewLastMeasurementView: View {
             .lineLimit(1)
             .minimumScaleFactor(0.1)
         }.padding()
-        .frame(maxWidth:.infinity,alignment: .topLeading)
+        .frame(maxWidth: .infinity, alignment: .topLeading)
     }
 
 }
 
 struct SensorOverviewLastMeasurementView_Previews: PreviewProvider {
     static var previews: some View {
-        SensorOverviewLastMeasurementView(sensor:testSensor1)
+        SensorOverviewLastMeasurementView(sensor: testSensor1)
             .environment(\.sizeCategory, .accessibilityExtraExtraExtraLarge)
             .boxStyle()
             .padding(.top)
@@ -77,5 +76,3 @@ struct SensorOverviewLastMeasurementView_Previews: PreviewProvider {
             .makePreViewModifier()
     }
 }
-
-

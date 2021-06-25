@@ -10,21 +10,27 @@ import MapKit
 
 struct SensorOverviewMap: View {
     @State var region: MKCoordinateRegion
-    
+
     var annotation: [Sensor]
     var sensor: Sensor
     var originalRegion: MKCoordinateRegion
-    
-    init(inSensor: Sensor){
+
+    init(inSensor: Sensor) {
         self.sensor = inSensor
-       _region = State(wrappedValue: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: sensor.latitude!, longitude: sensor.longitude!), span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)))
-     annotation = [sensor]
-        originalRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: sensor.latitude!, longitude: sensor.longitude!), span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
+       _region = State(wrappedValue: MKCoordinateRegion(
+        center: CLLocationCoordinate2D(latitude: sensor.latitude!, longitude: sensor.longitude!),
+        span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
+       ))
+        annotation = [sensor]
+        originalRegion = MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: sensor.latitude!, longitude: sensor.longitude!),
+            span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
+        )
     }
-    
+
     var body: some View {
         ZStack(alignment: .bottom) {
-            VStack(alignment:.leading) {
+            VStack(alignment: .leading) {
                 HStack {
                     Text("Location").font(.title).bold()
                     Spacer()
@@ -35,13 +41,13 @@ struct SensorOverviewMap: View {
                             .font(.title2)
                     }
                 }.padding([.top, .horizontal])
-                
-                Map (coordinateRegion: $region, annotationItems: annotation){ mark in
+
+                Map(coordinateRegion: $region, annotationItems: annotation) { mark in
                     MapMarker(coordinate: CLLocationCoordinate2D(latitude: mark.latitude!, longitude: mark.longitude!))
                 }.frame(minHeight: 300)
             }
-            
-            HStack{
+
+            HStack {
                 Button {
                     openMaps()
                 } label: {
@@ -51,12 +57,12 @@ struct SensorOverviewMap: View {
             }.padding()
         }
     }
-    
-    func openMaps(){
+
+    func openMaps() {
         let coordinate = CLLocationCoordinate2D(latitude: sensor.latitude!, longitude: sensor.longitude!)
-        let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate, addressDictionary:nil))
+        let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate, addressDictionary: nil))
         mapItem.name = sensor.device_name
-        mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving])
+        mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving])
     }
 }
 

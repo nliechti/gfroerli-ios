@@ -10,8 +10,8 @@ import Combine
 
 class SingleSensorViewModel: LoadableObject {
     typealias Output = Sensor
-    
-    @Published var sensor :Sensor! { didSet { didChange.send(())}}
+
+    @Published var sensor: Sensor! { didSet { didChange.send(())}}
     @Published private(set) var state = LoadingState<Output>.idle
 
     let didChange = PassthroughSubject<Void, Never>()
@@ -20,19 +20,18 @@ class SingleSensorViewModel: LoadableObject {
     init() {
         sensor = nil
     }
-    
+
     init(sensor: Sensor) {
         self.sensor = sensor
     }
-    
-    
+
     public func load() {
         self.state = .loading
         var url = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/mobile_app/sensors/\(id)")!)
         url.setValue("Bearer XTZA6H0Hg2f02bzVefmVlr8fIJMy2FGCJ0LlDlejj2Pi0i1JvZiL0Ycv1t6JoZzD", forHTTPHeaderField: "Authorization")
         url.httpMethod = "GET"
 
-        URLSession.shared.dataTask(with: url) { data, response, error in
+        URLSession.shared.dataTask(with: url) { data, _, _ in
             DispatchQueue.main.async {
                 do {
                 if let data = data {
@@ -46,11 +45,10 @@ class SingleSensorViewModel: LoadableObject {
                     self.state = .failed
                 }
                     // decoding failed
-                }catch{
+                } catch {
                     self.state = .failed
                 }
             }
         }.resume()
     }
 }
-

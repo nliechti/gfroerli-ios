@@ -10,26 +10,26 @@ import MapKit
 
 struct FavoritesView: View {
     @State var favorites =  [Int]()
-    @ObservedObject var sensorsVm : SensorListViewModel
-    
+    @ObservedObject var sensorsVm: SensorListViewModel
+
     var body: some View {
-        NavigationView{
-            VStack{
-                if favorites.isEmpty{
-                    VStack{
+        NavigationView {
+            VStack {
+                if favorites.isEmpty {
+                    VStack {
                         Spacer()
-                        HStack{
+                        HStack {
                             Spacer()
                             Text("No Favorites").font(.largeTitle).foregroundColor(.gray)
                             Spacer()
                         }
                         Spacer()
                     }
-                }else{
+                } else {
                     AsyncContentView(source: sensorsVm) { sensors in
-                        ScrollView{
-                            ForEach(sensors){ sensor in
-                                if favorites.contains(sensor.id){
+                        ScrollView {
+                            ForEach(sensors) { sensor in
+                                if favorites.contains(sensor.id) {
                                     NavigationLink(
                                         destination: SensorOverView(id: sensor.id),
                                         label: {
@@ -50,15 +50,15 @@ struct FavoritesView: View {
     }
 }
 
-private struct Item:View{
+private struct Item: View {
     @State var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
     var sensor: Sensor
-    var body: some View{
-        VStack(alignment: .leading, spacing: 0){
-            
+    var body: some View {
+        VStack(alignment: .leading, spacing: 0) {
+
             Map(coordinateRegion: $region, interactionModes: [])
-            VStack(alignment: .leading){
-                
+            VStack(alignment: .leading) {
+
                 HStack {
                     Text(sensor.device_name)
                         .font(.headline)
@@ -71,7 +71,7 @@ private struct Item:View{
         .onAppear(perform: {
             region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: sensor.latitude!, longitude: sensor.longitude!), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         })
-        
+
         .background(Color.secondarySystemGroupedBackground)
         .frame(width: UIScreen.main.bounds.width, height: 200)
     }

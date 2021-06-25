@@ -7,11 +7,13 @@
 
 import Intents
 
-class IntentHandler: INExtension,SingleSensorIntentHandling{
-    
+class IntentHandler: INExtension, SingleSensorIntentHandling {
+
     let sensorVM = SensorListViewModel()
 
-    func provideSensorOptionsCollection(for intent: SingleSensorIntent, with completion: @escaping (INObjectCollection<SelectableSensor>?, Error?) -> Void) {
+    func provideSensorOptionsCollection(
+        for intent: SingleSensorIntent,
+        with completion: @escaping (INObjectCollection<SelectableSensor>?, Error?) -> Void) {
         sensorVM.load()
         let seconds = 1.0
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
@@ -31,12 +33,9 @@ class IntentHandler: INExtension,SingleSensorIntentHandling{
             completion(collection, nil)
         }
     }
-    
     override func handler(for intent: INIntent) -> Any {
         // This is the default implementation.  If you want different objects to handle different intents,
         // you can override this and return the handler you want for that particular intent.
-        
         return self
     }
-    
 }

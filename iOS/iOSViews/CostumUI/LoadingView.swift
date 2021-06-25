@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct LoadingView: View {
-    init(){}
+    init() {}
     var body: some View {
-        VStack{
+        VStack {
             Spacer()
             HStack {
                 Spacer()
@@ -31,7 +31,7 @@ struct LoadingView: View {
 struct ErrorView<Source: LoadableObject>: View {
     @ObservedObject var source: Source
     var body: some View {
-        VStack{
+        VStack {
             Spacer()
             HStack {
                 Spacer()

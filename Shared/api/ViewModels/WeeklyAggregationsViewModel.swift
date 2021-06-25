@@ -9,8 +9,8 @@ import Foundation
 import Foundation
 import Combine
 
-class WeeklyAggregationsViewModel: LoadableObject{
-    
+class WeeklyAggregationsViewModel: LoadableObject {
+
     typealias Output = [DailyAggregation]
 
     @Published var dataWeek = [DailyAggregation]() { didSet { didChange.send(())}}
@@ -18,22 +18,22 @@ class WeeklyAggregationsViewModel: LoadableObject{
 
     let didChange = PassthroughSubject<Void, Never>()
     var id: Int = 0
-    var date: Date = Calendar.current.dateComponents([.calendar, .yearForWeekOfYear, .weekOfYear], from: Date()).date!{
+    var date: Date = Calendar.current.dateComponents([.calendar, .yearForWeekOfYear, .weekOfYear], from: Date()).date! {
         didSet {
             load()
         }
     }
-    
+
     public func load() {
         let df = DateFormatter()
         df.dateFormat = "yyyy-MM-dd"
         let start = df.string(from: date)
-        let end = df.string(from:Calendar.current.date(byAdding: .day, value: 6, to: date)!)
+        let end = df.string(from: Calendar.current.date(byAdding: .day, value: 6, to: date)!)
         var url = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/mobile_app/sensors/\(id)/daily_temperatures?from=\(start)&to=\(end)&limit=8")!)
-        
+
         url.setValue("Bearer XTZA6H0Hg2f02bzVefmVlr8fIJMy2FGCJ0LlDlejj2Pi0i1JvZiL0Ycv1t6JoZzD", forHTTPHeaderField: "Authorization")
         url.httpMethod = "GET"
-        URLSession.shared.dataTask(with: url) { data, response, error in
+        URLSession.shared.dataTask(with: url) { data, _, _ in
             DispatchQueue.main.async {
                 do {
                 if let data = data {
@@ -42,15 +42,14 @@ class WeeklyAggregationsViewModel: LoadableObject{
                     let aggregs = try jsonDecoder.decode([DailyAggregation].self, from: data)
                     self.dataWeek=aggregs.reversed()
                     self.state = .loaded(aggregs.reversed())
-                }else {
+                } else {
                     self.state = .failed
                 }
-                }catch{
+                } catch {
                     self.state = .failed
                 }
             }
         }.resume()
     }
-    
-    
+
 }
