@@ -8,23 +8,18 @@
 import SwiftUI
 
 struct LoadingView: View {
-    init() {}
     var body: some View {
-        VStack {
+        HStack {
             Spacer()
-            HStack {
+            VStack {
                 Spacer()
                 ProgressView().progressViewStyle(CircularProgressViewStyle())
-                Spacer()
-            }
-            HStack {
-                Spacer()
-                Text("Loading").foregroundColor(.gray)
+                    .padding(.bottom, 2)
+                Text("LOADING").foregroundColor(.secondary)
                 Spacer()
             }
             Spacer()
-        }.frame(maxWidth: .infinity)
-        .background(Color.systemGroupedBackground)
+        }.padding()
     }
 }
 

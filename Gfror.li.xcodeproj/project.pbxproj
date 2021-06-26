@@ -53,6 +53,10 @@
 		B41B166525C9740F00E8FD18 /* sensors.json in Resources */ = {isa = PBXBuildFile; fileRef = B41B166425C9740F00E8FD18 /* sensors.json */; };
 		B43568D225E3B31F00AA2B40 /* LocationNotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43568D125E3B31F00AA2B40 /* LocationNotificationHandler.swift */; };
 		B43568DA25E3C91500AA2B40 /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43568D925E3C91500AA2B40 /* LocationHandler.swift */; };
+		B4512B672686359500F631C8 /* BearerToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4512B662686359500F631C8 /* BearerToken.swift */; };
+		B4512B68268635BD00F631C8 /* BearerToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4512B662686359500F631C8 /* BearerToken.swift */; };
+		B4512B69268635BD00F631C8 /* BearerToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4512B662686359500F631C8 /* BearerToken.swift */; };
+		B4512B6A2687388100F631C8 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49BE2CF261CB4880004B0D6 /* Reachability.swift */; };
 		B467085C2641BD8D003E28E5 /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B467085B2641BD8D003E28E5 /* Observer.swift */; };
 		B467085D2641C42B003E28E5 /* Changes.json in Resources */ = {isa = PBXBuildFile; fileRef = B46708612641C42B003E28E5 /* Changes.json */; };
 		B467085E2641C42B003E28E5 /* Changes.json in Resources */ = {isa = PBXBuildFile; fileRef = B46708612641C42B003E28E5 /* Changes.json */; };
@@ -239,6 +243,7 @@
 		B41B166425C9740F00E8FD18 /* sensors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sensors.json; sourceTree = "<group>"; };
 		B43568D125E3B31F00AA2B40 /* LocationNotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNotificationHandler.swift; sourceTree = "<group>"; };
 		B43568D925E3C91500AA2B40 /* LocationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
+		B4512B662686359500F631C8 /* BearerToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BearerToken.swift; sourceTree = "<group>"; };
 		B467085B2641BD8D003E28E5 /* Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
 		B46708602641C42B003E28E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = Base.lproj/Changes.json; sourceTree = "<group>"; };
 		B46708622641C432003E28E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = en; path = en.lproj/Changes.json; sourceTree = "<group>"; };
@@ -674,6 +679,7 @@
 				8DA7CEF32516105900395465 /* ViewModels */,
 				E4C24FE524EEB57A00FB4F51 /* Models */,
 				B4B37A4825C2C1D500DA76A5 /* AsyncContentView.swift */,
+				B4512B662686359500F631C8 /* BearerToken.swift */,
 			);
 			path = api;
 			sourceTree = "<group>";
@@ -896,6 +902,7 @@
 				B494D717265D452F00327BAF /* TemperatureAggregations.swift in Sources */,
 				B4E124B6260CCF2400F45852 /* IntentHandler.swift in Sources */,
 				B4E124A7260CCEDD00F45852 /* Sensor.swift in Sources */,
+				B4512B68268635BD00F631C8 /* BearerToken.swift in Sources */,
 				B4E124A5260CCEDD00F45852 /* TempAggregations.swift in Sources */,
 				B4F19A3E26263F4A00CA4C8D /* SelectSensor.intentdefinition in Sources */,
 				B4E124A3260CCEDD00F45852 /* RiverData.swift in Sources */,
@@ -904,6 +911,7 @@
 				B4E124A6260CCEDD00F45852 /* LakesData.swift in Sources */,
 				B49B0192260E180100D1AA37 /* SingleSensorProvider.swift in Sources */,
 				B4E12499260CCED800F45852 /* SponsorsViewModel.swift in Sources */,
+				B4512B6A2687388100F631C8 /* Reachability.swift in Sources */,
 				B4E1249C260CCED800F45852 /* TempAggregationsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -930,6 +938,7 @@
 				B4F19A3F26263F4A00CA4C8D /* SelectSensor.intentdefinition in Sources */,
 				B4AA329426263352007E1627 /* Helpers.swift in Sources */,
 				B4E1251A260CD45D00F45852 /* LakesData.swift in Sources */,
+				B4512B69268635BD00F631C8 /* BearerToken.swift in Sources */,
 				B4E1251E260CD45D00F45852 /* Sensor.swift in Sources */,
 				B4E124F1260CD31000F45852 /* IntentHandler.swift in Sources */,
 				B4AA3292262632B4007E1627 /* HourlyChartShape.swift in Sources */,
@@ -1011,6 +1020,7 @@
 				8D2701C725153082007BB0E1 /* LoadingView.swift in Sources */,
 				B43568DA25E3C91500AA2B40 /* LocationHandler.swift in Sources */,
 				B4BDEF3125E40EEB00A82E16 /* SensorNotificationView.swift in Sources */,
+				B4512B672686359500F631C8 /* BearerToken.swift in Sources */,
 				B4F95C1725C30FBF004C21E1 /* HourlyAggregationViewModel.swift in Sources */,
 				8DCB9A58257972E30063C628 /* SensorOverviewMap.swift in Sources */,
 				E438B4CC24ACFB7D008A2E01 /* IOSMainView.swift in Sources */,
@@ -1100,7 +1110,7 @@
 				CURRENT_PROJECT_VERSION = 20210623;
 				DEVELOPMENT_TEAM = T7M5358433;
 				INFOPLIST_FILE = SelectSensorIntentExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1124,7 +1134,7 @@
 				CURRENT_PROJECT_VERSION = 20210623;
 				DEVELOPMENT_TEAM = T7M5358433;
 				INFOPLIST_FILE = SelectSensorIntentExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1150,7 +1160,7 @@
 				CURRENT_PROJECT_VERSION = 20210623;
 				DEVELOPMENT_TEAM = T7M5358433;
 				INFOPLIST_FILE = gfroerliWidgetExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1176,7 +1186,7 @@
 				CURRENT_PROJECT_VERSION = 20210623;
 				DEVELOPMENT_TEAM = T7M5358433;
 				INFOPLIST_FILE = gfroerliWidgetExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1245,7 +1255,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.16;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -1302,7 +1312,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.16;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -1324,7 +1334,7 @@
 				DEVELOPMENT_TEAM = T7M5358433;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1351,7 +1361,7 @@
 				DEVELOPMENT_TEAM = T7M5358433;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

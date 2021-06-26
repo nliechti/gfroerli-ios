@@ -60,3 +60,16 @@ class HourlyAggregationsViewModel: LoadableObject {
     }
 
 }
+
+protocol LoadableObject: ObservableObject {
+    associatedtype Output
+    var state: LoadingState<Output> { get }
+    func load()
+}
+
+enum LoadingState<Value> {
+    case idle
+    case loading
+    case failed
+    case loaded(Value)
+}
