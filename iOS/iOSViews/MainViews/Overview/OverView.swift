@@ -71,18 +71,18 @@ struct TopTabView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
                 NavigationLink(
-                    destination: SensorOverView(id: newestSensor.id, sensorName: newestSensor.device_name),
+                    destination: SensorOverView(sensorID: newestSensor.id, sensorName: newestSensor.device_name),
                     label: {
                         SensorScrollItem(region: $newestRegion, sensor: $newestSensor, title: "Recently Added")
                     }).buttonStyle(PlainButtonStyle())
                 if sensors.count > 2 {
                 NavigationLink(
-                    destination: SensorOverView(id: latestSensor.id, sensorName: latestSensor.device_name),
+                    destination: SensorOverView(sensorID: latestSensor.id, sensorName: latestSensor.device_name),
                     label: {
                         SensorScrollItem(region: $latesRegion, sensor: $latestSensor, title: "Last Updated")
                     }).buttonStyle(PlainButtonStyle())
                 NavigationLink(
-                    destination: SensorOverView(id: randomSensor.id, sensorName: randomSensor.device_name),
+                    destination: SensorOverView(sensorID: randomSensor.id, sensorName: randomSensor.device_name),
                     label: {
                         SensorScrollItem(region: $randomRegion, sensor: $randomSensor, title: "Random")
                     }).buttonStyle(PlainButtonStyle())

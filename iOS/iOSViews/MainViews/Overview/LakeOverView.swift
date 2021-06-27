@@ -23,7 +23,7 @@ struct LakeOverView: View {
                         ForEach(sensors) { sensor in
                             if lake.sensors.contains(String(sensor.id)) {
                                 NavigationLink(
-                                    destination: SensorOverView(id: sensor.id, sensorName: sensor.device_name),
+                                    destination: SensorOverView(sensorID: sensor.id, sensorName: sensor.device_name),
                                     label: {
                                 SensorListItem(sensor: sensor).padding(.horizontal)
                                     })

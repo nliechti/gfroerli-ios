@@ -16,9 +16,9 @@ struct WhatsNewView: View {
     var body: some View {
 
         ScrollView {
-
+            
             ForEach(ChangeNote.allChangeNotes) { changeNote in
-
+/*
                 if changeNote.version > lastVersion {
                     VStack(alignment: .leading) {
                         HStack {
@@ -43,7 +43,7 @@ struct WhatsNewView: View {
                     .padding()
                     .shadow(radius: 1)
                 }
-
+                */
             }
 
             // Dismiss Button
@@ -62,6 +62,7 @@ struct WhatsNewView: View {
                     }
                 }.padding(.bottom)
             }
+                     
         }
         .navigationBarTitle("What's new?", displayMode: .inline)
         .background(Color.systemGroupedBackground)

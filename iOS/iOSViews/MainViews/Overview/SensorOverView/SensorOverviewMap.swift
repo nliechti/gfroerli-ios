@@ -28,7 +28,7 @@ struct SensorOverviewMap: View {
                     .bold()
                 Spacer()
                 Button {
-                    region=originalRegion
+                    region = originalRegion
                 } label: {
                     Image(systemName: "scope")
                         .font(.title2)
@@ -59,7 +59,7 @@ struct SensorOverviewMap: View {
                     .onAppear(perform: initiateMapView)
                 }
             } else {
-                LoadingView().frame(minHeight: 300)
+                LoadingView()
             }
         }
     }

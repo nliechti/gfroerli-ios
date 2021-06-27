@@ -17,18 +17,22 @@ struct SensorOverviewSponsorView: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text("Sponsored by:").font(.title).bold()
+                Text("Sponsored by:")
+                    .font(.title)
+                    .bold()
                 Spacer()
             }
             
             switch sponsorVM.loadingState {
             case .loaded:
                 HStack {
-                    Text(sponsorVM.sponsor!.name).font(.largeTitle).bold()
+                    Text(sponsorVM.sponsor!.name)
+                        .font(.largeTitle)
+                        .bold()
                     Spacer()
                 }
-                .padding(.bottom)
-                SponsorImageView(sponsor: sponsorVM.sponsor!).padding()
+                SponsorImageView(sponsor: sponsorVM.sponsor!)
+                    .padding(.vertical)
                 Text(sponsorVM.sponsor!.description)
                 Spacer()
                 
@@ -43,8 +47,10 @@ struct SensorOverviewSponsorView: View {
                     Spacer()
                     VStack {
                         Spacer()
-                        Text("Loading Sponsor failed. Reason:").foregroundColor(.gray)
-                        Text(sponsorVM.errorMsg).foregroundColor(.gray)
+                        Text("Loading Sponsor failed. Reason:")
+                            .foregroundColor(.secondary)
+                        Text(sponsorVM.errorMsg)
+                            .foregroundColor(.secondary)
                         Button("Try again") {
                             async { await sponsorVM.load(sponsorId: sensorID)}
                         }

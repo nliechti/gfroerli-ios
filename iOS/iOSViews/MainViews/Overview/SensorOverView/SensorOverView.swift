@@ -11,9 +11,9 @@ struct SensorOverView: View {
     
     @StateObject var sensorVM = SingleSensorViewModel()
     @State var isFav = false
-    @State var favorites  = UserDefaults(suiteName: "group.ch.gfroerli")?.array(forKey: "favoritesIDs") as? [Int] ?? [Int]()
+    @State var favorites = [Int]()
     
-    var id: Int
+    var sensorID: Int
     var sensorName: String
     
     var body: some View {
@@ -23,25 +23,24 @@ struct SensorOverView: View {
                 case .loaded, .loading:
                     
                     VStack {
-                        SensorOverviewLastMeasurementView(VM: sensorVM)
+                        SensorOverviewLastMeasurementView(sensorVM: sensorVM)
                             .boxStyle()
                         
-                        SensorOverViewGraph(sensorID: id)
-                         .boxStyle()
-                         .dynamicTypeSize(.xSmall ... .large)
-                         
+                        SensorOverViewGraph(sensorID: sensorID)
+                            .boxStyle()
+                            .dynamicTypeSize(.xSmall ... .large)
+                        
                         SensorOverviewMap(sensorVM: sensorVM)
                             .boxStyle()
                         
-                        SensorOverviewSponsorView(sensorID: id)
+                        SensorOverviewSponsorView(sensorID: sensorID)
                             .boxStyle()
                     }
                     .padding(.vertical)
                     .onAppear(perform: {
-                        async { await sensorVM.load(sensorId: id)}
-                        
-                        favorites  = UserDefaults(suiteName: "group.ch.gfroerli")?.array(forKey: "favoritesIDs") as? [Int] ?? [Int]()
-                        isFav = favorites.contains(id)
+                        async { await sensorVM.load(sensorId: sensorID)}
+                        setFavs()
+                        isFav = favorites.contains(sensorID)
                     })
                     
                 case .failed:
@@ -52,7 +51,7 @@ struct SensorOverView: View {
                             Text("Loading Location failed. Reason:").foregroundColor(.gray)
                             Text(sensorVM.errorMsg).foregroundColor(.gray)
                             Button("Try again") {
-                                async { await sensorVM.load(sensorId: id)}
+                                async { await sensorVM.load(sensorId: sensorID)}
                             }
                             .buttonStyle(.bordered)
                             Spacer()
@@ -69,31 +68,37 @@ struct SensorOverView: View {
         .navigationBarTitle(sensorName, displayMode: .inline)
         .background(Color.systemGroupedBackground.ignoresSafeArea())
         .navigationBarItems(trailing:
-            Button {
-                isFav ? removeFav() : makeFav()
-                UserDefaults(suiteName: "group.ch.gfroerli")?.set(favorites, forKey: "favoritesIDs")
-            } label: {
-                Image(systemName: isFav ? "star.fill" : "star")
-                    .foregroundColor(isFav ? .yellow : .none)
-                    .imageScale(.large)
-            })
+                                Button {
+            isFav ? removeFav() : makeFav()
+        } label: {
+            Image(systemName: isFav ? "star.fill" : "star")
+                .foregroundColor(isFav ? .yellow : .none)
+                .imageScale(.large)
+        })
     }
     
+    /// adds sensorID to userDefaults
     func makeFav() {
-        favorites.append(id)
+        favorites.append(sensorID)
         isFav = true
         UserDefaults(suiteName: "group.ch.gfroerli")?.set(favorites, forKey: "favoritesIDs")
     }
-    
+    /// removes sensorID from userDefaults
     func removeFav() {
-        favorites.removeFirst(id)
+        favorites.removeFirst(sensorID)
         isFav=false
         UserDefaults(suiteName: "group.ch.gfroerli")?.set(favorites, forKey: "favoritesIDs")
+    }
+    /// loads favs from UserDefaults
+    func setFavs() {
+        favorites  = UserDefaults(suiteName: "group.ch.gfroerli")?.array(forKey: "favoritesIDs") as? [Int] ?? [Int]()
     }
 }
 
 struct SensorOverView_Previews: PreviewProvider {
     static var previews: some View {
-        SensorOverView(id: 1, sensorName: "Test").environment(\.sizeCategory, .extraExtraExtraLarge).makePreViewModifier()
+        SensorOverView(sensorID: 1, sensorName: "Test")
+            .environment(\.sizeCategory, .extraExtraExtraLarge)
+            .makePreViewModifier()
     }
 }

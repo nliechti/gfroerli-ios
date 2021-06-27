@@ -21,7 +21,7 @@ struct AllSensorView: View {
                     AsyncContentView(source: sensorsVm) { sensors in
                         List {
                             ForEach(sensors.filter({ "\($0.device_name)".localizedCaseInsensitiveContains(searchText) || searchText.isEmpty })) { sensor in
-                                NavigationLink(destination: SensorOverView(id: sensor.id, sensorName: sensor.device_name), label: {Text(sensor.device_name)})
+                                NavigationLink(destination: SensorOverView(sensorID: sensor.id, sensorName: sensor.device_name), label: {Text(sensor.device_name)})
                             }
                         }.listStyle(InsetGroupedListStyle())
                     }

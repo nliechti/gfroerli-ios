@@ -53,7 +53,7 @@ struct IOSMainView: View {
        .sheet(isPresented: $showSens) {
 
             NavigationView {
-                SensorOverView(id: Int(pathComp!)!, sensorName: "").navigationBarItems(leading: Button(action: {showSens=false}, label: {Text("Close")}))
+                SensorOverView(sensorID: Int(pathComp!)!, sensorName: "").navigationBarItems(leading: Button(action: {showSens=false}, label: {Text("Close")}))
             }
         }
 

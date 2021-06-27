@@ -86,12 +86,10 @@ struct SensorOverViewGraph: View {
                         withAnimation(handAnimation) {
                             self.animation = false
                         }
-
                         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                             animationEnded = true
                         }
                     })
-
                 }
 
                 GraphView(
@@ -110,7 +108,8 @@ struct SensorOverViewGraph: View {
                 Label("Average", systemImage: "circle.fill").foregroundColor(.green)
                 Spacer()
                 Label("Maximum", systemImage: "circle.fill").foregroundColor(.red)
-            }.padding([.horizontal, .bottom])
+            }
+            .padding([.horizontal, .bottom])
             .lineLimit(1)
             .minimumScaleFactor(0.1)
 
@@ -189,7 +188,9 @@ struct SensorOverViewGraph: View {
             return dateFormatter.string(from:
             temperatureAggregationsVM.startDateWeek)
             + "-"
-            + dateFormatter.string(from: Calendar.current.date(byAdding: .day, value: 6, to: temperatureAggregationsVM.startDateWeek)!)
+            + dateFormatter.string(from:
+                                    Calendar.current.date(byAdding: .day, value: 6, to: temperatureAggregationsVM.startDateWeek)!
+            )
 
         default:
             dateFormatter.setLocalizedDateFormatFromTemplate("MMMM YYYY")
