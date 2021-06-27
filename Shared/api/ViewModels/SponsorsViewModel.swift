@@ -17,12 +17,13 @@ class SponsorListViewModel: ObservableObject {
     
     let didChange = PassthroughSubject<Void, Never>()
 
-    /// Loads the sponsor from backend and assigns it
+    /// Loads the sponsor from backend and assigns it to VM
     /// - Parameter sponsorID: Integer describing the sponsor ID
     func load(sponsorId: Int) async {
-        loadingState = .loading
-        let url = URL(string: "https://watertemp-api.coresdump.ch//api/mobile_app/sensors/\(sponsorId)/sponsor")!
         
+        loadingState = .loading
+        
+        let url = URL(string: "https://watertemp-api.coredump.ch//api/mobile_app/sensors/\(sponsorId)/sponsor")!
         var request = URLRequest(url: url)
         request.setValue(BearerToken.token, forHTTPHeaderField: "Authorization")
         request.httpMethod = "GET"
@@ -34,6 +35,7 @@ class SponsorListViewModel: ObservableObject {
             }
             // send request
             let (data, response) = try await URLSession.shared.data(for: request)
+            
             // check response status code
             guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
                 throw LoadingErrors.fetchError

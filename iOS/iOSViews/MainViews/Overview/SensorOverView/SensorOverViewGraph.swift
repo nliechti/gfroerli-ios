@@ -11,10 +11,7 @@ struct SensorOverViewGraph: View {
 
     var sensorId: Int
     @StateObject var temperatureAggregationsVM: TemperatureAggregationsViewModel = TemperatureAggregationsViewModel()
-    @StateObject var monthVM = MonthlyAggregationsViewModel()
-    @StateObject var weekVM = WeeklyAggregationsViewModel()
-    @StateObject var dayVM = HourlyAggregationsViewModel()
-
+    
     @State var animation = false
     @State var animationEnded = false
     @State var showIndicator = false
@@ -22,7 +19,9 @@ struct SensorOverViewGraph: View {
     @State var zoomed = true
 
     @State var pickerSelection = 0
-    @State var pickerOptions = [NSLocalizedString("Day", comment: ""), NSLocalizedString("Week", comment: ""), NSLocalizedString("Month", comment: "")]
+    @State var pickerOptions = [NSLocalizedString("Day", comment: ""),
+                                NSLocalizedString("Week", comment: ""),
+                                NSLocalizedString("Month", comment: "")]
 
     @State var timeFrame: TimeFrame = .day
     @State var topString = ""
@@ -34,11 +33,15 @@ struct SensorOverViewGraph: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack(alignment: .firstTextBaseline) {
-                Text("History").font(.title).bold()
+                Text("History")
+                    .font(.title)
+                    .bold()
                 Spacer()
-
                 if showIndicator {
-                    Text(topString).bold()
+                    Text(topString)
+                        .bold()
+                        .minimumScaleFactor(0.1)
+                        .lineLimit(1)
                 } else {
                     Button(action: {
                         zoomed.toggle()
@@ -61,10 +64,14 @@ struct SensorOverViewGraph: View {
                     }.pickerStyle(SegmentedPickerStyle())
                 } else {
                     Spacer()
-                    TemperaturesDetailView(temperatureAggregationsVM: temperatureAggregationsVM, index: $selectedIndex, pickerSelection: $pickerSelection).padding(.top)
+                    TemperaturesDetailView(
+                        temperatureAggregationsVM: temperatureAggregationsVM,
+                        index: $selectedIndex,
+                        pickerSelection: $pickerSelection
+                    ).padding(.top)
                     Spacer()
                 }
-            }
+            }.frame(height: 55)
 
             ZStack {
                 if !animationEnded {
@@ -72,7 +79,7 @@ struct SensorOverViewGraph: View {
                     .resizable()
                     .font(.largeTitle)
                     .foregroundColor(.secondary)
-                    .frame(width: 100/*@END_MENU_TOKEN@*/, height: 100/*@END_MENU_TOKEN@*/, alignment: .center/*@END_MENU_TOKEN@*/)
+                    .frame(width: 100, height: 100, alignment: .center)
                     .offset(x: self.animation ? 60 : -20)
                     .onAppear(perform: {
                         self.animation = true
@@ -87,11 +94,17 @@ struct SensorOverViewGraph: View {
 
                 }
 
-                GraphView(nrOfLines: 5, timeFrame: $timeFrame, selectedIndex: $selectedIndex, zoomed: $zoomed, showIndicator: $showIndicator, temperatureAggregationsVM: temperatureAggregationsVM)
-
+                GraphView(
+                    nrOfLines: 5,
+                    timeFrame: $timeFrame,
+                    selectedIndex: $selectedIndex,
+                    zoomed: $zoomed,
+                    showIndicator: $showIndicator,
+                    temperatureAggregationsVM: temperatureAggregationsVM
+                )
             }
 
-            HStack(alignment: .center) {
+            HStack(alignment: .firstTextBaseline) {
                 Label("Minimum", systemImage: "circle.fill").foregroundColor(.blue)
                 Spacer()
                 Label("Average", systemImage: "circle.fill").foregroundColor(.green)
@@ -101,7 +114,7 @@ struct SensorOverViewGraph: View {
             .lineLimit(1)
             .minimumScaleFactor(0.1)
 
-            HStack {
+            HStack(alignment: .center) {
                 Spacer()
                 Button(action: {
                     stepBack()
@@ -121,11 +134,7 @@ struct SensorOverViewGraph: View {
             }
         }
         .padding()
-        .onAppear(perform: {
-            dayVM.id = sensorId
-            weekVM.id = sensorId
-            monthVM.id = sensorId
-        })
+
         .onChange(of: pickerSelection, perform: { _ in
             setTimeFrame()
         })
@@ -168,25 +177,28 @@ struct SensorOverViewGraph: View {
     }
 
     func getLabel() -> String {
-        let df = DateFormatter()
+        let dateFormatter = DateFormatter()
 
         switch pickerSelection {
         case 0:
-            df.setLocalizedDateFormatFromTemplate("dd MMM")
-            return df.string(from: temperatureAggregationsVM.dateDay)
+            dateFormatter.setLocalizedDateFormatFromTemplate("dd MMM")
+            return dateFormatter.string(from: temperatureAggregationsVM.dateDay)
 
         case 1:
-            df.setLocalizedDateFormatFromTemplate("dd MMM")
-            return df.string(from: temperatureAggregationsVM.startDateWeek) + "-" + df.string(from: Calendar.current.date(byAdding: .day, value: 6, to: temperatureAggregationsVM.startDateWeek)!)
+            dateFormatter.setLocalizedDateFormatFromTemplate("dd MMM")
+            return dateFormatter.string(from:
+            temperatureAggregationsVM.startDateWeek)
+            + "-"
+            + dateFormatter.string(from: Calendar.current.date(byAdding: .day, value: 6, to: temperatureAggregationsVM.startDateWeek)!)
 
         default:
-            df.setLocalizedDateFormatFromTemplate("MMMM YYYY")
-            return df.string(from: temperatureAggregationsVM.startDateMonth)
+            dateFormatter.setLocalizedDateFormatFromTemplate("MMMM YYYY")
+            return dateFormatter.string(from: temperatureAggregationsVM.startDateMonth)
         }
     }
 
     func setTopDateString() {
-        let df = DateFormatter()
+        let dateFormatter = DateFormatter()
         let calendar = Calendar.current
 
         switch pickerSelection {
@@ -196,22 +208,22 @@ struct SensorOverViewGraph: View {
             components.minute = 0
             components.hour = temperatureAggregationsVM.stepsDay[selectedIndex]
             let createdDate = calendar.date(from: components)!
-            df.setLocalizedDateFormatFromTemplate("mmHddMMMMY")
-            topString =  df.string(from: createdDate)
+            dateFormatter.setLocalizedDateFormatFromTemplate("mmHddMMMMY")
+            topString =  dateFormatter.string(from: createdDate)
 
         case 1:
             let date = temperatureAggregationsVM.startDateWeek
             var components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: date)
             components.day! += temperatureAggregationsVM.stepsWeek[selectedIndex]
-            df.setLocalizedDateFormatFromTemplate("EEEEddMMMMY")
-            topString =  df.string(from: calendar.date(from: components)!)
+            dateFormatter.setLocalizedDateFormatFromTemplate("EEEEddMMMMY")
+            topString =  dateFormatter.string(from: calendar.date(from: components)!)
 
         default:
             let date = temperatureAggregationsVM.startDateMonth
             var components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: date)
             components.day! += temperatureAggregationsVM.stepsMonth[selectedIndex]
-            df.setLocalizedDateFormatFromTemplate("dd MMMM Y")
-            topString =  df.string(from: calendar.date(from: components)!)
+            dateFormatter.setLocalizedDateFormatFromTemplate("dd MMMM Y")
+            topString =  dateFormatter.string(from: calendar.date(from: components)!)
         }
     }
 
@@ -266,6 +278,9 @@ struct TemperaturesDetailView: View {
             }
             Spacer()
         }
+        .minimumScaleFactor(0.1)
+        .lineLimit(1)
+            
     }
 
     func getMin() -> Double {

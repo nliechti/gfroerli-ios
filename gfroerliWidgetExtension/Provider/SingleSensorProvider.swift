@@ -43,9 +43,8 @@ struct SingleSensorProvider: IntentTimelineProvider {
 
         let selectableSensor = configuration.sensor
 
-        singleSensorVM.id = Int(configuration.sensor?.identifier ?? "0")!
 
-        singleSensorVM.load()
+        async{ await singleSensorVM.load(sensorId: Int(configuration.sensor?.identifier ?? "0")!)}
 
         // Wait for async/await
         let seconds = 2.0

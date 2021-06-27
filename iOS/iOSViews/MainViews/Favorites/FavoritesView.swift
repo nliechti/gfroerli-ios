@@ -31,7 +31,7 @@ struct FavoritesView: View {
                             ForEach(sensors) { sensor in
                                 if favorites.contains(sensor.id) {
                                     NavigationLink(
-                                        destination: SensorOverView(id: sensor.id),
+                                        destination: SensorOverView(id: sensor.id, sensorName: sensor.device_name),
                                         label: {
                                             Item(sensor: sensor)
                                         }).buttonStyle(PlainButtonStyle())

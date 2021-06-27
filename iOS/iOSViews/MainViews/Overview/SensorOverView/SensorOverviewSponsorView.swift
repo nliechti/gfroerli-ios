@@ -10,7 +10,7 @@ import SwiftUI
 
 struct SensorOverviewSponsorView: View {
    
-    var sensor: Sensor
+    var sensorID: Int
     
     @StateObject var sponsorVM = SponsorListViewModel()
     
@@ -35,11 +35,7 @@ struct SensorOverviewSponsorView: View {
             case .loading:
                 LoadingView()
                     .onAppear(perform: {
-                        if sensor.sponsor_id == nil {
-                            sponsorVM.errorMsg = "Sensor has no sponsor yet."; #warning("Test if this works")
-                            sponsorVM.loadingState = .failed
-                        }
-                        async { await sponsorVM.load(sponsorId: sensor.sponsor_id!)}
+                        async { await sponsorVM.load(sponsorId: sensorID)}
                     })
                 
             case .failed:
@@ -50,7 +46,7 @@ struct SensorOverviewSponsorView: View {
                         Text("Loading Sponsor failed. Reason:").foregroundColor(.gray)
                         Text(sponsorVM.errorMsg).foregroundColor(.gray)
                         Button("Try again") {
-                            async { await sponsorVM.load(sponsorId: sensor.sponsor_id!)}
+                            async { await sponsorVM.load(sponsorId: sensorID)}
                         }
                         .buttonStyle(.bordered)
                         Spacer()
@@ -68,7 +64,7 @@ struct SensorOverviewSponsorView: View {
 
 struct SensorOverviewSponsorView_Previews: PreviewProvider {
     static var previews: some View {
-        SensorOverviewSponsorView(sensor: testSensor1).makePreViewModifier()
+        SensorOverviewSponsorView(sensorID: 1).makePreViewModifier()
     }
 }
 

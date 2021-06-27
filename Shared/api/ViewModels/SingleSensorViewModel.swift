@@ -7,48 +7,60 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
-class SingleSensorViewModel: LoadableObject {
-    typealias Output = Sensor
+class SingleSensorViewModel: ObservableObject {
 
-    @Published var sensor: Sensor! { didSet { didChange.send(())}}
-    @Published private(set) var state = LoadingState<Output>.idle
-
+    @Published var sensor: Sensor? = nil { didSet { didChange.send(())}}
+    @Published var loadingState: NewLoadingState = .loading { didSet { didChange.send(())}}
+    @Published var errorMsg: LocalizedStringKey = "" { didSet { didChange.send(())}}
+    
     let didChange = PassthroughSubject<Void, Never>()
-    var id: Int = 0
 
-    init() {
-        sensor = nil
-    }
-
-    init(sensor: Sensor) {
-        self.sensor = sensor
-    }
-
-    public func load() {
-        self.state = .loading
-        var url = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/mobile_app/sensors/\(id)")!)
-        url.setValue("Bearer XTZA6H0Hg2f02bzVefmVlr8fIJMy2FGCJ0LlDlejj2Pi0i1JvZiL0Ycv1t6JoZzD", forHTTPHeaderField: "Authorization")
-        url.httpMethod = "GET"
-
-        URLSession.shared.dataTask(with: url) { data, _, _ in
-            DispatchQueue.main.async {
-                do {
-                if let data = data {
-                    // success: convert to  Sensors
-                    let jsonDecoder = JSONDecoder()
-                    let sensor = try jsonDecoder.decode(Sensor.self, from: data)
-                    self.sensor = sensor
-                    self.state = .loaded(sensor)
-                } else {
-                    // other cases
-                    self.state = .failed
-                }
-                    // decoding failed
-                } catch {
-                    self.state = .failed
-                }
+    /// Loads a single sensor from backend and assigns it to VM
+    /// - Parameter sensorID: Integer describing the sensor ID
+    func load(sensorId: Int) async {
+        
+        loadingState = .loading
+        
+        let url = URL(string: "https://watertemp-api.coredump.ch//api/mobile_app/sensors/\(sensorId)")!
+        var request = URLRequest(url: url)
+        request.setValue(BearerToken.token, forHTTPHeaderField: "Authorization")
+        request.httpMethod = "GET"
+        
+        do {
+            // Test for network connection
+            if !Reachability.isConnectedToNetwork() {
+                throw LoadingErrors.noConnectionError
             }
-        }.resume()
+            // send request
+            let (data, response) = try await URLSession.shared.data(for: request)
+            
+            // check response status code
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                throw LoadingErrors.fetchError
+            }
+            // try to decode
+            guard let decodedSponsor = try? JSONDecoder().decode(Sensor.self, from: data) else {
+                throw LoadingErrors.decodeError
+            }
+            // update view model
+            sensor = decodedSponsor
+            loadingState = .loaded
+            
+        } catch {
+            switch error {
+            case LoadingErrors.decodeError:
+                errorMsg = "Could not decode Sponsor."
+            case LoadingErrors.fetchError:
+                errorMsg = "Invalid server response."
+            case LoadingErrors.noConnectionError:
+                errorMsg = "No internet connection."
+            default:
+                errorMsg = LocalizedStringKey( error.localizedDescription )
+            }
+            loadingState = .failed
+        }
     }
+
 }

@@ -57,7 +57,7 @@ struct ChartView: View {
                         timeFrame: $timeFrame
                     )
                     .stroke(Color.blue, style: StrokeStyle(lineWidth: 2, lineCap: .round, lineJoin: .round))
-                    .animation(.easeInOut)
+                    .animation(.linear, value: minimums)
 
                     LineShape(
                         temperatureAggregationsVM: temperatureAggregationsVM,
@@ -68,7 +68,7 @@ struct ChartView: View {
                         timeFrame: $timeFrame
                     )
                     .stroke(Color.green, style: StrokeStyle(lineWidth: 2, lineCap: .round, lineJoin: .round))
-                    .animation(.easeInOut)
+                    .animation(.linear, value: averages)
 
                     LineShape(
                         temperatureAggregationsVM: temperatureAggregationsVM,
@@ -80,7 +80,7 @@ struct ChartView: View {
                         timeFrame: $timeFrame
                     )
                     .stroke(Color.red, style: StrokeStyle(lineWidth: 2, lineCap: .round, lineJoin: .round))
-                    .animation(.easeInOut)
+                    .animation(.linear, value: maximums)
                     
                 } else {
                     Text("No data available")

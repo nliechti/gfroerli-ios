@@ -52,14 +52,12 @@ struct SingleSensorWithGraphProvider: IntentTimelineProvider {
         let monthlyAggregVM = MonthlyAggregationsViewModel()
 
         let selectableSensor = configuration.sensor
-
-        singleSensorVM.id = Int(configuration.sensor?.identifier ?? "0")!
-        singleSensorVM.id = Int(configuration.sensor?.identifier ?? "0")!
+        
         hourlyAggregVM.id = Int(configuration.sensor?.identifier ?? "0")!
         weeklyAggregVM.id = Int(configuration.sensor?.identifier ?? "0")!
         monthlyAggregVM.id = Int(configuration.sensor?.identifier ?? "0")!
 
-        singleSensorVM.load()
+        async{ await singleSensorVM.load(sensorId: Int(configuration.sensor?.identifier ?? "0")!)}
         hourlyAggregVM.load()
         weeklyAggregVM.load()
         monthlyAggregVM.load()

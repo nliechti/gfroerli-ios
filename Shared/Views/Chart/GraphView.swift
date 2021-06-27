@@ -49,7 +49,7 @@ struct GraphView: View {
             }.padding(1).clipped()
 
             HStack {
-                Text("00.0").hidden()
+                Text("00.0°C").hidden()
 
                 XLabelsView(
                     temperatureAggregationsVM: temperatureAggregationsVM,
@@ -58,7 +58,8 @@ struct GraphView: View {
                 )
             }
 
-        }.padding()
+        }
+        .padding()
         .onAppear(perform: {
             temperatureAggregationsVM.loadDays()
             temperatureAggregationsVM.loadWeek()

@@ -8,88 +8,83 @@
 import SwiftUI
 
 struct SensorOverView: View {
-
-    @ObservedObject var observer = Observer()
+    
     @StateObject var sensorVM = SingleSensorViewModel()
     @State var isFav = false
     @State var favorites  = UserDefaults(suiteName: "group.ch.gfroerli")?.array(forKey: "favoritesIDs") as? [Int] ?? [Int]()
-    @State var showNotificationSheet = false
+    
     var id: Int
-
+    var sensorName: String
+    
     var body: some View {
-        AsyncContentView(source: sensorVM) { sensor in
+        VStack {
             ScrollView {
-                VStack {
-                    SensorOverviewLastMeasurementView(sensor: sensor)
-                        .boxStyle()
-
-                    SensorOverViewGraph(sensorID: id)
-                        .boxStyle()
-
-                    SensorOverviewMap(inSensor: sensor)
-                        .boxStyle()
-
-                    SensorOverviewSponsorView(sensor: sensor)
-                        .boxStyle()
-                }
-                .padding(.vertical)
-                .sheet(isPresented: $showNotificationSheet) {
-                    SensorNotificationView(sensor: sensor)
-                }
+                switch sensorVM.loadingState {
+                case .loaded, .loading:
+                    
+                    VStack {
+                        SensorOverviewLastMeasurementView(VM: sensorVM)
+                            .boxStyle()
+                        
+                        SensorOverViewGraph(sensorID: id)
+                         .boxStyle()
+                         .dynamicTypeSize(.xSmall ... .large)
+                         
+                        SensorOverviewMap(sensorVM: sensorVM)
+                            .boxStyle()
+                        
+                        SensorOverviewSponsorView(sensorID: id)
+                            .boxStyle()
+                    }
+                    .padding(.vertical)
+                    .onAppear(perform: {
+                        async { await sensorVM.load(sensorId: id)}
+                        
+                        favorites  = UserDefaults(suiteName: "group.ch.gfroerli")?.array(forKey: "favoritesIDs") as? [Int] ?? [Int]()
+                        isFav = favorites.contains(id)
+                    })
+                    
+                case .failed:
+                    HStack {
+                        Spacer()
+                        VStack {
+                            Spacer()
+                            Text("Loading Location failed. Reason:").foregroundColor(.gray)
+                            Text(sensorVM.errorMsg).foregroundColor(.gray)
+                            Button("Try again") {
+                                async { await sensorVM.load(sensorId: id)}
+                            }
+                            .buttonStyle(.bordered)
+                            Spacer()
+                        }
+                        Spacer()
+                    }
+                    .multilineTextAlignment(.center)
+                    .padding()
+                    .boxStyle()
+                    .padding(.vertical)
+                }// switch end
             }
-            .navigationBarTitle(sensor.device_name, displayMode: .inline)
-
         }
+        .navigationBarTitle(sensorName, displayMode: .inline)
         .background(Color.systemGroupedBackground.ignoresSafeArea())
         .navigationBarItems(trailing:
-                                HStack {
-                                    /*Button {
-                                        showNotificationSheet = true
-                                    } label: {
-                                        Image(systemName: "bell")
-                                            .imageScale(.large)
-                                    }*/
-
-                                    /*Button {
-                                        sensorVM.load()
-                                    } label: {
-                                        Image(systemName: "arrow.clockwise")
-                                            .imageScale(.large)
-                                    }*/
-
-                                    Button {
-                                        isFav ? removeFav() : makeFav()
-                                        UserDefaults(suiteName: "group.ch.gfroerli")?.set(favorites, forKey: "favoritesIDs")
-                                    } label: {
-                                        Image(systemName: isFav ? "star.fill" : "star")
-                                            .foregroundColor(isFav ? .yellow : .none)
-                                            .imageScale(.large)
-                                    }
-                                }
-        )
-
-        .background(Color.systemGroupedBackground.ignoresSafeArea()).onAppear(perform: {
-            sensorVM.id = id
-            sensorVM.load()
-            favorites  = UserDefaults(suiteName: "group.ch.gfroerli")?.array(forKey: "favoritesIDs") as? [Int] ?? [Int]()
-            isFav = favorites.contains(id)
-        })
-        .onReceive(self.observer.$enteredForeground) { _ in
-            sensorVM.load()
-        }
-
+            Button {
+                isFav ? removeFav() : makeFav()
+                UserDefaults(suiteName: "group.ch.gfroerli")?.set(favorites, forKey: "favoritesIDs")
+            } label: {
+                Image(systemName: isFav ? "star.fill" : "star")
+                    .foregroundColor(isFav ? .yellow : .none)
+                    .imageScale(.large)
+            })
     }
-
-    func reloadTimer() {
-
-    }
-
+    
     func makeFav() {
         favorites.append(id)
         isFav = true
         UserDefaults(suiteName: "group.ch.gfroerli")?.set(favorites, forKey: "favoritesIDs")
     }
-
+    
     func removeFav() {
         favorites.removeFirst(id)
         isFav=false
@@ -99,6 +94,6 @@ struct SensorOverView: View {
 
 struct SensorOverView_Previews: PreviewProvider {
     static var previews: some View {
-        SensorOverView(id: 1).environment(\.sizeCategory, .extraExtraExtraLarge).makePreViewModifier()
+        SensorOverView(id: 1, sensorName: "Test").environment(\.sizeCategory, .extraExtraExtraLarge).makePreViewModifier()
     }
 }
