@@ -19,7 +19,7 @@ struct YLabelsView: View {
         var yLabels = [String]()
 
         for line in 0..<nrOfLines {
-            yLabels.append(makeTemperatureStringFromDouble(double: min + Double(line) * stepSize))
+            yLabels.append(makeTemperatureString(double: min + Double(line) * stepSize))
         }
 
         return yLabels.reversed()

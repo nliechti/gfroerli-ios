@@ -265,17 +265,17 @@ struct TemperaturesDetailView: View {
             Spacer()
             VStack(alignment: .center) {
                 Text("Minimum").bold()
-                Text(makeTemperatureStringFromDouble(double: getMin()))
+                Text(makeTemperatureString(double: getMin()))
             }
             Spacer()
             VStack(alignment: .center) {
                 Text("Average").bold()
-                Text(makeTemperatureStringFromDouble(double: getAvg()))
+                Text(makeTemperatureString(double: getAvg()))
             }
             Spacer()
             VStack(alignment: .center) {
                 Text("Maximum").bold()
-                Text(makeTemperatureStringFromDouble(double: getMax()))
+                Text(makeTemperatureString(double: getMax()))
             }
             Spacer()
         }

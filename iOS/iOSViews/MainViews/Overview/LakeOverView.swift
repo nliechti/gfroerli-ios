@@ -56,9 +56,9 @@ struct TopMap: View {
             MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: pin.latitude!, longitude: pin.longitude!), content: {
 
                 NavigationLink(
-                    destination: Text("Destination")/*@END_MENU_TOKEN@*/,
+                    destination: Text("Destination"),
                     label: {
-                        Text(makeTemperatureStringFromDouble(double: pin.latestTemp!))
+                        Text(makeTemperatureString(double: pin.latestTemp!))
                             .minimumScaleFactor(0.3)
                             .foregroundColor(.white)
                             .lineLimit(1)

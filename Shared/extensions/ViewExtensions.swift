@@ -10,7 +10,7 @@ import SwiftUI
 
 extension View {
 
-    func boxStyle()-> some View {
+    func boxStyle() -> some View {
         self
             .fixedSize(horizontal: false, vertical: true)
             .frame(maxWidth: .infinity)

@@ -93,11 +93,6 @@ struct SensorView: View {
                     Text(entry.sensor!.lastTempTime!, style: .time).font(.caption)
                         .foregroundColor(.white)
 
-                    if !areSameDay(date1: Date(), date2: entry.sensor!.lastTempTime!) {
-                        Text(createStringFromDate(date: entry.sensor!.lastTempTime!, format: "dd. MMM, YY"))
-                            .font(.caption)
-                            .foregroundColor(.white)
-                    }
                 }
             }
         }.padding()

@@ -15,7 +15,6 @@ struct IOSMainView: View {
     @State var showSens = false
     @State var selectedTab = "Overview"
     @State var pathComp: String?
-    @State var loadingState: loadingState = .loading
     @StateObject var sensorsVm = SensorListViewModel()
     @State var currentVersion = "0.0"
     @State var showUpdateView = false
@@ -51,7 +50,6 @@ struct IOSMainView: View {
             }
         }
        .sheet(isPresented: $showSens) {
-
             NavigationView {
                 SensorOverView(sensorID: Int(pathComp!)!, sensorName: "").navigationBarItems(leading: Button(action: {showSens=false}, label: {Text("Close")}))
             }
@@ -73,8 +71,6 @@ struct IOSMainView: View {
             guard let tabIdentifier = url.tabIdentifier else {
                 return
             }
-            print("owo")
-            print(url.pathComponents[1])
             pathComp = url.pathComponents[1]
             selectedTab=tabIdentifier
             if selectedTab == "Overview"{

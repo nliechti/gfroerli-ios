@@ -40,17 +40,17 @@ struct SensorOverviewLastMeasurementView: View {
                     HStack {
                         Text("Highest:")
                         Spacer()
-                        Text(makeTemperatureStringFromDouble(double: sensorVM.sensor!.maxTemp!))
+                        Text(makeTemperatureString(double: sensorVM.sensor!.maxTemp!))
                     }
                     HStack {
                         Text("Average:")
                         Spacer()
-                        Text(makeTemperatureStringFromDouble(double: sensorVM.sensor!.avgTemp!))
+                        Text(makeTemperatureString(double: sensorVM.sensor!.avgTemp!))
                     }
                     HStack {
                         Text("Lowest:")
                         Spacer()
-                        Text(makeTemperatureStringFromDouble(double: sensorVM.sensor!.minTemp!))
+                        Text(makeTemperatureString(double: sensorVM.sensor!.minTemp!))
                     }
                 }
             
