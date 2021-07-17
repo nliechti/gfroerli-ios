@@ -6,15 +6,38 @@
 //
 
 import SwiftUI
+import MapKit
+import UIKit
 
 struct MapView: View {
+    @ObservedObject var sensorsVm: SensorListViewModel
+
     var body: some View {
-        Text("MAP")
+        UIMapView(sensorsVm: sensorsVm)
+            .edgesIgnoringSafeArea(.top)
     }
 }
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-        MapView()
+        MapView(sensorsVm: SensorListViewModel.init())
+    }
+}
+
+struct UIMapView: UIViewRepresentable {
+    typealias UIViewType = MKMapView
+    typealias Context = UIViewRepresentableContext<Self>
+    
+    @ObservedObject var sensorsVm: SensorListViewModel
+    
+    func makeUIView(context: Context) -> MKMapView {
+        let mapView = MKMapView()
+        mapView.mapType = .hybrid
+        mapView.pointOfInterestFilter = .excludingAll
+
+        return mapView
+    }
+
+    func updateUIView(_ view: MKMapView, context: Context) {
     }
 }

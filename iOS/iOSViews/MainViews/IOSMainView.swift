@@ -33,7 +33,7 @@ struct IOSMainView: View {
                     Text("Favorites") }
                 .tag("Favorites")
             
-            MapView()
+            MapView(sensorsVm: sensorsVm)
                 .tabItem { Image(systemName: "map")
                     Text("Map") }
                 .tag("Map")

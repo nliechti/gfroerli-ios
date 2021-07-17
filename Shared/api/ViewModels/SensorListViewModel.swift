@@ -45,8 +45,6 @@ class SensorListViewModel: ObservableObject {
             }
             // update view model
             sensorArray = decodedSensors
-            sensorArray.append(testSensor1)
-            sensorArray.append(testSensor2)
             loadingState = .loaded
             
         } catch {

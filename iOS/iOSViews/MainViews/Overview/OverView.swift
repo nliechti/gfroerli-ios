@@ -87,10 +87,10 @@ struct TopTabView: View {
                         .font(.title)
                         .bold()
                         .padding(.leading)
-                    SensorScrollItem(sensor: sensors.first!)
+                    SensorScrollItem(sensor: newestSensor)
                 }
             }
-            if sensors.count > 0 {
+            if sensors.count > 1 {
                 NavigationLink(destination:
                                 SensorOverView(sensorID: latestSensor.id, sensorName: latestSensor.device_name)
                 ) {
@@ -99,10 +99,10 @@ struct TopTabView: View {
                             .font(.title)
                             .bold()
                             .padding(.leading)
-                        SensorScrollItem(sensor: sensors.first!)
+                        SensorScrollItem(sensor: latestSensor)
                     }
                 }
-                if sensors.count > 0 {
+                if sensors.count > 2 {
                     NavigationLink(destination:
                                     SensorOverView(sensorID: randomSensor.id, sensorName: randomSensor.device_name)
                     ) {
@@ -111,7 +111,7 @@ struct TopTabView: View {
                                 .font(.title)
                                 .bold()
                                 .padding(.leading)
-                            SensorScrollItem(sensor: sensors.first!)
+                            SensorScrollItem(sensor: randomSensor)
                         }
                     }
                 }
