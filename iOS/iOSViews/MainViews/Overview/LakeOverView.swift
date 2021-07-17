@@ -11,54 +11,105 @@ import MapKit
 struct LakeOverView: View {
     var lake: Lake
     @ObservedObject var sensorsVM: SensorListViewModel
+    @State var selectedTag: Int?
     var body: some View {
+        
         VStack(alignment: .leading, spacing: 0) {
-                    TopMap(lake: lake, region: lake.region, sensors: sensorsVM)
-            Text("View")
-                }.padding()
-                .navigationBarTitle(lake.name)
-                .background(Color.systemGroupedBackground.ignoresSafeArea())
+            
+            TopMap(lake: lake, sensors: sensorsVM, region: lake.region, selectedTag: $selectedTag)
+            
+            ScrollViewReader { proxy in
+                List(selection: $selectedTag) {
+                    Text("Locations")
+                        .font(.title2)
+                        .bold()
+                    ForEach(getSensorsInBody()) { sensor in
+                        SensorScrollItemSmall(sensor: sensor, selectedTag: $selectedTag)
+                            .id(sensor.id)
+                    }
+                }
+                .listStyle(.insetGrouped)
+                .onChange(of: selectedTag) { _ in
+                    proxy.scrollTo(selectedTag)
+                }
+                .refreshable {
+                    await sensorsVM.load()
+                }
             }
-
+            Spacer()
+        }
+        .navigationBarTitle(lake.name)
+        .background(Color.systemGroupedBackground.ignoresSafeArea())
+    }
+    
+    func getSensorsInBody() -> [Sensor] {
+        var sensors = [Sensor]()
+        for sensor in sensorsVM.sensorArray {
+            if lake.sensors.contains(sensor.id) {
+                sensors.append(sensor)
+            }
+        }
+        return sensors
+    }
 }
 
 struct LakeOverView_Previews: PreviewProvider {
     static var previews: some View {
-        EmptyView()
+        LakeOverView(lake: lakeOfZurich, sensorsVM: SensorListViewModel.init())
     }
 }
 
 struct TopMap: View {
+    
     var lake: Lake
-    @State var region: MKCoordinateRegion
+    
     @ObservedObject var sensors: SensorListViewModel
+    @State var region: MKCoordinateRegion
+    @Binding var selectedTag: Int?
     var body: some View {
-
+        
         Map(coordinateRegion: $region,
-             annotationItems: sensors.sensorArray, annotationContent: { pin in
-            MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: pin.latitude!, longitude: pin.longitude!), content: {
-
-                NavigationLink(
-                    destination: Text("Destination"),
-                    label: {
-                        Text(makeTemperatureString(double: pin.latestTemp!))
-                            .minimumScaleFactor(0.3)
-                            .foregroundColor(.white)
-                            .lineLimit(1)
-                            .frame(width: 40, height: 40)
-                            .background(Color.blue)
-                            .cornerRadius(90)
-                    })
+            annotationItems: sensors.sensorArray, annotationContent: { pin in
+            MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: pin.latitude!, longitude: pin.longitude!),
+                          content: {
+                Button {
+                    selectedTag = pin.id
+                } label: {
+                    Image(systemName: "mappin")
+                        .font(Font.title3.weight(.bold))
+                        .foregroundColor(.red)
+                        .padding(4)
+                }
             })
-
-             }).disabled(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
-            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/3.5, alignment: .center/*@END_MENU_TOKEN@*/)
-
-        .onAppear(perform: {
-            region = MKCoordinateRegion(center: lake.region.center, span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
-
         })
-
+        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/3.5)
+        .onAppear(perform: {
+            region = MKCoordinateRegion(
+                center: lake.region.center,
+                span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
+            )
+        })
     }
+}
 
+struct SensorScrollItemSmall: View {
+    var sensor: Sensor
+    @Binding var selectedTag: Int?
+    var body: some View {
+        NavigationLink(destination: SensorOverView(sensorID: sensor.id, sensorName: sensor.device_name)) {
+            HStack(alignment: .top) {
+                Text(sensor.device_name)
+                    .font(.headline)
+                Spacer()
+                VStack(alignment: .trailing) {
+                    Text(makeTemperatureString(double: sensor.latestTemp!))
+                        .font(.headline)
+                    Text(sensor.lastTempTime!, format: .relative(presentation: .named))
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
+            }.foregroundColor(selectedTag == sensor.id ? .blue : .primary)
+                .lineLimit(2)
+        }
+    }
 }
