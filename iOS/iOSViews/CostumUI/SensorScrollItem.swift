@@ -9,54 +9,58 @@ import SwiftUI
 import MapKit
 
 struct SensorScrollItem: View {
-
-    @Binding var region: MKCoordinateRegion
-    @Binding var sensor: Sensor
-    @State var title: LocalizedStringKey
-
+    
+    var sensor: Sensor
+    @State var region: MKCoordinateRegion
+    
+    init(sensor: Sensor) {
+        self.sensor = sensor
+        _region = State(initialValue: MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: sensor.latitude ?? 0.0, longitude: sensor.longitude ?? 0.0),
+            span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        )
+    }
+    
     var body: some View {
         VStack(alignment: .leading) {
-            Text(title)
-                .font(.title)
-                .bold()
-                .padding(.trailing)
-                .lineLimit(1)
-                .minimumScaleFactor(0.1)
-                VStack(alignment: .leading, spacing: 0) {
-                    Map(coordinateRegion: $region, interactionModes: [])
-                    VStack(alignment: .leading) {
-                        HStack {
-                            Text(sensor.device_name)
-                                .font(.headline)
-                            Spacer()
-                        }
-                        Text(sensor.caption!)
-                            .font(.footnote)
-                    }.padding()
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.1)
+            Map(coordinateRegion: $region, interactionModes: [])
+            
+            HStack(alignment: .top) {
+                VStack(alignment: .leading) {
+                    Text(sensor.device_name)
+                        .font(.headline)
+                    Text(sensor.caption!)
+                        .font(.footnote)
+                        .multilineTextAlignment(.leading)
                 }
-                .layoutPriority(1)
-                .onAppear(perform: {
-                    region = MKCoordinateRegion(
-                        center: CLLocationCoordinate2D(latitude: sensor.latitude!, longitude: sensor.longitude!),
-                        span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-                    )
-                })
-
-                .background(Color.secondarySystemGroupedBackground)
-                .cornerRadius(15)
-                .shadow(radius: 1)
-                .padding(1)
-        }.frame(minWidth: UIScreen.main.bounds.width-40, maxWidth: UIScreen.main.bounds.width-40, minHeight: 250)
+                
+                Spacer()
+                
+                VStack(alignment: .trailing) {
+                    Text(makeTemperatureString(double: sensor.latestTemp!))
+                        .font(.headline)
+                    Text(sensor.lastTempTime!, format: .relative(presentation: .named))
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
+            }
+            .padding([.horizontal, .bottom])
+            .lineLimit(2)
+        }
+        .frame(maxHeight: UIScreen.main.bounds.height * 0.3)
+        .background(Color.secondarySystemGroupedBackground)
+        .cornerRadius(15)
+        .overlay(
+            RoundedRectangle(cornerRadius: 15)
+                .stroke(.tertiary, lineWidth: 1)
+        )
+        .padding([.horizontal, .bottom])
+        .padding(.top, 2)
     }
 }
 
 struct SensorScrollItem_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            // SensorScrollItem(sensor: testSensor, title: "test")
-            // SensorScrollItem(sensor: testSensor, title: "test").preferredColorScheme(.dark)
-        }
+        EmptyView()
     }
 }

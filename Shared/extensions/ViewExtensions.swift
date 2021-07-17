@@ -16,7 +16,10 @@ extension View {
             .frame(maxWidth: .infinity)
             .background(Color.secondarySystemGroupedBackground)
             .cornerRadius(15)
-            .shadow(radius: 1)
+            .overlay(
+                    RoundedRectangle(cornerRadius: 15)
+                        .stroke(.tertiary, lineWidth: 1)
+                )
             .padding(.bottom)
             .padding(.horizontal)
     }

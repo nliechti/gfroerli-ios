@@ -18,13 +18,7 @@ struct AllSensorView: View {
                 SearchBar(searchText: $searchText, isSearching: $isSearching)
 
                 if !sensorsVm.sensorArray.isEmpty {
-                    AsyncContentView(source: sensorsVm) { sensors in
-                        List {
-                            ForEach(sensors.filter({ "\($0.device_name)".localizedCaseInsensitiveContains(searchText) || searchText.isEmpty })) { sensor in
-                                NavigationLink(destination: SensorOverView(sensorID: sensor.id, sensorName: sensor.device_name), label: {Text(sensor.device_name)})
-                            }
-                        }.listStyle(InsetGroupedListStyle())
-                    }
+                    Text("List")
                 } else {
                     VStack {
                         Spacer()

@@ -57,7 +57,7 @@ struct SingleSensorWithGraphProvider: IntentTimelineProvider {
         weeklyAggregVM.id = Int(configuration.sensor?.identifier ?? "0")!
         monthlyAggregVM.id = Int(configuration.sensor?.identifier ?? "0")!
 
-        async{ await singleSensorVM.load(sensorId: Int(configuration.sensor?.identifier ?? "0")!)}
+        Task { await singleSensorVM.load(sensorId: Int(configuration.sensor?.identifier ?? "0")!)}
         hourlyAggregVM.load()
         weeklyAggregVM.load()
         monthlyAggregVM.load()

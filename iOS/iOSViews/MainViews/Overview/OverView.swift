@@ -11,7 +11,7 @@ struct OverView: View {
     @State var showSens = false
     @Binding var showDetail: Bool
     @ObservedObject var sensorsVM: SensorListViewModel
-
+    
     var body: some View {
         NavigationView {
             ScrollView(.vertical) {
@@ -20,100 +20,152 @@ struct OverView: View {
                         Text("Info:").font(.title3).bold()
                         Text("More locations will follow very soon, stay tuned!", comment: "Test comment")}
                     Spacer()
-                }.padding().boxStyle()
-
+                }
+                .padding()
+                .boxStyle()
+                
                 VStack(spacing: 0) {
-                    AsyncContentView(source: sensorsVM) { sensors in
-                        TopTabView(sensors: sensors)
+                    switch sensorsVM.loadingState {
+                    case .loaded:
+                        if sensorsVM.sensorArray.count != 0 {
+                            TopTabView(sensors: sensorsVM.sensorArray)
+                        }
+                    case .loading:
+                        LoadingView()
+                        
+                    case .failed:
+                        Text("Error")
                     }
-                    HStack {
-                    Text("Water Bodies")
+                }
+                .frame(idealHeight: UIScreen.main.bounds.height * 0.3)
+                
+                HStack {
+                    Text("Waterbodies")
                         .font(.title)
                         .bold()
-                        .padding([.horizontal, .top])
+                    .padding(.leading)
                     Spacer()
-                    }
-                    ForEach(lakes) { lake in
-                        NavigationLink(
-                            destination: LakeOverView(lake: lake, sensorsVM: sensorsVM),
-                            label: {
-                                LakeListItem(lake: lake).shadow(radius: 1)
-                            }).buttonStyle(PlainButtonStyle())
-                            .padding()
-                    }
+                }
+                
+                ForEach(lakes) { lake in
+                    NavigationLink(destination: LakeOverView(lake: lake, sensorsVM: sensorsVM)) {
+                        WaterBodyScrollItem(sensorsVM: sensorsVM, waterBody: lake)
+                    }.buttonStyle(.plain)
                 }
                 Spacer()
             }
             .background(Color.systemGroupedBackground.ignoresSafeArea())
-            .navigationTitle("Overview")
+            .navigationBarTitle("Overview", displayMode: .large)
         }
     }
 }
 
 struct TopTabView: View {
     @State var sensors: [Sensor]
-    @State var newestSensor = testSensor1
-    @State var randomSensor = testSensor1
-    @State var latestSensor = testSensor1
-    @State var newestRegion = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(latitude: testSensor1.latitude!, longitude: testSensor1.longitude!),
-        span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-    )
-    @State var latesRegion = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(latitude: testSensor1.latitude!, longitude: testSensor1.longitude!),
-        span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-    )
-    @State var randomRegion = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(latitude: testSensor1.latitude!, longitude: testSensor1.longitude!),
-        span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-    )
-    var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack {
-                NavigationLink(
-                    destination: SensorOverView(sensorID: newestSensor.id, sensorName: newestSensor.device_name),
-                    label: {
-                        SensorScrollItem(region: $newestRegion, sensor: $newestSensor, title: "Recently Added")
-                    }).buttonStyle(PlainButtonStyle())
-                if sensors.count > 2 {
-                NavigationLink(
-                    destination: SensorOverView(sensorID: latestSensor.id, sensorName: latestSensor.device_name),
-                    label: {
-                        SensorScrollItem(region: $latesRegion, sensor: $latestSensor, title: "Last Updated")
-                    }).buttonStyle(PlainButtonStyle())
-                NavigationLink(
-                    destination: SensorOverView(sensorID: randomSensor.id, sensorName: randomSensor.device_name),
-                    label: {
-                        SensorScrollItem(region: $randomRegion, sensor: $randomSensor, title: "Random")
-                    }).buttonStyle(PlainButtonStyle())
-                }
-            }.padding(.horizontal)
-        }
-        .onAppear(perform: setUpView)
-
-    }
-
-    func setUpView() {
+    var newestSensor: Sensor
+    var randomSensor = testSensor1
+    var latestSensor = testSensor1
+    
+    init(sensors: [Sensor]) {
+        _sensors = State(initialValue: sensors)
+        
         newestSensor = sensors.sorted(by: {$0.id > $1.id}).first!
         latestSensor = sensors.sorted(by: {$0.lastTempTime! > $1.lastTempTime!}).first!
-        randomSensor = sensors.randomElement()!
-        newestRegion =  MKCoordinateRegion(
-            center: CLLocationCoordinate2D(latitude: newestSensor.latitude!, longitude: newestSensor.longitude!),
-            span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-        )
-        latesRegion =  MKCoordinateRegion(
-            center: CLLocationCoordinate2D(latitude: latestSensor.latitude!, longitude: latestSensor.longitude!),
-            span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-        )
-        randomRegion =  MKCoordinateRegion(
-            center: CLLocationCoordinate2D(latitude: randomSensor.latitude!, longitude: randomSensor.longitude!),
-            span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-        )
+        randomSensor = sensors.randomElement() ?? sensors.first!
+        
+        UIPageControl.appearance().currentPageIndicatorTintColor = .secondaryLabel
+        UIPageControl.appearance().pageIndicatorTintColor = .tertiaryLabel
+    }
+    
+    var body: some View {
+        TabView {
+            NavigationLink(destination:
+                            SensorOverView(sensorID: newestSensor.id, sensorName: newestSensor.device_name)
+                ) {
+                VStack(alignment: .leading, spacing: 0) {
+                    Text("Recently Added")
+                        .font(.title)
+                        .bold()
+                        .padding(.leading)
+                    SensorScrollItem(sensor: sensors.first!)
+                }
+            }
+            if sensors.count > 0 {
+                NavigationLink(destination:
+                                SensorOverView(sensorID: latestSensor.id, sensorName: latestSensor.device_name)
+                ) {
+                    VStack(alignment: .leading, spacing: 0) {
+                        Text("Newest Measurement")
+                            .font(.title)
+                            .bold()
+                            .padding(.leading)
+                        SensorScrollItem(sensor: sensors.first!)
+                    }
+                }
+                if sensors.count > 0 {
+                    NavigationLink(destination:
+                                    SensorOverView(sensorID: randomSensor.id, sensorName: randomSensor.device_name)
+                    ) {
+                        VStack(alignment: .leading, spacing: 0) {
+                            Text("Random")
+                                .font(.title)
+                                .bold()
+                                .padding(.leading)
+                            SensorScrollItem(sensor: sensors.first!)
+                        }
+                    }
+                }
+            }
+        }
+        .padding(.bottom)
+        .buttonStyle(.plain)
+        .tabViewStyle(.page(indexDisplayMode: .automatic))
+        
     }
 }
 
 struct OverView_Previews: PreviewProvider {
     static var previews: some View {
-        OverView(showDetail: .constant(false), sensorsVM: testSensorVM ).environment(\.sizeCategory, .accessibilityExtraExtraExtraLarge).makePreViewModifier()
+        WaterBodyScrollItem(sensorsVM: SensorListViewModel.init(), waterBody: lakeOfZurich)
+    }
+}
+
+struct WaterBodyScrollItem: View {
+    @ObservedObject var sensorsVM: SensorListViewModel
+    var waterBody: Lake
+    
+    var body: some View {
+        
+        VStack(alignment: .leading) {
+            HStack {
+                Text(waterBody.name)
+                    .font(.headline)
+                    .bold()
+                if calculateAvgTemperature() != 0.0 {
+                    Spacer()
+                    Text(makeTemperatureString(double: calculateAvgTemperature(), precision: 1))
+                        .font(.headline)
+                }
+                
+            }
+            Text("\(waterBody.sensors.count ) location")
+                .font(.footnote)
+        }.padding()
+        .boxStyle()
+    }
+    
+    func calculateAvgTemperature() -> Double {
+        var total = 0.0
+        var count = 0.0
+        
+        for sensor in sensorsVM.sensorArray {
+            if waterBody.sensors.contains(sensor.id) {
+                if let temp = sensor.latestTemp {
+                    total += temp
+                    count += 1
+                }
+            }
+        }
+        return total/count
     }
 }

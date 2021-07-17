@@ -24,7 +24,7 @@ struct SensorOverviewLastMeasurementView: View {
                                 .bold()
                         }
                         Spacer()
-                        VStack {
+                        VStack(alignment: .trailing) {
                             Text(makeTemperatureString(double: sensorVM.sensor!.latestTemp!))
                                 .font(.largeTitle)
                                 .bold()

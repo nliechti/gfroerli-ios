@@ -14,24 +14,7 @@ struct LakeOverView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
                     TopMap(lake: lake, region: lake.region, sensors: sensorsVM)
-            AsyncContentView(source: sensorsVM) { sensors in
-                        ScrollView(showsIndicators: true) {
-                            HStack {
-                                Text("Locations").font(.title).bold().padding([.top, .horizontal])
-                                Spacer()
-                            }
-                        ForEach(sensors) { sensor in
-                            if lake.sensors.contains(String(sensor.id)) {
-                                NavigationLink(
-                                    destination: SensorOverView(sensorID: sensor.id, sensorName: sensor.device_name),
-                                    label: {
-                                SensorListItem(sensor: sensor).padding(.horizontal)
-                                    })
-                            }
-                        }
-                        Spacer()
-                        }.background(Color.systemGroupedBackground.ignoresSafeArea())
-                    }
+            Text("View")
                 }.padding()
                 .navigationBarTitle(lake.name)
                 .background(Color.systemGroupedBackground.ignoresSafeArea())
@@ -41,7 +24,7 @@ struct LakeOverView: View {
 
 struct LakeOverView_Previews: PreviewProvider {
     static var previews: some View {
-        LakeOverView(lake: lakeOfZurich, sensorsVM: testSensorVM).makePreViewModifier()
+        EmptyView()
     }
 }
 

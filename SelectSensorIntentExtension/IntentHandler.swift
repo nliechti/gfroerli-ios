@@ -14,7 +14,7 @@ class IntentHandler: INExtension, SingleSensorIntentHandling {
     func provideSensorOptionsCollection(
         for intent: SingleSensorIntent,
         with completion: @escaping (INObjectCollection<SelectableSensor>?, Error?) -> Void) {
-        async{ await sensorVM.load()}
+        Task {await sensorVM.load()}
         let seconds = 1.0
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
 

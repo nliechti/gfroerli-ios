@@ -74,7 +74,7 @@ struct SensorOverViewGraph: View {
             }.frame(height: 55)
 
             ZStack {
-                if !animationEnded {
+                if !animationEnded && temperatureAggregationsVM.stepsDay.count != 0 {
                 Image(systemName: "hand.draw.fill")
                     .resizable()
                     .font(.largeTitle)

@@ -26,20 +26,7 @@ struct FavoritesView: View {
                         Spacer()
                     }
                 } else {
-                    AsyncContentView(source: sensorsVm) { sensors in
-                        ScrollView {
-                            ForEach(sensors) { sensor in
-                                if favorites.contains(sensor.id) {
-                                    NavigationLink(
-                                        destination: SensorOverView(sensorID: sensor.id, sensorName: sensor.device_name),
-                                        label: {
-                                            Item(sensor: sensor)
-                                        }).buttonStyle(PlainButtonStyle())
-                                }
-                            }
-                            Spacer()
-                        }
-                    }
+                    Text("Favorites")
                 }
             }
             .background(Color.systemGroupedBackground.ignoresSafeArea())

@@ -39,7 +39,7 @@ struct SensorOverviewSponsorView: View {
             case .loading:
                 LoadingView()
                     .onAppear(perform: {
-                        async { await sponsorVM.load(sponsorId: sensorID)}
+                        Task { await sponsorVM.load(sponsorId: sensorID)}
                     })
                 
             case .failed:
@@ -52,7 +52,7 @@ struct SensorOverviewSponsorView: View {
                         Text(sponsorVM.errorMsg)
                             .foregroundColor(.secondary)
                         Button("Try again") {
-                            async { await sponsorVM.load(sponsorId: sensorID)}
+                            Task { await sponsorVM.load(sponsorId: sensorID)}
                         }
                         .buttonStyle(.bordered)
                         Spacer()

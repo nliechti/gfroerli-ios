@@ -102,13 +102,15 @@ struct ChartView: View {
             .contentShape(Rectangle())
             .gesture(DragGesture()
                         .onChanged({ value in
-                            self.touchLocation = value.location
-                            self.showIndicator = true
-                            self.positionOfClosestPoint = self.getClosestDataPoint(
-                                                                            toPoint: value.location,
-                                                                            width: geo.size.width,
-                                                                            height: geo.size.height
-                                                                        )
+                            if steps.count != 0 {
+                                self.touchLocation = value.location
+                                self.showIndicator = true
+                                self.positionOfClosestPoint = self.getClosestDataPoint(
+                                                                                toPoint: value.location,
+                                                                                width: geo.size.width,
+                                                                                height: geo.size.height
+                                                                            )
+                            }
                         })
                         .onEnded({ _ in
                             self.showIndicator = false

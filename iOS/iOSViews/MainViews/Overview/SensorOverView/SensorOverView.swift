@@ -37,8 +37,10 @@ struct SensorOverView: View {
                             .boxStyle()
                     }
                     .padding(.vertical)
+                    .task {
+                        await sensorVM.load(sensorId: sensorID)
+                    }
                     .onAppear(perform: {
-                        async { await sensorVM.load(sensorId: sensorID)}
                         setFavs()
                         isFav = favorites.contains(sensorID)
                     })
@@ -50,10 +52,9 @@ struct SensorOverView: View {
                             Spacer()
                             Text("Loading Location failed. Reason:").foregroundColor(.gray)
                             Text(sensorVM.errorMsg).foregroundColor(.gray)
-                            Button("Try again") {
-                                async { await sensorVM.load(sensorId: sensorID)}
-                            }
-                            .buttonStyle(.bordered)
+                            Button("Try again") {}
+                                .buttonStyle(.bordered)
+                                .task { await sensorVM.load(sensorId: sensorID) }
                             Spacer()
                         }
                         Spacer()

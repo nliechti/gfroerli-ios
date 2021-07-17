@@ -57,14 +57,14 @@ struct IOSMainView: View {
 
         // fetching Sensors
         .onAppear(perform: {
-            sensorsVm.load()
+            Task { await sensorsVm.load()}
             currentVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0.0"
             if currentVersion > lastVersion {
                 showUpdateView=true
             }
         })
         .onReceive(self.observer.$enteredForeground) { _ in
-            sensorsVm.load()
+             Task { await sensorsVm.load()}
         }
         // DeepLink handling
         .onOpenURL(perform: { url in
@@ -87,7 +87,6 @@ struct IOSMainView: View {
 
 struct IOSMainView_Previews: PreviewProvider {
     static var previews: some View {
-        IOSMainView(sensorsVm: testSensorVM)
-            .makePreViewModifier()
+        EmptyView()
     }
 }

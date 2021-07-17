@@ -38,13 +38,14 @@ struct SingleSensorProvider: IntentTimelineProvider {
         for configuration: SingleSensorIntent,
         in context: Context,
         completion: @escaping (Timeline<SingleSensorEntry>) -> Void) {
-        var entries: [SingleSensorEntry] = []
+        
+            var entries: [SingleSensorEntry] = []
         let singleSensorVM = SingleSensorViewModel()
-
         let selectableSensor = configuration.sensor
 
-
-        async{ await singleSensorVM.load(sensorId: Int(configuration.sensor?.identifier ?? "0")!)}
+        Task {
+            await singleSensorVM.load(sensorId: Int(configuration.sensor?.identifier ?? "0")!)
+        }
 
         // Wait for async/await
         let seconds = 2.0
