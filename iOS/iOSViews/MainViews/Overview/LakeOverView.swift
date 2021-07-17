@@ -89,6 +89,14 @@ struct TopMap: View {
                 span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
             )
         })
+        .onChange(of: region.span.longitudeDelta) { _ in
+            if region.span.latitudeDelta > 0.5 || region.span.longitudeDelta > 0.5 {
+                region = MKCoordinateRegion(
+                    center: lake.region.center,
+                    span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
+                )
+            }
+        }
     }
 }
 

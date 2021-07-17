@@ -85,8 +85,8 @@ struct ChartView: View {
                 } else {
                     Text("No data available")
                         .foregroundColor(.secondary)
-                        .padding()
-                        .background(Color.systemGroupedBackground)
+                        .padding(3)
+                        .background(.thinMaterial)
                         .cornerRadius(5)
                 }
                 
