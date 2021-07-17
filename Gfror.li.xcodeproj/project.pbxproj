@@ -30,6 +30,7 @@
 		8DA7CEF52516108000395465 /* SensorListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA7CEF42516108000395465 /* SensorListViewModel.swift */; };
 		8DA7CF02251611C800395465 /* SingleSensorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA7CF01251611C700395465 /* SingleSensorViewModel.swift */; };
 		8DA7CF0F2516176300395465 /* TempAggregationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA7CF0E2516176300395465 /* TempAggregationsViewModel.swift */; };
+		8DB8937526A3230F008BDFC5 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB8937426A3230F008BDFC5 /* MapView.swift */; };
 		8DBC3C4B25756C080010D55B /* HourlyChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBC3C4A25756C080010D55B /* HourlyChartView.swift */; };
 		8DBCDB8F2576C4C400CBDAA6 /* WeeklyChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBCDB8E2576C4C400CBDAA6 /* WeeklyChartView.swift */; };
 		8DBCDB962576D55800CBDAA6 /* Legend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBCDB952576D55800CBDAA6 /* Legend.swift */; };
@@ -37,8 +38,7 @@
 		8DD06C2925A0E7340081250B /* GroupBoxExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD06C2825A0E7340081250B /* GroupBoxExtension.swift */; };
 		8DD06C3025A0EF290081250B /* UIDeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD06C2F25A0EF290081250B /* UIDeviceExtension.swift */; };
 		8DF3BBC9250B4F2700DBCC37 /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBC8250B4F2700DBCC37 /* URLExtension.swift */; };
-		8DF3BBCB250B709700DBCC37 /* AllSensorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBCA250B709700DBCC37 /* AllSensorView.swift */; };
-		8DF3BBCD250B748800DBCC37 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBCC250B748800DBCC37 /* SearchBar.swift */; };
+		8DF3BBCB250B709700DBCC37 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBCA250B709700DBCC37 /* SearchView.swift */; };
 		8DF3BBD5250BB62D00DBCC37 /* SensorOverviewLastMeasurementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBD4250BB62D00DBCC37 /* SensorOverviewLastMeasurementView.swift */; };
 		8DF3BBD8250BB6BB00DBCC37 /* OwnHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBD7250BB6BB00DBCC37 /* OwnHelpers.swift */; };
 		B40B20AB2666BFB900FCF872 /* OwnHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBD7250BB6BB00DBCC37 /* OwnHelpers.swift */; };
@@ -215,6 +215,7 @@
 		8DA7CEF42516108000395465 /* SensorListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorListViewModel.swift; sourceTree = "<group>"; };
 		8DA7CF01251611C700395465 /* SingleSensorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSensorViewModel.swift; sourceTree = "<group>"; };
 		8DA7CF0E2516176300395465 /* TempAggregationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempAggregationsViewModel.swift; sourceTree = "<group>"; };
+		8DB8937426A3230F008BDFC5 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		8DBC3C4A25756C080010D55B /* HourlyChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyChartView.swift; sourceTree = "<group>"; };
 		8DBCDB8E2576C4C400CBDAA6 /* WeeklyChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyChartView.swift; sourceTree = "<group>"; };
 		8DBCDB952576D55800CBDAA6 /* Legend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Legend.swift; sourceTree = "<group>"; };
@@ -222,8 +223,7 @@
 		8DD06C2825A0E7340081250B /* GroupBoxExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupBoxExtension.swift; sourceTree = "<group>"; };
 		8DD06C2F25A0EF290081250B /* UIDeviceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExtension.swift; sourceTree = "<group>"; };
 		8DF3BBC8250B4F2700DBCC37 /* URLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
-		8DF3BBCA250B709700DBCC37 /* AllSensorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSensorView.swift; sourceTree = "<group>"; };
-		8DF3BBCC250B748800DBCC37 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		8DF3BBCA250B709700DBCC37 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		8DF3BBD4250BB62D00DBCC37 /* SensorOverviewLastMeasurementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorOverviewLastMeasurementView.swift; sourceTree = "<group>"; };
 		8DF3BBD7250BB6BB00DBCC37 /* OwnHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnHelpers.swift; sourceTree = "<group>"; };
 		B415711B260A41A400372278 /* ChangeNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNote.swift; sourceTree = "<group>"; };
@@ -331,7 +331,6 @@
 			isa = PBXGroup;
 			children = (
 				8D04196724F50258003D64D4 /* SensorScrollItem.swift */,
-				8DF3BBCC250B748800DBCC37 /* SearchBar.swift */,
 				8D5D25CA257A98D1002852F4 /* SensorListItem.swift */,
 				8D3D3716250C1C3B00F11E48 /* SiriButton.swift */,
 				8D2701C625153082007BB0E1 /* LoadingView.swift */,
@@ -396,12 +395,21 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		8DB8937326A322EA008BDFC5 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				8DB8937426A3230F008BDFC5 /* MapView.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
 		8DF3BBCE250BB4A900DBCC37 /* MainViews */ = {
 			isa = PBXGroup;
 			children = (
 				E438B4CB24ACFB7D008A2E01 /* IOSMainView.swift */,
 				8DF3BBCF250BB4B700DBCC37 /* Overview */,
-				8DF3BBD2250BB4D000DBCC37 /* List */,
+				8DB8937326A322EA008BDFC5 /* Map */,
+				8DF3BBD2250BB4D000DBCC37 /* Search */,
 				8DF3BBD1250BB4CA00DBCC37 /* Favorites */,
 				8DF3BBD0250BB4C300DBCC37 /* Settings */,
 			);
@@ -436,12 +444,12 @@
 			path = Favorites;
 			sourceTree = "<group>";
 		};
-		8DF3BBD2250BB4D000DBCC37 /* List */ = {
+		8DF3BBD2250BB4D000DBCC37 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				8DF3BBCA250B709700DBCC37 /* AllSensorView.swift */,
+				8DF3BBCA250B709700DBCC37 /* SearchView.swift */,
 			);
-			path = List;
+			path = Search;
 			sourceTree = "<group>";
 		};
 		8DF3BBD3250BB54C00DBCC37 /* SensorOverView */ = {
@@ -920,18 +928,18 @@
 				8DF3BBD8250BB6BB00DBCC37 /* OwnHelpers.swift in Sources */,
 				B49BE2D0261CB4880004B0D6 /* Reachability.swift in Sources */,
 				B415711C260A41A400372278 /* ChangeNote.swift in Sources */,
-				8DF3BBCB250B709700DBCC37 /* AllSensorView.swift in Sources */,
+				8DF3BBCB250B709700DBCC37 /* SearchView.swift in Sources */,
 				8D6A7DC624F14115009A0026 /* LakeOverView.swift in Sources */,
 				8D580B59259FA33800202262 /* FAQView.swift in Sources */,
 				B4B37A4925C2C1D500DA76A5 /* AsyncContentView.swift in Sources */,
 				B4F19A3D26263F4A00CA4C8D /* SelectSensor.intentdefinition in Sources */,
 				8DD06C3025A0EF290081250B /* UIDeviceExtension.swift in Sources */,
 				8DA7CF0F2516176300395465 /* TempAggregationsViewModel.swift in Sources */,
-				8DF3BBCD250B748800DBCC37 /* SearchBar.swift in Sources */,
 				B4DEC7EB2654276400206EAA /* LineShape.swift in Sources */,
 				B4B37A5625C2C43400DA76A5 /* LoadableObject.swift in Sources */,
 				E4C24FE724EEB58400FB4F51 /* Sensor.swift in Sources */,
 				B4F95C0825C2EC46004C21E1 /* ViewExtensions.swift in Sources */,
+				8DB8937526A3230F008BDFC5 /* MapView.swift in Sources */,
 				8D0D7FE624F107D30068176C /* SettingsView.swift in Sources */,
 				8DA7CF02251611C800395465 /* SingleSensorViewModel.swift in Sources */,
 				8D0D7FE824F10F610068176C /* LakesData.swift in Sources */,

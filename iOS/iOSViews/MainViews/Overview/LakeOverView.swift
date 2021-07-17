@@ -105,13 +105,11 @@ struct SensorScrollItemSmall: View {
     @Binding var selectedTag: Int?
     var body: some View {
         NavigationLink(destination: SensorOverView(sensorID: sensor.id, sensorName: sensor.device_name)) {
-            HStack(alignment: .top) {
+            HStack(alignment: .center) {
                 Text(sensor.device_name)
-                    .font(.headline)
                 Spacer()
                 VStack(alignment: .trailing) {
                     Text(makeTemperatureString(double: sensor.latestTemp!))
-                        .font(.headline)
                     Text(sensor.lastTempTime!, format: .relative(presentation: .named))
                         .font(.caption)
                         .foregroundColor(.secondary)

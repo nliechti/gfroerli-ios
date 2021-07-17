@@ -27,16 +27,22 @@ struct IOSMainView: View {
                 .tabItem { Image(systemName: "thermometer.sun.fill")
                     Text("Overview") }
                 .tag("Overview")
-
-            AllSensorView(sensorsVm: sensorsVm)
-                .tabItem { Image(systemName: "line.horizontal.3.circle.fill")
-                    Text("All") }
-                .tag("All")
-
+        
             FavoritesView(sensorsVm: sensorsVm)
                 .tabItem { Image(systemName: "star.fill")
                     Text("Favorites") }
                 .tag("Favorites")
+            
+            MapView()
+                .tabItem { Image(systemName: "map")
+                    Text("Map") }
+                .tag("Map")
+            
+            SearchView(sensorsVm: sensorsVm)
+                .tabItem { Image(systemName: "magnifyingglass")
+                    Text("Search") }
+                .tag("Search")
+            
 
             SettingsView()
                 .tabItem { Image(systemName: "gear")
