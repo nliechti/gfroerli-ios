@@ -65,7 +65,6 @@ class TemperatureAggregationsViewModel: ObservableObject {
 
         url.setValue("Bearer XTZA6H0Hg2f02bzVefmVlr8fIJMy2FGCJ0LlDlejj2Pi0i1JvZiL0Ycv1t6JoZzD", forHTTPHeaderField: "Authorization")
         url.httpMethod = "GET"
-        print(url)
         URLSession.shared.dataTask(with: url) { data, _, _ in
             DispatchQueue.main.async { [self] in
                 do {
@@ -98,7 +97,6 @@ class TemperatureAggregationsViewModel: ObservableObject {
                                         self.stepsDay.append(handle(num: data.hour!+timeZoneOffsetInHours))
                                 }
                         }
-                        print(self.stepsDay)
                     } else {
                         print("")
                     }
@@ -124,7 +122,6 @@ class TemperatureAggregationsViewModel: ObservableObject {
         let end = df.string(from: Calendar.current.date(byAdding: .day, value: 6, to: startDateWeek)!)
 
         var url = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/mobile_app/sensors/\(id)/daily_temperatures?from=\(start)&to=\(end)&limit=7")!)
-        print(url)
         url.setValue("Bearer XTZA6H0Hg2f02bzVefmVlr8fIJMy2FGCJ0LlDlejj2Pi0i1JvZiL0Ycv1t6JoZzD", forHTTPHeaderField: "Authorization")
 
         url.httpMethod = "GET"
@@ -148,7 +145,6 @@ class TemperatureAggregationsViewModel: ObservableObject {
                             self.averagesWeek.append(data.avgTemp!.roundToDecimal(1))
                             let weekday = Calendar.current.component(.weekday, from: self.makeDateFromString(string: data.date!))
                             self.stepsWeek.append((abs(weekday+5))%7)
-                            print(self.stepsWeek)
 
                         }
                     } else {
@@ -213,7 +209,6 @@ class TemperatureAggregationsViewModel: ObservableObject {
     }
     func addWeek() {
         startDateWeek=Calendar.current.date(byAdding: DateComponents( day: 7), to: startDateWeek)!
-        print(startDateWeek)
     }
     func subtractWeek() {
         startDateWeek=Calendar.current.date(byAdding: DateComponents( day: -7), to: startDateWeek)!

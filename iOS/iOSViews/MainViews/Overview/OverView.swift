@@ -8,9 +8,8 @@
 import SwiftUI
 import MapKit
 struct OverView: View {
-    @State var showSens = false
-    @Binding var showDetail: Bool
     @ObservedObject var sensorsVM: SensorListViewModel
+    @State var showInfo = false
     
     var body: some View {
         NavigationView {
@@ -56,6 +55,17 @@ struct OverView: View {
             }
             .background(Color.systemGroupedBackground.ignoresSafeArea())
             .navigationBarTitle("Overview", displayMode: .large)
+            .navigationBarItems(trailing:
+                                    Button(action: {
+                showInfo = true
+            }, label: {
+                Image(systemName: "info.circle")
+            }))
+            .sheet(isPresented: $showInfo, content: {
+                NavigationView {
+                    FAQView()
+                }
+            })
         }
     }
 }
@@ -90,7 +100,7 @@ struct TopTabView: View {
                     SensorScrollItem(sensor: newestSensor)
                 }
             }
-            if sensors.count > 1 {
+            if sensors.count > 0 {
                 NavigationLink(destination:
                                 SensorOverView(sensorID: latestSensor.id, sensorName: latestSensor.device_name)
                 ) {
@@ -102,7 +112,7 @@ struct TopTabView: View {
                         SensorScrollItem(sensor: latestSensor)
                     }
                 }
-                if sensors.count > 2 {
+                if sensors.count > 0 {
                     NavigationLink(destination:
                                     SensorOverView(sensorID: randomSensor.id, sensorName: randomSensor.device_name)
                     ) {
@@ -117,9 +127,8 @@ struct TopTabView: View {
                 }
             }
         }
-        .padding(.bottom)
         .buttonStyle(.plain)
-        .tabViewStyle(.page(indexDisplayMode: .automatic))
+        .tabViewStyle(.page(indexDisplayMode: .never))
         
     }
 }

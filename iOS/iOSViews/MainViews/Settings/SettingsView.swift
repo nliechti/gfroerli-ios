@@ -30,7 +30,7 @@ struct SettingsView: View {
                         .minimumScaleFactor(0.1)
                         Spacer()
                     }.frame(maxHeight: 100)
-                    .padding([.top, .bottom], 5)
+                        .padding(.vertical, 5)
 
                     Section(header: Text("General")) {
                         // FAQ
@@ -140,20 +140,9 @@ struct SettingsView: View {
                                     .cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/) })
                         })
                     }
-                }.listStyle(GroupedListStyle())
+                }.listStyle(InsetGroupedListStyle())
             }.background(Color.systemGroupedBackground.ignoresSafeArea())
             .navigationBarTitle("Settings", displayMode: .inline)
-            .navigationBarItems(trailing:
-                                    Button(action: {alertShowing=true}, label: {
-                                        Text("Reset App").fontWeight(.regular)
-                                    }).alert(isPresented: $alertShowing, content: {
-                                        Alert(
-                                            title: Text("Are you sure?"),
-                                            message: Text("Do you want to reset the app?"),
-                                            primaryButton: .destructive(Text("Reset"), action: resetContent),
-                                            secondaryButton: .cancel(Text("Cancel"), action: {})
-                                        )
-                                    }) )
         }
     }
     func resetContent() {

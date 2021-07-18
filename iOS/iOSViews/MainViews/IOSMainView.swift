@@ -19,11 +19,11 @@ struct IOSMainView: View {
     @State var currentVersion = "0.0"
     @State var showUpdateView = false
     @ObservedObject var observer = Observer()
+    
     var body: some View {
-
         // TabsView and Tabs
         TabView(selection: $selectedTab) {
-            OverView(showDetail: $showSens, sensorsVM: sensorsVm)
+            OverView(sensorsVM: sensorsVm)
                 .tabItem { Image(systemName: "thermometer.sun.fill")
                     Text("Overview") }
                 .tag("Overview")
@@ -43,13 +43,15 @@ struct IOSMainView: View {
                     Text("Search") }
                 .tag("Search")
             
-
             SettingsView()
                 .tabItem { Image(systemName: "gear")
                     Text("Settings") }
                 .tag("Settings")
 
         }
+        .onTapGesture(count: 2, perform: {
+            NavigationUtil.popToRootView()
+        })
         .sheet(isPresented: $showUpdateView) {
             NavigationView {
                 WhatsNewView(lastVersion: lastVersion, showDismiss: true)
@@ -60,7 +62,6 @@ struct IOSMainView: View {
                 SensorOverView(sensorID: Int(pathComp!)!, sensorName: "").navigationBarItems(leading: Button(action: {showSens=false}, label: {Text("Close")}))
             }
         }
-
         // fetching Sensors
         .onAppear(perform: {
             Task { await sensorsVm.load()}
@@ -84,11 +85,32 @@ struct IOSMainView: View {
                 DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
                     showSens = true
                 })
-
             }
         })
     }
+}
 
+struct NavigationUtil {
+  static func popToRootView() {
+    findNavigationController(viewController: UIApplication.shared.windows.filter { $0.isKeyWindow }.first?.rootViewController)?
+      .popToRootViewController(animated: true)
+  }
+
+  static func findNavigationController(viewController: UIViewController?) -> UINavigationController? {
+    guard let viewController = viewController else {
+      return nil
+    }
+
+    if let navigationController = viewController as? UINavigationController {
+      return navigationController
+    }
+
+    for childViewController in viewController.children {
+      return findNavigationController(viewController: childViewController)
+    }
+
+    return nil
+  }
 }
 
 struct IOSMainView_Previews: PreviewProvider {

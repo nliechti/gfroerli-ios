@@ -32,9 +32,6 @@ struct LakeOverView: View {
                 .onChange(of: selectedTag) { _ in
                     proxy.scrollTo(selectedTag)
                 }
-                .refreshable {
-                    await sensorsVM.load()
-                }
             }
             Spacer()
         }
@@ -103,10 +100,17 @@ struct TopMap: View {
 struct SensorScrollItemSmall: View {
     var sensor: Sensor
     @Binding var selectedTag: Int?
+    @State var favorites =  [Int]()
+
     var body: some View {
         NavigationLink(destination: SensorOverView(sensorID: sensor.id, sensorName: sensor.device_name)) {
-            HStack(alignment: .center) {
+            HStack(alignment: .top) {
                 Text(sensor.device_name)
+                    .bold()
+                if favorites.contains(sensor.id) {
+                    Image(systemName: "star.fill")
+                        .foregroundColor(.yellow)
+                }
                 Spacer()
                 VStack(alignment: .trailing) {
                     Text(makeTemperatureString(double: sensor.latestTemp!))
@@ -116,6 +120,8 @@ struct SensorScrollItemSmall: View {
                 }
             }.foregroundColor(selectedTag == sensor.id ? .blue : .primary)
                 .lineLimit(2)
+        }.onAppear {
+            favorites = UserDefaults(suiteName: "group.ch.gfroerli")?.array(forKey: "favoritesIDs") as? [Int] ?? [Int]()
         }
     }
 }

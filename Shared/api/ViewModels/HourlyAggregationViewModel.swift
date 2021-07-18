@@ -23,7 +23,6 @@ class HourlyAggregationsViewModel: LoadableObject {
     var id: Int = 0
 
     public func load() {
-        print(date)
         let df = DateFormatter()
         df.dateFormat = "yyyy-MM-dd"
         let start = df.string(from: date)
@@ -32,7 +31,6 @@ class HourlyAggregationsViewModel: LoadableObject {
 
         url.setValue("Bearer XTZA6H0Hg2f02bzVefmVlr8fIJMy2FGCJ0LlDlejj2Pi0i1JvZiL0Ycv1t6JoZzD", forHTTPHeaderField: "Authorization")
         url.httpMethod = "GET"
-        print(url)
         URLSession.shared.dataTask(with: url) { data, _, _ in
             DispatchQueue.main.async {
                 do {

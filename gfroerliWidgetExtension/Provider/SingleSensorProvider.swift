@@ -58,7 +58,6 @@ struct SingleSensorProvider: IntentTimelineProvider {
                 sensor: singleSensorVM.sensor)
 
             entries.append(entry)
-            print(entry)
             let timeline = Timeline(
                 entries: entries,
                 policy: .after(Calendar.current.date(byAdding: .minute, value: 10, to: Date())!)
