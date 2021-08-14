@@ -54,6 +54,7 @@ struct SensorScrollItem: View {
             RoundedRectangle(cornerRadius: 15)
                 .stroke(.tertiary, lineWidth: 0.2)
         )
+        .shadow(color: .black.opacity(0.1), radius: 10)
         .padding([.horizontal, .bottom])
         .padding(.top, 2)
     }
