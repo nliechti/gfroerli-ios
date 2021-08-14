@@ -17,10 +17,8 @@ struct SettingsView: View {
     var body: some View {
         NavigationView {
             VStack {
-                
-                SettingsHeaderView()
-                
                 List {
+                    SettingsHeaderView()
                     // MARK: - General
                     Section(header: Text("General")) {
                         // FAQ
@@ -35,7 +33,8 @@ struct SettingsView: View {
                                             .foregroundColor(.white)
                                             .padding(3)
                                             .frame(width: 25, height: 25, alignment: .center)
-                                            .background(Color.blue).cornerRadius(3)
+                                            .background(.blue)
+                                            .cornerRadius(3)
                                     })
                             })}
                         
@@ -51,8 +50,32 @@ struct SettingsView: View {
                                             .foregroundColor(.white)
                                             .padding(3)
                                             .frame(width: 25, height: 25, alignment: .center)
-                                        .background(Color.green).cornerRadius(3) })
+                                            .background(.green)
+                                            .cornerRadius(3)
+                                    })
                             })}
+                        
+                        // Language
+                        Button(action: {
+                            UIApplication.shared.open(
+                                URL.init(string: UIApplication.openSettingsURLString)!,
+                                options: [:],
+                                completionHandler: nil
+                            )
+                            
+                        }, label: {
+                            Label(
+                                title: { Text("Change Language").foregroundColor(Color("textColor"))},
+                                icon: {
+                                    Image(systemName: "globe")
+                                        .resizable()
+                                        .foregroundColor(.white)
+                                        .padding(4)
+                                        .background(.blue)
+                                        .frame(width: 25, height: 25, alignment: .center)
+                                        .cornerRadius(3)
+                                })
+                        })
                     }
                     
                     // MARK: - Links
@@ -83,8 +106,10 @@ struct SettingsView: View {
                                         .padding(5)
                                         .frame(width: 25, height: 25, alignment: .center)
                                         .background(Color.red)
-                                    .cornerRadius(3)})
+                                        .cornerRadius(3)
+                                })
                         })
+                        
                         // Contact
                         Button(action: {
                             let email = "appdev@coredump.ch"
@@ -107,64 +132,90 @@ struct SettingsView: View {
                                         .padding(4)
                                         .frame(width: 25, height: 25, alignment: .center)
                                         .background(Color.blue)
-                                    .cornerRadius(3)})
-                        })
-                        
-                        Link(destination: URL(string: "https://xn--gfrr-7qa.li/about")!, label: {
-                            Label(
-                                title: { Text("Privacy Policy").foregroundColor(Color("textColor")) },
-                                icon: { Image(systemName: "hand.raised.fill").resizable().aspectRatio(contentMode: .fit).foregroundColor(.white).padding(4)
-                                    .frame(width: 25, height: 25, alignment: .center/*@END_MENU_TOKEN@*/).background(Color.blue).cornerRadius(3) })
-                        })
-                        
-                        Button(action: {
-                            UIApplication.shared.open(URL.init(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
-                            
-                        }, label: {
-                            Label(
-                                title: { Text("Change Language").foregroundColor(Color("textColor"))},
-                                icon: { Image(systemName: "globe").resizable().foregroundColor(.white).padding(5)
-                                    .background(Color.gray).frame(width: 25, height: 25, alignment: .center/*@END_MENU_TOKEN@*/).cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/) })
-                        })
-                        
-                        Link(destination: URL(string: "https://xn--gfrr-7qa.li")!, label: {
-                            Label(
-                                title: { Text("gfrör.li").foregroundColor(Color("textColor")) },
-                                icon: { Image(systemName: "safari").resizable().foregroundColor(.blue).padding(4)
-                                        .background(Color.white).frame(width: 25, height: 25, alignment: .center/*@END_MENU_TOKEN@*/).cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/)
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 3)
-                                                .stroke(Color.gray, lineWidth: 0.2)
-                                        ) })
-                        })
-                        
-                        Link(destination: URL(string: "https://www.coredump.ch/")!, label: {
-                            Label(
-                                title: { Text("coredump.ch").foregroundColor(Color("textColor")) },
-                                icon: { Image(systemName: "safari").resizable().foregroundColor(.blue).padding(4)
-                                        .background(Color.white).frame(width: 25, height: 25, alignment: .center/*@END_MENU_TOKEN@*/).cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/)
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 3)
-                                                .stroke(Color.gray, lineWidth: 0.2)
-                                        ) })
-                        })
-                        
-                        Link(destination: URL(string: "https://twitter.com/coredump_ch")!, label: {
-                            Label(
-                                title: { Text("@coredump_ch").foregroundColor(Color("textColor")) },
-                                icon: { Image("twitterIcon").resizable().frame(width: 25, height: 25, alignment: .center/*@END_MENU_TOKEN@*/)
-                                        .cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/)
+                                        .cornerRadius(3)
                                 })
                         })
                         
+                        // Privacy
+                        Link(destination: URL(string: "https://xn--gfrr-7qa.li/about")!, label: {
+                            Label(
+                                title: { Text("Privacy Policy").foregroundColor(Color("textColor")) },
+                                icon: {
+                                    Image(systemName: "hand.raised.fill")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .foregroundColor(.white)
+                                        .padding(4)
+                                        .frame(width: 25, height: 25, alignment: .center)
+                                        .background(Color.blue)
+                                        .cornerRadius(3)
+                                })
+                        })
+                        
+                        // www.gfrör.li
+                        Link(destination: URL(string: "https://xn--gfrr-7qa.li")!, label: {
+                            Label(
+                                title: { Text("gfrör.li").foregroundColor(Color("textColor")) },
+                                icon: {
+                                    Image(systemName: "safari")
+                                        .resizable()
+                                        .foregroundColor(.blue)
+                                        .padding(4)
+                                        .background(Color.white)
+                                        .frame(width: 25, height: 25, alignment: .center)
+                                        .cornerRadius(3)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 3)
+                                                .stroke(Color.gray, lineWidth: 0.2)
+                                        )
+                                })
+                        })
+                        
+                        // www.coredump.ch
+                        Link(destination: URL(string: "https://www.coredump.ch/")!, label: {
+                            Label(
+                                title: { Text("coredump.ch").foregroundColor(Color("textColor")) },
+                                icon: {
+                                    Image(systemName: "safari")
+                                        .resizable()
+                                        .foregroundColor(.blue)
+                                        .padding(4)
+                                        .background(Color.white)
+                                        .frame(width: 25, height: 25, alignment: .center)
+                                        .cornerRadius(3)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 3)
+                                                .stroke(Color.gray, lineWidth: 0.2)
+                                        )
+                                })
+                        })
+                        
+                        // Twitter
+                        Link(destination: URL(string: "https://twitter.com/coredump_ch")!, label: {
+                            Label(
+                                title: { Text("@coredump_ch").foregroundColor(Color("textColor")) },
+                                icon: {
+                                    Image("twitterIcon")
+                                        .resizable()
+                                        .frame(width: 25, height: 25, alignment: .center)
+                                        .cornerRadius(3)
+                                })
+                        })
+                        
+                        // GitHub
                         Link(destination: URL(string: "https://github.com/gfroerli")!, label: {
                             Label(
                                 title: { Text("Code on Github").foregroundColor(Color("textColor")) },
-                                icon: { Image("githubIcon").resizable().frame(width: 25, height: 25, alignment: .center/*@END_MENU_TOKEN@*/)
-                                    .cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/) })
+                                icon: {
+                                    Image("githubIcon")
+                                        .resizable()
+                                        .frame(width: 25, height: 25, alignment: .center)
+                                        .cornerRadius(3)
+                                })
                         })
-                    }
-                }.listStyle(InsetGroupedListStyle())
+                    } // End Section
+                } // End List
+                .listStyle(InsetGroupedListStyle())
             }
             .background(Color.systemGroupedBackground.ignoresSafeArea())
             .navigationBarTitle("Settings", displayMode: .inline)
@@ -172,23 +223,27 @@ struct SettingsView: View {
     }
 }
 
+// MARK: - Preview
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView().makePreViewModifier()
     }
 }
 
+// MARK: - SettingsHeaderView
 struct SettingsHeaderView: View {
     
     private var lastVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "_"
     
     var body: some View {
         HStack {
+            
             Image("AppIcon-1024")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .cornerRadius(15)
                 .padding(.trailing)
+            
             VStack(alignment: .leading) {
                 Text("Gfrör.li")
                     .font(.title)
@@ -200,10 +255,7 @@ struct SettingsHeaderView: View {
             }
             .lineLimit(2)
             .minimumScaleFactor(0.1)
+            .padding(.vertical, 10)
         }
-        .padding()
-        .frame(maxHeight: 150)
-        .boxStyle()
-        .padding(.bottom, -15)
     }
 }
