@@ -13,14 +13,16 @@ struct ChangelogView: View {
         ScrollView {
             
             ForEach(ChangeNote.allChangeNotes) { changeNote in
-                // Workaround for bug in iOS 15.0 Beta 5
+               // Workaround for bug in iOS 15.0 Beta 5
                 if true {
                     VStack(alignment: .leading) {
                         
-                        Text("Version: "+changeNote.version+":")
-                            .font(.title)
-                            .bold()
-                        Spacer()
+                        HStack {
+                            Text("Version: "+changeNote.version+":")
+                                .font(.title)
+                                .bold()
+                            Spacer()
+                        }
                         
                         if !changeNote.changes.isEmpty {
                             Text("Changes")
