@@ -75,7 +75,7 @@ struct SensorView: View {
 
         VStack {
             HStack {
-                Text(entry.sensor!.device_name)
+                Text(entry.sensor!.sensorName)
                     .foregroundColor(.white)
                     .minimumScaleFactor(0.1)
                 Spacer()

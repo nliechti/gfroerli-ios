@@ -60,7 +60,9 @@ struct SensorOverviewLastMeasurementView: View {
                     .bold()
                 LoadingView()
             }
-        }.padding()
+        }
+        .padding([.horizontal, .bottom])
+        .padding(.top, 5)
     }
 }
 

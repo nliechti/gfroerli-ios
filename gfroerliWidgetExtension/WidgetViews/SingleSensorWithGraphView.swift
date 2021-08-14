@@ -69,7 +69,7 @@ struct SensorWithGraphView: View {
     var body: some View {
         VStack(spacing: 0) {
             HStack {
-                Text(entry.sensor!.device_name)
+                Text(entry.sensor!.sensorName)
                     .font(.system(size: 20))
                     .foregroundColor(.white)
                     .minimumScaleFactor(0.1)

@@ -16,7 +16,7 @@ struct SensorScrollItem: View {
     init(sensor: Sensor) {
         self.sensor = sensor
         _region = State(initialValue: MKCoordinateRegion(
-            center: CLLocationCoordinate2D(latitude: sensor.latitude ?? 0.0, longitude: sensor.longitude ?? 0.0),
+            center: sensor.coordinates,
             span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         )
     }
@@ -27,9 +27,9 @@ struct SensorScrollItem: View {
             
             HStack(alignment: .top) {
                 VStack(alignment: .leading) {
-                    Text(sensor.device_name)
+                    Text(sensor.sensorName)
                         .font(.headline)
-                    Text(sensor.caption!)
+                    Text(sensor.sensorCaption)
                         .font(.footnote)
                         .multilineTextAlignment(.leading)
                 }
@@ -52,7 +52,7 @@ struct SensorScrollItem: View {
         .cornerRadius(15)
         .overlay(
             RoundedRectangle(cornerRadius: 15)
-                .stroke(.tertiary, lineWidth: 1)
+                .stroke(.tertiary, lineWidth: 0.2)
         )
         .padding([.horizontal, .bottom])
         .padding(.top, 2)

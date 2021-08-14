@@ -41,12 +41,14 @@ class SingleSensorViewModel: ObservableObject {
                 throw LoadingErrors.fetchError
             }
             // try to decode
-            guard let decodedSponsor = try? JSONDecoder().decode(Sensor.self, from: data) else {
+            guard let decodedSensor = try? JSONDecoder().decode(Sensor.self, from: data) else {
                 throw LoadingErrors.decodeError
             }
             // update view model
-            sensor = decodedSponsor
-            loadingState = .loaded
+            DispatchQueue.main.async {
+                self.sensor = decodedSensor
+                self.loadingState = .loaded
+            }
             
         } catch {
             switch error {

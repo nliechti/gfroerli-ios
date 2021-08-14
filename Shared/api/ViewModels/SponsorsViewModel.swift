@@ -45,8 +45,10 @@ class SponsorListViewModel: ObservableObject {
                 throw LoadingErrors.decodeError
             }
             // update view model
-            sponsor = decodedSponsor
-            loadingState = .loaded
+            DispatchQueue.main.async {
+                self.sponsor = decodedSponsor
+                self.loadingState = .loaded
+            }
             
         } catch {
             switch error {

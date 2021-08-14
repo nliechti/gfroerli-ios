@@ -43,9 +43,12 @@ class SensorListViewModel: ObservableObject {
             guard let decodedSensors = try? JSONDecoder().decode([Sensor].self, from: data) else {
                 throw LoadingErrors.decodeError
             }
+            
             // update view model
-            sensorArray = decodedSensors
-            loadingState = .loaded
+            DispatchQueue.main.async {
+                self.sensorArray = decodedSensors
+                self.loadingState = .loaded
+            }
             
         } catch {
             switch error {

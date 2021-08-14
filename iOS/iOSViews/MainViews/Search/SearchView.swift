@@ -24,7 +24,7 @@ struct SearchView: View {
             }
             .searchable(text: $searchText, prompt: "Location or Temperature") {
                 ForEach(filteredArray) { result in
-                    Text(result.device_name).searchCompletion(result.device_name)
+                    Text(result.sensorName).searchCompletion(result.sensorName)
                 }
             }
             .navigationBarTitle("Search")
@@ -64,7 +64,7 @@ struct SearchView: View {
             array = sensorsVm.sensorArray
         } else {
             array = sensorsVm.sensorArray.filter {
-                $0.device_name.localizedCaseInsensitiveContains(searchText) ||
+                $0.sensorName.localizedCaseInsensitiveContains(searchText) ||
                 String($0.latestTemp!).contains(searchText)
             }
         }
@@ -77,7 +77,7 @@ struct SearchView: View {
         case .timeAsc:
             filteredArray = array.sorted(by: {$0.lastTempTime! > $1.lastTempTime!})
         case .nameDesc:
-            filteredArray = array.sorted(by: {$0.device_name < $1.device_name})
+            filteredArray = array.sorted(by: {$0.sensorName < $1.sensorName})
         }
     }
 }

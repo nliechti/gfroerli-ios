@@ -28,26 +28,21 @@ struct IOSMainView: View {
                     Text("Overview") }
                 .tag("Overview")
         
-            FavoritesView(sensorsVm: sensorsVm)
-                .tabItem { Image(systemName: "star.fill")
-                    Text("Favorites") }
-                .tag("Favorites")
-            
             MapView(sensorsVm: sensorsVm)
                 .tabItem { Image(systemName: "map")
                     Text("Map") }
                 .tag("Map")
+            
+            FavoritesView(sensorsVm: sensorsVm)
+                .tabItem { Image(systemName: "star.fill")
+                    Text("Favorites") }
+                .tag("Favorites")
             
             SearchView(sensorsVm: sensorsVm)
                 .tabItem { Image(systemName: "magnifyingglass")
                     Text("Search") }
                 .tag("Search")
             
-            SettingsView()
-                .tabItem { Image(systemName: "gear")
-                    Text("Settings") }
-                .tag("Settings")
-
         }
         .onTapGesture(count: 2, perform: {
             NavigationUtil.popToRootView()

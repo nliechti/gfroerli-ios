@@ -103,9 +103,9 @@ struct SensorScrollItemSmall: View {
     @State var favorites =  [Int]()
 
     var body: some View {
-        NavigationLink(destination: SensorOverView(sensorID: sensor.id, sensorName: sensor.device_name)) {
+        NavigationLink(destination: SensorOverView(sensorID: sensor.id, sensorName: sensor.sensorName)) {
             HStack(alignment: .top) {
-                Text(sensor.device_name)
+                Text(sensor.sensorName)
                     .bold()
                 if favorites.contains(sensor.id) {
                     Image(systemName: "star.fill")

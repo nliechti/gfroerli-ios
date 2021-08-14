@@ -21,7 +21,7 @@ class IntentHandler: INExtension, SingleSensorIntentHandling {
             let selectableSensors: [SelectableSensor] = self.sensorVM.sensorArray.map { sensor -> SelectableSensor in
                 let selectableSensor = SelectableSensor(
                     identifier: String(sensor.id),
-                    display: sensor.device_name
+                    display: sensor.sensorName
                 )
                 return selectableSensor
             }

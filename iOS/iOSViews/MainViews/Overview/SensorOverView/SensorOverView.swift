@@ -15,6 +15,7 @@ struct SensorOverView: View {
     
     var sensorID: Int
     var sensorName: String
+    var transparentBG = false
     
     var body: some View {
         VStack {
@@ -67,7 +68,7 @@ struct SensorOverView: View {
             }
         }
         .navigationBarTitle(sensorName, displayMode: .inline)
-        .background(Color.systemGroupedBackground.ignoresSafeArea())
+        .background((transparentBG ? Color.clear : Color.systemGroupedBackground).ignoresSafeArea())
         .navigationBarItems(trailing:
                                 Button {
             isFav ? removeFav() : makeFav()

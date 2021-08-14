@@ -18,7 +18,7 @@ extension View {
             .cornerRadius(15)
             .overlay(
                     RoundedRectangle(cornerRadius: 15)
-                        .stroke(.tertiary, lineWidth: 1)
+                        .stroke(.tertiary, lineWidth: 0.2)
                 )
             .padding(.bottom)
             .padding(.horizontal)

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -25,6 +25,7 @@
 		8D6A7DC824F15187009A0026 /* SensorOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A7DC724F15187009A0026 /* SensorOverView.swift */; };
 		8D73772F252BA7200075E04E /* Sponsor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73772E252BA7200075E04E /* Sponsor.swift */; };
 		8D737737252BA8750075E04E /* SponsorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D737736252BA8750075E04E /* SponsorsViewModel.swift */; };
+		8D7C5E2E26B9CD2000A95EBE /* BottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 8D7C5E2D26B9CD2000A95EBE /* BottomSheet */; };
 		8D7E98BD257025EC00BC32EB /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7E98BC257025EC00BC32EB /* ColorExtension.swift */; };
 		8D996DE325A23A2B00724453 /* MonthlyChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D996DE225A23A2B00724453 /* MonthlyChartView.swift */; };
 		8DA7CEF52516108000395465 /* SensorListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA7CEF42516108000395465 /* SensorListViewModel.swift */; };
@@ -314,6 +315,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D7C5E2E26B9CD2000A95EBE /* BottomSheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -720,6 +722,9 @@
 				B4E124DF260CD20800F45852 /* PBXTargetDependency */,
 			);
 			name = iOS;
+			packageProductDependencies = (
+				8D7C5E2D26B9CD2000A95EBE /* BottomSheet */,
+			);
 			productName = iOS;
 			productReference = E461456F24A34831006233AE /* Gfror.li.app */;
 			productType = "com.apple.product-type.application";
@@ -780,6 +785,9 @@
 				it,
 			);
 			mainGroup = E461456224A34823006233AE;
+			packageReferences = (
+				8D7C5E2C26B9CD2000A95EBE /* XCRemoteSwiftPackageReference "BottomSheet" */,
+			);
 			productRefGroup = E461457024A34831006233AE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1431,6 +1439,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8D7C5E2C26B9CD2000A95EBE /* XCRemoteSwiftPackageReference "BottomSheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/LucasMucGH/BottomSheet";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8D7C5E2D26B9CD2000A95EBE /* BottomSheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8D7C5E2C26B9CD2000A95EBE /* XCRemoteSwiftPackageReference "BottomSheet" */;
+			productName = BottomSheet;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E461456324A34823006233AE /* Project object */;
 }

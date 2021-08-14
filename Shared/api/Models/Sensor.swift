@@ -1,9 +1,10 @@
 // swiftlint:disable identifier_name
 import Foundation
+import CoreLocation
 
 struct Sensor: Codable, Identifiable {
     init(id: Int,
-         device_name: String,
+         device_name: String?,
          caption: String?,
          latitude: Double?,
          longitude: Double?,
@@ -30,7 +31,7 @@ struct Sensor: Codable, Identifiable {
     }
     
     let id: Int
-    let device_name: String
+    let device_name: String?
     let caption: String?
     let latitude: Double?
     let longitude: Double?
@@ -62,7 +63,7 @@ struct Sensor: Codable, Identifiable {
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         id = try values.decode(Int.self, forKey: .id)
-        device_name = try values.decode(String.self, forKey: .device_name)
+        device_name = try values.decodeIfPresent(String.self, forKey: .device_name)
         caption = try values.decodeIfPresent(String.self, forKey: .caption)
         latitude = try values.decodeIfPresent(Double.self, forKey: .latitude)
         longitude = try values.decodeIfPresent(Double.self, forKey: .longitude)
@@ -75,6 +76,26 @@ struct Sensor: Codable, Identifiable {
         createdAt = Date(timeIntervalSince1970: createdUNIXStamp ?? 0.0)
         let lastMeasurementUNIXStamp = try values.decodeIfPresent(Double.self, forKey: .lastTempTime)
         lastTempTime = Date(timeIntervalSince1970: (lastMeasurementUNIXStamp ?? 0.0))
+    }
+}
+
+
+extension Sensor {
+    
+    var sensorName: String {
+        device_name ?? "No name"
+    }
+    
+    var sensorCaption: String {
+        caption ?? "No Caption"
+    }
+    
+    var coordinates: CLLocationCoordinate2D {
+        guard let lat = latitude,
+              let lon = longitude else {
+                  return CLLocationCoordinate2DMake(0.0, 0.0)
+              }
+        return CLLocationCoordinate2DMake(lat, lon)
     }
 }
 

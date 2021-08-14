@@ -59,12 +59,10 @@ struct OverView: View {
                                     Button(action: {
                 showInfo = true
             }, label: {
-                Image(systemName: "info.circle")
+                Image(systemName: "gear")
             }))
             .sheet(isPresented: $showInfo, content: {
-                NavigationView {
-                    FAQView()
-                }
+                SettingsView()
             })
         }
     }
@@ -90,7 +88,7 @@ struct TopTabView: View {
     var body: some View {
         TabView {
             NavigationLink(destination:
-                            SensorOverView(sensorID: newestSensor.id, sensorName: newestSensor.device_name)
+                            SensorOverView(sensorID: newestSensor.id, sensorName: newestSensor.sensorName)
                 ) {
                 VStack(alignment: .leading, spacing: 0) {
                     Text("Recently Added")
@@ -102,7 +100,7 @@ struct TopTabView: View {
             }
             if sensors.count > 0 {
                 NavigationLink(destination:
-                                SensorOverView(sensorID: latestSensor.id, sensorName: latestSensor.device_name)
+                                SensorOverView(sensorID: latestSensor.id, sensorName: latestSensor.sensorName)
                 ) {
                     VStack(alignment: .leading, spacing: 0) {
                         Text("Newest Measurement")
@@ -114,7 +112,7 @@ struct TopTabView: View {
                 }
                 if sensors.count > 0 {
                     NavigationLink(destination:
-                                    SensorOverView(sensorID: randomSensor.id, sensorName: randomSensor.device_name)
+                                    SensorOverView(sensorID: randomSensor.id, sensorName: randomSensor.sensorName)
                     ) {
                         VStack(alignment: .leading, spacing: 0) {
                             Text("Random")
