@@ -19,7 +19,7 @@
 		8D3D36F2250BBEF000F11E48 /* SensorOverviewSponsorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3D36F1250BBEF000F11E48 /* SensorOverviewSponsorView.swift */; };
 		8D50670324F7F33400E426DE /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5066E424F7F33400E426DE /* Helpers.swift */; };
 		8D580B59259FA33800202262 /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D580B58259FA33800202262 /* FAQView.swift */; };
-		8D5D25CB257A98D1002852F4 /* SensorListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5D25CA257A98D1002852F4 /* SensorListItem.swift */; };
+		8D5D25CB257A98D1002852F4 /* LakeListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5D25CA257A98D1002852F4 /* LakeListItem.swift */; };
 		8D5EACE9252CE407006EBCD6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D5EACEC252CE407006EBCD6 /* Localizable.strings */; };
 		8D6A7DC624F14115009A0026 /* LakeOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A7DC524F14115009A0026 /* LakeOverView.swift */; };
 		8D6A7DC824F15187009A0026 /* SensorOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A7DC724F15187009A0026 /* SensorOverView.swift */; };
@@ -195,12 +195,11 @@
 		8D3D36EF250BBC8500F11E48 /* SensorOverViewGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorOverViewGraph.swift; sourceTree = "<group>"; };
 		8D3D36F1250BBEF000F11E48 /* SensorOverviewSponsorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorOverviewSponsorView.swift; sourceTree = "<group>"; };
 		8D3D3701250C190500F11E48 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = Library/Frameworks/IntentsUI.framework; sourceTree = DEVELOPER_DIR; };
-		8D3D3716250C1C3B00F11E48 /* SiriButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiriButton.swift; sourceTree = "<group>"; };
 		8D49A370250A3E6B000B26CD /* Gfror.liRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Gfror.liRelease.entitlements; sourceTree = "<group>"; };
 		8D49A371250A3F98000B26CD /* WidgetsRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetsRelease.entitlements; sourceTree = "<group>"; };
 		8D5066E424F7F33400E426DE /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		8D580B58259FA33800202262 /* FAQView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQView.swift; sourceTree = "<group>"; };
-		8D5D25CA257A98D1002852F4 /* SensorListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorListItem.swift; sourceTree = "<group>"; };
+		8D5D25CA257A98D1002852F4 /* LakeListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LakeListItem.swift; sourceTree = "<group>"; };
 		8D5EACEB252CE407006EBCD6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8D5EACF2252CE414006EBCD6 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8D5EACF8252CE442006EBCD6 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -339,8 +338,7 @@
 			isa = PBXGroup;
 			children = (
 				8D04196724F50258003D64D4 /* SensorScrollItem.swift */,
-				8D5D25CA257A98D1002852F4 /* SensorListItem.swift */,
-				8D3D3716250C1C3B00F11E48 /* SiriButton.swift */,
+				8D5D25CA257A98D1002852F4 /* LakeListItem.swift */,
 				8D2701C625153082007BB0E1 /* LoadingView.swift */,
 			);
 			path = CostumUI;
@@ -990,7 +988,7 @@
 				B4E124DD260CD20800F45852 /* gfroerliWidgetExtension.intentdefinition in Sources */,
 				8DF3BBC9250B4F2700DBCC37 /* URLExtension.swift in Sources */,
 				B4F95C2725C312F0004C21E1 /* WeeklyAggregationsViewModel.swift in Sources */,
-				8D5D25CB257A98D1002852F4 /* SensorListItem.swift in Sources */,
+				8D5D25CB257A98D1002852F4 /* LakeListItem.swift in Sources */,
 				B4DEC7E7265424C300206EAA /* X-LabelsView.swift in Sources */,
 				8DF3BBD5250BB62D00DBCC37 /* SensorOverviewLastMeasurementView.swift in Sources */,
 				8D73772F252BA7200075E04E /* Sponsor.swift in Sources */,

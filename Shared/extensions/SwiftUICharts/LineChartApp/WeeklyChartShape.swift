@@ -17,7 +17,13 @@ struct WeeklyLineChartShape: Shape {
     var daySpan: DaySpan
     var showCircles: Bool
 
-    init(pointSize: CGFloat, data: [DailyAggregation], type: TempType, span: DaySpan, max: Double, min: Double, showCircles: Bool) {
+    init(pointSize: CGFloat,
+         data: [DailyAggregation],
+         type: TempType,
+         span: DaySpan,
+         max: Double,
+         min: Double,
+         showCircles: Bool) {
         self.tempType = type
         self.data = data
         self.pointSize = pointSize
