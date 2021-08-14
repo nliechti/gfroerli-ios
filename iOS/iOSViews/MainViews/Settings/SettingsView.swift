@@ -40,7 +40,7 @@ struct SettingsView: View {
                         
                         // Changelog
                         HStack {
-                            NavigationLink(destination: ChangelogView(lastVersion: "0.0", showDismiss: false), label: {
+                            NavigationLink(destination: EmptyView(), label: {
                                 Label(
                                     title: { Text("Changelog").foregroundColor(Color("textColor"))},
                                     icon: {
