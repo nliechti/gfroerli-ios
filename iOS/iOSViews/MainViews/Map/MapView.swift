@@ -9,45 +9,57 @@ import SwiftUI
 import MapKit
 import UIKit
 import BottomSheet
+import CoreLocationUI
+import CoreLocation
 
 struct MapView: View {
     @ObservedObject var sensorsVm: SensorListViewModel
-    @State var region = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(latitude: 46.7985, longitude: 8.2318),
-        span: MKCoordinateSpan(latitudeDelta: 5, longitudeDelta: 5))
+       
     @State private var bottomSheetPosition: BottomSheetPosition = .hidden
     
     @State var selectedSensor: Sensor?
     
+    @StateObject var locationManager = ObservableLocationManager()
+    
     var body: some View {
-        Map(coordinateRegion: $region, annotationItems: sensorsVm.sensorArray) { sensor in
-            MapAnnotation(coordinate: sensor.coordinates) {
-                if region.span.latitudeDelta <= 0.15 {
-                    HStack {
-                        Text(sensor.sensorName)
-                        Text(makeTemperatureString(double: sensor.latestTemp!, precision: 2))
-                        Image(systemName: "chevron.right")
-                            .foregroundColor(.blue)
-                    }
-                    .padding(8)
-                    .boxStyle()
-                    .onTapGesture {
-                        selectedSensor = sensor
-                        bottomSheetPosition = .middle
-                    }
-                } else {
-                    Image(systemName: "mappin.circle.fill")
-                        .symbolRenderingMode(.palette)
-                        .foregroundStyle(.white, .red)
-                        .font(.system(size: 30))
+        ZStack(alignment: .bottom) {
+            Map(coordinateRegion: $locationManager.region, showsUserLocation: true, annotationItems: sensorsVm.sensorArray) { sensor in
+                MapAnnotation(coordinate: sensor.coordinates) {
+                    if locationManager.region.span.latitudeDelta <= 0.15 {
+                        HStack {
+                            Text(sensor.sensorName)
+                            Text(makeTemperatureString(double: sensor.latestTemp!, precision: 2))
+                            Image(systemName: "chevron.right")
+                                .foregroundColor(.blue)
+                        }
+                        .padding(8)
+                        .boxStyle()
                         .onTapGesture {
                             selectedSensor = sensor
                             bottomSheetPosition = .middle
                         }
+                    } else {
+                        Image(systemName: "mappin.circle.fill")
+                            .symbolRenderingMode(.palette)
+                            .foregroundStyle(.white, .red)
+                            .font(.system(size: 30))
+                            .onTapGesture {
+                                selectedSensor = sensor
+                                bottomSheetPosition = .middle
+                            }
+                    }
                 }
             }
+            LocationButton(.currentLocation) {
+              // Fetch location with Core Location.
+                locationManager.updateLocation()
+            }
+            .symbolVariant(.fill)
+            .foregroundColor(.white)
+            .labelStyle(.titleAndIcon)
+            .cornerRadius(15)
+            .padding(.bottom)
         }
-        
         .edgesIgnoringSafeArea(.top)
         .bottomSheet(
             bottomSheetPosition: $bottomSheetPosition,
@@ -82,23 +94,5 @@ struct BottomSheetSensorView: View {
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
         EmptyView()
-    }
-}
-
-struct UIMapView: UIViewRepresentable {
-    typealias UIViewType = MKMapView
-    typealias Context = UIViewRepresentableContext<Self>
-    
-    @ObservedObject var sensorsVm: SensorListViewModel
-    
-    func makeUIView(context: Context) -> MKMapView {
-        let mapView = MKMapView()
-        mapView.mapType = .hybrid
-        mapView.pointOfInterestFilter = .excludingAll
-        
-        return mapView
-    }
-    
-    func updateUIView(_ view: MKMapView, context: Context) {
     }
 }
