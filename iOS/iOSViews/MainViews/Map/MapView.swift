@@ -14,7 +14,7 @@ import CoreLocation
 
 struct MapView: View {
     @ObservedObject var sensorsVm: SensorListViewModel
-       
+    
     @State private var bottomSheetPosition: BottomSheetPosition = .hidden
     
     @State var selectedSensor: Sensor?
@@ -22,10 +22,14 @@ struct MapView: View {
     @StateObject var locationManager = ObservableLocationManager()
     
     var body: some View {
-        ZStack(alignment: .bottom) {
-            Map(coordinateRegion: $locationManager.region, showsUserLocation: true, annotationItems: sensorsVm.sensorArray) { sensor in
+        ZStack(alignment: .bottomTrailing) {
+            Map(coordinateRegion: $locationManager.region,
+                showsUserLocation: true,
+                annotationItems: sensorsVm.sensorArray) { sensor in
                 MapAnnotation(coordinate: sensor.coordinates) {
+                    
                     if locationManager.region.span.latitudeDelta <= 0.15 {
+                        
                         HStack {
                             Text(sensor.sensorName)
                             Text(makeTemperatureString(double: sensor.latestTemp!, precision: 2))
@@ -38,7 +42,9 @@ struct MapView: View {
                             selectedSensor = sensor
                             bottomSheetPosition = .middle
                         }
+                        
                     } else {
+                        
                         Image(systemName: "mappin.circle.fill")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.white, .red)
@@ -50,15 +56,15 @@ struct MapView: View {
                     }
                 }
             }
+            
             LocationButton(.currentLocation) {
-              // Fetch location with Core Location.
                 locationManager.updateLocation()
             }
+            .cornerRadius(30)
             .symbolVariant(.fill)
             .foregroundColor(.white)
-            .labelStyle(.titleAndIcon)
-            .cornerRadius(15)
-            .padding(.bottom)
+            .padding()
+            
         }
         .edgesIgnoringSafeArea(.top)
         .bottomSheet(
@@ -66,12 +72,11 @@ struct MapView: View {
             options: [
                 .swipeToDismiss,
                 .tapToDissmiss,
-                .showCloseButton(action: {}),
                 .appleScrollBehavior
             ],
             title: selectedSensor?.sensorName) {
-            BottomSheetSensorView(sensor: $selectedSensor, bottomSheetPosition: $bottomSheetPosition)
-        }
+                BottomSheetSensorView(sensor: $selectedSensor, bottomSheetPosition: $bottomSheetPosition)
+            }
     }
 }
 
@@ -81,9 +86,9 @@ struct BottomSheetSensorView: View {
     
     var body: some View {
         VStack {
+            
             if sensor != nil {
-               
-                    SensorOverView(sensorID: sensor!.id, sensorName: sensor!.sensorName, transparentBG: true)
+                SensorOverView(sensorID: sensor!.id, sensorName: sensor!.sensorName, transparentBG: true)
             } else {
                 Text("Select Sensor")
             }

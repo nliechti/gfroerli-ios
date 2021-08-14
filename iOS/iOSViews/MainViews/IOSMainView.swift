@@ -16,7 +16,6 @@ struct IOSMainView: View {
     @State var selectedTab = "Overview"
     @State var pathComp: String?
     @StateObject var sensorsVm = SensorListViewModel()
-    @State var currentVersion = "0.0"
     @State var showUpdateView = false
     @ObservedObject var observer = Observer()
     
@@ -48,21 +47,20 @@ struct IOSMainView: View {
             NavigationUtil.popToRootView()
         })
         .sheet(isPresented: $showUpdateView) {
-            NavigationView {
-                WhatsNewView(lastVersion: lastVersion, showDismiss: true)
-            }
+            WhatsNewView()
         }
        .sheet(isPresented: $showSens) {
             NavigationView {
-                SensorOverView(sensorID: Int(pathComp!)!, sensorName: "").navigationBarItems(leading: Button(action: {showSens=false}, label: {Text("Close")}))
+                SensorOverView(sensorID: Int(pathComp!)!, sensorName: "")
+                    .navigationBarItems(leading: Button(action: {showSens=false}, label: {Text("Close")}))
             }
         }
         // fetching Sensors
         .onAppear(perform: {
             Task { await sensorsVm.load()}
-            currentVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0.0"
+            let currentVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0.0"
             if currentVersion > lastVersion {
-                showUpdateView=true
+                showUpdateView = true
             }
         })
         .onReceive(self.observer.$enteredForeground) { _ in

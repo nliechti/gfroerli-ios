@@ -42,15 +42,7 @@ final class ObservableLocationManager: NSObject, ObservableObject, CLLocationMan
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.first else { return }
-        
-        DispatchQueue.main.async {
-            self.region = MKCoordinateRegion(
-                center: location.coordinate,
-                latitudinalMeters: 20000,
-                longitudinalMeters: 20000
-            )
-        }
+       return
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

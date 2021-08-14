@@ -16,3 +16,13 @@ struct ChangeNote: Decodable, Identifiable {
 
     static let allChangeNotes = Bundle.main.decode([ChangeNote].self, from: "Changes.json")
 }
+
+struct WhatsNew: Decodable, Identifiable {
+
+    var id: String {UUID().uuidString}
+    let imageName: String
+    let title: String
+    let text: String
+
+    static let whatsNewNotes = Bundle.main.decode([WhatsNew].self, from: "WhatsNew.json")
+}

@@ -43,6 +43,8 @@
 		8DF3BBD5250BB62D00DBCC37 /* SensorOverviewLastMeasurementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBD4250BB62D00DBCC37 /* SensorOverviewLastMeasurementView.swift */; };
 		8DF3BBD8250BB6BB00DBCC37 /* OwnHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBD7250BB6BB00DBCC37 /* OwnHelpers.swift */; };
 		8DF852E126C7C64D0020B717 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF852E026C7C64D0020B717 /* LocationManager.swift */; };
+		8DF852E326C7D5A00020B717 /* ChangelogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF852E226C7D5A00020B717 /* ChangelogView.swift */; };
+		8DF852E526C7DAD00020B717 /* WhatsNew.json in Resources */ = {isa = PBXBuildFile; fileRef = 8DF852E426C7DAD00020B717 /* WhatsNew.json */; };
 		B40B20AB2666BFB900FCF872 /* OwnHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBD7250BB6BB00DBCC37 /* OwnHelpers.swift */; };
 		B40F9013264D696E00CD7D95 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D5EACEC252CE407006EBCD6 /* Localizable.strings */; };
 		B40F9014264D696E00CD7D95 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D5EACEC252CE407006EBCD6 /* Localizable.strings */; };
@@ -229,6 +231,8 @@
 		8DF3BBD4250BB62D00DBCC37 /* SensorOverviewLastMeasurementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorOverviewLastMeasurementView.swift; sourceTree = "<group>"; };
 		8DF3BBD7250BB6BB00DBCC37 /* OwnHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnHelpers.swift; sourceTree = "<group>"; };
 		8DF852E026C7C64D0020B717 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		8DF852E226C7D5A00020B717 /* ChangelogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangelogView.swift; sourceTree = "<group>"; };
+		8DF852E426C7DAD00020B717 /* WhatsNew.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = WhatsNew.json; sourceTree = "<group>"; };
 		B415711B260A41A400372278 /* ChangeNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNote.swift; sourceTree = "<group>"; };
 		B4157124260A43B400372278 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
 		B4157127260A444B00372278 /* WhatsNewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewView.swift; sourceTree = "<group>"; };
@@ -369,6 +373,7 @@
 			isa = PBXGroup;
 			children = (
 				B46708612641C42B003E28E5 /* Changes.json */,
+				8DF852E426C7DAD00020B717 /* WhatsNew.json */,
 			);
 			path = AppStoreData;
 			sourceTree = "<group>";
@@ -435,6 +440,7 @@
 			isa = PBXGroup;
 			children = (
 				B4157127260A444B00372278 /* WhatsNewView.swift */,
+				8DF852E226C7D5A00020B717 /* ChangelogView.swift */,
 				8D0D7FE524F107D30068176C /* SettingsView.swift */,
 			);
 			path = Settings;
@@ -828,6 +834,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D5EACE9252CE407006EBCD6 /* Localizable.strings in Resources */,
+				8DF852E526C7DAD00020B717 /* WhatsNew.json in Resources */,
 				E461459524A34831006233AE /* Assets.xcassets in Resources */,
 				B467085D2641C42B003E28E5 /* Changes.json in Resources */,
 			);
@@ -977,6 +984,7 @@
 				B4F95C0F25C30F38004C21E1 /* HourlyChartShape.swift in Sources */,
 				B4F95C2F25C313EE004C21E1 /* WeeklyChartShape.swift in Sources */,
 				8D50670324F7F33400E426DE /* Helpers.swift in Sources */,
+				8DF852E326C7D5A00020B717 /* ChangelogView.swift in Sources */,
 				B494D71A265D474D00327BAF /* TemperatureAggregationsViewModel.swift in Sources */,
 				8D6A7DC824F15187009A0026 /* SensorOverView.swift in Sources */,
 				B4E124DD260CD20800F45852 /* gfroerliWidgetExtension.intentdefinition in Sources */,

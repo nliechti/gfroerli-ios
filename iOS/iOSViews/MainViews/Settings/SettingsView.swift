@@ -43,7 +43,7 @@ struct SettingsView: View {
                             })}
                         // Changelog
                         HStack {
-                            NavigationLink(destination: WhatsNewView(lastVersion: "0.0", showDismiss: false), label: {
+                            NavigationLink(destination: WhatsNewView(), label: {
                                 Label(
                                     title: { Text("Changelog").foregroundColor(Color("textColor"))},
                                     icon: { Image(systemName: "sparkles").resizable().aspectRatio(contentMode: .fit).foregroundColor(.white).padding(3)
