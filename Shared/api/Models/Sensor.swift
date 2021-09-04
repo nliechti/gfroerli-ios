@@ -79,7 +79,6 @@ struct Sensor: Codable, Identifiable {
     }
 }
 
-
 extension Sensor {
     
     var sensorName: String {

@@ -63,11 +63,11 @@
 	<key>INIntentDefinitionNamespace</key>
 	<string>oUkqE3</string>
 	<key>INIntentDefinitionSystemVersion</key>
-	<string>20E241</string>
+	<string>20G95</string>
 	<key>INIntentDefinitionToolsBuildVersion</key>
-	<string>12E262</string>
+	<string>13A5212g</string>
 	<key>INIntentDefinitionToolsVersion</key>
-	<string>12.5</string>
+	<string>13.0</string>
 	<key>INIntents</key>
 	<array>
 		<dict>
@@ -124,13 +124,113 @@
 					<key>INIntentParameterType</key>
 					<string>Object</string>
 				</dict>
+			</array>
+			<key>INIntentResponse</key>
+			<dict>
+				<key>INIntentResponseCodes</key>
+				<array>
+					<dict>
+						<key>INIntentResponseCodeName</key>
+						<string>success</string>
+						<key>INIntentResponseCodeSuccess</key>
+						<true/>
+					</dict>
+					<dict>
+						<key>INIntentResponseCodeName</key>
+						<string>failure</string>
+					</dict>
+				</array>
+			</dict>
+			<key>INIntentTitle</key>
+			<string>Single Sensor</string>
+			<key>INIntentTitleID</key>
+			<string>BvxrmE</string>
+			<key>INIntentType</key>
+			<string>Custom</string>
+			<key>INIntentVerb</key>
+			<string>View</string>
+		</dict>
+		<dict>
+			<key>INIntentCategory</key>
+			<string>information</string>
+			<key>INIntentDescription</key>
+			<string>Intent for fetching Sensor data with Graph</string>
+			<key>INIntentDescriptionID</key>
+			<string>iYDYHb</string>
+			<key>INIntentEligibleForWidgets</key>
+			<true/>
+			<key>INIntentIneligibleForSuggestions</key>
+			<true/>
+			<key>INIntentLastParameterTag</key>
+			<integer>4</integer>
+			<key>INIntentName</key>
+			<string>SingleSensorGraph</string>
+			<key>INIntentParameters</key>
+			<array>
+				<dict>
+					<key>INIntentParameterConfigurable</key>
+					<true/>
+					<key>INIntentParameterDisplayName</key>
+					<string>Sensor</string>
+					<key>INIntentParameterDisplayNameID</key>
+					<string>IruFuB</string>
+					<key>INIntentParameterDisplayPriority</key>
+					<integer>1</integer>
+					<key>INIntentParameterName</key>
+					<string>sensor</string>
+					<key>INIntentParameterObjectType</key>
+					<string>SelectableSensor</string>
+					<key>INIntentParameterObjectTypeNamespace</key>
+					<string>oUkqE3</string>
+					<key>INIntentParameterPromptDialogs</key>
+					<array>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Configuration</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Primary</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogFormatString</key>
+							<string>There are ${count} options matching ‘${sensor}’.</string>
+							<key>INIntentParameterPromptDialogFormatStringID</key>
+							<string>3oOO2t</string>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>DisambiguationIntroduction</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogFormatString</key>
+							<string>Just to confirm, you wanted ‘${sensor}’?</string>
+							<key>INIntentParameterPromptDialogFormatStringID</key>
+							<string>VPbMf2</string>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Confirmation</string>
+						</dict>
+					</array>
+					<key>INIntentParameterSupportsDynamicEnumeration</key>
+					<true/>
+					<key>INIntentParameterTag</key>
+					<integer>2</integer>
+					<key>INIntentParameterType</key>
+					<string>Object</string>
+				</dict>
 				<dict>
 					<key>INIntentParameterConfigurable</key>
 					<true/>
 					<key>INIntentParameterDisplayName</key>
 					<string>Time Span</string>
 					<key>INIntentParameterDisplayNameID</key>
-					<string>zgFWAQ</string>
+					<string>CnjWia</string>
 					<key>INIntentParameterDisplayPriority</key>
 					<integer>2</integer>
 					<key>INIntentParameterEnumType</key>
@@ -164,7 +264,7 @@
 							<key>INIntentParameterPromptDialogFormatString</key>
 							<string>There are ${count} options matching ‘${timeSpan}’.</string>
 							<key>INIntentParameterPromptDialogFormatStringID</key>
-							<string>do2zOR</string>
+							<string>kaXucb</string>
 							<key>INIntentParameterPromptDialogType</key>
 							<string>DisambiguationIntroduction</string>
 						</dict>
@@ -174,7 +274,7 @@
 							<key>INIntentParameterPromptDialogFormatString</key>
 							<string>Just to confirm, you wanted ‘${timeSpan}’?</string>
 							<key>INIntentParameterPromptDialogFormatStringID</key>
-							<string>tdN4nf</string>
+							<string>WfEGRn</string>
 							<key>INIntentParameterPromptDialogType</key>
 							<string>Confirmation</string>
 						</dict>
@@ -202,9 +302,9 @@
 				</array>
 			</dict>
 			<key>INIntentTitle</key>
-			<string>Single Sensor</string>
+			<string>Single Sensor Graph</string>
 			<key>INIntentTitleID</key>
-			<string>BvxrmE</string>
+			<string>l0X50R</string>
 			<key>INIntentType</key>
 			<string>Custom</string>
 			<key>INIntentVerb</key>

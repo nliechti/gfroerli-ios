@@ -16,8 +16,8 @@ struct River: Identifiable {
 }
 
 let limmat = River(
-    id: UUID().uuidString
-    , name: "Limmat",
+    id: UUID().uuidString,
+    name: "Limmat",
     sensors: ["0"],
     region: MKCoordinateRegion(
         center: CLLocationCoordinate2D(latitude: 47.38668, longitude: 8.53218),

@@ -136,12 +136,12 @@ struct SensorWithGraphView: View {
 }
 
 struct SingleSensorWithGraphWidget: Widget {
-    let kind: String = "gfroerliWidgetExtension1"
+    let kind: String = "gfroerliWidgetExtensionGraph"
 
     var body: some WidgetConfiguration {
         IntentConfiguration(
             kind: kind,
-            intent: SingleSensorIntent.self,
+            intent: SingleSensorGraphIntent.self,
             provider: SingleSensorWithGraphProvider()) { entry in
             SingleSensorWithGraphView(entry: entry)
         }
@@ -157,7 +157,7 @@ struct SingleSensorWithGraphView_Previews: PreviewProvider {
             entry: SingleSensorWithGraphEntry(
                 date: Date(),
                 device_id: "Placeholder",
-                configuration: SingleSensorIntent(),
+                configuration: SingleSensorGraphIntent(),
                 timeSpan: .day,
                 sensor: nil,
                 dataDay: [],

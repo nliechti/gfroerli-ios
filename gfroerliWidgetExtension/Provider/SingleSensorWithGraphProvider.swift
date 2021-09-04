@@ -16,7 +16,7 @@ struct SingleSensorWithGraphProvider: IntentTimelineProvider {
         SingleSensorWithGraphEntry(
             date: Date(),
             device_id: "Placeholder",
-            configuration: SingleSensorIntent(),
+            configuration: SingleSensorGraphIntent(),
             timeSpan: .day,
             sensor: nil,
             dataDay: [],
@@ -25,7 +25,7 @@ struct SingleSensorWithGraphProvider: IntentTimelineProvider {
     }
 
     func getSnapshot(
-        for configuration: SingleSensorIntent,
+        for configuration: SingleSensorGraphIntent,
         in context: Context,
         completion: @escaping (SingleSensorWithGraphEntry) -> Void) {
 
@@ -42,7 +42,7 @@ struct SingleSensorWithGraphProvider: IntentTimelineProvider {
     }
 
     func getTimeline(
-        for configuration: SingleSensorIntent,
+        for configuration: SingleSensorGraphIntent,
         in context: Context,
         completion: @escaping (Timeline<SingleSensorWithGraphEntry>) -> Void) {
         var entries: [SingleSensorWithGraphEntry] = []
@@ -90,7 +90,7 @@ struct SingleSensorWithGraphProvider: IntentTimelineProvider {
 struct SingleSensorWithGraphEntry: TimelineEntry {
     var date: Date
     let device_id: String // swiftlint:disable:this identifier_name
-    let configuration: SingleSensorIntent
+    let configuration: SingleSensorGraphIntent
     let timeSpan: TimeSpan
     let sensor: Sensor?
     let dataDay: [HourlyAggregation?]

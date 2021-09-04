@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D01C21526E3685C00F14F90 /* BottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 8D01C21426E3685C00F14F90 /* BottomSheet */; };
+		8D01C21626E3767100F14F90 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DEC7E2265424A700206EAA /* GraphView.swift */; };
 		8D04196824F50258003D64D4 /* SensorScrollItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D04196724F50258003D64D4 /* SensorScrollItem.swift */; };
 		8D04196A24F50349003D64D4 /* RiverData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D04196924F50349003D64D4 /* RiverData.swift */; };
 		8D05A2DB253F645300E7C1BD /* PreViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D05A2DA253F645300E7C1BD /* PreViewExtension.swift */; };
@@ -26,7 +28,6 @@
 		8D6A7DC824F15187009A0026 /* SensorOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A7DC724F15187009A0026 /* SensorOverView.swift */; };
 		8D73772F252BA7200075E04E /* Sponsor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73772E252BA7200075E04E /* Sponsor.swift */; };
 		8D737737252BA8750075E04E /* SponsorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D737736252BA8750075E04E /* SponsorsViewModel.swift */; };
-		8D7C5E2E26B9CD2000A95EBE /* BottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 8D7C5E2D26B9CD2000A95EBE /* BottomSheet */; };
 		8D7E98BD257025EC00BC32EB /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7E98BC257025EC00BC32EB /* ColorExtension.swift */; };
 		8D996DE325A23A2B00724453 /* MonthlyChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D996DE225A23A2B00724453 /* MonthlyChartView.swift */; };
 		8DA7CEF52516108000395465 /* SensorListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA7CEF42516108000395465 /* SensorListViewModel.swift */; };
@@ -320,7 +321,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D7C5E2E26B9CD2000A95EBE /* BottomSheet in Frameworks */,
+				8D01C21526E3685C00F14F90 /* BottomSheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -730,7 +731,7 @@
 			);
 			name = iOS;
 			packageProductDependencies = (
-				8D7C5E2D26B9CD2000A95EBE /* BottomSheet */,
+				8D01C21426E3685C00F14F90 /* BottomSheet */,
 			);
 			productName = iOS;
 			productReference = E461456F24A34831006233AE /* Gfror.li.app */;
@@ -793,7 +794,7 @@
 			);
 			mainGroup = E461456224A34823006233AE;
 			packageReferences = (
-				8D7C5E2C26B9CD2000A95EBE /* XCRemoteSwiftPackageReference "BottomSheet" */,
+				8D01C21326E3685C00F14F90 /* XCRemoteSwiftPackageReference "BottomSheet" */,
 			);
 			productRefGroup = E461457024A34831006233AE /* Products */;
 			projectDirPath = "";
@@ -912,6 +913,7 @@
 				B4E12525260CD46200F45852 /* HourlyAggregationViewModel.swift in Sources */,
 				B4AA328F262632B4007E1627 /* WeeklyChartShape.swift in Sources */,
 				B4E1251B260CD45D00F45852 /* Sponsor.swift in Sources */,
+				8D01C21626E3767100F14F90 /* GraphView.swift in Sources */,
 				B40B20AB2666BFB900FCF872 /* OwnHelpers.swift in Sources */,
 				B494D71C265D474D00327BAF /* TemperatureAggregationsViewModel.swift in Sources */,
 				B4F19A3F26263F4A00CA4C8D /* SelectSensor.intentdefinition in Sources */,
@@ -1451,20 +1453,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		8D7C5E2C26B9CD2000A95EBE /* XCRemoteSwiftPackageReference "BottomSheet" */ = {
+		8D01C21326E3685C00F14F90 /* XCRemoteSwiftPackageReference "BottomSheet" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/LucasMucGH/BottomSheet";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
+				branch = main;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		8D7C5E2D26B9CD2000A95EBE /* BottomSheet */ = {
+		8D01C21426E3685C00F14F90 /* BottomSheet */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8D7C5E2C26B9CD2000A95EBE /* XCRemoteSwiftPackageReference "BottomSheet" */;
+			package = 8D01C21326E3685C00F14F90 /* XCRemoteSwiftPackageReference "BottomSheet" */;
 			productName = BottomSheet;
 		};
 /* End XCSwiftPackageProductDependency section */

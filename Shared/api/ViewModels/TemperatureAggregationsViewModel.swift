@@ -56,11 +56,11 @@ class TemperatureAggregationsViewModel: ObservableObject {
 
         let timeZoneOffsetInHours = Int(TimeZone.current.secondsFromGMT())/3600
 
-        let df = DateFormatter()
-        df.dateFormat = "yyyy-MM-dd"
-        let start = df.string(from: dateDay.advanced(by: -86400))
-        let mid = df.string(from: dateDay)
-        let end = df.string(from: dateDay.advanced(by: +86400))
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let start = dateFormatter.string(from: dateDay.advanced(by: -86400))
+        let mid = dateFormatter.string(from: dateDay)
+        let end = dateFormatter.string(from: dateDay.advanced(by: +86400))
         var url = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/mobile_app/sensors/\(id)/hourly_temperatures?from=\(start)&to=\(end)&limit=48")!)
 
         url.setValue("Bearer XTZA6H0Hg2f02bzVefmVlr8fIJMy2FGCJ0LlDlejj2Pi0i1JvZiL0Ycv1t6JoZzD", forHTTPHeaderField: "Authorization")
@@ -116,10 +116,10 @@ class TemperatureAggregationsViewModel: ObservableObject {
     }
 
     public func loadWeek() {
-        let df = DateFormatter()
-        df.dateFormat = "yyyy-MM-dd"
-        let start = df.string(from: startDateWeek)
-        let end = df.string(from: Calendar.current.date(byAdding: .day, value: 6, to: startDateWeek)!)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let start = dateFormatter.string(from: startDateWeek)
+        let end = dateFormatter.string(from: Calendar.current.date(byAdding: .day, value: 6, to: startDateWeek)!)
 
         var url = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/mobile_app/sensors/\(id)/daily_temperatures?from=\(start)&to=\(end)&limit=7")!)
         url.setValue("Bearer XTZA6H0Hg2f02bzVefmVlr8fIJMy2FGCJ0LlDlejj2Pi0i1JvZiL0Ycv1t6JoZzD", forHTTPHeaderField: "Authorization")
@@ -158,10 +158,10 @@ class TemperatureAggregationsViewModel: ObservableObject {
     }
 
     public func loadMonth() {
-        let df = DateFormatter()
-        df.dateFormat = "yyyy-MM-dd"
-        let start = df.string(from: startDateMonth)
-        let end = df.string(from: Calendar.current.date(byAdding: DateComponents(month: 1, day: -1), to: startDateMonth)!)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let start = dateFormatter.string(from: startDateMonth)
+        let end = dateFormatter.string(from: Calendar.current.date(byAdding: DateComponents(month: 1, day: -1), to: startDateMonth)!)
 
         var url = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/mobile_app/sensors/\(id)/daily_temperatures?from=\(start)&to=\(end)&limit=32")!)
 
