@@ -1,0 +1,72 @@
+{
+  "source": "/Users/marckramer/Repos/gfroerli-ios/iOS/iOSViews/MainViews/Settings/SettingsView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Settings"
+      },
+      {
+        "comment": "",
+        "key": "General"
+      },
+      {
+        "comment": "",
+        "key": "Links"
+      },
+      {
+        "comment": "",
+        "key": "FAQ"
+      },
+      {
+        "comment": "",
+        "key": "Changelog"
+      },
+      {
+        "comment": "",
+        "key": "Change Language"
+      },
+      {
+        "comment": "",
+        "key": "Rate"
+      },
+      {
+        "comment": "",
+        "key": "Contact"
+      },
+      {
+        "comment": "",
+        "key": "Privacy Policy"
+      },
+      {
+        "comment": "",
+        "key": "gfrör.li"
+      },
+      {
+        "comment": "",
+        "key": "coredump.ch"
+      },
+      {
+        "comment": "",
+        "key": "@coredump_ch"
+      },
+      {
+        "comment": "",
+        "key": "Code on Github"
+      },
+      {
+        "comment": "",
+        "key": "Gfrör.li"
+      },
+      {
+        "comment": "",
+        "key": "Version: %@"
+      },
+      {
+        "comment": "",
+        "key": "by Marc & Niklas\nfor Coredump Rapperswil"
+      }
+    ]
+  },
+  "version": 1
+}

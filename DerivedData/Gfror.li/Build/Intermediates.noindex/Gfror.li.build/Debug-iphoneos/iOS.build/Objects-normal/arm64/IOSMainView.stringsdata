@@ -1,0 +1,28 @@
+{
+  "source": "/Users/marckramer/Repos/gfroerli-ios/iOS/iOSViews/MainViews/IOSMainView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Overview"
+      },
+      {
+        "comment": "",
+        "key": "Map"
+      },
+      {
+        "comment": "",
+        "key": "Favorites"
+      },
+      {
+        "comment": "",
+        "key": "Search"
+      },
+      {
+        "comment": "",
+        "key": "Close"
+      }
+    ]
+  },
+  "version": 1
+}

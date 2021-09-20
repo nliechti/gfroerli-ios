@@ -1,0 +1,32 @@
+{
+  "source": "/Users/marckramer/Repos/gfroerli-ios/iOS/iOSViews/MainViews/Overview/FAQView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "About"
+      },
+      {
+        "comment": "",
+        "key": "A1_String"
+      },
+      {
+        "comment": "",
+        "key": "Q1_String"
+      },
+      {
+        "comment": "",
+        "key": "A2_String"
+      },
+      {
+        "comment": "",
+        "key": "www.gfrör.li"
+      },
+      {
+        "comment": "",
+        "key": "Q2_String"
+      }
+    ]
+  },
+  "version": 1
+}

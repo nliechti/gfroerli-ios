@@ -20,6 +20,13 @@
 		8D3D36F0250BBC8500F11E48 /* SensorOverViewGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3D36EF250BBC8500F11E48 /* SensorOverViewGraph.swift */; };
 		8D3D36F2250BBEF000F11E48 /* SensorOverviewSponsorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3D36F1250BBEF000F11E48 /* SensorOverviewSponsorView.swift */; };
 		8D3D3EBA26C804DC002756EE /* ChangeLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3D3EB926C804DC002756EE /* ChangeLogView.swift */; };
+		8D3F99DD26F8F0360075D176 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DEC7E4265424B900206EAA /* ChartView.swift */; };
+		8D3F99DF26F8F4780075D176 /* OwnHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBD7250BB6BB00DBCC37 /* OwnHelpers.swift */; };
+		8D3F99E026F8F62F0075D176 /* Y-LabelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DEC7E8265424CC00206EAA /* Y-LabelsView.swift */; };
+		8D3F99E126F8F6370075D176 /* X-LabelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DEC7E6265424C300206EAA /* X-LabelsView.swift */; };
+		8D3F99E226F8F64D0075D176 /* LineShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DEC7EA2654276400206EAA /* LineShape.swift */; };
+		8D3F99E326F8F6500075D176 /* VectorAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DEC7ED26544D6600206EAA /* VectorAnimations.swift */; };
+		8D3F99E426F8F7BF0075D176 /* PreViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D05A2DA253F645300E7C1BD /* PreViewExtension.swift */; };
 		8D50670324F7F33400E426DE /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5066E424F7F33400E426DE /* Helpers.swift */; };
 		8D580B59259FA33800202262 /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D580B58259FA33800202262 /* FAQView.swift */; };
 		8D5D25CB257A98D1002852F4 /* LakeListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5D25CA257A98D1002852F4 /* LakeListItem.swift */; };
@@ -46,7 +53,6 @@
 		8DF3BBD8250BB6BB00DBCC37 /* OwnHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBD7250BB6BB00DBCC37 /* OwnHelpers.swift */; };
 		8DF852E126C7C64D0020B717 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF852E026C7C64D0020B717 /* LocationManager.swift */; };
 		8DF852E526C7DAD00020B717 /* WhatsNew.json in Resources */ = {isa = PBXBuildFile; fileRef = 8DF852E426C7DAD00020B717 /* WhatsNew.json */; };
-		B40B20AB2666BFB900FCF872 /* OwnHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3BBD7250BB6BB00DBCC37 /* OwnHelpers.swift */; };
 		B40F9013264D696E00CD7D95 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D5EACEC252CE407006EBCD6 /* Localizable.strings */; };
 		B40F9014264D696E00CD7D95 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D5EACEC252CE407006EBCD6 /* Localizable.strings */; };
 		B415711C260A41A400372278 /* ChangeNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = B415711B260A41A400372278 /* ChangeNote.swift */; };
@@ -721,7 +727,6 @@
 				E461456C24A34831006233AE /* Frameworks */,
 				E461456D24A34831006233AE /* Resources */,
 				8D9B0FDB24F3A2E8003502C8 /* Embed App Extensions */,
-				B4C733292685C78600BAAF3D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -848,26 +853,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		B4C733292685C78600BAAF3D /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		B4795EBF260CCC1800D4BF19 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -900,21 +885,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D3F99E326F8F6500075D176 /* VectorAnimations.swift in Sources */,
 				B4AA328E262632B4007E1627 /* HourlyChartView.swift in Sources */,
 				B494D718265D452F00327BAF /* TemperatureAggregations.swift in Sources */,
 				B4E1251F260CD45D00F45852 /* TempAggregations.swift in Sources */,
+				8D3F99DD26F8F0360075D176 /* ChartView.swift in Sources */,
 				B4AA3291262632B4007E1627 /* MonthlyChartView.swift in Sources */,
 				B4AA3293262632B4007E1627 /* MonthlyChartShape.swift in Sources */,
 				B4E12520260CD45D00F45852 /* RiverData.swift in Sources */,
 				B4E124DC260CD20800F45852 /* gfroerliWidgetExtension.intentdefinition in Sources */,
 				B4E12526260CD46200F45852 /* SponsorsViewModel.swift in Sources */,
+				8D3F99DF26F8F4780075D176 /* OwnHelpers.swift in Sources */,
 				B4E12527260CD46200F45852 /* TempAggregationsViewModel.swift in Sources */,
 				B49B0193260E180100D1AA37 /* SingleSensorProvider.swift in Sources */,
 				B4E12525260CD46200F45852 /* HourlyAggregationViewModel.swift in Sources */,
 				B4AA328F262632B4007E1627 /* WeeklyChartShape.swift in Sources */,
 				B4E1251B260CD45D00F45852 /* Sponsor.swift in Sources */,
 				8D01C21626E3767100F14F90 /* GraphView.swift in Sources */,
-				B40B20AB2666BFB900FCF872 /* OwnHelpers.swift in Sources */,
 				B494D71C265D474D00327BAF /* TemperatureAggregationsViewModel.swift in Sources */,
 				B4F19A3F26263F4A00CA4C8D /* SelectSensor.intentdefinition in Sources */,
 				B4AA329426263352007E1627 /* Helpers.swift in Sources */,
@@ -924,14 +911,18 @@
 				B4E124F1260CD31000F45852 /* IntentHandler.swift in Sources */,
 				B4AA3292262632B4007E1627 /* HourlyChartShape.swift in Sources */,
 				B4E12515260CD45500F45852 /* SensorListViewModel.swift in Sources */,
+				8D3F99E126F8F6370075D176 /* X-LabelsView.swift in Sources */,
+				8D3F99E026F8F62F0075D176 /* Y-LabelsView.swift in Sources */,
 				B4E1252D260CD46400F45852 /* SingleSensorViewModel.swift in Sources */,
 				B4AA3290262632B4007E1627 /* Legend.swift in Sources */,
 				B49B0155260E132800D1AA37 /* WidgetMain.swift in Sources */,
 				B49BE2CE261CA7080004B0D6 /* WaveShape.swift in Sources */,
+				8D3F99E426F8F7BF0075D176 /* PreViewExtension.swift in Sources */,
 				B4AA328D262632B4007E1627 /* WeeklyChartView.swift in Sources */,
 				B4E12528260CD46200F45852 /* WeeklyAggregationsViewModel.swift in Sources */,
 				B49B02B4260E572500D1AA37 /* SingleSensorWidgetView.swift in Sources */,
 				B4AA328C26262DED007E1627 /* SingleSensorWithGraphProvider.swift in Sources */,
+				8D3F99E226F8F64D0075D176 /* LineShape.swift in Sources */,
 				B49BE2D1261CB4990004B0D6 /* Reachability.swift in Sources */,
 				B49B013D260E120800D1AA37 /* SingleSensorWithGraphView.swift in Sources */,
 			);

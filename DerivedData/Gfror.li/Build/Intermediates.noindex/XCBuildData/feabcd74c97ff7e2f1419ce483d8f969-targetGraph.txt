@@ -1,0 +1,10 @@
+Target dependency graph (5 targets)
+gfroerliWidgetExtensionExtension in Gfror.li, no dependencies
+SelectSensorIntentExtension in Gfror.li, no dependencies
+BottomSheet in BottomSheet, no dependencies
+BottomSheet in BottomSheet, depends on:
+BottomSheet in BottomSheet (explicit)
+iOS in Gfror.li, depends on:
+SelectSensorIntentExtension in Gfror.li (explicit)
+gfroerliWidgetExtensionExtension in Gfror.li (explicit)
+BottomSheet in BottomSheet (explicit)

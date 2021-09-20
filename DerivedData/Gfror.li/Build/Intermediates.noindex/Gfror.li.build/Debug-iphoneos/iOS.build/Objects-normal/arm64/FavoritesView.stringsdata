@@ -1,0 +1,16 @@
+{
+  "source": "/Users/marckramer/Repos/gfroerli-ios/iOS/iOSViews/MainViews/Favorites/FavoritesView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Favorites"
+      },
+      {
+        "comment": "",
+        "key": "No Favorites"
+      }
+    ]
+  },
+  "version": 1
+}

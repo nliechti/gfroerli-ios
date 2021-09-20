@@ -1,0 +1,12 @@
+{
+  "source": "/Users/marckramer/Repos/gfroerli-ios/Shared/extensions/SwiftUICharts/LineChartApp/Legend.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "%.2f°"
+      }
+    ]
+  },
+  "version": 1
+}

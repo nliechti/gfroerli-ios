@@ -1,0 +1,24 @@
+{
+  "source": "/Users/marckramer/Repos/gfroerli-ios/Shared/api/ViewModels/SensorListViewModel.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Could not decode Sensors."
+      },
+      {
+        "comment": "",
+        "key": "Invalid server response."
+      },
+      {
+        "comment": "",
+        "key": "No internet connection."
+      },
+      {
+        "comment": "",
+        "key": ""
+      }
+    ]
+  },
+  "version": 1
+}

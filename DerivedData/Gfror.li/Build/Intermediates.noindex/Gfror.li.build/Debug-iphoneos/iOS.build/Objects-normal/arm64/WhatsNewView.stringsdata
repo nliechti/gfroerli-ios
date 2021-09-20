@@ -1,0 +1,16 @@
+{
+  "source": "/Users/marckramer/Repos/gfroerli-ios/iOS/iOSViews/MainViews/Settings/WhatsNewView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "What's New to Gfrör.li"
+      },
+      {
+        "comment": "",
+        "key": "Continue"
+      }
+    ]
+  },
+  "version": 1
+}

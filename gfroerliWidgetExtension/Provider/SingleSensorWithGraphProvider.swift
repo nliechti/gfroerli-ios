@@ -17,11 +17,9 @@ struct SingleSensorWithGraphProvider: IntentTimelineProvider {
             date: Date(),
             device_id: "Placeholder",
             configuration: SingleSensorGraphIntent(),
-            timeSpan: .day,
+            timeFrameValue: .day,
             sensor: nil,
-            dataDay: [],
-            dataWeek: [],
-            dataMonth: [])
+            data: nil)
     }
 
     func getSnapshot(
@@ -33,11 +31,9 @@ struct SingleSensorWithGraphProvider: IntentTimelineProvider {
             date: Date(),
             device_id: "1",
             configuration: configuration,
-            timeSpan: configuration.timeSpan,
+            timeFrameValue: configuration.timeFrame,
             sensor: testSensor1,
-            dataDay: HourlyAggregation.hourlyExampleData,
-            dataWeek: [],
-            dataMonth: [])
+            data: nil)
         completion(entry)
     }
 
@@ -47,34 +43,32 @@ struct SingleSensorWithGraphProvider: IntentTimelineProvider {
         completion: @escaping (Timeline<SingleSensorWithGraphEntry>) -> Void) {
         var entries: [SingleSensorWithGraphEntry] = []
         let singleSensorVM = SingleSensorViewModel()
-        let hourlyAggregVM = HourlyAggregationsViewModel()
-        let weeklyAggregVM = WeeklyAggregationsViewModel()
-        let monthlyAggregVM = MonthlyAggregationsViewModel()
-
+        let tempAggregVM = TemperatureAggregationsViewModel()
+    
         let selectableSensor = configuration.sensor
         
-        hourlyAggregVM.id = Int(configuration.sensor?.identifier ?? "0")!
-        weeklyAggregVM.id = Int(configuration.sensor?.identifier ?? "0")!
-        monthlyAggregVM.id = Int(configuration.sensor?.identifier ?? "0")!
+        tempAggregVM.id = Int(configuration.sensor?.identifier ?? "0")!
+        
 
-        Task { await singleSensorVM.load(sensorId: Int(configuration.sensor?.identifier ?? "0")!)}
-        hourlyAggregVM.load()
-        weeklyAggregVM.load()
-        monthlyAggregVM.load()
+        Task { await singleSensorVM.load(sensorId: Int(configuration.sensor?.identifier ?? "0")!)
+        }
+        
+                tempAggregVM.loadDays()
+                tempAggregVM.loadWeek()
+                tempAggregVM.loadMonth()
+            
 
         // Wait for async/await
-        let seconds = 1.0
+        let seconds = 2.0
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
 
             let entry = SingleSensorWithGraphEntry(
                 date: Date(),
                 device_id: selectableSensor?.identifier ?? "",
                 configuration: configuration,
-                timeSpan: configuration.timeSpan,
+                timeFrameValue: configuration.timeFrame,
                 sensor: singleSensorVM.sensor,
-                dataDay: hourlyAggregVM.dataDay,
-                dataWeek: weeklyAggregVM.dataWeek,
-                dataMonth: monthlyAggregVM.dataMonth
+                data: tempAggregVM
             )
             entries.append(entry)
 
@@ -91,9 +85,7 @@ struct SingleSensorWithGraphEntry: TimelineEntry {
     var date: Date
     let device_id: String // swiftlint:disable:this identifier_name
     let configuration: SingleSensorGraphIntent
-    let timeSpan: TimeSpan
+    let timeFrameValue: TimeFrameValue
     let sensor: Sensor?
-    let dataDay: [HourlyAggregation?]
-    let dataWeek: [DailyAggregation]
-    let dataMonth: [DailyAggregation]
+    let data: TemperatureAggregationsViewModel?
 }

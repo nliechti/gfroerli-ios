@@ -1,0 +1,16 @@
+{
+  "source": "/Users/marckramer/Repos/gfroerli-ios/iOS/iOSViews/MainViews/Overview/SensorOverView/SensorOverviewMap.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Location"
+      },
+      {
+        "comment": "",
+        "key": "Directions"
+      }
+    ]
+  },
+  "version": 1
+}

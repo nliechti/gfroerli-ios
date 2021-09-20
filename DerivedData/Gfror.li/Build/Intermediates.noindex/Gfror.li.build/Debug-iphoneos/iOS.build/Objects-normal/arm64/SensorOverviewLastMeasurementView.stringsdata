@@ -1,0 +1,28 @@
+{
+  "source": "/Users/marckramer/Repos/gfroerli-ios/iOS/iOSViews/MainViews/Overview/SensorOverView/SensorOverviewLastMeasurementView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Latest"
+      },
+      {
+        "comment": "",
+        "key": "All time:"
+      },
+      {
+        "comment": "",
+        "key": "Highest:"
+      },
+      {
+        "comment": "",
+        "key": "Average:"
+      },
+      {
+        "comment": "",
+        "key": "Lowest:"
+      }
+    ]
+  },
+  "version": 1
+}

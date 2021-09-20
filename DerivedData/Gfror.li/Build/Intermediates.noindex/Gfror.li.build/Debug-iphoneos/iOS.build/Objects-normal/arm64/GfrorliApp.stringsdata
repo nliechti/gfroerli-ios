@@ -1,0 +1,12 @@
+{
+  "source": "/Users/marckramer/Repos/gfroerli-ios/Shared/GfrorliApp.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Hello, World!"
+      }
+    ]
+  },
+  "version": 1
+}

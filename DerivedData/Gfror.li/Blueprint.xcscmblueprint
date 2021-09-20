@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "5E214C3F629962827AF7B3DE596315FEAD4FF454",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "207561A0223D12BC9D12D728A639E8B8CC9F6548" : 0,
+    "5E214C3F629962827AF7B3DE596315FEAD4FF454" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "97DED4D1-FB3B-434C-8ED1-C86CE50EED9F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "207561A0223D12BC9D12D728A639E8B8CC9F6548" : "gfroerli-ios\/DerivedData\/Gfror.li\/SourcePackages\/checkouts\/BottomSheet\/",
+    "5E214C3F629962827AF7B3DE596315FEAD4FF454" : "gfroerli-ios\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Gfror.li",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Gfror.li.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "\/Users\/marckramer\/Repos\/gfroerli-ios\/DerivedData\/Gfror.li\/SourcePackages\/repositories\/BottomSheet-27fc9173",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "207561A0223D12BC9D12D728A639E8B8CC9F6548"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/nliechti\/gfroerli-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5E214C3F629962827AF7B3DE596315FEAD4FF454"
+    }
+  ]
+}

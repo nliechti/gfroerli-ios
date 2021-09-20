@@ -1,0 +1,16 @@
+{
+  "source": "/Users/marckramer/Repos/gfroerli-ios/iOS/iOSViews/MainViews/Overview/SensorOverView/SensorOverView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Loading Location failed. Reason:"
+      },
+      {
+        "comment": "",
+        "key": "Try again"
+      }
+    ]
+  },
+  "version": 1
+}

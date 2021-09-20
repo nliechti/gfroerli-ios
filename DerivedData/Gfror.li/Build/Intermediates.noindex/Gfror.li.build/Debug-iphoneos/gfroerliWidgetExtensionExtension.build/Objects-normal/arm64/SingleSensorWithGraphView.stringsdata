@@ -1,0 +1,28 @@
+{
+  "source": "/Users/marckramer/Repos/gfroerli-ios/gfroerliWidgetExtension/WidgetViews/SingleSensorWithGraphView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "No internet connection"
+      },
+      {
+        "comment": "",
+        "key": "Press and hold to select location"
+      },
+      {
+        "comment": "",
+        "key": "Measured at: "
+      },
+      {
+        "comment": "",
+        "key": "Single Location with Graph"
+      },
+      {
+        "comment": "",
+        "key": "Displays the temperature history of a location."
+      }
+    ]
+  },
+  "version": 1
+}

@@ -30,8 +30,8 @@
 			<array/>
 			<key>IntentsSupported</key>
 			<array>
-				<string>SingleSensorIntent</string>
 				<string>SingleSensorGraphIntent</string>
+				<string>SingleSensorIntent</string>
 			</array>
 		</dict>
 		<key>NSExtensionPointIdentifier</key>
