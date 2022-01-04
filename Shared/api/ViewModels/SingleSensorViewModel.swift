@@ -33,7 +33,7 @@ class SingleSensorViewModel: ObservableObject {
             if !Reachability.isConnectedToNetwork() {
                 throw LoadingErrors.noConnectionError
             }
-            // send request
+            // Send request
             let (data, response) = try await URLSession.shared.data(for: request)
             
             // check response status code

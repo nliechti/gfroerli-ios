@@ -51,18 +51,11 @@ struct SingleSensorWithGraphProvider: IntentTimelineProvider {
         
 
         Task { await singleSensorVM.load(sensorId: Int(configuration.sensor?.identifier ?? "0")!)
+            await tempAggregVM.loadDays()
+            await tempAggregVM.loadWeek()
+            await tempAggregVM.loadMonth()
         }
-        
-                tempAggregVM.loadDays()
-                tempAggregVM.loadWeek()
-                tempAggregVM.loadMonth()
-            
-
-        // Wait for async/await
-        let seconds = 6.0
-        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
-
-            let entry = SingleSensorWithGraphEntry(
+        let entry = SingleSensorWithGraphEntry(
                 date: Date(),
                 device_id: selectableSensor?.identifier ?? "",
                 configuration: configuration,
@@ -77,7 +70,7 @@ struct SingleSensorWithGraphProvider: IntentTimelineProvider {
                 policy: .after(Calendar.current.date(byAdding: .minute, value: 10, to: Date())!)
             )
             completion(timeline)
-        }
+        
     }
 }
 

@@ -46,7 +46,7 @@ struct ChartView: View {
                     }
                 }
 
-                if steps.count != 0 {
+                if temperatureAggregationsVM.loadingStateDay == .loaded && temperatureAggregationsVM.loadingStateWeek == .loaded && temperatureAggregationsVM.loadingStateMonth == .loaded {
                     LineShape(
                         temperatureAggregationsVM: temperatureAggregationsVM,
                         totalSteps: $totalSteps,
@@ -82,6 +82,8 @@ struct ChartView: View {
                     .stroke(Color.red, style: StrokeStyle(lineWidth: 2, lineCap: .round, lineJoin: .round))
                     .animation(.linear, value: maximums)
                     
+                } else if temperatureAggregationsVM.loadingStateDay == .loading || temperatureAggregationsVM.loadingStateWeek == .loading || temperatureAggregationsVM.loadingStateMonth == .loading {
+                    ProgressView()
                 } else {
                     Text("No data available")
                         .foregroundColor(.secondary)

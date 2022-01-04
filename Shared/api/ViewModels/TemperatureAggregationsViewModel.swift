@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 import SwiftUI
 
 class TemperatureAggregationsViewModel: ObservableObject {
@@ -14,46 +15,59 @@ class TemperatureAggregationsViewModel: ObservableObject {
     @Published var averagesDay = [Double]()
     @Published var maximumsDay = [Double]()
     @Published var stepsDay = [Int]()
+    @Published var loadingStateDay = NewLoadingState.loading
 
     @Published var minimumsWeek = [Double]()
     @Published var averagesWeek = [Double]()
     @Published var maximumsWeek = [Double]()
     @Published var stepsWeek = [Int]()
-
+    @Published var loadingStateWeek = NewLoadingState.loading
+    
     @Published var minimumsMonth = [Double]()
     @Published var averagesMonth = [Double]()
     @Published var maximumsMonth = [Double]()
     @Published var stepsMonth = [Int]()
-
+    @Published var loadingStateMonth = NewLoadingState.loading
+    
     @Published var isInSameDay = true
     @Published var isInSameWeek = true
     @Published var isInSameMonth = true
     
+    @Published var errorMsg: LocalizedStringKey = "" { didSet { didChange.send(())}}
+    
+    let didChange = PassthroughSubject<Void, Never>()
+    
     var dateDay: Date = Calendar.current.date(from: Calendar.current.dateComponents([.year, .month, .day], from: Date()))! {
         didSet {
-            loadDays()
-            checkSameDay()
+            Task {
+                await loadDays()
+                checkSameDay()
+            }
         }
     }
     var startDateWeek: Date = Calendar.current.dateComponents([.calendar, .yearForWeekOfYear, .weekOfYear], from: Date()).date! {
         didSet {
-            loadWeek()
+            Task {
+                await loadWeek()
             checkSameWeek()
-
+            }
         }
     }
     var startDateMonth: Date = Calendar.current.dateComponents([.calendar, .month, .year], from: Date()).date! {
         didSet {
-            loadMonth()
+            Task {
+            await loadMonth()
             checkSameMonth()
-
+            }
         }
     }
 
     var id: Int = 1
 
-    func loadDays() {
+    func loadDays() async {
 
+        loadingStateDay = .loading
+        
         let timeZoneOffsetInHours = Int(TimeZone.current.secondsFromGMT())/3600
 
         let dateFormatter = DateFormatter()
@@ -61,51 +75,74 @@ class TemperatureAggregationsViewModel: ObservableObject {
         let start = dateFormatter.string(from: dateDay.advanced(by: -86400))
         let mid = dateFormatter.string(from: dateDay)
         let end = dateFormatter.string(from: dateDay.advanced(by: +86400))
-        var url = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/mobile_app/sensors/\(id)/hourly_temperatures?from=\(start)&to=\(end)&limit=48")!)
-
-        url.setValue("Bearer XTZA6H0Hg2f02bzVefmVlr8fIJMy2FGCJ0LlDlejj2Pi0i1JvZiL0Ycv1t6JoZzD", forHTTPHeaderField: "Authorization")
-        url.httpMethod = "GET"
-        URLSession.shared.dataTask(with: url) { data, _, _ in
-            DispatchQueue.main.async { [self] in
-                do {
-                    if let data = data {
-                        // success: convert to  Measuring, and set according List
-                        let jsonDecoder = JSONDecoder()
-                        var aggregs = try jsonDecoder.decode([HourlyAggregation].self, from: data)
-                        self.minimumsDay.removeAll()
-                        self.maximumsDay.removeAll()
-                        self.averagesDay.removeAll()
-                        self.stepsDay.removeAll()
-                        aggregs = aggregs.reversed()
-
-                        for data in aggregs {
-                            if timeZoneOffsetInHours >= 0 {
-                                if (data.date == start && (data.hour! + timeZoneOffsetInHours <= 23)) || (data.hour!+timeZoneOffsetInHours >= 24 && data.date == mid) || (data.date == end) {
-                                    continue
-                                }
-                                    self.minimumsDay.append(data.minTemp!.roundToDecimal(1))
-                                    self.maximumsDay.append(data.maxTemp!.roundToDecimal(1))
-                                    self.averagesDay.append(data.avgTemp!.roundToDecimal(1))
-                                    self.stepsDay.append((data.hour! + timeZoneOffsetInHours) % 24)
-                                } else {
-                                    if (data.date == mid && (data.hour! + timeZoneOffsetInHours < 0)) || (data.date! == end && (data.hour! + timeZoneOffsetInHours > 0)) || (data.date == start) {
-                                        continue
-                                    }
-                                        self.minimumsDay.append(data.minTemp!.roundToDecimal(1))
-                                        self.maximumsDay.append(data.maxTemp!.roundToDecimal(1))
-                                        self.averagesDay.append(data.avgTemp!.roundToDecimal(1))
-                                        self.stepsDay.append(handle(num: data.hour!+timeZoneOffsetInHours))
-                                }
-                        }
-                    } else {
-                        print("")
-                    }
-                } catch {
-                    print("")
-
-                }
+        let url = URL(string: "https://watertemp-api.coredump.ch/api/mobile_app/sensors/\(id)/hourly_temperatures?from=\(start)&to=\(end)&limit=48")!
+        var request = URLRequest(url: url)
+        request.setValue(BearerToken.token, forHTTPHeaderField: "Authorization")
+        request.httpMethod = "GET"
+        
+        do {
+            // Test for network connection
+            if !Reachability.isConnectedToNetwork() {
+                throw LoadingErrors.noConnectionError
             }
-        }.resume()
+            // Send request
+            let (data, response) = try await URLSession.shared.data(for: request)
+            
+            // check response status code
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                throw LoadingErrors.fetchError
+            }
+            // try to decode
+            guard var aggregs = try? JSONDecoder().decode([HourlyAggregation].self, from: data) else {
+                throw LoadingErrors.decodeError
+            }
+            // update view model
+           
+                self.minimumsDay.removeAll()
+                self.maximumsDay.removeAll()
+                self.averagesDay.removeAll()
+                self.stepsDay.removeAll()
+                aggregs = aggregs.reversed()
+
+                for data in aggregs {
+                    if timeZoneOffsetInHours >= 0 {
+                        if (data.date == start && (data.hour! + timeZoneOffsetInHours <= 23)) || (data.hour!+timeZoneOffsetInHours >= 24 && data.date == mid) || (data.date == end) {
+                            continue
+                        }
+                        DispatchQueue.main.async {
+                            self.minimumsDay.append(data.minTemp!.roundToDecimal(1))
+                            self.maximumsDay.append(data.maxTemp!.roundToDecimal(1))
+                            self.averagesDay.append(data.avgTemp!.roundToDecimal(1))
+                            self.stepsDay.append((data.hour! + timeZoneOffsetInHours) % 24)
+                            self.loadingStateDay = .loaded
+                        }
+                        } else {
+                            if (data.date == mid && (data.hour! + timeZoneOffsetInHours < 0)) || (data.date! == end && (data.hour! + timeZoneOffsetInHours > 0)) || (data.date == start) {
+                                continue
+                            }
+                            DispatchQueue.main.async {
+                                self.minimumsDay.append(data.minTemp!.roundToDecimal(1))
+                                self.maximumsDay.append(data.maxTemp!.roundToDecimal(1))
+                                self.averagesDay.append(data.avgTemp!.roundToDecimal(1))
+                                self.stepsDay.append(self.handle(num: data.hour!+timeZoneOffsetInHours))
+                                self.loadingStateDay = .loaded
+                            }
+                        }
+                }
+            
+        } catch {
+            loadingStateDay = .failed
+            switch error {
+            case LoadingErrors.decodeError:
+                errorMsg = "Could not decode Measurements."
+            case LoadingErrors.fetchError:
+                errorMsg = "Invalid server response."
+            case LoadingErrors.noConnectionError:
+                errorMsg = "No internet connection."
+            default:
+                errorMsg = LocalizedStringKey( error.localizedDescription )
+            }
+        }
     }
 
     func handle(num: Int) -> Int {
@@ -115,90 +152,132 @@ class TemperatureAggregationsViewModel: ObservableObject {
         return num
     }
 
-    public func loadWeek() {
+    public func loadWeek() async {
+        
+        loadingStateWeek = .loading
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let start = dateFormatter.string(from: startDateWeek)
         let end = dateFormatter.string(from: Calendar.current.date(byAdding: .day, value: 6, to: startDateWeek)!)
 
-        var url = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/mobile_app/sensors/\(id)/daily_temperatures?from=\(start)&to=\(end)&limit=7")!)
-        url.setValue("Bearer XTZA6H0Hg2f02bzVefmVlr8fIJMy2FGCJ0LlDlejj2Pi0i1JvZiL0Ycv1t6JoZzD", forHTTPHeaderField: "Authorization")
+        let url = URL(string: "https://watertemp-api.coredump.ch/api/mobile_app/sensors/\(id)/daily_temperatures?from=\(start)&to=\(end)&limit=7")!
+        var request = URLRequest(url: url)
+        request.setValue(BearerToken.token, forHTTPHeaderField: "Authorization")
+        request.httpMethod = "GET"
+        
+        do {
+            // Test for network connection
+            if !Reachability.isConnectedToNetwork() {
+                throw LoadingErrors.noConnectionError
+            }
+            // Send request
+            let (data, response) = try await URLSession.shared.data(for: request)
+            
+            // check response status code
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                throw LoadingErrors.fetchError
+            }
+            // try to decode
+            guard var aggregs = try? JSONDecoder().decode([DailyAggregation].self, from: data) else {
+                throw LoadingErrors.decodeError
+            }
+            
+            aggregs = aggregs.reversed()
 
-        url.httpMethod = "GET"
-        URLSession.shared.dataTask(with: url) { data, _, _ in
-            DispatchQueue.main.async {
-                do {
-                    if let data = data {
-                        // success: convert to  Measuring, and set according List
-                        let jsonDecoder = JSONDecoder()
-                        var aggregs = try jsonDecoder.decode([DailyAggregation].self, from: data)
-                        aggregs = aggregs.reversed()
+            self.minimumsWeek.removeAll()
+            self.maximumsWeek.removeAll()
+            self.averagesWeek.removeAll()
+            self.stepsWeek.removeAll()
 
-                        self.minimumsWeek.removeAll()
-                        self.maximumsWeek.removeAll()
-                        self.averagesWeek.removeAll()
-                        self.stepsWeek.removeAll()
-
-                        for data in aggregs {
-                            self.minimumsWeek.append(data.minTemp!.roundToDecimal(1))
-                            self.maximumsWeek.append(data.maxTemp!.roundToDecimal(1))
-                            self.averagesWeek.append(data.avgTemp!.roundToDecimal(1))
-                            let weekday = Calendar.current.component(.weekday, from: self.makeDateFromString(string: data.date!))
-                            self.stepsWeek.append((abs(weekday+5))%7)
-
-                        }
-                    } else {
-                        print("")
-                    }
-                } catch {
-                    print("")
+            for data in aggregs {
+                DispatchQueue.main.async {
+                self.minimumsWeek.append(data.minTemp!.roundToDecimal(1))
+                self.maximumsWeek.append(data.maxTemp!.roundToDecimal(1))
+                self.averagesWeek.append(data.avgTemp!.roundToDecimal(1))
+                let weekday = Calendar.current.component(.weekday, from: self.makeDateFromString(string: data.date!))
+                self.stepsWeek.append((abs(weekday+5))%7)
+                    self.loadingStateWeek = .loaded
                 }
             }
-        }.resume()
+
+        } catch {
+            loadingStateWeek = .failed
+            switch error {
+            case LoadingErrors.decodeError:
+                errorMsg = "Could not decode Measurements."
+            case LoadingErrors.fetchError:
+                errorMsg = "Invalid server response."
+            case LoadingErrors.noConnectionError:
+                errorMsg = "No internet connection."
+            default:
+                errorMsg = LocalizedStringKey( error.localizedDescription )
+            }
+        }
     }
 
-    public func loadMonth() {
+    public func loadMonth() async {
+        
+        loadingStateMonth = .loading
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let start = dateFormatter.string(from: startDateMonth)
         let end = dateFormatter.string(from: Calendar.current.date(byAdding: DateComponents(month: 1, day: -1), to: startDateMonth)!)
 
-        var url = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/mobile_app/sensors/\(id)/daily_temperatures?from=\(start)&to=\(end)&limit=32")!)
+        let url = URL(string: "https://watertemp-api.coredump.ch/api/mobile_app/sensors/\(id)/daily_temperatures?from=\(start)&to=\(end)&limit=32")!
+        var request = URLRequest(url: url)
+        request.setValue(BearerToken.token, forHTTPHeaderField: "Authorization")
+        request.httpMethod = "GET"
 
-        url.setValue("Bearer XTZA6H0Hg2f02bzVefmVlr8fIJMy2FGCJ0LlDlejj2Pi0i1JvZiL0Ycv1t6JoZzD", forHTTPHeaderField: "Authorization")
-        url.httpMethod = "GET"
-
-        URLSession.shared.dataTask(with: url) { data, _, _ in
-            DispatchQueue.main.async {
-                do {
-                    if let data = data {
-                        // success: convert to  Measuring, and set according List
-                        let jsonDecoder = JSONDecoder()
-                        var aggregs = try jsonDecoder.decode([DailyAggregation].self, from: data)
-                        aggregs = aggregs.reversed()
-                        self.minimumsMonth.removeAll()
-                        self.maximumsMonth.removeAll()
-                        self.averagesMonth.removeAll()
-                        self.stepsMonth.removeAll()
-
-                        for data in aggregs {
-
-                            self.minimumsMonth.append(data.minTemp!.roundToDecimal(1))
-                            self.maximumsMonth.append(data.maxTemp!.roundToDecimal(1))
-                            self.averagesMonth.append(data.avgTemp!.roundToDecimal(1))
-                            let monthday = Calendar.current.component(.day, from: self.makeDateFromString(string: data.date!))
-                            self.stepsMonth.append(monthday-1)
-
-                        }
-
-                    } else {
-                        print("")
-                    }
-                } catch {
-                    print("")
-                }
+        do {
+            // Test for network connection
+            if !Reachability.isConnectedToNetwork() {
+                throw LoadingErrors.noConnectionError
             }
-        }.resume()
+            // Send request
+            let (data, response) = try await URLSession.shared.data(for: request)
+            
+            // check response status code
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                throw LoadingErrors.fetchError
+            }
+            // try to decode
+            guard var aggregs = try? JSONDecoder().decode([DailyAggregation].self, from: data) else {
+                throw LoadingErrors.decodeError
+            }
+            
+            aggregs = aggregs.reversed()
+            self.minimumsMonth.removeAll()
+            self.maximumsMonth.removeAll()
+            self.averagesMonth.removeAll()
+            self.stepsMonth.removeAll()
+            
+            for data in aggregs {
+            DispatchQueue.main.async {
+                    self.minimumsMonth.append(data.minTemp!.roundToDecimal(1))
+                    self.maximumsMonth.append(data.maxTemp!.roundToDecimal(1))
+                    self.averagesMonth.append(data.avgTemp!.roundToDecimal(1))
+                    let monthday = Calendar.current.component(.day, from: self.makeDateFromString(string: data.date!))
+                    self.stepsMonth.append(monthday-1)
+
+                }
+                self.loadingStateMonth = .loaded
+            }
+            
+        } catch {
+            loadingStateWeek = .failed
+            switch error {
+            case LoadingErrors.decodeError:
+                errorMsg = "Could not decode Measurements."
+            case LoadingErrors.fetchError:
+                errorMsg = "Invalid server response."
+            case LoadingErrors.noConnectionError:
+                errorMsg = "No internet connection."
+            default:
+                errorMsg = LocalizedStringKey( error.localizedDescription )
+            }
+        }
     }
 
     func makeDateFromString(string: String) -> Date {
