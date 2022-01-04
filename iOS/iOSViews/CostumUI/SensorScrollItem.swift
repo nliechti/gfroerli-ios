@@ -34,7 +34,7 @@ struct SensorScrollItem: View {
                         .multilineTextAlignment(.leading)
                 }
                 
-                Spacer()
+                Spacer(minLength: 35)
                 
                 VStack(alignment: .trailing) {
                     Text(makeTemperatureString(double: sensor.latestTemp!))

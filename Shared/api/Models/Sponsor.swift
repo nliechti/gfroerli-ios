@@ -6,7 +6,6 @@
 //
 // swiftlint:disable identifier_name
 
-
 import Foundation
 
 struct Sponsor: Codable, Identifiable {

@@ -30,6 +30,7 @@
 			<array/>
 			<key>IntentsSupported</key>
 			<array>
+				<string>SingleSensorGraphIntent</string>
 				<string>SingleSensorIntent</string>
 			</array>
 		</dict>

@@ -80,7 +80,6 @@ struct IOSMainView: View {
     }
 }
 
-
 struct IOSMainView_Previews: PreviewProvider {
     static var previews: some View {
         EmptyView()

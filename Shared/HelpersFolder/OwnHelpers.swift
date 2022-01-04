@@ -7,8 +7,10 @@
 import UIKit
 import Foundation
 
-enum TimeFrame: Equatable {
-    case day, week, month
+enum TimeFrame: Int, Equatable {
+    case day = 1
+    case week
+    case month
 }
 
 public func getEmailBody() -> String {

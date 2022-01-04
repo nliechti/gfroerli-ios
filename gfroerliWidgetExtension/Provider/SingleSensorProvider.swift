@@ -16,8 +16,8 @@ struct SingleSensorProvider: IntentTimelineProvider {
             date: Date(),
             device_id: "Placeholder",
             configuration: SingleSensorIntent(),
-            timeSpan: .day,
-            sensor: testSensor1)
+            sensor: testSensor1
+        )
     }
 
     func getSnapshot(
@@ -29,8 +29,9 @@ struct SingleSensorProvider: IntentTimelineProvider {
             date: Date(),
             device_id: "Placeholder",
             configuration: configuration,
-            timeSpan: configuration.timeSpan,
-            sensor: testSensor1)
+            sensor: testSensor1
+        )
+            
         completion(entry)
     }
 
@@ -50,12 +51,13 @@ struct SingleSensorProvider: IntentTimelineProvider {
         // Wait for async/await
         let seconds = 2.0
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+            
             let entry = SingleSensorEntry(
                 date: Date(),
                 device_id: selectableSensor?.identifier ?? "",
                 configuration: configuration,
-                timeSpan: configuration.timeSpan,
-                sensor: singleSensorVM.sensor)
+                sensor: singleSensorVM.sensor
+            )
 
             entries.append(entry)
             let timeline = Timeline(
@@ -71,6 +73,5 @@ struct SingleSensorEntry: TimelineEntry {
     var date: Date
     let device_id: String // swiftlint:disable:this identifier_name
     let configuration: SingleSensorIntent
-    let timeSpan: TimeSpan
     let sensor: Sensor?
 }

@@ -118,7 +118,6 @@ struct SingleSensorWidgetView_Previews: PreviewProvider {
             date: Date(),
             device_id: "Placeholder",
             configuration: SingleSensorIntent(),
-            timeSpan: .day,
             sensor: nil), config: SingleSensorIntent()
         ).previewContext(WidgetPreviewContext(family: .systemSmall))
     }

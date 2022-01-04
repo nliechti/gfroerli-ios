@@ -20,7 +20,7 @@ struct FavoritesView: View {
                     NoFavoritsView()
                 } else {
                     List {
-                        ForEach(sensorsVm.sensorArray){ sensor in
+                        ForEach(sensorsVm.sensorArray) { sensor in
                             if favorites.contains(sensor.id) {
                                 SensorScrollItemSmall(sensor: sensor, selectedTag: $selectedTag)
                             }
