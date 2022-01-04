@@ -1,4 +1,0 @@
-module BottomSheet {
-header "BottomSheet-Swift.h"
-export *
-}
