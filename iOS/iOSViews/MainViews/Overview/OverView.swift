@@ -133,7 +133,7 @@ struct TopTabView: View {
 
 struct OverView_Previews: PreviewProvider {
     static var previews: some View {
-        WaterBodyScrollItem(sensorsVM: SensorListViewModel.init(), waterBody: lakeOfZurich)
+        WaterBodyScrollItem(sensorsVM: SensorListViewModel.init(), waterBody: lakeOfZurich).makePreViewModifier()
     }
 }
 

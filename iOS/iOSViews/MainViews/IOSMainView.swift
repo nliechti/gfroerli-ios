@@ -43,9 +43,6 @@ struct IOSMainView: View {
                 .tag("Search")
             
         }
-        .onTapGesture(count: 2, perform: {
-            NavigationUtil.popToRootView()
-        })
         .sheet(isPresented: $showUpdateView) {
             WhatsNewView()
         }
@@ -83,28 +80,6 @@ struct IOSMainView: View {
     }
 }
 
-struct NavigationUtil {
-  static func popToRootView() {
-    findNavigationController(viewController: UIApplication.shared.windows.filter { $0.isKeyWindow }.first?.rootViewController)?
-      .popToRootViewController(animated: true)
-  }
-
-  static func findNavigationController(viewController: UIViewController?) -> UINavigationController? {
-    guard let viewController = viewController else {
-      return nil
-    }
-
-    if let navigationController = viewController as? UINavigationController {
-      return navigationController
-    }
-
-    for childViewController in viewController.children {
-      return findNavigationController(viewController: childViewController)
-    }
-
-    return nil
-  }
-}
 
 struct IOSMainView_Previews: PreviewProvider {
     static var previews: some View {

@@ -22,7 +22,7 @@ struct MapView: View {
     @StateObject var locationManager = ObservableLocationManager()
     
     var body: some View {
-        ZStack(alignment: .bottomTrailing) {
+        ZStack(alignment: .bottom) {
             Map(coordinateRegion: $locationManager.region,
                 showsUserLocation: true,
                 annotationItems: sensorsVm.sensorArray) { sensor in
@@ -41,6 +41,7 @@ struct MapView: View {
                         .onTapGesture {
                             selectedSensor = sensor
                             bottomSheetPosition = .middle
+                            zoomToPin(sensor: sensor)
                         }
                         
                     } else {
@@ -52,19 +53,11 @@ struct MapView: View {
                             .onTapGesture {
                                 selectedSensor = sensor
                                 bottomSheetPosition = .middle
+                                zoomToPin(sensor: sensor)
                             }
                     }
                 }
             }
-            
-            LocationButton(.currentLocation) {
-                locationManager.updateLocation()
-            }
-            .cornerRadius(30)
-            .symbolVariant(.fill)
-            .foregroundColor(.white)
-            .padding()
-            
         }
         .edgesIgnoringSafeArea(.top)
         .bottomSheet(
@@ -77,6 +70,13 @@ struct MapView: View {
             title: selectedSensor?.sensorName) {
                 BottomSheetSensorView(sensor: $selectedSensor, bottomSheetPosition: $bottomSheetPosition)
             }
+    }
+    
+    func zoomToPin(sensor: Sensor) {
+        withAnimation {
+            locationManager.region.span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+            locationManager.region.center = sensor.coordinates
+        }
     }
 }
 

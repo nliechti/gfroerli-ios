@@ -51,7 +51,7 @@ struct SensorOverviewMap: View {
                         } label: {
                             Label("Directions", systemImage: "car.fill")
                         }
-                        .padding(6)
+                        .padding(10)
                         .background(Material.thick)
                         .cornerRadius(10)
                     }

@@ -47,9 +47,9 @@ struct SensorOverViewGraph: View {
                         zoomed.toggle()
                     }, label: {
                         if zoomed {
-                            Text(Image(systemName: "arrow.down.right.and.arrow.up.left")).font(.title2)
+                            Text(Image(systemName: "minus.magnifyingglass")).font(.title2)
                         } else {
-                            Text(Image(systemName: "arrow.up.left.and.arrow.down.right")).font(.title2)
+                            Text(Image(systemName: "plus.magnifyingglass")).font(.title2)
                         }
                     })
                 }
