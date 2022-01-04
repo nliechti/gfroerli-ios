@@ -59,7 +59,7 @@ struct SingleSensorWithGraphProvider: IntentTimelineProvider {
             
 
         // Wait for async/await
-        let seconds = 2.0
+        let seconds = 6.0
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
 
             let entry = SingleSensorWithGraphEntry(
