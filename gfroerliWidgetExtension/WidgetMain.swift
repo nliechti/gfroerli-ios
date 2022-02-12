@@ -14,7 +14,7 @@ struct GfroerliWidgets: WidgetBundle {
     @WidgetBundleBuilder
     var body: some Widget {
 
-        SingleSensorWithGraphWidget()
+        SingleSensorWidget()
 
     }
 }

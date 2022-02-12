@@ -17,6 +17,7 @@
       </trans-unit>
       <trans-unit id="CnjWia" xml:space="preserve">
         <source>Time Frame</source>
+        <target>Zeitspanne</target>
         <note/>
       </trans-unit>
       <trans-unit id="G0EwFZ" xml:space="preserve">
@@ -30,6 +31,7 @@
       </trans-unit>
       <trans-unit id="OcZOP9" xml:space="preserve">
         <source>day</source>
+        <target>Tag</target>
         <note/>
       </trans-unit>
       <trans-unit id="Qyezjw" xml:space="preserve">
@@ -38,14 +40,17 @@
       </trans-unit>
       <trans-unit id="WfEGRn-OcZOP9" xml:space="preserve">
         <source>Just to confirm, you wanted ‘day’?</source>
+        <target>Tag bestätigen?</target>
         <note/>
       </trans-unit>
       <trans-unit id="WfEGRn-kKPpmt" xml:space="preserve">
         <source>Just to confirm, you wanted ‘week’?</source>
+        <target>Woche bestätigen?</target>
         <note/>
       </trans-unit>
       <trans-unit id="WfEGRn-l30VYQ" xml:space="preserve">
         <source>Just to confirm, you wanted ‘month’?</source>
+        <target>Monat bestätigen?</target>
         <note/>
       </trans-unit>
       <trans-unit id="iYDYHb" xml:space="preserve">
@@ -54,6 +59,7 @@
       </trans-unit>
       <trans-unit id="kKPpmt" xml:space="preserve">
         <source>week</source>
+        <target>Woche</target>
         <note/>
       </trans-unit>
       <trans-unit id="kaXucb-OcZOP9" xml:space="preserve">
@@ -70,10 +76,12 @@
       </trans-unit>
       <trans-unit id="l0X50R" xml:space="preserve">
         <source>Single Sensor Graph</source>
+        <target>Einzelner Standort mit Verlauf</target>
         <note/>
       </trans-unit>
       <trans-unit id="l30VYQ" xml:space="preserve">
         <source>month</source>
+        <target>Monat</target>
         <note/>
       </trans-unit>
       <trans-unit id="mJkM5O" xml:space="preserve">
@@ -98,7 +106,7 @@
       </trans-unit>
     </body>
   </file>
-  <file original="gfroerliWidgetExtension/en.lproj/Localizable.strings" datatype="plaintext" source-language="en" target-language="de">
+  <file original="gfroerliWidgetExtension/en.lproj/Localizable.strings" source-language="en" target-language="de" datatype="plaintext">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="13.2.1" build-num="13C100"/>
     </header>
@@ -129,26 +137,32 @@
       </trans-unit>
       <trans-unit id="Could not decode Measurements." xml:space="preserve">
         <source>Could not decode Measurements.</source>
+        <target>Konnte Messungen nicht verarbeiten.</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Could not decode Sensors." xml:space="preserve">
         <source>Could not decode Sensors.</source>
+        <target>Konnte Standorte nicht verarbeiten.</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Could not decode Sponsor." xml:space="preserve">
         <source>Could not decode Sponsor.</source>
+        <target>Konnte Sponsor nicht verarbeiten.</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Displays the latest temperature." xml:space="preserve">
         <source>Displays the latest temperature.</source>
+        <target>Zeigt die neuste Messung an.</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Displays the temperature history of a location." xml:space="preserve">
         <source>Displays the temperature history of a location.</source>
+        <target>Zeigt den Temperaturverlauf eines Standorts an.</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Invalid server response." xml:space="preserve">
         <source>Invalid server response.</source>
+        <target>Ungültige Serverantwort.</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Lake of Zurich" xml:space="preserve">
@@ -166,11 +180,6 @@
         <target>Keine Daten verfügbar.</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
-      <trans-unit id="No internet connection" xml:space="preserve">
-        <source>No internet connection</source>
-        <target>Keine Internet Verbindung.</target>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
       <trans-unit id="No internet connection." xml:space="preserve">
         <source>No internet connection.</source>
         <target>Keine Internet Verbindung.</target>
@@ -178,7 +187,7 @@
       </trans-unit>
       <trans-unit id="Press and hold to select location" xml:space="preserve">
         <source>Press and hold to select location</source>
-        <target>Tippen und halten um Sensor zu wählen.</target>
+        <target>Tippen und halten um Standort zu wählen.</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Single Location" xml:space="preserve">
@@ -188,11 +197,12 @@
       </trans-unit>
       <trans-unit id="Single Location with Graph" xml:space="preserve">
         <source>Single Location with Graph</source>
-        <target>Standort mit Graph</target>
+        <target>Standort mit Verlauf</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="email_text" xml:space="preserve">
         <source>email_text</source>
+        <target>Bitte schreibe deinen Text oberhalb 👆🏻&lt;/br&gt;Falls du einen Fehler entdeckt hast, notiere bitte die Schritte die zu ihm geführt haben!&lt;/br&gt; Wir versuchen dir schnellstmöglich zu antworten!</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
     </body>
@@ -212,7 +222,7 @@
       </trans-unit>
     </body>
   </file>
-  <file original="iOS/en.lproj/Localizable.strings" datatype="plaintext" source-language="en" target-language="de">
+  <file original="iOS/en.lproj/Localizable.strings" source-language="en" target-language="de" datatype="plaintext">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="13.2.1" build-num="13C100"/>
     </header>
@@ -221,8 +231,8 @@
         <source>%.2f°</source>
         <note>No comment provided by engineer.</note>
       </trans-unit>
-      <trans-unit id="%lld location" xml:space="preserve">
-        <source>%lld location</source>
+      <trans-unit id="%lld " xml:space="preserve">
+        <source>%lld </source>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="0.00" xml:space="preserve">
@@ -251,10 +261,12 @@
       </trans-unit>
       <trans-unit id="A1_String" xml:space="preserve">
         <source>A1_String</source>
+        <target>Die Wassertemperatur ist für viele Menschen ein wichtiger Wert, zum Beispiel für Schwimmer, Taucher, Fischer und viele mehr. Aber bisher gab es keine verlässliche Methode, um Echtzeit-Temperaturinformationen in deiner Gegend zu erhalten. Es gibt heute bereits ein paar Wassertemperatur-Sensor-Netzwerke, aber meistens gibt es nur einen Sensor pro See, wodurch lokale Temperaturunterschiede (z.B. an einer Flussmündung) ignoriert werden. Viele Sensoren werden zudem nur ein mal pro Tag publiziert. Wir bauen ein Netzwerk von kostengünstigen Wassertemperatur-Sensoren mit sehr geringem Energieverbrauch auf. Dies ermöglicht uns, die Wassertemperatur lokal zu messen und sie dir kostenlos in Quasi-Echtzeit anzuzeigen</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="A2_String" xml:space="preserve">
         <source>A2_String</source>
+        <target>Diese App, die Server-Infrastruktur wie auch die Sensor-Hardware werden vom Coredump Hackerspace in Rapperswil-Jona entwickelt. Mehr Informationen über uns findest du auf unserer Website:</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="About" xml:space="preserve">
@@ -304,19 +316,22 @@
       </trans-unit>
       <trans-unit id="Continue" xml:space="preserve">
         <source>Continue</source>
-        <target>Fortfahre</target>
+        <target>Fortfahren</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Could not decode Measurements." xml:space="preserve">
         <source>Could not decode Measurements.</source>
+        <target>Konnte Messungen nicht verarbeiten.</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Could not decode Sensors." xml:space="preserve">
         <source>Could not decode Sensors.</source>
+        <target>Konnte Sensoren nicht verarbeiten.</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Could not decode Sponsor." xml:space="preserve">
         <source>Could not decode Sponsor.</source>
+        <target>Konnte Sponsor nicht verarbeiten.</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Day" xml:space="preserve">
@@ -336,7 +351,7 @@
       </trans-unit>
       <trans-unit id="FAQ" xml:space="preserve">
         <source>FAQ</source>
-        <target/>
+        <target>FAQ</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Favorites" xml:space="preserve">
@@ -380,7 +395,7 @@
       </trans-unit>
       <trans-unit id="LOADING" xml:space="preserve">
         <source>LOADING</source>
-        <target>LADEN</target>
+        <target>Laden..</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Lake of Zurich" xml:space="preserve">
@@ -489,10 +504,12 @@
       </trans-unit>
       <trans-unit id="Q1_String" xml:space="preserve">
         <source>Q1_String</source>
+        <target>Warum diese App?</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Q2_String" xml:space="preserve">
         <source>Q2_String</source>
+        <target>Wer hat diese App entwickelt?</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Random" xml:space="preserve">
@@ -507,7 +524,7 @@
       </trans-unit>
       <trans-unit id="Recently Added" xml:space="preserve">
         <source>Recently Added</source>
-        <target>Neu</target>
+        <target>Neu Hinzugefügt</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Search" xml:space="preserve">
@@ -561,6 +578,7 @@ for Coredump Rapperswil</source>
       </trans-unit>
       <trans-unit id="email_text" xml:space="preserve">
         <source>email_text</source>
+        <target>Bitte schreibe deinen Text oberhalb 👆🏻&lt;/br&gt;Falls du einen Fehler entdeckt hast, notiere bitte die Schritte die zu ihm geführt haben!&lt;/br&gt; Wir versuchen dir schnellstmöglich zu antworten!</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="gfrör.li" xml:space="preserve">
@@ -588,25 +606,29 @@ for Coredump Rapperswil</source>
       </trans-unit>
     </body>
   </file>
-  <file original="SelectSensorIntentExtension/en.lproj/Localizable.strings" datatype="plaintext" source-language="en" target-language="de">
+  <file original="SelectSensorIntentExtension/en.lproj/Localizable.strings" source-language="en" target-language="de" datatype="plaintext">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="13.2.1" build-num="13C100"/>
     </header>
     <body>
       <trans-unit id="Could not decode Measurements." xml:space="preserve">
         <source>Could not decode Measurements.</source>
+        <target>Konnte Messungen nicht verarbeiten.</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Could not decode Sensors." xml:space="preserve">
         <source>Could not decode Sensors.</source>
+        <target>Konnte Standorte nicht verarbeiten.</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Could not decode Sponsor." xml:space="preserve">
         <source>Could not decode Sponsor.</source>
+        <target>Konnte Sponsor nicht verarbeiten.</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Invalid server response." xml:space="preserve">
         <source>Invalid server response.</source>
+        <target>Ungültige Serverantwort.</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Lake of Zurich" xml:space="preserve">
@@ -616,6 +638,7 @@ for Coredump Rapperswil</source>
       </trans-unit>
       <trans-unit id="No internet connection." xml:space="preserve">
         <source>No internet connection.</source>
+        <target>Keine Internetverbindung.</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
     </body>

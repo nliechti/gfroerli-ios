@@ -50,7 +50,7 @@ struct SingleSensorWidgetView: View {
                 VStack {
                     HStack {
                         if !Reachability.isConnectedToNetwork() {
-                            Text("No internet connection")
+                            Text("No internet connection.")
                                 .foregroundColor(.white)
                         } else {
                             Text("Press and hold to select location")

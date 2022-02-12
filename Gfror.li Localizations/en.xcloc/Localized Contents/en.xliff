@@ -27,12 +27,12 @@
       </trans-unit>
       <trans-unit id="IruFuB" xml:space="preserve">
         <source>Sensor</source>
-        <target>Sensor</target>
+        <target>Location</target>
         <note/>
       </trans-unit>
       <trans-unit id="OcZOP9" xml:space="preserve">
         <source>day</source>
-        <target>day</target>
+        <target>Day</target>
         <note/>
       </trans-unit>
       <trans-unit id="Qyezjw" xml:space="preserve">
@@ -42,17 +42,17 @@
       </trans-unit>
       <trans-unit id="WfEGRn-OcZOP9" xml:space="preserve">
         <source>Just to confirm, you wanted ‘day’?</source>
-        <target>Just to confirm, you wanted ‘day’?</target>
+        <target>Just to confirm, you wanted ‘Day’?</target>
         <note/>
       </trans-unit>
       <trans-unit id="WfEGRn-kKPpmt" xml:space="preserve">
         <source>Just to confirm, you wanted ‘week’?</source>
-        <target>Just to confirm, you wanted ‘week’?</target>
+        <target>Just to confirm, you wanted ‘Week’?</target>
         <note/>
       </trans-unit>
       <trans-unit id="WfEGRn-l30VYQ" xml:space="preserve">
         <source>Just to confirm, you wanted ‘month’?</source>
-        <target>Just to confirm, you wanted ‘month’?</target>
+        <target>Just to confirm, you wanted ‘Month’?</target>
         <note/>
       </trans-unit>
       <trans-unit id="iYDYHb" xml:space="preserve">
@@ -62,7 +62,7 @@
       </trans-unit>
       <trans-unit id="kKPpmt" xml:space="preserve">
         <source>week</source>
-        <target>week</target>
+        <target>Week</target>
         <note/>
       </trans-unit>
       <trans-unit id="kaXucb-OcZOP9" xml:space="preserve">
@@ -82,12 +82,12 @@
       </trans-unit>
       <trans-unit id="l0X50R" xml:space="preserve">
         <source>Single Sensor Graph</source>
-        <target>Single Sensor Graph</target>
+        <target>Single Location History</target>
         <note/>
       </trans-unit>
       <trans-unit id="l30VYQ" xml:space="preserve">
         <source>month</source>
-        <target>month</target>
+        <target>Month</target>
         <note/>
       </trans-unit>
       <trans-unit id="mJkM5O" xml:space="preserve">
@@ -194,11 +194,6 @@
         <target>No data available</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
-      <trans-unit id="No internet connection" xml:space="preserve">
-        <source>No internet connection</source>
-        <target>No internet connection</target>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
       <trans-unit id="No internet connection." xml:space="preserve">
         <source>No internet connection.</source>
         <target>No internet connection.</target>
@@ -216,12 +211,12 @@
       </trans-unit>
       <trans-unit id="Single Location with Graph" xml:space="preserve">
         <source>Single Location with Graph</source>
-        <target>Single Location with Graph</target>
+        <target>Single Location with History</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="email_text" xml:space="preserve">
         <source>email_text</source>
-        <target>email_text</target>
+        <target>Please provide your feedback above 👆🏻&lt;/br&gt;If you encountered a bug, please tell us the interactions that lead to it!&lt;/br&gt; We try to get back to you as soon as possible!</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
     </body>
@@ -253,9 +248,9 @@
         <target>%.2f°</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
-      <trans-unit id="%lld location" xml:space="preserve">
-        <source>%lld location</source>
-        <target>%lld location</target>
+      <trans-unit id="%lld " xml:space="preserve">
+        <source>%lld </source>
+        <target>%lld </target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="0.00" xml:space="preserve">
@@ -290,12 +285,12 @@
       </trans-unit>
       <trans-unit id="A1_String" xml:space="preserve">
         <source>A1_String</source>
-        <target>A1_String</target>
+        <target>Water temperature is an important value for a lot of people, e.g. swimmers, divers, fishermen and more. Until now, there was no reliable way of looking up real-time water temperature information. There are some sensor networks today, but they often don't provide multiple locations in one waterbody, or they just publish their measurements once a day. Now, we are building a network of cheap watertemperature sensors with very low engergy usage. This allows us to measure the temperatures locally and to provide them to you in real-time!</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="A2_String" xml:space="preserve">
         <source>A2_String</source>
-        <target>A2_String</target>
+        <target>This App, the server infrastructure as well as the hardware of our sensors, are developped by the members of the Coredump Hackerspace in Rapperswil-Jona in their freetime. For more information visit:</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="About" xml:space="preserve">
@@ -425,7 +420,7 @@
       </trans-unit>
       <trans-unit id="LOADING" xml:space="preserve">
         <source>LOADING</source>
-        <target>LOADING</target>
+        <target>Loading...</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Lake of Zurich" xml:space="preserve">
@@ -535,12 +530,12 @@
       </trans-unit>
       <trans-unit id="Q1_String" xml:space="preserve">
         <source>Q1_String</source>
-        <target>Q1_String</target>
+        <target>Why this App?</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Q2_String" xml:space="preserve">
         <source>Q2_String</source>
-        <target>Q2_String</target>
+        <target>Who is developping this project?</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Random" xml:space="preserve">
@@ -601,7 +596,7 @@
       <trans-unit id="by Marc &amp; Niklas&#10;for Coredump Rapperswil" xml:space="preserve">
         <source>by Marc &amp; Niklas
 for Coredump Rapperswil</source>
-        <target>by Marc &amp; Niklas
+        <target>by Marc
 for Coredump Rapperswil</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
@@ -612,7 +607,7 @@ for Coredump Rapperswil</target>
       </trans-unit>
       <trans-unit id="email_text" xml:space="preserve">
         <source>email_text</source>
-        <target>email_text</target>
+        <target>Please provide your feedback above 👆🏻&lt;/br&gt;If you encountered a bug, please tell us the interactions that lead to it!&lt;/br&gt; We try to get back to you as soon as possible!</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="gfrör.li" xml:space="preserve">

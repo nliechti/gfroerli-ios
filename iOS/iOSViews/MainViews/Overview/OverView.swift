@@ -155,7 +155,14 @@ struct WaterBodyScrollItem: View {
                 }
                 
             }
-            Text("\(waterBody.sensors.count ) Locations")
+            HStack(spacing: 0){
+                Text("\(waterBody.sensors.count ) ")
+                if waterBody.sensors.count != 1 {
+                    Text("Locations")
+                } else {
+                    Text("Location")
+                }
+            }
                 .font(.footnote)
         }.padding()
         .boxStyle()

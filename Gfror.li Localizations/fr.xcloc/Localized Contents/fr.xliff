@@ -163,10 +163,6 @@
         <source>No data available</source>
         <note>No comment provided by engineer.</note>
       </trans-unit>
-      <trans-unit id="No internet connection" xml:space="preserve">
-        <source>No internet connection</source>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
       <trans-unit id="No internet connection." xml:space="preserve">
         <source>No internet connection.</source>
         <note>No comment provided by engineer.</note>
@@ -213,8 +209,8 @@
         <source>%.2f°</source>
         <note>No comment provided by engineer.</note>
       </trans-unit>
-      <trans-unit id="%lld location" xml:space="preserve">
-        <source>%lld location</source>
+      <trans-unit id="%lld " xml:space="preserve">
+        <source>%lld </source>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="0.00" xml:space="preserve">

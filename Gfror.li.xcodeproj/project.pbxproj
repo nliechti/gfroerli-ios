@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8D01C21526E3685C00F14F90 /* BottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 8D01C21426E3685C00F14F90 /* BottomSheet */; };
 		8D01C21626E3767100F14F90 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DEC7E2265424A700206EAA /* GraphView.swift */; };
 		8D04196824F50258003D64D4 /* SensorScrollItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D04196724F50258003D64D4 /* SensorScrollItem.swift */; };
 		8D04196A24F50349003D64D4 /* RiverData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D04196924F50349003D64D4 /* RiverData.swift */; };
@@ -213,6 +212,11 @@
 		8D9B0FD024F3A2E7003502C8 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		8D9B0FDF24F3A35A003502C8 /* Gfror.li.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Gfror.li.entitlements; sourceTree = "<group>"; };
 		8D9B0FE024F3A3A3003502C8 /* GfroerliWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GfroerliWidgetExtension.entitlements; sourceTree = "<group>"; };
+		8DA5298B27B7AD28009A4142 /* gsw */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = gsw; path = gsw.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8DA5298C27B7AD29009A4142 /* gsw */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = gsw; path = gsw.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8DA5298D27B7AD29009A4142 /* gsw */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = gsw; path = gsw.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8DA5298E27B7AF1D009A4142 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8DA5298F27B7AF1D009A4142 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8DA7CEF42516108000395465 /* SensorListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorListViewModel.swift; sourceTree = "<group>"; };
 		8DA7CF01251611C700395465 /* SingleSensorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSensorViewModel.swift; sourceTree = "<group>"; };
 		8DB8937426A3230F008BDFC5 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -235,10 +239,7 @@
 		B467085B2641BD8D003E28E5 /* Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
 		B46708602641C42B003E28E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = Base.lproj/Changes.json; sourceTree = "<group>"; };
 		B46708622641C432003E28E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = en; path = en.lproj/Changes.json; sourceTree = "<group>"; };
-		B46708632641C433003E28E5 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = fr; path = fr.lproj/Changes.json; sourceTree = "<group>"; };
 		B46708642641C435003E28E5 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = de; path = de.lproj/Changes.json; sourceTree = "<group>"; };
-		B46708652641C436003E28E5 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = it; path = it.lproj/Changes.json; sourceTree = "<group>"; };
-		B46708662641C596003E28E5 /* rm-CH */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "rm-CH"; path = "rm-CH.lproj/Changes.json"; sourceTree = "<group>"; };
 		B46708672641C596003E28E5 /* gsw */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = gsw; path = gsw.lproj/Changes.json; sourceTree = "<group>"; };
 		B4795EC3260CCC1800D4BF19 /* SelectSensorIntentExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SelectSensorIntentExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4795EC4260CCC1800D4BF19 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
@@ -267,10 +268,7 @@
 		B4E481AD260F29CD00F6C8EA /* WaveShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveShape.swift; sourceTree = "<group>"; };
 		B4F19A4026263F4A00CA4C8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; name = Base; path = Base.lproj/SelectSensor.intentdefinition; sourceTree = "<group>"; };
 		B4F19A4326263F5000CA4C8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SelectSensor.strings; sourceTree = "<group>"; };
-		B4F19A4526263F5100CA4C8D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/SelectSensor.strings; sourceTree = "<group>"; };
 		B4F19A4726263F5200CA4C8D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/SelectSensor.strings; sourceTree = "<group>"; };
-		B4F44CFA264AEF8200ACD190 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/SelectSensor.strings; sourceTree = "<group>"; };
-		B4F44CFB264AEF9300ACD190 /* rm-CH */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "rm-CH"; path = "rm-CH.lproj/SelectSensor.strings"; sourceTree = "<group>"; };
 		B4F44CFC264AEF9500ACD190 /* gsw */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = gsw; path = gsw.lproj/SelectSensor.strings; sourceTree = "<group>"; };
 		B4F95C0725C2EC46004C21E1 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		B4F95C0E25C30F38004C21E1 /* HourlyChartShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyChartShape.swift; sourceTree = "<group>"; };
@@ -312,7 +310,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D01C21526E3685C00F14F90 /* BottomSheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -720,7 +717,6 @@
 			);
 			name = iOS;
 			packageProductDependencies = (
-				8D01C21426E3685C00F14F90 /* BottomSheet */,
 			);
 			productName = iOS;
 			productReference = E461456F24A34831006233AE /* Gfror.li.app */;
@@ -774,16 +770,12 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				fr,
 				Base,
 				de,
 				gsw,
-				"rm-CH",
-				it,
 			);
 			mainGroup = E461456224A34823006233AE;
 			packageReferences = (
-				8D01C21326E3685C00F14F90 /* XCRemoteSwiftPackageReference "BottomSheet" */,
 			);
 			productRefGroup = E461457024A34831006233AE /* Products */;
 			projectDirPath = "";
@@ -1009,6 +1001,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				8D34C25427B79F30005BCE85 /* de */,
+				8DA5298B27B7AD28009A4142 /* gsw */,
+				8DA5298E27B7AF1D009A4142 /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1017,6 +1011,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				8D34C25727B79F30005BCE85 /* de */,
+				8DA5298C27B7AD29009A4142 /* gsw */,
+				8DA5298F27B7AF1D009A4142 /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1025,6 +1021,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				8D34C25A27B79F30005BCE85 /* de */,
+				8DA5298D27B7AD29009A4142 /* gsw */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1034,10 +1031,7 @@
 			children = (
 				B46708602641C42B003E28E5 /* Base */,
 				B46708622641C432003E28E5 /* en */,
-				B46708632641C433003E28E5 /* fr */,
 				B46708642641C435003E28E5 /* de */,
-				B46708652641C436003E28E5 /* it */,
-				B46708662641C596003E28E5 /* rm-CH */,
 				B46708672641C596003E28E5 /* gsw */,
 			);
 			name = Changes.json;
@@ -1048,10 +1042,7 @@
 			children = (
 				B4F19A4026263F4A00CA4C8D /* Base */,
 				B4F19A4326263F5000CA4C8D /* en */,
-				B4F19A4526263F5100CA4C8D /* fr */,
 				B4F19A4726263F5200CA4C8D /* de */,
-				B4F44CFA264AEF8200ACD190 /* it */,
-				B4F44CFB264AEF9300ACD190 /* rm-CH */,
 				B4F44CFC264AEF9500ACD190 /* gsw */,
 			);
 			name = SelectSensor.intentdefinition;
@@ -1428,25 +1419,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		8D01C21326E3685C00F14F90 /* XCRemoteSwiftPackageReference "BottomSheet" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/LucasMucGH/BottomSheet";
-			requirement = {
-				kind = exactVersion;
-				version = 2.5.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		8D01C21426E3685C00F14F90 /* BottomSheet */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8D01C21326E3685C00F14F90 /* XCRemoteSwiftPackageReference "BottomSheet" */;
-			productName = BottomSheet;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E461456324A34823006233AE /* Project object */;
 }
