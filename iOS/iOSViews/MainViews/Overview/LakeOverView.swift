@@ -98,9 +98,9 @@ struct TopMap: View {
 }
 
 struct SensorScrollItemSmall: View {
+    @AppStorage("favorites") private var favorites = [Int]()
     var sensor: Sensor
     @Binding var selectedTag: Int?
-    @State var favorites =  [Int]()
 
     var body: some View {
         NavigationLink(destination: SensorOverView(sensorID: sensor.id, sensorName: sensor.sensorName)) {
@@ -113,15 +113,13 @@ struct SensorScrollItemSmall: View {
                 }
                 Spacer()
                 VStack(alignment: .trailing) {
-                    Text(makeTemperatureString(double: sensor.latestTemp!))
+                    Text(makeTemperatureString(double: sensor.latestTemp))
                     Text(sensor.lastTempTime!, format: .relative(presentation: .named))
                         .font(.caption)
                         .foregroundColor(.secondary)
                 }
             }.foregroundColor(selectedTag == sensor.id ? .blue : .primary)
                 .lineLimit(2)
-        }.onAppear {
-            favorites = UserDefaults(suiteName: "group.ch.gfroerli")?.array(forKey: "favoritesIDs") as? [Int] ?? [Int]()
         }
     }
 }

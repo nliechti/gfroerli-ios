@@ -1,4 +1,4 @@
-//
+   //
 //  SensorOverviewSponsorView.swift
 //  iOS
 //
@@ -32,7 +32,7 @@ struct SensorOverviewSponsorView: View {
                     Spacer()
                 }
                 SponsorImageView(sponsor: sponsorVM.sponsor!)
-                    .padding(.vertical)
+                 
                 Text(sponsorVM.sponsor!.description)
                 Spacer()
                 
@@ -86,7 +86,7 @@ struct SponsorImageView: View {
         Image(uiImage: image)
             .resizable()
             .aspectRatio(contentMode: .fit)
-            .padding()
+            .padding(.horizontal)
             .background(Color.white)
             .cornerRadius(15)
             .onReceive(imageLoader.didChange) { data in

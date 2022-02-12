@@ -9,7 +9,7 @@ import SwiftUI
 import MapKit
 
 struct FavoritesView: View {
-    @State var favorites =  [Int]()
+    @AppStorage("favorites") private var favorites = [Int]()
     @State var selectedTag: Int?
     @ObservedObject var sensorsVm: SensorListViewModel
 
@@ -30,8 +30,6 @@ struct FavoritesView: View {
             }
             .background(Color.systemGroupedBackground.ignoresSafeArea())
             .navigationTitle("Favorites")
-        }.onAppear {
-            favorites = UserDefaults(suiteName: "group.ch.gfroerli")?.array(forKey: "favoritesIDs") as? [Int] ?? [Int]()
         }
     }
 }

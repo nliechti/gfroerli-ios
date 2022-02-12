@@ -37,7 +37,7 @@ struct SensorScrollItem: View {
                 Spacer(minLength: 35)
                 
                 VStack(alignment: .trailing) {
-                    Text(makeTemperatureString(double: sensor.latestTemp!))
+                    Text(makeTemperatureString(double: sensor.latestTemp))
                         .font(.headline)
                     Text(sensor.lastTempTime!, format: .relative(presentation: .named))
                         .font(.caption)

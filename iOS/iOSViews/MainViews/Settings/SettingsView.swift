@@ -39,7 +39,7 @@ struct SettingsView: View {
                             })}
                         
                         // Changelog
-                        HStack {
+                        /*HStack {
                             NavigationLink(destination: ChangelogView(), label: {
                                 Label(
                                     title: { Text("Changelog").foregroundColor(Color("textColor"))},
@@ -53,7 +53,7 @@ struct SettingsView: View {
                                             .background(.green)
                                             .cornerRadius(3)
                                     })
-                            })}
+                            })}*/
                         
                         // Language
                         Button(action: {

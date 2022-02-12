@@ -28,7 +28,7 @@ struct SearchView: View {
                 }
             }
             .navigationBarTitle("Search")
-            .navigationBarItems(trailing:
+            /*.navigationBarItems(trailing:
                                     Menu(content: {
                 ForEach(FilterOptions.allFilters, id: \.self) {filter in
                     Button {
@@ -44,7 +44,7 @@ struct SearchView: View {
                     Label("Filter", systemImage: "arrow.up.arrow.down.circle.fill")
                 }
             })
-            )
+            )*/
             .onAppear(perform: {
                 filterChanged()
             })

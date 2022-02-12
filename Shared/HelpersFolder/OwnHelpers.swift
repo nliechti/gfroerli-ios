@@ -32,7 +32,12 @@ func machineName() -> String {
   }
 }
 
-func makeTemperatureString(double: Double, precision: Int = 1) -> String {
+func makeTemperatureString(double: Double?, precision: Int = 1) -> String {
+    
+    guard let double = double else {
+        return "-"
+    }
+
     let formatter = MeasurementFormatter()
     formatter.numberFormatter.maximumFractionDigits = 1
     formatter.numberFormatter.minimumFractionDigits = 1

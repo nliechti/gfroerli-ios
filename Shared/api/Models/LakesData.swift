@@ -18,7 +18,7 @@ struct Lake: Identifiable {
 let lakeOfZurich = Lake(
     id: UUID().uuidString,
     name: NSLocalizedString("Lake of Zurich", comment: ""),
-    sensors: [1],
+    sensors: [1,6],
     region: MKCoordinateRegion(
         center: CLLocationCoordinate2D(latitude: 47.28073, longitude: 8.72869),
         span: MKCoordinateSpan(latitudeDelta: 0.4, longitudeDelta: 0.4)

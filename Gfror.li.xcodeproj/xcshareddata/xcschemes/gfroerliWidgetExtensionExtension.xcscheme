@@ -57,16 +57,18 @@
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
       launchAutomaticallySubstyle = "2">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "1"
+         BundleIdentifier = "com.apple.widgetkit.simulator"
+         RemotePath = "/System/Library/CoreServices/WidgetKit Simulator.app/Contents/MacOS/WidgetKit Simulator">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E461456E24A34831006233AE"
-            BuildableName = "Gfror.li.app"
-            BlueprintName = "iOS"
+            BlueprintIdentifier = "B4E124D1260CD20700F45852"
+            BuildableName = "gfroerliWidgetExtensionExtension.appex"
+            BlueprintName = "gfroerliWidgetExtensionExtension"
             ReferencedContainer = "container:Gfror.li.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </RemoteRunnable>
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "_XCWidgetKind"
@@ -81,7 +83,7 @@
          <EnvironmentVariable
             key = "_XCWidgetFamily"
             value = "medium"
-            isEnabled = "NO">
+            isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>
    </LaunchAction>

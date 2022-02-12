@@ -11,9 +11,9 @@ import SwiftUI
 
 class SingleSensorViewModel: ObservableObject {
 
-    @Published var sensor: Sensor? = nil { didSet { didChange.send(())}}
-    @Published var loadingState: NewLoadingState = .loading { didSet { didChange.send(())}}
-    @Published var errorMsg: LocalizedStringKey = "" { didSet { didChange.send(())}}
+    @Published var sensor: Sensor? = nil
+    @Published var loadingState: NewLoadingState = .loading
+    @Published var errorMsg: LocalizedStringKey = ""
     
     let didChange = PassthroughSubject<Void, Never>()
 
@@ -21,8 +21,10 @@ class SingleSensorViewModel: ObservableObject {
     /// - Parameter sensorID: Integer describing the sensor ID
     func load(sensorId: Int) async {
         
-        loadingState = .loading
-        
+        DispatchQueue.main.async {
+            self.loadingState = .loading
+        }
+    
         let url = URL(string: "https://watertemp-api.coredump.ch//api/mobile_app/sensors/\(sensorId)")!
         var request = URLRequest(url: url)
         request.setValue(BearerToken.token, forHTTPHeaderField: "Authorization")

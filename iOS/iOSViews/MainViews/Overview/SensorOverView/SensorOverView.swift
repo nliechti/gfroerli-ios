@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct SensorOverView: View {
-    
+    @AppStorage("favorites") private var favorites = [Int]()
     @StateObject var sensorVM = SingleSensorViewModel()
     @State var isFav = false
-    @State var favorites = [Int]()
+
     
     var sensorID: Int
     var sensorName: String
@@ -27,10 +27,11 @@ struct SensorOverView: View {
                         SensorOverviewLastMeasurementView(sensorVM: sensorVM)
                             .boxStyle()
                         
-                        SensorOverViewGraph(sensorID: sensorID)
-                            .boxStyle()
-                            .dynamicTypeSize(.xSmall ... .large)
-                        
+                        if(sensorVM.sensor?.latestTemp != nil) {
+                            SensorOverViewGraph(sensorID: sensorID)
+                                .boxStyle()
+                                .dynamicTypeSize(.xSmall ... .large)
+                        }
                         SensorOverviewMap(sensorVM: sensorVM)
                             .boxStyle()
                         
@@ -41,11 +42,11 @@ struct SensorOverView: View {
                     .task {
                         await sensorVM.load(sensorId: sensorID)
                     }
-                    .onAppear(perform: {
-                        setFavs()
-                        isFav = favorites.contains(sensorID)
-                    })
-                    
+                    .onChange(of: sensorID) { newValue in
+                        Task {
+                            await sensorVM.load(sensorId: sensorID)
+                        }
+                    }
                 case .failed:
                     HStack {
                         Spacer()
@@ -77,23 +78,25 @@ struct SensorOverView: View {
                 .foregroundColor(isFav ? .yellow : .none)
                 .imageScale(.large)
         })
+        .onAppear {
+            if favorites.firstIndex(of: sensorID) != nil {
+                isFav = true
+            }
+        }
     }
     
     /// adds sensorID to userDefaults
     func makeFav() {
         favorites.append(sensorID)
         isFav = true
-        UserDefaults(suiteName: "group.ch.gfroerli")?.set(favorites, forKey: "favoritesIDs")
     }
     /// removes sensorID from userDefaults
     func removeFav() {
-        favorites.removeFirst(sensorID)
-        isFav=false
-        UserDefaults(suiteName: "group.ch.gfroerli")?.set(favorites, forKey: "favoritesIDs")
-    }
-    /// loads favs from UserDefaults
-    func setFavs() {
-        favorites  = UserDefaults(suiteName: "group.ch.gfroerli")?.array(forKey: "favoritesIDs") as? [Int] ?? [Int]()
+        let index = favorites.firstIndex(of: sensorID)
+        if index != nil {
+            favorites.remove(at: index!)
+        }
+        isFav = false
     }
 }
 

@@ -155,7 +155,7 @@ struct WaterBodyScrollItem: View {
                 }
                 
             }
-            Text("\(waterBody.sensors.count ) location")
+            Text("\(waterBody.sensors.count ) Locations")
                 .font(.footnote)
         }.padding()
         .boxStyle()

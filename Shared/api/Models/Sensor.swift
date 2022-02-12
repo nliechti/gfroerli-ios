@@ -2,7 +2,7 @@
 import Foundation
 import CoreLocation
 
-struct Sensor: Codable, Identifiable {
+struct Sensor: Codable, Identifiable, Equatable {
     init(id: Int,
          device_name: String?,
          caption: String?,

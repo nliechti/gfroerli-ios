@@ -10,6 +10,7 @@ import SwiftUI
 import Intents
 
 struct SingleSensorWithGraphView: View {
+
     var entry: SingleSensorWithGraphProvider.Entry
     var body: some View {
         ZStack {
@@ -109,6 +110,7 @@ struct SensorWithGraphView: View {
                 Spacer()
             }
             
+          
             VStack {
             ChartView(temperatureAggregationsVM: entry.data!,
                               nrOfLines: 5,
@@ -116,7 +118,7 @@ struct SensorWithGraphView: View {
                               minValue: $minValue,
                               maxValue: $maxValue,
                               totalSteps: $totalSteps,
-                              steps: $steps,
+                              steps: .constant([0]),
                               minimums: $minimums,
                               averages: $averages,
                               maximums: $maximums,
@@ -124,6 +126,7 @@ struct SensorWithGraphView: View {
                               showIndicator: $showIndicator)
                 
             }.padding(.vertical, 10)
+            
         }.padding()
     }
     
@@ -207,3 +210,4 @@ struct SingleSensorWithGraphView_Previews: PreviewProvider {
         EmptyView()
     }
 }
+
