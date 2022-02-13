@@ -86,7 +86,7 @@ struct SponsorImageView: View {
         Image(uiImage: image)
             .resizable()
             .aspectRatio(contentMode: .fit)
-            .padding(.horizontal)
+            .padding()
             .background(Color.white)
             .cornerRadius(15)
             .onReceive(imageLoader.didChange) { data in

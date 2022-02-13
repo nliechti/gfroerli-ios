@@ -122,7 +122,10 @@
 "Month" = "Monat";
 
 /* Test comment */
-"More locations will follow very soon, stay tuned!" = "Neui Standort chömed bald.";
+"More locations will follow very soon, stay tuned!" = "Neui Standort werded bald hinzuegfüegt.";
+
+/* No comment provided by engineer. */
+"New Location:" = "Neue Standort:";
 
 /* No comment provided by engineer. */
 "Newest Measurement" = "Neusti Messig";
@@ -146,10 +149,10 @@
 "Q1_String" = "Warum das App?";
 
 /* No comment provided by engineer. */
-"Q2_String" = "Wer hat das App entwickelt?";
+"Q2_String" = "Wer hät das App entwickelt?";
 
 /* No comment provided by engineer. */
-"Random" = "Zuerfällig";
+"Random" = "Zuefällig";
 
 /* No comment provided by engineer. */
 "Rate" = "Bewerte";
@@ -164,7 +167,10 @@
 "Settings" = "Istellige";
 
 /* No comment provided by engineer. */
-"Sponsored by:" = "Gpsonsert vo:";
+"Sponsored by:" = "Gpsonseret vo:";
+
+/* Test comment */
+"This Location was recently added and measurements will be available very soon." = "De Standort isch neu hinzuegfüegt worde und Temperatur mässige chömed bald.";
 
 /* No comment provided by engineer. */
 "Try again" = "Erneut versuche";

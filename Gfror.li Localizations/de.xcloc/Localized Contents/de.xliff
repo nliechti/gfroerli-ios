@@ -17,7 +17,6 @@
       </trans-unit>
       <trans-unit id="CnjWia" xml:space="preserve">
         <source>Time Frame</source>
-        <target>Zeitspanne</target>
         <note/>
       </trans-unit>
       <trans-unit id="G0EwFZ" xml:space="preserve">
@@ -31,7 +30,6 @@
       </trans-unit>
       <trans-unit id="OcZOP9" xml:space="preserve">
         <source>day</source>
-        <target>Tag</target>
         <note/>
       </trans-unit>
       <trans-unit id="Qyezjw" xml:space="preserve">
@@ -40,17 +38,14 @@
       </trans-unit>
       <trans-unit id="WfEGRn-OcZOP9" xml:space="preserve">
         <source>Just to confirm, you wanted ‘day’?</source>
-        <target>Tag bestätigen?</target>
         <note/>
       </trans-unit>
       <trans-unit id="WfEGRn-kKPpmt" xml:space="preserve">
         <source>Just to confirm, you wanted ‘week’?</source>
-        <target>Woche bestätigen?</target>
         <note/>
       </trans-unit>
       <trans-unit id="WfEGRn-l30VYQ" xml:space="preserve">
         <source>Just to confirm, you wanted ‘month’?</source>
-        <target>Monat bestätigen?</target>
         <note/>
       </trans-unit>
       <trans-unit id="iYDYHb" xml:space="preserve">
@@ -59,7 +54,6 @@
       </trans-unit>
       <trans-unit id="kKPpmt" xml:space="preserve">
         <source>week</source>
-        <target>Woche</target>
         <note/>
       </trans-unit>
       <trans-unit id="kaXucb-OcZOP9" xml:space="preserve">
@@ -76,12 +70,10 @@
       </trans-unit>
       <trans-unit id="l0X50R" xml:space="preserve">
         <source>Single Sensor Graph</source>
-        <target>Einzelner Standort mit Verlauf</target>
         <note/>
       </trans-unit>
       <trans-unit id="l30VYQ" xml:space="preserve">
         <source>month</source>
-        <target>Monat</target>
         <note/>
       </trans-unit>
       <trans-unit id="mJkM5O" xml:space="preserve">
@@ -137,32 +129,26 @@
       </trans-unit>
       <trans-unit id="Could not decode Measurements." xml:space="preserve">
         <source>Could not decode Measurements.</source>
-        <target>Konnte Messungen nicht verarbeiten.</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Could not decode Sensors." xml:space="preserve">
         <source>Could not decode Sensors.</source>
-        <target>Konnte Standorte nicht verarbeiten.</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Could not decode Sponsor." xml:space="preserve">
         <source>Could not decode Sponsor.</source>
-        <target>Konnte Sponsor nicht verarbeiten.</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Displays the latest temperature." xml:space="preserve">
         <source>Displays the latest temperature.</source>
-        <target>Zeigt die neuste Messung an.</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Displays the temperature history of a location." xml:space="preserve">
         <source>Displays the temperature history of a location.</source>
-        <target>Zeigt den Temperaturverlauf eines Standorts an.</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Invalid server response." xml:space="preserve">
         <source>Invalid server response.</source>
-        <target>Ungültige Serverantwort.</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Lake of Zurich" xml:space="preserve">
@@ -187,7 +173,7 @@
       </trans-unit>
       <trans-unit id="Press and hold to select location" xml:space="preserve">
         <source>Press and hold to select location</source>
-        <target>Tippen und halten um Standort zu wählen.</target>
+        <target>Tippen und halten um Sensor zu wählen.</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Single Location" xml:space="preserve">
@@ -196,13 +182,12 @@
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Single Location with Graph" xml:space="preserve">
-        <source>Single Location with Graph</source>
-        <target>Standort mit Verlauf</target>
+        <source>Single Location with History</source>
+        <target>Standort mit Graph</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="email_text" xml:space="preserve">
-        <source>email_text</source>
-        <target>Bitte schreibe deinen Text oberhalb 👆🏻&lt;/br&gt;Falls du einen Fehler entdeckt hast, notiere bitte die Schritte die zu ihm geführt haben!&lt;/br&gt; Wir versuchen dir schnellstmöglich zu antworten!</target>
+        <source>Please provide your feedback above 👆🏻&lt;/br&gt;If you encountered a bug, please tell us the interactions that lead to it!&lt;/br&gt; We try to get back to you as soon as possible!</source>
         <note>No comment provided by engineer.</note>
       </trans-unit>
     </body>
@@ -260,13 +245,11 @@
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="A1_String" xml:space="preserve">
-        <source>A1_String</source>
-        <target>Die Wassertemperatur ist für viele Menschen ein wichtiger Wert, zum Beispiel für Schwimmer, Taucher, Fischer und viele mehr. Aber bisher gab es keine verlässliche Methode, um Echtzeit-Temperaturinformationen in deiner Gegend zu erhalten. Es gibt heute bereits ein paar Wassertemperatur-Sensor-Netzwerke, aber meistens gibt es nur einen Sensor pro See, wodurch lokale Temperaturunterschiede (z.B. an einer Flussmündung) ignoriert werden. Viele Sensoren werden zudem nur ein mal pro Tag publiziert. Wir bauen ein Netzwerk von kostengünstigen Wassertemperatur-Sensoren mit sehr geringem Energieverbrauch auf. Dies ermöglicht uns, die Wassertemperatur lokal zu messen und sie dir kostenlos in Quasi-Echtzeit anzuzeigen</target>
+        <source>Water temperature is an important value for a lot of people, e.g. swimmers, divers, fishermen and more. Until now, there was no reliable way of looking up real-time water temperature information. There are some sensor networks today, but they often don't provide multiple locations in one waterbody, or they just publish their measurements once a day. Now, we are building a network of cheap watertemperature sensors with very low engergy usage. This allows us to measure the temperatures locally and to provide them to you in real-time!</source>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="A2_String" xml:space="preserve">
-        <source>A2_String</source>
-        <target>Diese App, die Server-Infrastruktur wie auch die Sensor-Hardware werden vom Coredump Hackerspace in Rapperswil-Jona entwickelt. Mehr Informationen über uns findest du auf unserer Website:</target>
+        <source>This App, the server infrastructure as well as the hardware of our sensors, are developped by the members of the Coredump Hackerspace in Rapperswil-Jona in their freetime. For more information visit:</source>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="About" xml:space="preserve">
@@ -316,22 +299,19 @@
       </trans-unit>
       <trans-unit id="Continue" xml:space="preserve">
         <source>Continue</source>
-        <target>Fortfahren</target>
+        <target>Fortfahre</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Could not decode Measurements." xml:space="preserve">
         <source>Could not decode Measurements.</source>
-        <target>Konnte Messungen nicht verarbeiten.</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Could not decode Sensors." xml:space="preserve">
         <source>Could not decode Sensors.</source>
-        <target>Konnte Sensoren nicht verarbeiten.</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Could not decode Sponsor." xml:space="preserve">
         <source>Could not decode Sponsor.</source>
-        <target>Konnte Sponsor nicht verarbeiten.</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Day" xml:space="preserve">
@@ -351,7 +331,7 @@
       </trans-unit>
       <trans-unit id="FAQ" xml:space="preserve">
         <source>FAQ</source>
-        <target>FAQ</target>
+        <target/>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Favorites" xml:space="preserve">
@@ -394,8 +374,8 @@
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="LOADING" xml:space="preserve">
-        <source>LOADING</source>
-        <target>Laden..</target>
+        <source>Loading...</source>
+        <target>LADEN</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Lake of Zurich" xml:space="preserve">
@@ -468,6 +448,11 @@
         <target>Weitere Standorte werden demnächst hinzugefügt!</target>
         <note>Test comment</note>
       </trans-unit>
+      <trans-unit id="New Location:" xml:space="preserve">
+        <source>New Location:</source>
+        <target>Neuer Standort:</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
       <trans-unit id="Newest Measurement" xml:space="preserve">
         <source>Newest Measurement</source>
         <target>Neuste Messung</target>
@@ -503,13 +488,11 @@
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Q1_String" xml:space="preserve">
-        <source>Q1_String</source>
-        <target>Warum diese App?</target>
+        <source>Why this App?</source>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Q2_String" xml:space="preserve">
-        <source>Q2_String</source>
-        <target>Wer hat diese App entwickelt?</target>
+        <source>Who is developping this project?</source>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Random" xml:space="preserve">
@@ -542,6 +525,11 @@
         <target>Gesponsert von:</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
+      <trans-unit id="This Location was recently added and measurements will be available very soon." xml:space="preserve">
+        <source>This Location was recently added and measurements will be available very soon.</source>
+        <target>Dieser Standort wurde kürzlich hinzugefügt.  Messungen folgen in Kürze.</target>
+        <note>Test comment</note>
+      </trans-unit>
       <trans-unit id="Try again" xml:space="preserve">
         <source>Try again</source>
         <target>Erneut versuchen</target>
@@ -567,7 +555,7 @@
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="by Marc &amp; Niklas&#10;for Coredump Rapperswil" xml:space="preserve">
-        <source>by Marc &amp; Niklas
+        <source>by Marc
 for Coredump Rapperswil</source>
         <target>von Marc für Coredump Rapperswil</target>
         <note>No comment provided by engineer.</note>
@@ -577,8 +565,7 @@ for Coredump Rapperswil</source>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="email_text" xml:space="preserve">
-        <source>email_text</source>
-        <target>Bitte schreibe deinen Text oberhalb 👆🏻&lt;/br&gt;Falls du einen Fehler entdeckt hast, notiere bitte die Schritte die zu ihm geführt haben!&lt;/br&gt; Wir versuchen dir schnellstmöglich zu antworten!</target>
+        <source>Please provide your feedback above 👆🏻&lt;/br&gt;If you encountered a bug, please tell us the interactions that lead to it!&lt;/br&gt; We try to get back to you as soon as possible!</source>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="gfrör.li" xml:space="preserve">
@@ -613,22 +600,18 @@ for Coredump Rapperswil</source>
     <body>
       <trans-unit id="Could not decode Measurements." xml:space="preserve">
         <source>Could not decode Measurements.</source>
-        <target>Konnte Messungen nicht verarbeiten.</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Could not decode Sensors." xml:space="preserve">
         <source>Could not decode Sensors.</source>
-        <target>Konnte Standorte nicht verarbeiten.</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Could not decode Sponsor." xml:space="preserve">
         <source>Could not decode Sponsor.</source>
-        <target>Konnte Sponsor nicht verarbeiten.</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Invalid server response." xml:space="preserve">
         <source>Invalid server response.</source>
-        <target>Ungültige Serverantwort.</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Lake of Zurich" xml:space="preserve">
@@ -638,7 +621,6 @@ for Coredump Rapperswil</source>
       </trans-unit>
       <trans-unit id="No internet connection." xml:space="preserve">
         <source>No internet connection.</source>
-        <target>Keine Internetverbindung.</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
     </body>

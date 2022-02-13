@@ -11,7 +11,7 @@ struct SensorOverView: View {
     @AppStorage("favorites") private var favorites = [Int]()
     @StateObject var sensorVM = SingleSensorViewModel()
     @State var isFav = false
-
+    
     
     var sensorID: Int
     var sensorName: String
@@ -24,13 +24,18 @@ struct SensorOverView: View {
                 case .loaded, .loading:
                     
                     VStack {
-                        SensorOverviewLastMeasurementView(sensorVM: sensorVM)
-                            .boxStyle()
                         
                         if(sensorVM.sensor?.latestTemp != nil) {
+                            SensorOverviewLastMeasurementView(sensorVM: sensorVM)
+                                .boxStyle()
+                            
+                            
                             SensorOverViewGraph(sensorID: sensorID)
                                 .boxStyle()
                                 .dynamicTypeSize(.xSmall ... .large)
+                        } else {
+                            SensorOverViewNewSensorView()
+                                .boxStyle()
                         }
                         SensorOverviewMap(sensorVM: sensorVM)
                             .boxStyle()
@@ -55,8 +60,8 @@ struct SensorOverView: View {
                             Text("Loading Location failed. Reason:").foregroundColor(.gray)
                             Text(sensorVM.errorMsg).foregroundColor(.gray)
                             Button("Try again") {}
-                                .buttonStyle(.bordered)
-                                .task { await sensorVM.load(sensorId: sensorID) }
+                            .buttonStyle(.bordered)
+                            .task { await sensorVM.load(sensorId: sensorID) }
                             Spacer()
                         }
                         Spacer()

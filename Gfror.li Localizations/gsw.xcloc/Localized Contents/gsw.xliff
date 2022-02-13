@@ -104,7 +104,7 @@
       </trans-unit>
     </body>
   </file>
-  <file original="gfroerliWidgetExtension/en.lproj/Localizable.strings" datatype="plaintext" source-language="en" target-language="gsw">
+  <file original="gfroerliWidgetExtension/en.lproj/Localizable.strings" source-language="en" target-language="gsw" datatype="plaintext">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="13.2.1" build-num="13C100"/>
     </header>
@@ -194,12 +194,12 @@
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Single Location with Graph" xml:space="preserve">
-        <source>Single Location with Graph</source>
+        <source>Single Location with History</source>
         <target>Einzelne Standort mit Verlauf</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="email_text" xml:space="preserve">
-        <source>email_text</source>
+        <source>Please provide your feedback above 👆🏻&lt;/br&gt;If you encountered a bug, please tell us the interactions that lead to it!&lt;/br&gt; We try to get back to you as soon as possible!</source>
         <target>Bitte schreibe deinen Text oberhalb 👆🏻&lt;/br&gt;Falls du einen Fehler entdeckt hast, notiere bitte die Schritte die zu ihm geführt haben!&lt;/br&gt; Wir versuchen dir schnellstmöglich zu antworten!</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
@@ -220,7 +220,7 @@
       </trans-unit>
     </body>
   </file>
-  <file original="iOS/en.lproj/Localizable.strings" datatype="plaintext" source-language="en" target-language="gsw">
+  <file original="iOS/en.lproj/Localizable.strings" source-language="en" target-language="gsw" datatype="plaintext">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="13.2.1" build-num="13C100"/>
     </header>
@@ -258,12 +258,12 @@
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="A1_String" xml:space="preserve">
-        <source>A1_String</source>
+        <source>Water temperature is an important value for a lot of people, e.g. swimmers, divers, fishermen and more. Until now, there was no reliable way of looking up real-time water temperature information. There are some sensor networks today, but they often don't provide multiple locations in one waterbody, or they just publish their measurements once a day. Now, we are building a network of cheap watertemperature sensors with very low engergy usage. This allows us to measure the temperatures locally and to provide them to you in real-time!</source>
         <target>D'Wassertemperatur isch für vieli Mensche en wichtige Wert, zum Bispiel für Schwümmer, Taucher, Fischer und vieli anderi. Aber bis jetzt hets kei verlässlichi Methode gäh, um Echtziit-Temperaturinformatione i dinere Gegend z'gseh. Es git bereits hüt es paar Wassertemperatur-Sensor-Netzwerk, aber meistens hend die nur ein Sensor pro See, dur das werded die lokale Temperaturunterschied (z.B. anere Flussmündig) ignoriert. Vieli Sensor-Wert werded zudem nur ein mal pro Tag publiziert. Mir baued es Netzwerk von chostengünstige Wassertemperatur-Sensore mit sehr gringem Energieverbruch uf. Das ermöglicht eus, d'Wassertemperatur lokal z'messe und sie dir chostelos in Quasi-Echtziit bereit z'stelle!</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="A2_String" xml:space="preserve">
-        <source>A2_String</source>
+        <source>This App, the server infrastructure as well as the hardware of our sensors, are developped by the members of the Coredump Hackerspace in Rapperswil-Jona in their freetime. For more information visit:</source>
         <target>Das App, d'Server-Infrastruktur wie au d'Sensor-Hardware werded vom Coredump Hackerspace in Rapperswil-Jona entwicklet. Meh Informatione über eus gfinsch du auf eusere Website:</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
@@ -391,7 +391,7 @@
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="LOADING" xml:space="preserve">
-        <source>LOADING</source>
+        <source>Loading...</source>
         <target>Lade...</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
@@ -462,8 +462,13 @@
       </trans-unit>
       <trans-unit id="More locations will follow very soon, stay tuned!" xml:space="preserve">
         <source>More locations will follow very soon, stay tuned!</source>
-        <target>Meh Standort chömed bald.</target>
+        <target>Neui Standort chömed bald.</target>
         <note>Test comment</note>
+      </trans-unit>
+      <trans-unit id="New Location:" xml:space="preserve">
+        <source>New Location:</source>
+        <target>Neue Standort:</target>
+        <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Newest Measurement" xml:space="preserve">
         <source>Newest Measurement</source>
@@ -500,12 +505,12 @@
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Q1_String" xml:space="preserve">
-        <source>Q1_String</source>
+        <source>Why this App?</source>
         <target>Warum das App?</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Q2_String" xml:space="preserve">
-        <source>Q2_String</source>
+        <source>Who is developping this project?</source>
         <target>Wer hat das App entwickelt?</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
@@ -539,6 +544,11 @@
         <target>Gpsonsert vo:</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
+      <trans-unit id="This Location was recently added and measurements will be available very soon." xml:space="preserve">
+        <source>This Location was recently added and measurements will be available very soon.</source>
+        <target>De Standort isch neu hinzuegfüegt worde und Temperatur mässige chömed bald.</target>
+        <note>Test comment</note>
+      </trans-unit>
       <trans-unit id="Try again" xml:space="preserve">
         <source>Try again</source>
         <target>Erneut versuche</target>
@@ -564,7 +574,7 @@
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="by Marc &amp; Niklas&#10;for Coredump Rapperswil" xml:space="preserve">
-        <source>by Marc &amp; Niklas
+        <source>by Marc
 for Coredump Rapperswil</source>
         <target>vom Marc
 für Coredump Rapperswil</target>
@@ -575,7 +585,7 @@ für Coredump Rapperswil</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="email_text" xml:space="preserve">
-        <source>email_text</source>
+        <source>Please provide your feedback above 👆🏻&lt;/br&gt;If you encountered a bug, please tell us the interactions that lead to it!&lt;/br&gt; We try to get back to you as soon as possible!</source>
         <target>Bitte schreibe deinen Text oberhalb 👆🏻&lt;/br&gt;Falls du einen Fehler entdeckt hasst, notiere bitte die Schritte die zu ihm geführt haben!&lt;/br&gt; Wir versuchen dir schnellstmöglich zu antworten!</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
@@ -604,7 +614,7 @@ für Coredump Rapperswil</target>
       </trans-unit>
     </body>
   </file>
-  <file original="SelectSensorIntentExtension/en.lproj/Localizable.strings" datatype="plaintext" source-language="en" target-language="gsw">
+  <file original="SelectSensorIntentExtension/en.lproj/Localizable.strings" source-language="en" target-language="gsw" datatype="plaintext">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="13.2.1" build-num="13C100"/>
     </header>

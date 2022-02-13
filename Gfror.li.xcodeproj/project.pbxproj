@@ -30,6 +30,7 @@
 		8D3F99E226F8F64D0075D176 /* LineShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DEC7EA2654276400206EAA /* LineShape.swift */; };
 		8D3F99E326F8F6500075D176 /* VectorAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DEC7ED26544D6600206EAA /* VectorAnimations.swift */; };
 		8D3F99E426F8F7BF0075D176 /* PreViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D05A2DA253F645300E7C1BD /* PreViewExtension.swift */; };
+		8D4AB97727B8510A00ACEBE4 /* SensorOverViewNewSensorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4AB97627B8510A00ACEBE4 /* SensorOverViewNewSensorView.swift */; };
 		8D50670324F7F33400E426DE /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5066E424F7F33400E426DE /* Helpers.swift */; };
 		8D580B59259FA33800202262 /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D580B58259FA33800202262 /* FAQView.swift */; };
 		8D5D25CB257A98D1002852F4 /* LakeListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5D25CA257A98D1002852F4 /* LakeListItem.swift */; };
@@ -199,6 +200,7 @@
 		8D3D3EB926C804DC002756EE /* ChangeLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeLogView.swift; sourceTree = "<group>"; };
 		8D49A370250A3E6B000B26CD /* Gfror.liRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Gfror.liRelease.entitlements; sourceTree = "<group>"; };
 		8D49A371250A3F98000B26CD /* WidgetsRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetsRelease.entitlements; sourceTree = "<group>"; };
+		8D4AB97627B8510A00ACEBE4 /* SensorOverViewNewSensorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorOverViewNewSensorView.swift; sourceTree = "<group>"; };
 		8D5066E424F7F33400E426DE /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		8D580B58259FA33800202262 /* FAQView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQView.swift; sourceTree = "<group>"; };
 		8D5D25CA257A98D1002852F4 /* LakeListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LakeListItem.swift; sourceTree = "<group>"; };
@@ -450,6 +452,7 @@
 			isa = PBXGroup;
 			children = (
 				8D6A7DC724F15187009A0026 /* SensorOverView.swift */,
+				8D4AB97627B8510A00ACEBE4 /* SensorOverViewNewSensorView.swift */,
 				8DCB9A57257972E30063C628 /* SensorOverviewMap.swift */,
 				8DF3BBD4250BB62D00DBCC37 /* SensorOverviewLastMeasurementView.swift */,
 				8D3D36EF250BBC8500F11E48 /* SensorOverViewGraph.swift */,
@@ -906,6 +909,7 @@
 				E461459124A34831006233AE /* GfrorliApp.swift in Sources */,
 				8DF3BBD8250BB6BB00DBCC37 /* OwnHelpers.swift in Sources */,
 				B49BE2D0261CB4880004B0D6 /* Reachability.swift in Sources */,
+				8D4AB97727B8510A00ACEBE4 /* SensorOverViewNewSensorView.swift in Sources */,
 				B415711C260A41A400372278 /* ChangeNote.swift in Sources */,
 				8DF3BBCB250B709700DBCC37 /* SearchView.swift in Sources */,
 				8D6A7DC624F14115009A0026 /* LakeOverView.swift in Sources */,
@@ -1055,7 +1059,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20220212;
+				CURRENT_PROJECT_VERSION = 20220213;
 				DEVELOPMENT_TEAM = T7M5358433;
 				INFOPLIST_FILE = SelectSensorIntentExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -1064,7 +1068,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.90;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli.SelectSensorIntentExtension2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1079,7 +1083,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20220212;
+				CURRENT_PROJECT_VERSION = 20220213;
 				DEVELOPMENT_TEAM = T7M5358433;
 				INFOPLIST_FILE = SelectSensorIntentExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -1088,7 +1092,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.90;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli.SelectSensorIntentExtension2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1105,7 +1109,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20220212;
+				CURRENT_PROJECT_VERSION = 20220213;
 				DEVELOPMENT_TEAM = T7M5358433;
 				INFOPLIST_FILE = gfroerliWidgetExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -1114,7 +1118,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.90;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli.gfroerliWidgetExtension2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1131,7 +1135,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20220212;
+				CURRENT_PROJECT_VERSION = 20220213;
 				DEVELOPMENT_TEAM = T7M5358433;
 				INFOPLIST_FILE = gfroerliWidgetExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -1140,7 +1144,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.90;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli.gfroerliWidgetExtension2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1278,7 +1282,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = iOS/Gfror.li.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20220212;
+				CURRENT_PROJECT_VERSION = 20220213;
 				DEVELOPMENT_TEAM = T7M5358433;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
@@ -1287,7 +1291,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.90;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli;
 				PRODUCT_NAME = Gfror.li;
 				SDKROOT = iphoneos;
@@ -1305,7 +1309,7 @@
 				CODE_SIGN_ENTITLEMENTS = iOS/Gfror.liRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20220212;
+				CURRENT_PROJECT_VERSION = 20220213;
 				DEVELOPMENT_TEAM = T7M5358433;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
@@ -1314,7 +1318,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.90;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.coredump.gfroerli;
 				PRODUCT_NAME = Gfror.li;
 				PROVISIONING_PROFILE_SPECIFIER = "";
