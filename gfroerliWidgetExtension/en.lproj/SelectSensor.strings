@@ -1,30 +1,33 @@
-"31X339" = "Intent for fetching Sensor data";
-
-"BNBBRB" = "Time Span";
-
+/* (No Comment) */
 "BvxrmE" = "Single Location";
 
+/* (No Comment) */
 "G0EwFZ" = "Location";
 
-"JFLFjs" = "Week";
+/* (No Comment) */
+"IruFuB" = "Location";
 
-"WmbpFs" = "Month";
+/* (No Comment) */
+"kKPpmt" = "Week";
 
-"bivj1a" = "Day";
+/* (No Comment) */
+"l0X50R" = "Single Location History";
 
-"do2zOR-JFLFjs" = "There are ${count} options matching ‘week’.";
+/* (No Comment) */
+"l30VYQ" = "Month";
 
-"do2zOR-WmbpFs" = "There are ${count} options matching ‘month’.";
-
-"do2zOR-bivj1a" = "There are ${count} options matching ‘day’.";
-
+/* (No Comment) */
 "mJkM5O" = "Selectable Location";
 
-"tdN4nf-JFLFjs" = "Just to confirm, you wanted ‘week’?";
+/* (No Comment) */
+"OcZOP9" = "Day";
 
-"tdN4nf-WmbpFs" = "Just to confirm, you wanted ‘month’?";
+/* (No Comment) */
+"WfEGRn-kKPpmt" = "Just to confirm, you wanted ‘Week’?";
 
-"tdN4nf-bivj1a" = "Just to confirm, you wanted ‘day’?";
+/* (No Comment) */
+"WfEGRn-l30VYQ" = "Just to confirm, you wanted ‘Month’?";
 
-"zgFWAQ" = "Time Span";
+/* (No Comment) */
+"WfEGRn-OcZOP9" = "Just to confirm, you wanted ‘Day’?";
 

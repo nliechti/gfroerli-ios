@@ -4,6 +4,7 @@
 //
 //  Created by Marc on 27.03.21.
 //
+// swiftlint:disable identifier_name
 
 import Foundation
 import SwiftUI
@@ -14,9 +15,9 @@ struct Wave: Shape {
 
     // how frequent our waves should be
     var frequency: Double
-    
+
     var offset: Double
-    
+
     func path(in rect: CGRect) -> Path {
         var path = Path()
 
@@ -29,7 +30,7 @@ struct Wave: Shape {
         let wavelength = width / frequency
 
         // start at the left center
-        path.move(to: CGPoint(x: 0-offset, y:10000))
+        path.move(to: CGPoint(x: 0-offset, y: 10000))
         path.addLine(to: CGPoint(x: 0, y: midHeight))
 
         // now count across individual horizontal points one by one
@@ -39,7 +40,7 @@ struct Wave: Shape {
 
             // calculate the sine of that position
             let sine = sin(relativeX)
-            
+
             let y = strength * sine + midHeight
 
                     // add a line to here

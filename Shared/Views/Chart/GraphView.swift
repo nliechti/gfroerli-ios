@@ -27,35 +27,54 @@ struct GraphView: View {
     @ObservedObject var temperatureAggregationsVM: TemperatureAggregationsViewModel
     
     var body: some View {
-        VStack{
-            HStack{
-                Y_LabelsView(nrOfLines: nrOfLines, max: $maxValue, min: $minValue)
+        VStack {
+            HStack {
+                YLabelsView(nrOfLines: nrOfLines, max: $maxValue, min: $minValue)
                 
-                ChartView(temperatureAggregationsVM: temperatureAggregationsVM, nrOfLines: nrOfLines, timeFrame: $timeFrame, minValue: $minValue, maxValue: $maxValue, totalSteps: $totalSteps, steps: $steps, minimums: $minimums, averages: $averages, maximums: $maximums, selectedIndex: $selectedIndex, showIndicator: $showIndicator)
-                
+                ChartView(
+                    temperatureAggregationsVM:
+                        temperatureAggregationsVM,
+                    nrOfLines: nrOfLines,
+                    timeFrame: $timeFrame,
+                    minValue: $minValue,
+                    maxValue: $maxValue,
+                    totalSteps: $totalSteps,
+                    steps: $steps,
+                    minimums: $minimums,
+                    averages: $averages,
+                    maximums: $maximums,
+                    selectedIndex: $selectedIndex,
+                    showIndicator: $showIndicator
+                )
             }.padding(1).clipped()
             
-            HStack{
-                Text("00.0").hidden()
+            HStack {
+                Text("00.0°C").hidden()
                 
-                X_LabelsView(temperatureAggregationsVM: temperatureAggregationsVM, timeFrame: $timeFrame, totalSteps: $totalSteps)
+                XLabelsView(
+                    temperatureAggregationsVM: temperatureAggregationsVM,
+                    timeFrame: $timeFrame,
+                    totalSteps: $totalSteps
+                )
             }
             
-        }.padding()
-        .onAppear(perform: {
-            temperatureAggregationsVM.loadDays()
-            temperatureAggregationsVM.loadWeek()
-            temperatureAggregationsVM.loadMonth()
+        }
+        .padding()
+        .task {
+            await temperatureAggregationsVM.loadDays()
+            await temperatureAggregationsVM.loadWeek()
+            await temperatureAggregationsVM.loadMonth()
+            
             setValues()
-        })
+        }
         .onChange(of: timeFrame, perform: {_ in setValues()})
-        .onChange(of: temperatureAggregationsVM.minimumsDay , perform: {_ in setValues()})
-        .onChange(of: temperatureAggregationsVM.minimumsWeek , perform: {_ in setValues()})
-        .onChange(of: temperatureAggregationsVM.minimumsMonth , perform: {_ in setValues()})
+        .onChange(of: temperatureAggregationsVM.minimumsDay, perform: {_ in setValues()})
+        .onChange(of: temperatureAggregationsVM.minimumsWeek, perform: {_ in setValues()})
+        .onChange(of: temperatureAggregationsVM.minimumsMonth, perform: {_ in setValues()})
         .onChange(of: zoomed, perform: { _ in setMinMax()})
     }
     
-    func setValues(){
+    func setValues() {
         if timeFrame == .day {
             
             totalSteps = 23
@@ -84,7 +103,7 @@ struct GraphView: View {
         setMinMax()
     }
     
-    func setMinMax(){
+    func setMinMax() {
         if zoomed {
             var allValues = [Double]()
             allValues += maximums
@@ -101,7 +120,13 @@ struct GraphView: View {
 
 struct GraphView_Previews: PreviewProvider {
     static var previews: some View {
-        GraphView(nrOfLines: 5, timeFrame: .constant(.week), selectedIndex: .constant(1), zoomed: .constant(false), showIndicator: .constant(false), temperatureAggregationsVM: TemperatureAggregationsViewModel())
-            .makePreViewModifier()
+        GraphView(
+            nrOfLines: 5,
+            timeFrame: .constant(.week),
+            selectedIndex: .constant(1),
+            zoomed: .constant(false),
+            showIndicator: .constant(false),
+            temperatureAggregationsVM: TemperatureAggregationsViewModel()
+        ).makePreViewModifier()
     }
 }

@@ -1,52 +1,88 @@
-//
+   //
 //  SensorOverviewSponsorView.swift
 //  iOS
 //
 //  Created by Marc Kramer on 11.09.20.
+//  Refactored by Marc Kramer on 26.06.21
 //
 
 import SwiftUI
 
 struct SensorOverviewSponsorView: View {
-    @StateObject var sponsorListVM = SponsorListViewModel()
-    var sensor: Sensor
+   
+    var sensorID: Int
+    
+    @StateObject var sponsorVM = SponsorListViewModel()
     
     var body: some View {
-        VStack(alignment: .leading){
-            Text("Sponsored by:").font(.title).bold()
-            AsyncContentView(source: sponsorListVM) { sponsor in
-                VStack{
-                    HStack{
-                        Text(sponsor.name).font(.largeTitle).bold()
-                        Spacer()
-                    }.padding(.bottom)
-                    SponsorImageView(sponsor: sponsor).padding()
-                    Text( sponsor.description)
+        VStack(alignment: .leading) {
+            HStack {
+                Text("Sponsored by:")
+                    .font(.title)
+                    .bold()
+                Spacer()
+            }
+            
+            switch sponsorVM.loadingState {
+            case .loaded:
+                HStack {
+                    Text(sponsorVM.sponsor!.name)
+                        .font(.largeTitle)
+                        .bold()
                     Spacer()
                 }
-            }
+                SponsorImageView(sponsor: sponsorVM.sponsor!)
+                 
+                Text(sponsorVM.sponsor!.description)
+                Spacer()
+                
+            case .loading:
+                LoadingView()
+                    .onAppear(perform: {
+                        Task { await sponsorVM.load(sponsorId: sensorID)}
+                    })
+                
+            case .failed:
+                HStack {
+                    Spacer()
+                    VStack {
+                        Spacer()
+                        Text("Loading Sponsor failed. Reason:")
+                            .foregroundColor(.secondary)
+                        Text(sponsorVM.errorMsg)
+                            .foregroundColor(.secondary)
+                        Button("Try again") {
+                            Task { await sponsorVM.load(sponsorId: sensorID)}
+                        }
+                        .buttonStyle(.bordered)
+                        Spacer()
+                    }
+                    Spacer()
+                }
+                .padding()
+                .multilineTextAlignment(.center)
+                
+            } // end of switch
         }.padding()
-        .onAppear(perform: {
-                    sponsorListVM.id = sensor.id
-                    sponsorListVM.load()})
+            
     }
 }
 
 struct SensorOverviewSponsorView_Previews: PreviewProvider {
     static var previews: some View {
-        SensorOverviewSponsorView(sensor: testSensor1).makePreViewModifier()
+        SensorOverviewSponsorView(sensorID: 1).makePreViewModifier()
     }
 }
 
-struct SponsorImageView:View{
-    @ObservedObject var imageLoader:ImageLoader
-    @State var image:UIImage = UIImage()
+struct SponsorImageView: View {
+    @ObservedObject var imageLoader: ImageLoader
+    @State var image: UIImage = UIImage()
     
     init(sponsor: Sponsor) {
-        imageLoader = ImageLoader(urlString:sponsor.logoUrl)
+        imageLoader = ImageLoader(urlString: sponsor.logoUrl)
     }
-    var body: some View{
-        
+    
+    var body: some View {
         Image(uiImage: image)
             .resizable()
             .aspectRatio(contentMode: .fit)
@@ -57,7 +93,5 @@ struct SponsorImageView:View{
                 self.image = UIImage(data: data) ?? UIImage()
             }
     }
-    
-    
     
 }

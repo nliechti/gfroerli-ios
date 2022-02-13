@@ -8,11 +8,11 @@
 import SwiftUI
 import Foundation
 
-struct HourlyChartView: View{
-    @Binding var showMax : Bool
-    @Binding var showMin : Bool
-    @Binding var showAvg : Bool
-    @Binding var showCircles : Bool
+struct HourlyChartView: View {
+    @Binding var showMax: Bool
+    @Binding var showMin: Bool
+    @Binding var showAvg: Bool
+    @Binding var showCircles: Bool
     
     let data: [HourlyAggregation?]
     var lineWidth: CGFloat = 2
@@ -20,7 +20,7 @@ struct HourlyChartView: View{
     var frame: CGRect
     var avgColor: Color?
     
-    var maxVal : Double {
+    var maxVal: Double {
         let arr = data.filter({$0 != nil})
         let highestPoint = arr.max {
             $0!.maxTemp! < $1!.maxTemp!
@@ -29,7 +29,7 @@ struct HourlyChartView: View{
         
     }
     
-    var minVal : Double {
+    var minVal: Double {
         let arr = data.filter({$0 != nil})
         let lowestPoint = arr.min {
             $0!.minTemp! < $1!.minTemp!
@@ -38,39 +38,80 @@ struct HourlyChartView: View{
         
     }
     
-    var xLabels: [String]{
+    var xLabels: [String] {
         return getXLabels(data: data)
     }
     
     var body: some View {
-        VStack{
-        ZStack(alignment: .bottom) {
-            Legend(frame: frame, xLabels: getXLabels(data: data), max: CGFloat(maxVal.rounded(.up)), min:CGFloat(minVal.rounded(.down)))
-            HourlyLineChartShape(pointSize: pointSize, data: data, type: .minimum, max: maxVal, min: minVal, showCircles: showCircles)
-                .stroke(showMin ? Color.blue : Color.clear,style: StrokeStyle(lineWidth: 2,lineCap: .round, lineJoin: .round)).frame(width: frame.width-40, height: frame.height).offset(x:+20)
-            HourlyLineChartShape(pointSize: pointSize, data: data, type: .maximum, max: maxVal, min: minVal, showCircles: showCircles)
-                .stroke(showMax ? Color.red : Color.clear, style: StrokeStyle(lineWidth: 2,lineCap: .round, lineJoin: .round)).frame(width: frame.width-40, height: frame.height).offset(x:+20)
-            HourlyLineChartShape(pointSize: pointSize, data: data, type: .average,  max: maxVal, min: minVal, showCircles: showCircles)
-                .stroke(showAvg ? ((avgColor != nil) ? Color.white : Color.green) : Color.clear,style: StrokeStyle(lineWidth: 2,lineCap: .round, lineJoin: .round)).frame(width: frame.width-40, height: frame.height).offset(x:+20)
+        VStack {
+            ZStack(alignment: .bottom) {
+                Legend(
+                    frame: frame,
+                    xLabels: getXLabels(data: data),
+                    max: CGFloat(maxVal.rounded(.up)),
+                    min: CGFloat(minVal.rounded(.down))
+                )
                 
+                HourlyLineChartShape(
+                    pointSize: pointSize,
+                    data: data,
+                    type: .minimum,
+                    max: maxVal,
+                    min: minVal,
+                    showCircles: showCircles)
+                    .stroke(
+                        showMin ? Color.blue : Color.clear,
+                        style: StrokeStyle(lineWidth: 2, lineCap: .round, lineJoin: .round)
+                    )
+                    .frame(width: frame.width-40, height: frame.height)
+                    .offset(x: +20)
                 
-        }.onAppear{
-            withAnimation{}
-        }
-        
-        Spacer()
-        HStack{
-            Text("0.00").foregroundColor(.clear)
-                .font(.caption)
-            Text(xLabels[0]).foregroundColor(Color.secondary)
-                .font(.caption)
+                HourlyLineChartShape(
+                    pointSize: pointSize,
+                    data: data,
+                    type: .maximum,
+                    max: maxVal,
+                    min: minVal,
+                    showCircles: showCircles)
+                    .stroke(
+                        showMax ? Color.red : Color.clear,
+                        style: StrokeStyle(lineWidth: 2, lineCap: .round, lineJoin: .round)
+                    )
+                    .frame(width: frame.width-40, height: frame.height)
+                    .offset(x: +20)
+                
+                HourlyLineChartShape(
+                    pointSize: pointSize,
+                    data: data,
+                    type: .average,
+                    max: maxVal,
+                    min: minVal,
+                    showCircles: showCircles)
+                    .stroke(
+                        showAvg ? ((avgColor != nil) ? Color.white : Color.green) : Color.clear,
+                        style: StrokeStyle(lineWidth: 2, lineCap: .round, lineJoin: .round)
+                    )
+                    .frame(width: frame.width-40, height: frame.height)
+                    .offset(x: +20)
+                
+            }
             Spacer()
-            Text(xLabels[1]).foregroundColor(Color.secondary)
-                .font(.caption)
-            Spacer()
-            Text(xLabels[2]).foregroundColor(Color.secondary)
-                .font(.caption)
-        }
+            HStack {
+                Text("0.00")
+                    .foregroundColor(.clear)
+                    .font(.caption)
+                Text(xLabels[0])
+                    .foregroundColor(Color.secondary)
+                    .font(.caption)
+                Spacer()
+                Text(xLabels[1])
+                    .foregroundColor(Color.secondary)
+                    .font(.caption)
+                Spacer()
+                Text(xLabels[2])
+                    .foregroundColor(Color.secondary)
+                    .font(.caption)
+            }
         }
     }
     
@@ -82,4 +123,3 @@ struct HourlyChartView: View{
         return labels
     }
 }
-

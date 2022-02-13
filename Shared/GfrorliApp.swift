@@ -10,12 +10,11 @@ import Foundation
 
 @main
 struct GfrorliApp: App {
-//    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    
+
     var body: some Scene {
         WindowGroup {
             #if os(iOS)
-            iOSMainView()
+            IOSMainView()
             #endif
         }
     }

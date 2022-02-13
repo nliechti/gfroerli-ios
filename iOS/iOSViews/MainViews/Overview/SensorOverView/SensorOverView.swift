@@ -8,99 +8,107 @@
 import SwiftUI
 
 struct SensorOverView: View {
-    
-    @ObservedObject var observer = Observer()
+    @AppStorage("favorites") private var favorites = [Int]()
     @StateObject var sensorVM = SingleSensorViewModel()
     @State var isFav = false
-    @State var favorites  = UserDefaults(suiteName: "group.ch.gfroerli")?.array(forKey: "favoritesIDs") as? [Int] ?? [Int]()
-    @State var showNotificationSheet = false
-    var id : Int
+    
+    
+    var sensorID: Int
+    var sensorName: String
+    var transparentBG = false
     
     var body: some View {
-        AsyncContentView(source: sensorVM) { sensor in
-            ScrollView{
-                VStack{
-                    SensorOverviewLastMeasurementView(sensor: sensor)
-                        .boxStyle()
+        VStack {
+            ScrollView {
+                switch sensorVM.loadingState {
+                case .loaded, .loading:
                     
-                    SensorOverViewGraph(sensorID: id)
-                        .boxStyle()
-                    
-                    SensorOverviewMap(inSensor: sensor)
-                        .boxStyle()
-                    
-                    SensorOverviewSponsorView(sensor: sensor)
-                        .boxStyle()
-                }
-                .padding(.vertical)
-                .sheet(isPresented: $showNotificationSheet) {
-                    SensorNotificationView(sensor: sensor)
-                }
+                    VStack {
+                        
+                        if(sensorVM.sensor?.latestTemp != nil) {
+                            SensorOverviewLastMeasurementView(sensorVM: sensorVM)
+                                .boxStyle()
+                            
+                            
+                            SensorOverViewGraph(sensorID: sensorID)
+                                .boxStyle()
+                                .dynamicTypeSize(.xSmall ... .large)
+                        } else {
+                            SensorOverViewNewSensorView()
+                                .boxStyle()
+                        }
+                        SensorOverviewMap(sensorVM: sensorVM)
+                            .boxStyle()
+                        
+                        SensorOverviewSponsorView(sensorID: sensorID)
+                            .boxStyle()
+                    }
+                    .padding(.vertical)
+                    .task {
+                        await sensorVM.load(sensorId: sensorID)
+                    }
+                    .onChange(of: sensorID) { newValue in
+                        Task {
+                            await sensorVM.load(sensorId: sensorID)
+                        }
+                    }
+                case .failed:
+                    HStack {
+                        Spacer()
+                        VStack {
+                            Spacer()
+                            Text("Loading Location failed. Reason:").foregroundColor(.gray)
+                            Text(sensorVM.errorMsg).foregroundColor(.gray)
+                            Button("Try again") {}
+                            .buttonStyle(.bordered)
+                            .task { await sensorVM.load(sensorId: sensorID) }
+                            Spacer()
+                        }
+                        Spacer()
+                    }
+                    .multilineTextAlignment(.center)
+                    .padding()
+                    .boxStyle()
+                    .padding(.vertical)
+                }// switch end
             }
-            .navigationBarTitle(sensor.device_name,displayMode: .inline)
-            
         }
-        .background(Color.systemGroupedBackground.ignoresSafeArea())
+        .navigationBarTitle(sensorName, displayMode: .inline)
+        .background((transparentBG ? Color.clear : Color.systemGroupedBackground).ignoresSafeArea())
         .navigationBarItems(trailing:
-                                HStack{
-                                    /*Button {
-                                        showNotificationSheet = true
-                                    } label: {
-                                        Image(systemName: "bell")
-                                            .imageScale(.large)
-                                    }*/
-                                    
-                                    /*Button {
-                                        sensorVM.load()
-                                    } label: {
-                                        Image(systemName: "arrow.clockwise")
-                                            .imageScale(.large)
-                                    }*/
-                                    
-                                    Button {
-                                        isFav ? removeFav() : makeFav()
-                                        UserDefaults(suiteName: "group.ch.gfroerli")?.set(favorites, forKey: "favoritesIDs")
-                                    } label: {
-                                        Image(systemName: isFav ? "star.fill" : "star")
-                                            .foregroundColor(isFav ? .yellow : .none)
-                                            .imageScale(.large)
-                                    }
-                                }
-        )
-            
-        .background(Color.systemGroupedBackground.ignoresSafeArea()).onAppear(perform: {
-            sensorVM.id = id
-            sensorVM.load()
-            favorites  = UserDefaults(suiteName: "group.ch.gfroerli")?.array(forKey: "favoritesIDs") as? [Int] ?? [Int]()
-            isFav = favorites.contains(id)
+                                Button {
+            isFav ? removeFav() : makeFav()
+        } label: {
+            Image(systemName: isFav ? "star.fill" : "star")
+                .foregroundColor(isFav ? .yellow : .none)
+                .imageScale(.large)
         })
-        .onReceive(self.observer.$enteredForeground) { _ in
-            sensorVM.load()
+        .onAppear {
+            if favorites.firstIndex(of: sensorID) != nil {
+                isFav = true
+            }
         }
-        
     }
     
-    func reloadTimer(){
-        
-        
-        
-    }
-   
-    func makeFav(){
-        favorites.append(id)
+    /// adds sensorID to userDefaults
+    func makeFav() {
+        favorites.append(sensorID)
         isFav = true
-        UserDefaults(suiteName: "group.ch.gfroerli")?.set(favorites, forKey: "favoritesIDs")
     }
-    
-    func removeFav(){
-        favorites.removeFirst(id)
-        isFav=false
-        UserDefaults(suiteName: "group.ch.gfroerli")?.set(favorites, forKey: "favoritesIDs")
+    /// removes sensorID from userDefaults
+    func removeFav() {
+        let index = favorites.firstIndex(of: sensorID)
+        if index != nil {
+            favorites.remove(at: index!)
+        }
+        isFav = false
     }
 }
 
 struct SensorOverView_Previews: PreviewProvider {
     static var previews: some View {
-        SensorOverView(id: 1).environment(\.sizeCategory, .extraExtraExtraLarge).makePreViewModifier()
+        SensorOverView(sensorID: 1, sensorName: "Test")
+            .environment(\.sizeCategory, .extraExtraExtraLarge)
+            .makePreViewModifier()
     }
 }

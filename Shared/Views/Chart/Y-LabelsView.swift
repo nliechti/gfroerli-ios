@@ -7,28 +7,27 @@
 
 import SwiftUI
 
+struct YLabelsView: View {
 
-struct Y_LabelsView: View {
-    
     var nrOfLines: Int
-    
+
     @Binding var max: Double
     @Binding var min: Double
-    
-    var yLabels: [String]{
+
+    var yLabels: [String] {
         let stepSize = (max-min)/(Double(nrOfLines-1))
         var yLabels = [String]()
-        
-        for i in 0..<nrOfLines {
-            yLabels.append(makeTemperatureStringFromDouble(double: min + Double(i) * stepSize))
+
+        for line in 0..<nrOfLines {
+            yLabels.append(makeTemperatureString(double: min + Double(line) * stepSize))
         }
-        
+
         return yLabels.reversed()
     }
-    
+
     var body: some View {
-        VStack(alignment:.trailing){
-            ForEach(yLabels.indices){index in
+        VStack(alignment: .trailing) {
+            ForEach(yLabels.indices) {index in
                 if index != 0 { Spacer() }
                 Text(yLabels[index])
             }
@@ -36,8 +35,8 @@ struct Y_LabelsView: View {
     }
 }
 
-struct Y_LabelsView_Previews: PreviewProvider {
+struct YLabelsView_Previews: PreviewProvider {
     static var previews: some View {
-        Y_LabelsView(nrOfLines: 5, max: .constant(30.0), min: .constant(0.0))
+        YLabelsView(nrOfLines: 5, max: .constant(30.0), min: .constant(0.0))
     }
 }

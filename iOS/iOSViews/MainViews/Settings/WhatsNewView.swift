@@ -10,70 +10,75 @@ import SwiftUI
 struct WhatsNewView: View {
     
     @Environment(\.presentationMode) private var presentationMode
-    var lastVersion: String
-    var showDismiss: Bool
     
     var body: some View {
-        
-        ScrollView(){
+        VStack {
             
-            ForEach(ChangeNote.allChangeNotes){ changeNote in
+            Spacer()
+            
+            Text("What's New to Gfrör.li")
+                .font(.largeTitle)
+                .bold()
+                .lineLimit(1)
+                .minimumScaleFactor(0.1)
+            
+            Spacer()
+            
+            ForEach(WhatsNew.whatsNewNotes) { note in
                 
-                if changeNote.version > lastVersion{
-                    VStack(alignment:.leading){
-                        HStack{
-                            Text("Version: "+changeNote.version+":").font(.title).bold()
+                HStack(alignment: .top) {
+                    
+                    Image(systemName: note.imageName)
+                        .resizable()
+                        .foregroundColor(.blue.opacity(0.5))
+                        .frame(width: 40, height: 40, alignment: .center)
+                        .padding()
+                    
+                    VStack(alignment: .leading) {
+                        
+                        HStack {
+                            Text(note.title)
+                                .bold()
                             Spacer()
                         }
-                        if !changeNote.changes.isEmpty{
-                            Text("Changes").font(.title2).padding(.vertical,1)
-                            ForEach(changeNote.changes, id: \.self ){change in
-                                Text("- "+change)
-                            }.padding([.horizontal])
-                        }
-                        if !changeNote.fixes.isEmpty{
-                            Text("Fixes").font(.title2).padding(.vertical,2)
-                            ForEach(changeNote.fixes, id: \.self ){fix in
-                                Text("- "+fix)
-                            }.padding([.horizontal])
-                        }
-                    }.padding()
-                    .background(Color(.secondarySystemGroupedBackground))
-                    .cornerRadius(15)
+                        
+                        Text(note.text)
+                            .foregroundColor(.secondary)
+                            .padding(.top, 1)
+                        
+                    }.frame(maxWidth: .infinity)
+                    
+                }.padding(.vertical)
+                    .minimumScaleFactor(0.1)
+            }
+            
+            Spacer()
+            Spacer()
+            
+            Button {
+                self.presentationMode.wrappedValue.dismiss()
+            } label: {
+                
+                Text("Continue")
+                    .foregroundColor(.white)
                     .padding()
-                    .shadow(radius: 1)
-                }
                 
             }
+            .frame(maxWidth: .infinity)
+            .background(.blue)
+            .cornerRadius(15)
             
-            //Dismiss Button
-            if showDismiss{
-                Button {
-                    self.presentationMode.wrappedValue.dismiss()
-                } label: {
-                    HStack{
-                        Spacer()
-                        Text("Continue")
-                            .foregroundColor(.white)
-                            .frame(width: 200, height: 40)
-                            .background(Color.blue)
-                            .cornerRadius(15)
-                        Spacer()
-                    }
-                }.padding(.bottom)
-            }
         }
-        .navigationBarTitle("What's new?", displayMode: .inline)
-        .background(Color.systemGroupedBackground)
+        .padding()
         .onDisappear {
-            UserDefaults(suiteName: "group.ch.gfroerli")?.set(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0.0", forKey: "lastVersion")
-            
+            let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0.0"
+            UserDefaults(suiteName: "group.ch.gfroerli")?.set(version, forKey: "lastVersion")
         }
     }
 }
 
 struct WhatsNewView_Previews: PreviewProvider {
     static var previews: some View {
-        WhatsNewView(lastVersion: "1.0",showDismiss: true)
+        WhatsNewView()
     }
 }

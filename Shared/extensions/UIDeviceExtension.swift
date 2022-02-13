@@ -3,14 +3,14 @@
 //  iOS
 //
 //  Created by Marc Kramer on 02.01.21.
-//
+// swiftlint:disable line_length
 
 import Foundation
 import UIKit
 import SystemConfiguration
 
 public extension UIDevice {
-    
+
   static let mdelName: String = {
     var systemInfo = utsname()
     uname(&systemInfo)
@@ -19,7 +19,8 @@ public extension UIDevice {
       guard let value = element.value as? Int8, value != 0 else { return identifier }
       return identifier + String(UnicodeScalar(UInt8(value)))
     }
-    
+
+// swiftlint:disable:next cyclomatic_complexity function_body_length
     func mapToDevice(identifier: String) -> String {
       #if os(iOS)
       switch identifier {
@@ -75,7 +76,7 @@ public extension UIDevice {
       }
       #endif
     }
-    
+
     return mapToDevice(identifier: identifier)
   }()
 }

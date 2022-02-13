@@ -8,74 +8,66 @@
 import SwiftUI
 
 struct SensorOverviewLastMeasurementView: View {
-    var sensor : Sensor
+    
+    @ObservedObject var sensorVM: SingleSensorViewModel
+    
     var body: some View {
-        VStack{
-            HStack(alignment: .firstTextBaseline){
-                VStack(alignment: .leading){
-                    Text("Latest").font(.title)
-                        .bold()
-                    Text(makeTemperatureStringFromDouble(double: sensor.latestTemp!) )
-                        .font(.system(size: 50))
-                    Spacer()
-                }.fixedSize()
-                .layoutPriority(1)
-                .minimumScaleFactor(0.1)
-                .lineLimit(1)
-                Spacer(minLength: 25)
-                    .layoutPriority(1)
+        VStack(alignment: .leading) {
+            
+            if sensorVM.loadingState == .loaded {
+                
                 VStack(alignment: .leading) {
-                    Text("All time:").font(.title2)
-                        .bold()
-                    HStack {
-                        Text("Average:")
+                    HStack(alignment: .firstTextBaseline) {
+                        VStack(alignment: .leading) {
+                            Text("Latest")
+                                .font(.title)
+                                .bold()
+                        }
                         Spacer()
-                        Text(makeTemperatureStringFromDouble(double: sensor.avgTemp!))
+                        VStack(alignment: .trailing) {
+                            Text(makeTemperatureString(double: sensorVM.sensor!.latestTemp))
+                                .font(.largeTitle)
+                                .bold()
+                                .lineLimit(1)
+                                .minimumScaleFactor(0.1)
+                            Text(sensorVM.sensor!.lastTempTime!, format: .relative(presentation: .named))
+                        }
                     }
+                    Text("All time:")
+                        .font(.title2)
+                        .bold()
+                    
                     HStack {
                         Text("Highest:")
                         Spacer()
-                        Text(makeTemperatureStringFromDouble(double: sensor.maxTemp!))
+                        Text(makeTemperatureString(double: sensorVM.sensor!.maxTemp))
+                    }
+                    HStack {
+                        Text("Average:")
+                        Spacer()
+                        Text(makeTemperatureString(double: sensorVM.sensor!.avgTemp))
                     }
                     HStack {
                         Text("Lowest:")
                         Spacer()
-                        Text(makeTemperatureStringFromDouble(double: sensor.minTemp!))
+                        Text(makeTemperatureString(double: sensorVM.sensor!.minTemp))
                     }
-                    Spacer()
                 }
-                .fixedSize()
-                .layoutPriority(1)
-                .lineLimit(1)
-                .minimumScaleFactor(0.1)
-                }
-                
             
-            HStack(spacing: 0){
-                Text("Measured at ").font(.headline)
-                Text(sensor.lastTempTime!, style: .time).font(.headline)
-                if !areSameDay(date1: Date(), date2: sensor.lastTempTime!){
-                    Text(createStringFromDate(date: sensor.lastTempTime!, format: ", dd. MMM. YYYY")).font(.headline)
-                }
-                Spacer()
-            }.layoutPriority(1)
-            .lineLimit(1)
-            .minimumScaleFactor(0.1)
-        }.padding()
-        .frame(maxWidth:.infinity,alignment: .topLeading)
+            } else {
+                Text("Latest")
+                    .font(.title)
+                    .bold()
+                LoadingView()
+            }
+        }
+        .padding([.horizontal, .bottom])
+        .padding(.top, 5)
     }
-
 }
 
 struct SensorOverviewLastMeasurementView_Previews: PreviewProvider {
     static var previews: some View {
-        SensorOverviewLastMeasurementView(sensor:testSensor1)
-            .environment(\.sizeCategory, .accessibilityExtraExtraExtraLarge)
-            .boxStyle()
-            .padding(.top)
-            .background(Color.green)
-            .makePreViewModifier()
+        EmptyView()
     }
 }
-
-

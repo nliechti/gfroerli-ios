@@ -1,30 +1,30 @@
+/* (No Comment) */
 "31X339" = "Intent for fetching Sensor data";
 
-"BNBBRB" = "Ziitspanne";
-
+/* (No Comment) */
 "BvxrmE" = "Einzelne Ort";
 
-"G0EwFZ" = "Ort";
+/* (No Comment) */
+"CnjWia" = "Ziitruum";
 
-"JFLFjs" = "Wuche";
+/* (No Comment) */
+"G0EwFZ" = "Standort";
 
-"WmbpFs" = "Monat";
+/* (No Comment) */
+"IruFuB" = "Standort";
 
-"bivj1a" = "Tag";
+/* (No Comment) */
+"kKPpmt" = "Wuche";
 
-"do2zOR-JFLFjs" = "There are ${count} options matching ‘week’.";
+/* (No Comment) */
+"l0X50R" = "Einzelne Standort mit Verlauf";
 
-"do2zOR-WmbpFs" = "There are ${count} options matching ‘month’.";
+/* (No Comment) */
+"l30VYQ" = "Monat";
 
-"do2zOR-bivj1a" = "There are ${count} options matching ‘day’.";
+/* (No Comment) */
+"mJkM5O" = "Uswählbare Standort";
 
-"mJkM5O" = "Uswählbare Ort";
-
-"tdN4nf-JFLFjs" = "Just to confirm, you wanted ‘week’?";
-
-"tdN4nf-WmbpFs" = "Just to confirm, you wanted ‘month’?";
-
-"tdN4nf-bivj1a" = "Just to confirm, you wanted ‘day’?";
-
-"zgFWAQ" = "Ziitspanne";
+/* (No Comment) */
+"OcZOP9" = "Tag";
 

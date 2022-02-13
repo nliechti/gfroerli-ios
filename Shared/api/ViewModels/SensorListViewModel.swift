@@ -7,70 +7,61 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
-class SensorListViewModel: LoadableObject {
-    typealias Output = [Sensor]
-    
+class SensorListViewModel: ObservableObject {
+
     @Published var sensorArray = [Sensor]() { didSet { didChange.send(())}}
-    @Published private(set) var state = LoadingState<Output>.idle
-    
-    let didChange = PassthroughSubject<Void, Never>()
-        
-    init() {
-        self.load()
-    }
-        
-    init(sensors: [Sensor]) {
-        sensorArray = sensors
-    }
-    
-    
-    func load() {
-        self.state = .loading
-        var url = URLRequest(url: URL(string: "https://watertemp-api.coredump.ch/api/mobile_app/sensors")!)
-        url.setValue("Bearer XTZA6H0Hg2f02bzVefmVlr8fIJMy2FGCJ0LlDlejj2Pi0i1JvZiL0Ycv1t6JoZzD", forHTTPHeaderField: "Authorization")
-        url.httpMethod = "GET"
+    @Published var loadingState: NewLoadingState = .loading { didSet { didChange.send(())}}
+    @Published var errorMsg: LocalizedStringKey = "" { didSet { didChange.send(())}}
 
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            DispatchQueue.main.async {
-                do {
-                    if let data = data {
-                        // success: convert to  Sensors
-                        let jsonDecoder = JSONDecoder()
-                        let sensors = try jsonDecoder.decode([Sensor].self, from: data)
-                        self.sensorArray = sensors
-                        self.state = .loaded(sensors)
-                        
-                    }else{
-                        self.state = .failed
-                    }
-                }catch{
-                    print(error.localizedDescription)
-                    self.state = .failed
-                }
-            }
-        }.resume()
-    }
-    
-    func readLocalFile(forName name: String) -> Data? {
-        do {
-            if let bundlePath = Bundle.main.path(forResource: name,
-                                                 ofType: "json"),
-                let jsonData = try String(contentsOfFile: bundlePath).data(using: .utf8) {
-                return jsonData
-            }
-        } catch {
-            print(error)
-        }
+    let didChange = PassthroughSubject<Void, Never>()
+
+    /// Loads sensors from backend and assigns it to VM
+    func load() async {
         
-        return nil
+        loadingState = .loading
+        
+        let url = URL(string: "https://watertemp-api.coredump.ch//api/mobile_app/sensors")!
+        var request = URLRequest(url: url)
+        request.setValue(BearerToken.token, forHTTPHeaderField: "Authorization")
+        request.httpMethod = "GET"
+        
+        do {
+            // Test for network connection
+            if !Reachability.isConnectedToNetwork() {
+                throw LoadingErrors.noConnectionError
+            }
+            // send request
+            let (data, response) = try await URLSession.shared.data(for: request)
+            
+            // check response status code
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                throw LoadingErrors.fetchError
+            }
+            // try to decode
+            guard let decodedSensors = try? JSONDecoder().decode([Sensor].self, from: data) else {
+                throw LoadingErrors.decodeError
+            }
+            
+            // update view model
+            DispatchQueue.main.async {
+                self.sensorArray = decodedSensors
+                self.loadingState = .loaded
+            }
+            
+        } catch {
+            switch error {
+            case LoadingErrors.decodeError:
+                errorMsg = "Could not decode Sensors."
+            case LoadingErrors.fetchError:
+                errorMsg = "Invalid server response."
+            case LoadingErrors.noConnectionError:
+                errorMsg = "No internet connection."
+            default:
+                errorMsg = LocalizedStringKey( error.localizedDescription )
+            }
+            loadingState = .failed
+        }
     }
 }
-
-
-
-
-let testSensorVM = SensorListViewModel(sensors: [testSensor1,testSensor2])
-
-
-
